@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<gamedata>
+
+	<animation ID="701" timeLoop= "300" name="GOOMBA_WALK">
+		<sprite ID="30001"/>
+		<sprite ID="30002"/>
+	</animation>
+	
+	<animation ID="702" timeLoop= "1000" name="GOOMBA_DEAD">
+		<sprite ID="30003"/>
+	</animation>
+
+</gamedata>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<gamedata>
+
+	<animation ID="SIMON_ANI_IDLE" timeLoop= "100" >
+		<sprite ID="SIMON_SPRITE_IDLE"/>
+	</animation>
+	
+	<animation ID="SIMON_ANI_WALKING" timeLoop= "100" >
+		<sprite ID="SIMON_SPRITE_WALKING_01"/>
+		<sprite ID="SIMON_SPRITE_WALKING_02"/>
+		<sprite ID="SIMON_SPRITE_WALKING_03"/>
+		<sprite ID="SIMON_SPRITE_IDLE"/>
+	</animation>
+	
+	<animation ID="SIMON_ANI_SIT" timeLoop= "100" >
+		<sprite ID="SIMON_SPRITE_SIT_01"/>
+	</animation>
+	
+	
+	
+</gamedata>

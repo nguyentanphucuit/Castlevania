@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resource>
+	<animations AtlasPath="Simon_sprite.xml">
+		<animation ID="SIMON_ANI_IDLE" defaulttime="100">
+			<frame spriteID="SIMON_IDLE" />
+		</animation>
+		<animation ID="SIMON_ANI_WALKING" defaulttime="100">
+			<frame spriteID="SIMON_WALKING_01" />
+			<frame spriteID="SIMON_WALKING_02" />
+			<frame spriteID="SIMON_WALKING_03" />
+			<frame spriteID="SIMON_IDLE" />
+		</animation>
+		<animation ID="SIMON_ANI_SITTING" defaulttime="100">
+			<frame spriteID="SIMON_SIT" />
+		</animation>
+		<animation ID="SIMON_ANI_STAND_ATTACK" defaulttime="100">
+			<frame spriteID="SIMON_STAND_ATTACK_01" />
+			<frame spriteID="SIMON_STAND_ATTACK_02" />
+			<frame spriteID="SIMON_STAND_ATTACK_03" />
+		</animation>
+		<animation ID="SIMON_ANI_SIT_ATTACK" defaulttime="100">
+			<frame spriteID="SIMON_SITTING_ATTACK_01" />
+			<frame spriteID="SIMON_SITTING_ATTACK_02" />
+			<frame spriteID="SIMON_SITTING_ATTACK_03" />
+		</animation>
+
+		<animation ID="SIMON_ANI_DEFLECT" defaulttime="100">
+			<frame spriteID="SIMON_STAND_DEFLECT" />
+		</animation>
+
+		<animation ID="SIMON_ANI_IDLE_UPWHIP" defaulttime="100">
+			<frame spriteID="SIMON_IDLE_UPWHIP_01" />
+			<frame spriteID="SIMON_IDLE_UPWHIP_02" />
+			<frame spriteID="SIMON_IDLE_UPWHIP_03" />
+		</animation>
+
+		<animation ID="SIMON_ANI_ENTER_CASTLE" defaulttime="100">
+			<frame spriteID="SIMON_ENTER_CASTLE" />
+		</animation>
+
+		<animation ID="SIMON_ANI_IDLE_UPSTAIR" defaulttime="100">
+			<frame spriteID="SIMON_UPSTAIR_02" />
+		</animation>
+
+		<animation ID="SIMON_ANI_STEP_UPSTAIR" defaulttime="100">
+			<frame spriteID="SIMON_UPSTAIR_01" />
+			<frame spriteID="SIMON_UPSTAIR_02" />
+		</animation>
+
+		<animation ID="SIMON_ANI_IDLE_DOWNSTAIR" defaulttime="100">
+			<frame spriteID="SIMON_DOWNSTAIR_02" />
+		</animation>
+		<animation ID="SIMON_ANI_STEP_DOWNSTAIR" defaulttime="100">
+			<frame spriteID="SIMON_DOWNSTAIR_01" />
+			<frame spriteID="SIMON_DOWNSTAIR_02" />
+		</animation>
+
+		<animation ID="SIMON_ANI_UPSTAIR_ATTACK" defaulttime="100">
+			<frame spriteID="SIMON_UPSTAIR_ATTACK_01" />
+			<frame spriteID="SIMON_UPSTAIR_ATTACK_02" />
+			<frame spriteID="SIMON_UPSTAIR_ATTACK_03" />	
+		</animation>
+		<animation ID="SIMON_ANI_DOWNSTAIR_ATTACK" defaulttime="100">
+			<frame spriteID="SIMON_DOWNSTAIR_ATTACK_01" />
+			<frame spriteID="SIMON_DOWNSTAIR_ATTACK_02" />
+			<frame spriteID="SIMON_DOWNSTAIR_ATTACK_03" />
+		</animation>
+
+
+		<animation ID="SIMON_ANI_DIE" defaulttime="100">
+			<frame spriteID="SIMON_DIE_01" />
+			<frame spriteID="SIMON_DIE_02" />
+		</animation>
+
+
+	</animations>
+
+</resource>

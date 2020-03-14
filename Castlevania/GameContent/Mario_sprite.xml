@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<gamedata>
+	<sprite ID="10001" name="MARIO_BIG_RIGHT">
+		<frame l="246" t="154" r="260" b="181"  />
+	</sprite>
+	<sprite ID="10002"  name="MARIO_WALKING_RIGHT_02">
+		<frame l="275" t="154" r="290" b="181"  />
+	</sprite>
+	<sprite ID="10003"  name="MARIO_WALKING_RIGHT_03">
+		<frame l="304" t="154" r="321" b="181"  />
+	</sprite>
+	
+	<sprite ID="10011"  name="MARIO_BIG_LEFT">
+		<frame l="186" t="154" r="200" b="181"  />
+	</sprite>
+	<sprite ID="10012" name="MARIO_WALKING_LEFT_02">
+		<frame l="155" t="154" r="170" b="181"  />
+	</sprite>
+	<sprite ID="10013" name="MARIO_WALKING_LEFT_03">
+		<frame l="125" t="154" r="140" b="181"  />
+	</sprite>
+	
+	<sprite ID="10099" name="MARIO_DIE">
+		<frame l="215" t="120" r="231" b="135"  />
+	</sprite>
+	
+	<sprite ID="10021" name="MARIO_IDLE_SMALL_RIGHT">
+		<frame l="247" t="0" r="259" b="15"  />
+	</sprite>
+	<sprite ID="10022" name="MARIO_WALKING_SMALLRIGHT_01">
+		<frame l="275" t="0" r="291" b="15"  />
+	</sprite>
+	<sprite ID="10023" name="MARIO_WALKING_SMALLRIGHT_02">
+		<frame l="306" t="0" r="320" b="15"  />
+	</sprite>
+	
+	<sprite ID="10031" name="MARIO_IDLE_SMALL_LEFT">
+		<frame l="187" t="0" r="198" b="15"  />
+	</sprite>
+	<sprite ID="10032" name="MARIO_WALKING_SMALLLEFT_01" >
+		<frame l="155" t="0" r="170" b="15"/>
+	</sprite>
+	<sprite ID="10033" name="MARIO_WALKING_SMALLLEFT_02">
+		<frame l="125" t="0" r="139" b="15"/>
+	</sprite>
+	
+
+	
+	
+</gamedata>

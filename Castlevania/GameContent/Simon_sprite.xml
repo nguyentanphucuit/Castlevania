@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<gamedata>
+	
+		<sprite ID="SIMON_SPRITE_IDLE">
+			<frame l="180" t="0" r="240" b="66" />
+
+		</sprite>
+		<sprite ID="SIMON_SPRITE_WALKING_01">
+			<frame l="0" t="0" r="60" b="66" />
+		</sprite>
+		<sprite ID="SIMON_SPRITE_WALKING_02">
+			<frame l="60" t="0" r="120" b="66" />
+		</sprite>
+		<sprite ID="SIMON_SPRITE_WALKING_03">
+			<frame l="120" t="0" r="180" b="66" />
+		</sprite>
+		<sprite ID="SIMON_SPRITE_SIT_01">
+			<frame l="240" t="-11" r="300" b="55" />
+		</sprite>
+	
+</gamedata>

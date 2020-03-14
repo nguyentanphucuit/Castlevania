@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<gamedata>
+
+	<animation ID="601" timeLoop= "100" name="BRICK">
+		<sprite ID="20001"/>
+	</animation>
+
+</gamedata>
