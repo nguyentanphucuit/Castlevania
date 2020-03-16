@@ -89,7 +89,7 @@ void CSIMON::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 			
 			if (dynamic_cast<CBrick*>(e->obj)) {
 				if (e->ny != 0) { // kiểm tra va chạm trục y có va chạm trục y nhảy vào đây
-					touchBrick = true;
+					
 					if (GetState() == SIMONSTATE::JUMP) {
 						SetState(SIMONSTATE::IDLE);
 					}
@@ -132,7 +132,7 @@ void CSIMON::Render()
 		break;
 	}
 	
-	DebugOut(L"SIMON state=%d \n", (int)state);
+	//DebugOut(L"SIMON state=%d \n", (int)state);
 	int alpha = 255;
 	if (untouchable) alpha = 128;
 
@@ -156,7 +156,7 @@ void CSIMON::SetState(SIMONSTATE state)
 		nx = -1;
 		break;
 	case SIMONSTATE::JUMP: // nhảy rồi thì chắc ăn k chạm đất
-		touchBrick = false;
+
 		vy = -SIMON_JUMP_SPEED_Y;
 		
 		break;

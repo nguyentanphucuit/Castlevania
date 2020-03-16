@@ -66,8 +66,7 @@ public:
 
 		
 	}
-	bool touchBrick = false;
-
+	
 	virtual void Update(DWORD dt, vector<LPGAMEOBJECT> *colliable_objects = NULL);
 	virtual void Render();
 	void SetState(SIMONSTATE state);

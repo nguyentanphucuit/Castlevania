@@ -9,6 +9,7 @@
 		<tex ID ="20" name = "MISC" path="textures\\misc.png" red="176" green="224" blue ="248"/>
 		<tex ID ="10" name = "ENEMY" path="textures\\enemies.png" red="3" green="26" blue ="110"/>
 		<tex ID ="-100" name = "BBOX" path="textures\\bbox.png" red="255" green="255" blue ="255"/>
+		<tex ID ="-500" name = "Great_Hall_bank" path="GameContent\\Map\\Great_Hall_bank.png" red="255" green="255" blue ="255"/>
 	</textures>
 	
 	<sprites>
@@ -22,6 +23,9 @@
 		<!-- <objectani name="mario" path="GameContent\\Mario_animation.xml"/> -->
 		<objectani name="simon" path="GameContent\\Simon_animation.xml"/>
 	</animations>
+	
+	
+	<map path="GameContent\\Map\\Great_Hall_map.tmx"/>
 	
 	
 </Base>

@@ -34,6 +34,7 @@
 #include<rapidxml/rapidxml.hpp>
 #include<rapidxml/rapidxml_utils.hpp> // Include các thư viện để đọc xml
 #include"define.h"
+#include"Map.h"
 using namespace rapidxml; // namespace để dùng các thành phần trong thư viện rapid
 
 
@@ -42,7 +43,7 @@ CGame *game;
 
 CSIMON *SIMON;
 CGoomba *goomba;
-
+Map* gameMap;
 vector<LPGAMEOBJECT> objects;
 
 class CSampleKeyHander: public CKeyEventHandler
@@ -61,7 +62,8 @@ void CSampleKeyHander::OnKeyDown(int KeyCode)
 	{
 	case DIK_SPACE:
 		// ta cần kiểm tra
-		if (SIMON->touchBrick == true && SIMON->GetState()!=SIMONSTATE::SIT) { // ngooif thi k cho nhay
+		//kiểm tra nếu trạng thái k phải jump thì mới cho jump
+		if (SIMON->GetState() != SIMONSTATE::JUMP && SIMON->GetState()!=SIMONSTATE::SIT) { // ngooif thi k cho nhay
 			SIMON->SetState(SIMONSTATE::JUMP);
 		}		
 		break;
@@ -208,7 +210,7 @@ void LoadSprite(const std::string& filePath, const int tex)
 
 
 			DebugOut(L" ID= %s, l=%d, t=%d , r=%d , b=%d \n", cover.c_str(),l,t,r,b);*/
-		DebugOut(L" ID= %d, l=%d, t=%d , r=%d , b=%d \n", ID, l, t, r, b);
+	//	DebugOut(L" ID= %d, l=%d, t=%d , r=%d , b=%d \n", ID, l, t, r, b);
 		sprites->Add(ID, l, t, r, b, objecttex);
 	}
 
@@ -252,7 +254,7 @@ void LoadAnimation(const string& filePath)
 			const std::string& spriteID = std::string(grand->first_attribute("ID")->value());
 
 			ani->Add(spriteID);
-			DebugOut(L"ANI ID=%d sprite =%d \n", ID, spriteID);
+		//	DebugOut(L"ANI ID=%d sprite =%d \n", ID, spriteID);
 		}
 		
 		animations->Add(ID, ani);
@@ -363,10 +365,11 @@ void LoadResources()
 
 
 	//file here
-
-
-
-
+	gameMap = new Map();
+	//load map
+	xml_node<>* mapNode = rootNode->first_node("map");
+	const std::string& path = std::string(mapNode->first_attribute("path")->value());
+	gameMap->BuildMap(path);
 
 
 	//
@@ -403,6 +406,11 @@ void LoadResources()
 	//	goomba->SetState(GOOMBA_STATE_WALKING);
 	//	objects.push_back(goomba);
 	//}
+
+
+	
+
+
 
 }
 
@@ -447,14 +455,14 @@ void Render()
 	LPDIRECT3DDEVICE9 d3ddv = game->GetDirect3DDevice();
 	LPDIRECT3DSURFACE9 bb = game->GetBackBuffer();
 	LPD3DXSPRITE spriteHandler = game->GetSpriteHandler();
-
+	D3DXVECTOR2 cam = game->GetCamera();
 	if (d3ddv->BeginScene())
 	{
 		// Clear back buffer with a color
 		d3ddv->ColorFill(bb, NULL, BACKGROUND_COLOR);
 
 		spriteHandler->Begin(D3DXSPRITE_ALPHABLEND);
-
+		gameMap->Render(cam);
 		for (int i = 0; i < objects.size(); i++)
 			objects[i]->Render();
 
