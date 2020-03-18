@@ -104,6 +104,16 @@ void CSIMON::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 
 	// clean up collision events
 	for (UINT i = 0; i < coEvents.size(); i++) delete coEvents[i];
+
+
+	// để whip update cuối cùng để tránh trường hợp simon xử lý va chạm ở trên làm vị trí thay đổi
+
+	if (this->fight_start!=0)// có đánh mới cần set
+	{
+		whip->SetPosition(this->x - 1.5 * SIMON_BIG_BBOX_WIDTH, this->y); //đặt tọa độ whip theo vị trí simon canh chỉnh lại xíu
+		whip->Update(dt, coObjects);
+	}
+	
 }
 
 void CSIMON::Render()
@@ -128,10 +138,20 @@ void CSIMON::Render()
 		break;
 	case SIMONSTATE::DIE:
 		break;
+	case SIMONSTATE::FIGHT_STAND:
+		ani = SIMON_ANI_STAND_ATTACK;
+		break;
+	case SIMONSTATE::FIGHT_SIT:
+		ani = SIMON_ANI_SIT_ATTACK;
+		break;
 	default:
 		break;
 	}
 	
+	if (this->fight_start!=0) // có đánh mới vẽ ra
+	{
+		whip->Render();
+	}
 	//DebugOut(L"SIMON state=%d \n", (int)state);
 	int alpha = 255;
 	if (untouchable) alpha = 128;
@@ -170,7 +190,15 @@ void CSIMON::SetState(SIMONSTATE state)
 		vx = 0; // vx vận tốc phương x
 		//nx=0; k cần xét nx vì khi bấm trái phải đã set nx ở 2 state phía trên
 		break;
+	case SIMONSTATE::FIGHT_STAND:
+		this->fight_start = GetTickCount(); // set thời gian bắt đầu đánh bằng thời gian hiện tại ở thế giới thực
+		break;
+	case SIMONSTATE::FIGHT_SIT:
+		vx = 0; //ngồi đánh vx=0 k cho di chuyển
+		
+		break;
 	}
+
 	this->state = state;
 
 }

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<gamedata>
+	<animation ID="WHIP_ANI_NORMAL" timeLoop="100">
+			<sprite ID="WHIP_NORMAL_01" />
+			<frame ID="WHIP_NORMAL_02" />
+			<frame ID="WHIP_NORMAL_03" />
+		</animation>
+
+		<animation ID="WHIP_ANI_CHAIN" timeLoop="100">
+			<frame ID="WHIP_CHAIN_01" />
+			<frame ID="WHIP_CHAIN_02" />
+			<frame ID="WHIP_CHAIN_03" />
+		</animation>
+		<animation ID="WHIP_ANI_MORNINGSTAR" timeLoop="25">
+			<frame ID="WHIP_MORNINGSTAR_01" />
+			<frame ID="WHIP_MORNINGSTAR_02" />
+			<frame ID="WHIP_MORNINGSTAR_03" />
+			<frame ID="WHIP_MORNINGSTAR_04" />
+			<frame ID="WHIP_MORNINGSTAR_05" />
+			<frame ID="WHIP_MORNINGSTAR_06" />
+			<frame ID="WHIP_MORNINGSTAR_07" />
+			<frame ID="WHIP_MORNINGSTAR_08" />
+			<frame ID="WHIP_MORNINGSTAR_09" />
+			<frame ID="WHIP_MORNINGSTAR_10" />
+			<frame ID="WHIP_MORNINGSTAR_11" />
+			<frame ID="WHIP_MORNINGSTAR_12" />
+		</animation>
+</gamedata>

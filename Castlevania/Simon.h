@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "GameObject.h"
-
+#include"Whip.h"
 #define SIMON_WALKING_SPEED		0.1f 
 //0.1f
 #define SIMON_JUMP_SPEED_Y		0.5f
@@ -17,6 +17,8 @@
 #define SIMON_ANI_IDLE 0 // cai dau tien them vao vector 
 #define SIMON_ANI_WALKING 1 // cai dau tien them vao vector 
 #define SIMON_ANI_SIT 2 // cai dau tien them vao vector 
+#define SIMON_ANI_STAND_ATTACK 3 // cai dau tien them vao vector 
+#define SIMON_ANI_SIT_ATTACK 4 // cai dau tien them vao vector 
 #define SIMON_ANI_DIE				8
 
 #define	SIMON_LEVEL_SMALL	1
@@ -30,7 +32,7 @@
 
 #define SIMON_UNTOUCHABLE_TIME 5000
 
-
+#define SIMON_ATTACT_TIME 350// thời gian đánh mỗi lần bấm hết thời gian reseet lại trạng thái
 
 // h nhiêu đây trc đã
  enum class SIMONSTATE 
@@ -40,7 +42,9 @@
 	WALKING_LEFT,
 	SIT,
 	JUMP,
-	DIE
+	DIE,
+	FIGHT_STAND,
+	FIGHT_SIT,
 };
 
 
@@ -50,26 +54,39 @@ class CSIMON : public CGameObject
 	int level;
 	int untouchable;
 	DWORD untouchable_start;
-
+	DWORD fight_start; // biến đếm thời gian đánh khi bắt đầu đánh sẽ đếm, khi đủ 350ms reset
 	SIMONSTATE state;
+	Whip* whip;
+
 public: 
 	CSIMON() : CGameObject()
 	{
 		level = SIMON_LEVEL_BIG;
 		untouchable = 0;
+		this->fight_start = 0;
 		state = SIMONSTATE::IDLE; // trạng thái ban đầu cần khai báo khi tạo object
+		whip = new Whip(); // khởi tạo whip
 		AddAnimation("SIMON_ANI_IDLE");	//0	
 		AddAnimation("SIMON_ANI_WALKING");//	1	
 		AddAnimation("SIMON_ANI_SIT");//	2	
-	
+		AddAnimation("SIMON_ANI_STAND_ATTACK");//	3	
+		AddAnimation("SIMON_ANI_SIT_ATTACK");//	4
+
 
 
 		
 	}
-	
+	DWORD GetFightTime() { return this->fight_start; }
+	void ResetFightTime() { this->fight_start = 0; }
 	virtual void Update(DWORD dt, vector<LPGAMEOBJECT> *colliable_objects = NULL);
 	virtual void Render();
 	void SetState(SIMONSTATE state);
+	void ResetAttack() {
+		whip->ResetAttack();
+		animations[SIMON_ANI_STAND_ATTACK]->ResetFrame();
+		animations[SIMON_ANI_SIT_ATTACK]->ResetFrame();
+		this->fight_start = 0;//reset time hamf nay luoon
+	}
 	SIMONSTATE GetState() {
 		return this->state;
 	}

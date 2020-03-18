@@ -18,4 +18,31 @@
 			<frame l="240" t="-11" r="300" b="55" />
 		</sprite>
 	
+	
+		<sprite ID="SIMON_SITTING_ATTACK_01">
+			<frame l="300" t="-11" r="360" b="55" />
+
+		</sprite>
+		<sprite ID="SIMON_SITTING_ATTACK_02">
+			<frame l="360" t="-11" r="420" b="55" />
+
+		</sprite>
+		<sprite ID="SIMON_SITTING_ATTACK_03">
+			<frame l="420" t="-11" r="480" b="55" />
+		</sprite>
+		
+		
+		<sprite ID="SIMON_STAND_ATTACK_01">
+			<frame l="300" t="66" r="360" b="132" />
+		</sprite>
+		<sprite ID="SIMON_STAND_ATTACK_02">
+			<frame l="360" t="66" r="420" b="132" />
+		</sprite>
+		<sprite ID="SIMON_STAND_ATTACK_03">
+			<frame l="420" t="66" r="480" b="132" />
+		</sprite>
+		
+		
+		
+		
 </gamedata>

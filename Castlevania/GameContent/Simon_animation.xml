@@ -16,6 +16,18 @@
 		<sprite ID="SIMON_SPRITE_SIT_01"/>
 	</animation>
 	
+	<animation ID="SIMON_ANI_STAND_ATTACK" timeLoop= "100">
+		<sprite ID="SIMON_STAND_ATTACK_01"/>
+		<sprite ID="SIMON_STAND_ATTACK_02"/>
+		<sprite ID="SIMON_STAND_ATTACK_03"/>
+	</animation>
+	
+	
+	<animation ID="SIMON_ANI_SIT_ATTACK" timeLoop= "100">
+		<sprite ID="SIMON_SITTING_ATTACK_01"/>
+		<sprite ID="SIMON_SITTING_ATTACK_02"/>
+		<sprite ID="SIMON_SITTING_ATTACK_03"/>
+	</animation>
 	
 	
 </gamedata>

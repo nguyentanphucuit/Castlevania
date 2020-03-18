@@ -67,6 +67,15 @@ void CSampleKeyHander::OnKeyDown(int KeyCode)
 			SIMON->SetState(SIMONSTATE::JUMP);
 		}		
 		break;
+	case DIK_K: 
+		if (SIMON->GetFightTime()==0) // không đánh mới cho đánh tránh trường hợp chưa đánh xong đã đánh lại
+		{
+			if (SIMON->GetState()!=SIMONSTATE::SIT) // 
+			{
+				SIMON->SetState(SIMONSTATE::FIGHT_STAND);
+			}
+		}
+		break;
 	case DIK_A: // reset
 		SIMON->SetState(SIMONSTATE::IDLE);
 		SIMON->SetLevel(SIMON_LEVEL_BIG);
@@ -85,6 +94,18 @@ void CSampleKeyHander::KeyState(BYTE *states)
 {
 
 	if (SIMON->GetState() == SIMONSTATE::JUMP) return;
+	if (SIMON->GetFightTime()!=0 && GetTickCount()-SIMON->GetFightTime()>SIMON_ATTACT_TIME)
+	{
+		//reset chỗ này
+		SIMON->ResetAttack();
+	
+	}
+
+	if (SIMON->GetFightTime()!=0) // còn đánh thì return tránh trường hợp bị set lại state là idle
+	{
+		return;
+	}
+
 	// nhay thi khong cho bam gi luon
 	if (game->IsKeyDown(DIK_RIGHT)) // bắt phím mũi tên phải
 	{

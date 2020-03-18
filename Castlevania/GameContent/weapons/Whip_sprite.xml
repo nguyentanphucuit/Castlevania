@@ -1,0 +1,61 @@
+<?lml version="1.0" encoding="utf-8" ?>
+<gamedata>
+	<sprite ID="WHIP_NORMAL_01">
+			<frame l="480" t="0" r="720" b="66" />
+		</sprite>
+		<sprite ID="WHIP_NORMAL_02">
+			<frame l="240" t="0" r="480" b="66" />
+		</sprite>
+
+		<sprite ID="WHIP_NORMAL_03">
+			<frame l="0" t="0" r="240" b="66" />
+		</sprite>
+
+		<sprite ID="WHIP_CHAIN_01">
+			<frame l="480" t="66" r="720" b="132" />
+		</sprite>
+		<sprite ID="WHIP_CHAIN_02">
+			<frame l="240" t="66" r="480" b="132" />
+		</sprite>
+		<sprite ID="WHIP_CHAIN_03">
+			<frame l="0" t="66" r="240" b="132" />
+		</sprite>
+
+
+		<sprite ID="WHIP_MORNINGSTAR_01">
+			<frame l="480" t="132" r="720" b="198" />
+		</sprite>
+		<sprite ID="WHIP_MORNINGSTAR_02">
+			<frame l="240" t="132" r="480" b="198" />
+		</sprite>
+		<sprite ID="WHIP_MORNINGSTAR_03">
+			<frame l="0" t="132" r="240" b="198" />
+		</sprite>
+		<sprite ID="WHIP_MORNINGSTAR_04">
+			<frame l="480" t="198" r="720" b="264" />
+		</sprite>
+		<sprite ID="WHIP_MORNINGSTAR_05">
+			<frame l="240" t="198" r="480" b="264" />
+		</sprite>
+		<sprite ID="WHIP_MORNINGSTAR_06">
+			<frame l="0" t="198" r="240" b="264" />
+		</sprite>
+		<sprite ID="WHIP_MORNINGSTAR_07">
+			<frame l="480" t="264" r="720" b="330" />
+		</sprite>
+		<sprite ID="WHIP_MORNINGSTAR_08">
+			<frame l="240" t="264" r="480" b="330" />
+		</sprite>
+		<sprite ID="WHIP_MORNINGSTAR_09">
+			<frame l="0" t="264" r="240" b="330" />
+		</sprite>
+		<sprite ID="WHIP_MORNINGSTAR_10">
+			<frame l="480" t="330" r="720" b="396" />
+		</sprite>
+		<sprite ID="WHIP_MORNINGSTAR_11">
+			<frame l="240" t="330" r="480" b="396" />
+		</sprite>
+		<sprite ID="WHIP_MORNINGSTAR_12">
+			<frame l="0" t="330" r="240" b="396" />
+		</sprite>
+</gamedata>
