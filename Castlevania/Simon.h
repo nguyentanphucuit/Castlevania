@@ -71,9 +71,6 @@ public:
 		AddAnimation("SIMON_ANI_SIT");//	2	
 		AddAnimation("SIMON_ANI_STAND_ATTACK");//	3	
 		AddAnimation("SIMON_ANI_SIT_ATTACK");//	4
-
-
-
 		
 	}
 	DWORD GetFightTime() { return this->fight_start; }

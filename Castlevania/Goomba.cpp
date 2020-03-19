@@ -19,7 +19,8 @@ void CGoomba::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 	//
 	// TO-DO: make sure Goomba can interact with the world and to each of them too!
 	// 
-
+	vx = 0.2f;
+	
 	x += dx;
 	y += dy;
 

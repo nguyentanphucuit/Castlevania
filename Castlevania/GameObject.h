@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <Windows.h>
 #include <d3dx9.h>
@@ -70,6 +70,15 @@ public:
 		float &min_ty, 
 		float &nx, 
 		float &ny);
+
+
+	// kiểm tra object hiện tại có đang va chạm với object a hay không
+	bool isColliding(LPGAMEOBJECT a);
+	// thuat toan xu ly va cham AABB
+	bool AABB(float l, float t, float r, float b, float l1, float t1, float r1, float b1);
+
+
+
 
 	void AddAnimation(string aniId);
 

@@ -30,6 +30,7 @@
 #include "SIMON.h"
 #include "Brick.h"
 #include "Goomba.h"
+#include"Torch.h"
 
 #include<rapidxml/rapidxml.hpp>
 #include<rapidxml/rapidxml_utils.hpp> // Include các thư viện để đọc xml
@@ -63,7 +64,9 @@ void CSampleKeyHander::OnKeyDown(int KeyCode)
 	case DIK_SPACE:
 		// ta cần kiểm tra
 		//kiểm tra nếu trạng thái k phải jump thì mới cho jump
-		if (SIMON->GetState() != SIMONSTATE::JUMP && SIMON->GetState()!=SIMONSTATE::SIT) { // ngooif thi k cho nhay
+		if (SIMON->GetFightTime()==0 // k phải đang đánh mới cho nhảy
+			&& SIMON->GetState() != SIMONSTATE::JUMP
+			&& SIMON->GetState()!=SIMONSTATE::SIT) { // ngooif thi k cho nhay
 			SIMON->SetState(SIMONSTATE::JUMP);
 		}		
 		break;
@@ -73,6 +76,10 @@ void CSampleKeyHander::OnKeyDown(int KeyCode)
 			if (SIMON->GetState()!=SIMONSTATE::SIT) // 
 			{
 				SIMON->SetState(SIMONSTATE::FIGHT_STAND);
+			}
+			else
+			{
+				SIMON->SetState(SIMONSTATE::FIGHT_SIT);
 			}
 		}
 		break;
@@ -416,15 +423,23 @@ void LoadResources()
 		objects.push_back(brick);
 	}
 
+	for (size_t i = 0; i < 3; i++)
+	{
+		CTorch* torch = new CTorch();
+		torch->SetPosition(100+i*100, 350 - 64);
+		objects.push_back(torch);
+	}
+	
+
 	// CHưa  thêm enemy xử lý simon trước
-	//// and Goombas 
+	// and Goombas 
 	//for (int i = 0; i < 4; i++)
 	//{
 	//	goomba = new CGoomba();
-	//	goomba->AddAnimation(701);
-	//	goomba->AddAnimation(702);
+	//	goomba->AddAnimation("BRICK_ANI");
+	//	goomba->AddAnimation("BRICK_ANI");
 	//	goomba->SetPosition(200 + i*60, 135);
-	//	goomba->SetState(GOOMBA_STATE_WALKING);
+	//	goomba->SetState(GOOMBASTATE::WALKING);
 	//	objects.push_back(goomba);
 	//}
 

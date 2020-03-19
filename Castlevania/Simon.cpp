@@ -5,6 +5,7 @@
 #include "Game.h"
 #include "Goomba.h"
 #include "Brick.h"
+#include "Torch.h"
 
 void CSIMON::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 {
@@ -87,16 +88,23 @@ void CSIMON::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 				}
 			}
 			
-			if (dynamic_cast<CBrick*>(e->obj)) {
+			else if (dynamic_cast<CBrick*>(e->obj)) {
 				if (e->ny != 0) { // kiểm tra va chạm trục y có va chạm trục y nhảy vào đây
 					
 					if (GetState() == SIMONSTATE::JUMP) {
 						SetState(SIMONSTATE::IDLE);
 					}
+					if (this->state == SIMONSTATE::FIGHT_STAND) //đang đánh trên không tiếp đất =>set lại vx=0
+					{
+						vx = 0;
+					}
 				}
 				
 				// cần xét kỹ phương va chạm
 
+			} else
+			{
+				x += dx;
 			}
 
 		}
@@ -110,7 +118,15 @@ void CSIMON::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 
 	if (this->fight_start!=0)// có đánh mới cần set
 	{
-		whip->SetPosition(this->x - 1.5 * SIMON_BIG_BBOX_WIDTH, this->y); //đặt tọa độ whip theo vị trí simon canh chỉnh lại xíu
+		if (this->state==SIMONSTATE::FIGHT_SIT)
+		{
+			whip->SetPosition(this->x - 1.5 * SIMON_BIG_BBOX_WIDTH, this->y+SIMON_BIG_BBOX_HEIGHT*0.25); //đặt tọa độ whip theo vị trí simon canh chỉnh lại xíu
+		}
+		else
+		{
+			whip->SetPosition(this->x - 1.5 * SIMON_BIG_BBOX_WIDTH, this->y); //đặt tọa độ whip theo vị trí simon canh chỉnh lại xíu
+		}
+		whip->SetNxDirection(this->nx);
 		whip->Update(dt, coObjects);
 	}
 	
@@ -191,11 +207,13 @@ void CSIMON::SetState(SIMONSTATE state)
 		//nx=0; k cần xét nx vì khi bấm trái phải đã set nx ở 2 state phía trên
 		break;
 	case SIMONSTATE::FIGHT_STAND:
+		vx = this->state == SIMONSTATE::IDLE || this->state == SIMONSTATE::WALKING_LEFT
+			|| this->state == SIMONSTATE::WALKING_RIGHT ? 0 : vx;
 		this->fight_start = GetTickCount(); // set thời gian bắt đầu đánh bằng thời gian hiện tại ở thế giới thực
 		break;
 	case SIMONSTATE::FIGHT_SIT:
 		vx = 0; //ngồi đánh vx=0 k cho di chuyển
-		
+		this->fight_start = GetTickCount();
 		break;
 	}
 

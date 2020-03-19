@@ -1,4 +1,4 @@
-#include <d3dx9.h>
+﻿#include <d3dx9.h>
 #include <algorithm>
 
 
@@ -128,7 +128,27 @@ void CGameObject::RenderBoundingBox()
 	rect.right = (int)r - (int)l;
 	rect.bottom = (int)b - (int)t;
 
-	CGame::GetInstance()->Draw(0,x, y, bbox, rect.left, rect.top, rect.right, rect.bottom, 32);
+	CGame::GetInstance()->Draw(0,l, t, bbox, rect.left, rect.top, rect.right, rect.bottom, 128);//128 alpa độ trong của hình
+}
+
+bool CGameObject::isColliding(LPGAMEOBJECT a)
+{
+	float top, left, right, button;
+	this->GetBoundingBox(left, top, right, button);
+	float l, t, r, bt;
+	a->GetBoundingBox(l, t, r, bt);
+	return AABB(l, t, r, bt, left, top, right, button);
+}
+
+bool CGameObject::AABB(float l, float t, float r, float b, float l1, float t1, float r1, float b1)
+{
+	// kiểm tra 2 hình chữ nhật có đang chèn nhau hay không
+	float left = l1 - r;
+	float top = b1 - t;
+	float right = r1 - l;
+	float bottom = t1 - b;
+	//  xét ngược lại cho nhanh hơn
+	return !(left > 0 || right < 0 || top < 0 || bottom > 0);
 }
 
 void CGameObject::AddAnimation(string aniId)
