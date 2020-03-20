@@ -31,6 +31,7 @@ void Map::BuildMap(const std::string path)
 
 	BuildTileSet(rootNode);
 	BuildMapLayer(rootNode);
+	BuildObjectLayer(rootNode);
 
 
 }
@@ -145,6 +146,51 @@ void Map::BuildTileSet(xml_node<>* node)
 	}
 
 
+}
+
+void Map::BuildObjectLayer(xml_node<>* rootNode)
+{
+	// lập các node trong map lấy ra các node objectgroup
+	for (xml_node<>* child = rootNode->first_node("objectgroup"); child; child = child->next_sibling()) //cú pháp lập
+	{
+		const std::string nodeName = child->name();
+		if (nodeName != "objectgroup") // kiểm tra node có phải layer không cho chắc ăn
+		{
+			continue;// không phải tiếp tục vòng lặp
+		}
+
+		ObjectLayer* objectlayer;// object layer tượng chưng cho 1 object group
+
+		const std::string name = std::string(child->first_attribute("name")->value());
+		const int id = std::atoi(child->first_attribute("id")->value());
+		std::map<int, ObjectTile*> objectgroup;
+	
+		// child  lúc này là 1 object group tại lần lập hiện tại
+			//lập toàn bộ objectgroup node lấy ra thông tin các object
+		for (xml_node<>* ggchild = child->first_node(); ggchild; ggchild = ggchild->next_sibling()) //cú pháp lập
+		{
+		//	const std::string ggname = std::string(ggchild->first_attribute("name")->value());
+			const int ggid = std::atoi(ggchild->first_attribute("id")->value());
+			const float x = std::atof(ggchild->first_attribute("x")->value());
+			const float y = std::atof(ggchild->first_attribute("y")->value());
+			const float width = std::atof(ggchild->first_attribute("width")->value());
+			const float height = std::atof(ggchild->first_attribute("height")->value());
+			
+
+			//tạo 1 object
+			ObjectTile* object = new ObjectTile(ggid, x, y, width, height);
+			// cho vào object group
+			// khi kết thúc vòng lập ta lưu được hết các object trong group hiện tại
+			// sau đó child sẽ là objectgroup tiếp theo trong map
+			objectgroup.insert(std::make_pair(ggid, object));
+		}
+		// khởi tạo object group với id, name và các object con nằm trong nó
+		objectlayer = new ObjectLayer(id, name, objectgroup);
+		//cho objectgroup vào cái std::map lưu object của Map
+		this->objectLayers.insert(std::make_pair(id, objectlayer));
+
+
+	}
 }
 
 void Map::Render(D3DXVECTOR2 camera)

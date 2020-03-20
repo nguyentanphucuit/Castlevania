@@ -3,6 +3,7 @@
 #include"Layer.h"
 #include<d3dx9.h>
 #include<string>
+#include"ObjectLayer.h"
 #include<rapidxml/rapidxml.hpp>
 #include<rapidxml/rapidxml_utils.hpp>
 using namespace rapidxml;
@@ -20,6 +21,15 @@ struct TileSet // dùng demo nữa ta mở rộng sau h chỉ đọc duy nhất 
 
 };
 
+
+enum class ObjLayer
+{
+	PlayerPos = 3,
+	Candle = 4,
+	Torch = 5,
+	Ground=6,
+};
+
 class Map
 {
 private:
@@ -31,13 +41,21 @@ private:
 	TileSet tileSet;
 	// lưu toàn bộ layer của map
 	std::map<std::string, Layer*> layers;
-
-public:
-	Map() :width(0), height(0), tileWidth(0), tileHeight(0) {};
-	void BuildMap(const std::string path);
+	// dùng int hồi dò group = enum cho dễ
+	std::map<int, ObjectLayer*> objectLayers;
 	void BuildMapLayer(xml_node<>* node);
 	void BuildTileSet(xml_node<>* node);
+	void BuildObjectLayer(xml_node<>* node);
+public:
 
+
+	std::map<int, ObjectLayer*> GetObjectLayer()
+	{
+		return objectLayers;
+
+	}
+	Map() :width(0), height(0), tileWidth(0), tileHeight(0) {};
+	void BuildMap(const std::string path);
 	// vẽ toàn bộ layer theo camera
 	void Render(D3DXVECTOR2 camera);
 };

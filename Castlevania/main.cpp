@@ -30,12 +30,15 @@
 #include "SIMON.h"
 #include "Brick.h"
 #include "Goomba.h"
-#include"Torch.h"
+#include "Torch.h"
+#include "Candle.h"
 
 #include<rapidxml/rapidxml.hpp>
 #include<rapidxml/rapidxml_utils.hpp> // Include các thư viện để đọc xml
 #include"define.h"
 #include"Map.h"
+#include"HiddenObject.h"
+#include"Ground.h"
 using namespace rapidxml; // namespace để dùng các thành phần trong thư viện rapid
 
 
@@ -400,14 +403,7 @@ void LoadResources()
 	gameMap->BuildMap(path);
 
 
-	//
-	LPANIMATION ani;
-
 	
-	ani = new CAnimation(100);		// brick
-	ani->Add("GROUND_SPITE_01"); //bị trùng sprite của simon
-	animations->Add("BRICK_ANI", ani);
-
 
 
 	SIMON = new CSIMON();
@@ -415,33 +411,51 @@ void LoadResources()
 	objects.push_back(SIMON);
 
 
-	for (int i = 0; i < 30; i++)
-	{
-		CBrick *brick = new CBrick();
-		brick->AddAnimation("BRICK_ANI");
-		brick->SetPosition(0 + i*16.0f, 350);
-		objects.push_back(brick);
-	}
 
-	for (size_t i = 0; i < 3; i++)
-	{
-		CTorch* torch = new CTorch();
-		torch->SetPosition(100+i*100, 350 - 64);
-		objects.push_back(torch);
-	}
 	
+	for (auto const& x : gameMap->GetObjectLayer())
+	{
+		switch (static_cast<ObjLayer>(x.first))
+		{	
+		
+		case ObjLayer::PlayerPos:
+			for (auto const& y:x.second->GetObjectGroup() )
+			{
+				SIMON->SetPosition(y.second->GetX(), y.second->GetY() - y.second->GetHeight());
+			}
+			break;
+		case ObjLayer::Candle:
+			for (auto const& y : x.second->GetObjectGroup())
+			{
+				CCandle* candle = new CCandle();
+				candle->SetPosition(y.second->GetX(), y.second->GetY() - y.second->GetHeight());
+				objects.push_back(candle);
+			}
+			break;
+		case ObjLayer::Torch:
+			for (auto const& y : x.second->GetObjectGroup())
+			{
+				CTorch* torch = new CTorch();
+				torch->SetPosition(y.second->GetX(), y.second->GetY() - y.second->GetHeight());
+				objects.push_back(torch);
+			}
+			break; //lol
+		case ObjLayer::Ground:
+			for (auto const& y : x.second->GetObjectGroup())
+			{
+				HiddenObject* ground = new Ground();
+				// với loại object vẽ bằng hình chữ nhật 
+				// không - y.second->GetHeight()
+				ground->SetPosition(y.second->GetX(), y.second->GetY() );
+				ground->SetSize(y.second->GetWidth(), y.second->GetHeight());
+				objects.push_back(ground);
+			}
+			break;
+		default:
+			break;
+		}
+	}
 
-	// CHưa  thêm enemy xử lý simon trước
-	// and Goombas 
-	//for (int i = 0; i < 4; i++)
-	//{
-	//	goomba = new CGoomba();
-	//	goomba->AddAnimation("BRICK_ANI");
-	//	goomba->AddAnimation("BRICK_ANI");
-	//	goomba->SetPosition(200 + i*60, 135);
-	//	goomba->SetState(GOOMBASTATE::WALKING);
-	//	objects.push_back(goomba);
-	//}
 
 
 	

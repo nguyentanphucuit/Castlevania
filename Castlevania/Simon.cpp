@@ -4,8 +4,9 @@
 #include "SIMON.h"
 #include "Game.h"
 #include "Goomba.h"
-#include "Brick.h"
+#include"Ground.h"
 #include "Torch.h"
+#include "Candle.h"
 
 void CSIMON::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 {
@@ -49,8 +50,7 @@ void CSIMON::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 		x += min_tx*dx + nx*0.4f;		// nx*0.4f : need to push out a bit to avoid overlapping next frame
 		y += min_ty*dy + ny*0.4f;
 		
-		if (nx!=0) vx = 0;
-		if (ny!=0) vy = 0;
+		
 
 		// Collision logic with Goombas
 		for (UINT i = 0; i < coEventsResult.size(); i++)
@@ -88,7 +88,7 @@ void CSIMON::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 				}
 			}
 			
-			else if (dynamic_cast<CBrick*>(e->obj)) {
+			else if (dynamic_cast<Ground*>(e->obj)) { //brick lúc này là ground
 				if (e->ny != 0) { // kiểm tra va chạm trục y có va chạm trục y nhảy vào đây
 					
 					if (GetState() == SIMONSTATE::JUMP) {
@@ -98,13 +98,20 @@ void CSIMON::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 					{
 						vx = 0;
 					}
+					if (nx != 0) vx = 0;
+					if (ny != 0) vy = 0;
 				}
 				
 				// cần xét kỹ phương va chạm
 
-			} else
+			}
+			else
 			{
-				x += dx;
+				if (e->nx!=0) // va chạm chiều x
+					x += dx;
+				if (e->ny != 0)
+					y += dy;
+				
 			}
 
 		}

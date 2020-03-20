@@ -12,6 +12,7 @@
 		<tex ID ="-500" name = "Great_Hall_bank" path="GameContent\\Map\\Great_Hall_bank.png" red="255" green="255" blue ="255"/>
 		<tex ID ="1" name = "WHIP" path="GameContent\\weapons\\WHIP.png" red="255" green="255" blue ="255"/>
 		<tex ID ="2" name = "TORCH" path="GameContent\\Resource\\Ground\\Torch.png" red="255" green="0" blue ="255"/>
+		<tex ID ="3" name = "CANDLE" path="GameContent\\Resource\\Ground\\Candle.png" red="255" green="0" blue ="255"/>
 	</textures>
 	
 	<sprites>
@@ -21,6 +22,7 @@
 		<objectSprite idTex="0" name="Simon" path="GameContent\\Simon_sprite.xml"/>	
 		<objectSprite idTex="1" name="Whip" path="GameContent\\weapons\\Whip_sprite.xml"/>
 		<objectSprite idTex="2" name="Torch" path="GameContent\\Resource\\Ground\\Torch_sprite.xml"/>
+		<objectSprite idTex="3" name="Candle" path="GameContent\\Resource\\Ground\\Candle_sprite.xml"/>
 	</sprites>
 	
 	<animations>
@@ -28,6 +30,7 @@
 		<objectani name="simon" path="GameContent\\Simon_animation.xml"/>
 		<objectani name="whip" path="GameContent\\weapons\\Whip_animation.xml"/>
 		<objectani name="torch" path="GameContent\\Resource\\Ground\\Torch_animation.xml"/>
+		<objectani name="candle" path="GameContent\\Resource\\Ground\\Candle_animation.xml"/>
 	</animations>
 	
 	

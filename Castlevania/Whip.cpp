@@ -1,5 +1,6 @@
 ﻿#include "Whip.h"
-#include"Torch.h"
+#include "Torch.h"
+#include "Candle.h"
 void Whip::Render()
 {
 	int ani;
@@ -36,7 +37,6 @@ void Whip::GetBoundingBox(float& l, float& t, float& r, float& b)
 		r = l + WHIP_BBOX_NORMAL_WIDTH;
 		b = y + WHIP_BBOX_NORMAL_HEIGHT;
 
-
 	}
 
 }
@@ -49,19 +49,37 @@ void Whip::Update(DWORD dt, vector<LPGAMEOBJECT>* colliable_objects)
 	}
 	//xử lý va chạmgiữaa whip và các object dùng aabb
 
+	//for (size_t i = 0; i < colliable_objects->size(); i++)
+	//{
+	//	if (dynamic_cast<CTorch*>(colliable_objects->at(i))) // kiểm tra phải torch không
+	//	{
+	//		CTorch * torch= dynamic_cast<CTorch*>(colliable_objects->at(i));
+	//		if (this->isColliding(torch))// kiểm tra có va chạm k
+	//		{
+	//			torch->SetDestroy(); // có va chạm hủy torch
+	//		}
+	//	}
+	//}
+
 	for (size_t i = 0; i < colliable_objects->size(); i++)
 	{
-		if (dynamic_cast<CTorch*>(colliable_objects->at(i))) // kiểm tra phải torch không
+		if (dynamic_cast<CCandle*>(colliable_objects->at(i))) // kiểm tra phải candle không
 		{
-			CTorch * torch= dynamic_cast<CTorch*>(colliable_objects->at(i));
+			CCandle* candle = dynamic_cast<CCandle*>(colliable_objects->at(i));
+			if (this->isColliding(candle))// kiểm tra có va chạm k
+			{
+				candle->SetDestroy(); // có va chạm hủy candle
+			}
+		}
+		if (dynamic_cast<CTorch*>(colliable_objects->at(i))) // kiểm tra phải candle không
+		{
+			CTorch* torch = dynamic_cast<CTorch*>(colliable_objects->at(i));
 			if (this->isColliding(torch))// kiểm tra có va chạm k
 			{
-				torch->SetDestroy(); // có va chạm hủy torch
+				torch->SetDestroy(); // có va chạm hủy candle
 			}
 		}
 	}
-
-
 
 }
 
