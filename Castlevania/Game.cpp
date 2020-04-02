@@ -1,5 +1,6 @@
 ﻿#include "Game.h"
 #include "debug.h"
+#include "MenuScene.h"
 
 CGame * CGame::__instance = NULL;
 
@@ -217,6 +218,62 @@ void CGame::ProcessKeyboard()
 		else
 			keyHandler->OnKeyUp(KeyCode);
 	}
+}
+
+void CGame::OnCreate()
+{
+
+	// tạo mới 1 playscene
+	std::shared_ptr<PlayScene> playscene =
+		std::make_shared<PlayScene>();
+	//tạo mới menu scene
+	//this->sceneStateMachine là parameter truyền vào
+	//MenuScene(SceneStateMachine& sceneStateMachine)
+	std::shared_ptr<MenuScene> menuScene =
+		std::make_shared<MenuScene>(this->sceneStateMachine);
+
+	//thêm scene vào map của sceneStateMachine
+	// cực kỳ cẩn thận khúc này
+	// do viết hàm loadresource trong playscene nên bắt buộc
+	//playscene phải khởi tạo trước để load resource trước những scene khác
+	unsigned int playSceneID = sceneStateMachine.Add(playscene);
+	unsigned int menuSceneID = sceneStateMachine.Add(menuScene); // thêm menu scene vào ds scenes
+	
+	//=> menuscene sẽ chuyển qua playscene sau khi thực hiện xong logic
+	menuScene->SetSwitchToScene(playSceneID); //3
+																 //set scene hiện tại là scene nào
+	// trường hợp này là set để chạy từ scene ban đầu
+	//ta bắt đầu game từ scene nào thì truyền scene đó vào đây
+	sceneStateMachine.SwitchTo(menuSceneID);
+
+
+}
+
+void CGame::Update(DWORD deltaTime)
+{
+	// update scene hiện tại
+	sceneStateMachine.Update(deltaTime);
+}
+
+void CGame::Render()
+{
+
+	sceneStateMachine.Render();
+}
+
+void CGame::OnKeyDown(int KeyCode)
+{
+	sceneStateMachine.OnKeyDown(KeyCode);
+}
+
+void CGame::OnKeyUp(int KeyCode)
+{
+	sceneStateMachine.OnKeyUp(KeyCode);
+}
+
+void CGame::KeyState(BYTE* states)
+{
+	sceneStateMachine.KeyState(states);
 }
 
 CGame::~CGame()

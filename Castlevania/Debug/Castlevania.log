@@ -1,2 +1,4 @@
-﻿  Whip.cpp
+﻿  main.cpp
+C:\Users\16520\OneDrive\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\OneDrive\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
   Castlevania.vcxproj -> C:\Users\16520\OneDrive\Desktop\Castlevania\Debug\Castlevania.exe
