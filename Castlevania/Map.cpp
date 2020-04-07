@@ -45,21 +45,21 @@ void Map::BuildMapLayer(xml_node<>* rootNode)
 
 		int width = 0, height = 0;
 		bool isVisible = true;
-		const std::string nodeName=child->name();
-		if (nodeName !="layer") // kiểm tra node có phải layer không cho chắc ăn
+		const std::string nodeName = child->name();
+		if (nodeName != "layer") // kiểm tra node có phải layer không cho chắc ăn
 		{
 			continue;// không phải tiếp tục vòng lặp
 		}
 
 
 		const std::string name = std::string(child->first_attribute("name")->value());
-		
+
 		width = std::atoi(child->first_attribute("width")->value());
-		height= std::atoi(child->first_attribute("height")->value());
+		height = std::atoi(child->first_attribute("height")->value());
 
 
 		xml_attribute<>* isVisibleArrt = child->first_attribute("visible");
-		if (isVisibleArrt!=NULL)
+		if (isVisibleArrt != NULL)
 		{
 			isVisible = false;
 		}
@@ -81,14 +81,15 @@ void Map::BuildMapLayer(xml_node<>* rootNode)
 		{
 			xml_attribute<>* gid = child->first_attribute("gid"); // đọc vào từng gid
 			int n = 0; // biến tạm lưu giá trị của gid
-			if (gid!=NULL)
+			if (gid != NULL)
 			{
 				n = std::atoi(gid->value());
 			}
+
 			/// ta đọc theo từng hàng
 			// tức là hàng 0 đọc hết tất cả các cột của hàng 0 trước khi qua hàng 1
 			tileMatrix[i][j] = n; // gán giá trị vào ma trận
-			DebugOut(L"M[%d][%d]=%d  \n", i, j, n);
+		//	DebugOut(L"M[%d][%d]=%d  \n", i, j, n);
 			j++; // tăng cột của hàng đang xét lên
 			if (j > this->width - 1) // nếu số cột đã = số cột tối đa(this->width-1 vì j bắt đầu từ 0 )
 			{
@@ -119,11 +120,23 @@ void Map::BuildMapLayer(xml_node<>* rootNode)
 
 void Map::BuildTileSet(xml_node<>* node)
 {
+
+
 	xml_node<>* tileSetNode = node->first_node("tileset");
 	tileSet.name = std::string(tileSetNode->first_attribute("name")->value());
-	tileSet.columns = std::atoi(tileSetNode->first_attribute("columns")->value());
-	tileSet.tileCount= std::atoi(tileSetNode->first_attribute("tilecount")->value());
-	tileSet.rows = tileSet.tileCount / tileSet.columns;
+	//nên đọc width và height của image chia cho tilesize để tìm col và rows
+	tileSet.tileWidth = std::atoi(tileSetNode->first_attribute("tilewidth")->value());
+	tileSet.tileHeight = std::atoi(tileSetNode->first_attribute("tileheight")->value());
+
+
+	xml_node<>* imgNode = tileSetNode->first_node("image");
+	tileSet.imageHeight = std::atoi(imgNode->first_attribute("height")->value());
+	tileSet.imageWidth = std::atoi(imgNode->first_attribute("width")->value());
+
+
+
+	tileSet.columns = tileSet.imageWidth / tileSet.tileWidth;
+	tileSet.rows = tileSet.imageHeight / tileSet.tileHeight;
 
 	///DEMO
 	CTextures* textures = CTextures::GetInstance();
@@ -164,21 +177,41 @@ void Map::BuildObjectLayer(xml_node<>* rootNode)
 		const std::string name = std::string(child->first_attribute("name")->value());
 		const int id = std::atoi(child->first_attribute("id")->value());
 		std::map<int, ObjectTile*> objectgroup;
-	
+
 		// child  lúc này là 1 object group tại lần lập hiện tại
 			//lập toàn bộ objectgroup node lấy ra thông tin các object
 		for (xml_node<>* ggchild = child->first_node(); ggchild; ggchild = ggchild->next_sibling()) //cú pháp lập
 		{
-		//	const std::string ggname = std::string(ggchild->first_attribute("name")->value());
+			//	const std::string ggname = std::string(ggchild->first_attribute("name")->value());
 			const int ggid = std::atoi(ggchild->first_attribute("id")->value());
 			const float x = std::atof(ggchild->first_attribute("x")->value());
 			const float y = std::atof(ggchild->first_attribute("y")->value());
 			const float width = std::atof(ggchild->first_attribute("width")->value());
 			const float height = std::atof(ggchild->first_attribute("height")->value());
-			
+
+
+			//ĐỌC PROPERTY CỦA OBJECT
+
+			xml_node<>* propNode = ggchild->first_node("properties");
+			ObjectTile* object = new ObjectTile(ggid, x, y, width, height);
+			if (propNode != NULL)
+			{
+				std::map<std::string, OProperty*> properties;
+				for (xml_node<>* pchild = propNode->first_node(); pchild; pchild = pchild->next_sibling()) //cú pháp lập
+				{
+					OProperty* property=new OProperty();
+					property->name= std::string(pchild->first_attribute("name")->value());
+					property->value = std::atoi(pchild->first_attribute("value")->value());
+					properties.insert(std::make_pair(property->name, property));
+
+				}
+				object->SetProerties(properties);
+			}
+
+
 
 			//tạo 1 object
-			ObjectTile* object = new ObjectTile(ggid, x, y, width, height);
+
 			// cho vào object group
 			// khi kết thúc vòng lập ta lưu được hết các object trong group hiện tại
 			// sau đó child sẽ là objectgroup tiếp theo trong map

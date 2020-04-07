@@ -14,7 +14,6 @@ public:
 	MenuScene(SceneStateMachine& sceneStateMachine) :sceneStateMachine(sceneStateMachine), switchToState(0) {};
 	void SetSwitchToScene(unsigned int id);//set scene muốn chuyển đến
 
-
         // overide nó dùng để kt xem mình truyền các parameter vào đúng kiểu
     // của hàm kế thừa k
     //oncreate ta dùng load resource
@@ -28,14 +27,6 @@ public:
     void OnKeyDown(int KeyCode) override;
     void OnKeyUp(int KeyCode) override;
     void KeyState(BYTE* states) override;
-
-
-
-
-
-
-
-
 
 };
 

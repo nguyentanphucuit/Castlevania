@@ -9,10 +9,11 @@
 		<tex ID ="20" name = "MISC" path="textures\\misc.png" red="176" green="224" blue ="248"/>
 		<tex ID ="10" name = "ENEMY" path="textures\\enemies.png" red="3" green="26" blue ="110"/>
 		<tex ID ="-100" name = "BBOX" path="textures\\bbox.png" red="255" green="255" blue ="255"/>
-		<tex ID ="-500" name = "Great_Hall_bank" path="GameContent\\Map\\Great_Hall_bank.png" red="255" green="255" blue ="255"/>
+		<tex ID ="-500" name = "Courtyard_bank" path="GameContent\\Map\\Courtyard_bank.png" red="255" green="255" blue ="255"/>
 		<tex ID ="1" name = "WHIP" path="GameContent\\weapons\\WHIP.png" red="255" green="255" blue ="255"/>
 		<tex ID ="2" name = "TORCH" path="GameContent\\Resource\\Ground\\Torch.png" red="255" green="0" blue ="255"/>
 		<tex ID ="3" name = "CANDLE" path="GameContent\\Resource\\Ground\\Candle.png" red="255" green="0" blue ="255"/>
+		<tex ID ="4" name = "HEART" path="GameContent\\Items\\ITEM_PACK.png" red="255" green="0" blue ="255"/>
 	</textures>
 	
 	<sprites>
@@ -23,6 +24,7 @@
 		<objectSprite idTex="1" name="Whip" path="GameContent\\weapons\\Whip_sprite.xml"/>
 		<objectSprite idTex="2" name="Torch" path="GameContent\\Resource\\Ground\\Torch_sprite.xml"/>
 		<objectSprite idTex="3" name="Candle" path="GameContent\\Resource\\Ground\\Candle_sprite.xml"/>
+		<objectSprite idTex="4" name="Heart" path="GameContent\\Items\\Item_sprite.xml"/>
 	</sprites>
 	
 	<animations>
@@ -31,10 +33,11 @@
 		<objectani name="whip" path="GameContent\\weapons\\Whip_animation.xml"/>
 		<objectani name="torch" path="GameContent\\Resource\\Ground\\Torch_animation.xml"/>
 		<objectani name="candle" path="GameContent\\Resource\\Ground\\Candle_animation.xml"/>
+		<objectani name="heart" path="GameContent\\Items\\Item_animation.xml"/>
 	</animations>
 	
 	
-	<map path="GameContent\\Map\\Great_Hall_map.tmx"/>
+	<map path="GameContent\\Map\\Courtyard_map.tmx"/>
 	
 	
 </Base>

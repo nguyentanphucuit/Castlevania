@@ -24,20 +24,10 @@
 
 #include "debug.h"
 #include "Game.h"
-#include "GameObject.h"
-#include "Textures.h"
-
-#include "SIMON.h"
-#include "Brick.h"
-#include "Goomba.h"
-#include "Torch.h"
-#include "Candle.h"
-
 #include<rapidxml/rapidxml.hpp>
 #include<rapidxml/rapidxml_utils.hpp> // Include các thư viện để đọc xml
 #include"define.h"
-#include"HiddenObject.h"
-#include"Ground.h"
+
 using namespace rapidxml; // namespace để dùng các thành phần trong thư viện rapid
 
 

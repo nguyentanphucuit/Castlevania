@@ -2,6 +2,17 @@
 #include<string>
 #include<map>
 
+
+// hiện tại property chỉ hỗ trợ kiểu int
+// mỗi object có thể có 1 ds property
+struct OProperty
+{
+	std::string name;
+	int value;
+	OProperty() :name(""), value(-1) {};
+};
+
+
 class ObjectTile
 {
 private:
@@ -10,16 +21,19 @@ private:
 	float y;
 	float width;
 	float height;
+	std::map<std::string, OProperty*> properties;
 public:
 	ObjectTile(int id, float x, float y, float width, float height) :id(id), x(x), y(y)
 		, width(width), height(height) {};
 
+	void SetProerties(std::map<std::string, OProperty*> properties) { this->properties = properties; };
 	int GetID() { return id; }
 	float GetX() { return x; }
 	float GetY() { return y; }
 	float GetWidth() { return width; }
 	float GetHeight() { return height; }
 
+	int GetProperty(std::string key);
 
 };
 
@@ -38,7 +52,6 @@ public:
 	std::map<int, ObjectTile*> GetObjectGroup() {
 		return objectgroup;
 	}
-
 
 };
 

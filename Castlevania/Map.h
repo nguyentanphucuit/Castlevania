@@ -18,16 +18,19 @@ struct TileSet // dùng demo nữa ta mở rộng sau h chỉ đọc duy nhất 
 	int rows; // số hàng được chia
 	int tileCount;// tổng số tile được chia
 
+	int tileWidth;
+	int tileHeight;
 
 };
 
 
+// nên đọc name load qua đừng dùng id
 enum class ObjLayer
 {
-	PlayerPos = 3,
-	Candle = 4,
-	Torch = 5,
-	Ground=6,
+	PlayerPos = 2,
+	Ground = 3,
+	Torch = 4,
+	Camera=5,
 };
 
 class Map

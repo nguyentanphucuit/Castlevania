@@ -250,29 +250,36 @@ void PlayScene::OnCreate()
 
 	for (auto const& x : gameMap->GetObjectLayer())
 	{
+		DebugOut(L"ID= %d", static_cast<ObjLayer>(x.first));
 		switch (static_cast<ObjLayer>(x.first))
 		{
-
+		
 		case ObjLayer::PlayerPos:
 			for (auto const& y : x.second->GetObjectGroup())
 			{
 				SIMON->SetPosition(y.second->GetX(), y.second->GetY() - y.second->GetHeight());
 			}
 			break;
-		case ObjLayer::Candle:
-			for (auto const& y : x.second->GetObjectGroup())
-			{
-				CCandle* candle = new CCandle();
-				candle->SetPosition(y.second->GetX(), y.second->GetY() - y.second->GetHeight());
-				objects.push_back(candle);
-			}
-			break;
+	
 		case ObjLayer::Torch:
 			for (auto const& y : x.second->GetObjectGroup())
 			{
 				CTorch* torch = new CTorch();
+				
 				torch->SetPosition(y.second->GetX(), y.second->GetY() - y.second->GetHeight());
+				torch->SetItem(static_cast<EItem>(y.second->GetProperty("item")));
 				objects.push_back(torch);
+			}
+			break; //lol
+
+		case ObjLayer::Camera:
+			for (auto const& y : x.second->GetObjectGroup())
+			{
+				this->cameraBoder.left = y.second->GetX();
+				this->cameraBoder.top = y.second->GetX();
+				this->cameraBoder.right = y.second->GetX()+y.second->GetWidth();
+				this->cameraBoder.bottom = y.second->GetY()+y.second->GetHeight();
+					
 			}
 			break; //lol
 		case ObjLayer::Ground:
@@ -294,7 +301,7 @@ void PlayScene::OnCreate()
 
 
 
-
+	CGame::GetInstance()->SetCamPos(0, 0);
 }
 
 // dọn rác
@@ -311,15 +318,24 @@ void PlayScene::Update(DWORD dt)
 	// We know that SIMON is the first object in the list hence we won't add him into the colliable object list
 	// TO-DO: This is a "dirty" way, need a more organized way 
 
+	/// Thêm các object trong hàng đợi vào ds object
+
+	while (!qObjects.empty()) // lập nếu queue còn phần tử
+	{
+		this->objects.push_back(qObjects.front());
+		qObjects.pop();// thêm vào object rồi thì xóa object vừa thêm khỏi queue
+	}
+
 	vector<LPGAMEOBJECT> coObjects;
 	for (int i = 1; i < objects.size(); i++)
 	{
 		coObjects.push_back(objects[i]);
 	}
 
+	/// truyền playscene vào hàm update của các object
 	for (int i = 0; i < objects.size(); i++)
 	{
-		objects[i]->Update(dt, &coObjects);
+		objects[i]->Update(dt,this, &coObjects);
 	}
 
 
@@ -329,8 +345,11 @@ void PlayScene::Update(DWORD dt)
 
 	cx -= SCREEN_WIDTH / 2;
 	cy -= SCREEN_HEIGHT / 2;
-
-	CGame::GetInstance()->SetCamPos(cx, 0.0f /*cy*/);
+	if (cx> this->cameraBoder.left && cx<this->cameraBoder.right- SCREENSIZE::WIDTH)
+	{
+		CGame::GetInstance()->SetCamPos(cx, 0.0f /*cy*/);
+	}
+	
 }
 
 void PlayScene::Render()
@@ -340,6 +359,7 @@ void PlayScene::Render()
 	gameMap->Render(cam);
 	for (int i = 0; i < objects.size(); i++)
 		objects[i]->Render();
+	SIMON->Render();// vẽ simon lên trên tất cả object
 
 }
 

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<gamedata>
+		<animation ID="ITEM_ANI_AXE" timeLoop="100">
+			<sprite ID="ITEM_SPRITE_AXE" />
+		</animation>
+
+		<animation ID="ITEM_ANI_CROSS" timeLoop="100">
+			<sprite ID="ITEM_SPRITE_CROSS" />
+		</animation>
+		<animation ID="ITEM_ANI_DAGGER" timeLoop="100">
+			<sprite ID="ITEM_SPRITE_DAGGER" />
+		</animation>
+
+		<animation ID="BIG_ANI_HEART" timeLoop="100">
+			<sprite ID="BIG_SPRITE_HEART" />
+		</animation>
+		<animation ID="SMALL_ANI_HEART" timeLoop="100">
+			<sprite ID="SMALL_SPRITE_HEART" />
+		</animation>
+
+		<animation ID="ITEM_ANI_HOLYWATER" timeLoop="100">
+			<sprite ID="ITEM_SPRITE_HOLYWATER" />
+		</animation>
+
+		<animation ID="ITEM_ANI_INVICIBILITYITEM" timeLoop="100">
+			<sprite ID="ITEM_SPRITE_INVICIBILITYITEM" />
+		</animation>
+		<animation ID="COLOR_ANI_MONEYBAG" timeLoop="100">
+			<sprite ID="MONEYBAG_SPRITE_RED" />
+			<sprite ID="MONEYBAG_SPRITE_BLUE" />
+			<sprite ID="MONEYBAG_SPRITE_WHITE" />
+		</animation>
+		<animation ID="MONEYBAG_ANI_BLUE" timeLoop="100">
+			<sprite ID="MONEYBAG_SPRITE_BLUE" />
+		</animation>
+		<animation ID="MONEYBAG_ANI_RED" timeLoop="100">
+			<sprite ID="MONEYBAG_SPRITE_RED" />
+		</animation>
+		<animation ID="MONEYBAG_ANI_WHITE" timeLoop="100">
+			<sprite ID="MONEYBAG_SPRITE_WHITE" />
+		</animation>
+		<animation ID="MORNING_ANI_STAR" timeLoop="100">
+			<sprite ID="MORNING_SPRITE_STAR" />
+		</animation>
+		<animation ID="ITEM_ANI_STOPWATCH" timeLoop="100">
+			<sprite ID="ITEM_SPRITE_STOPWATCH" />
+		</animation>
+		<animation ID="ITEM_ANI_ROAST" timeLoop="100">
+			<sprite ID="ITEM_SPRITE_ROAST" />
+		</animation>
+		
+		
+		<animation ID="ITEM_ANI_DOUBLESHOT" timeLoop="100">
+			<sprite ID="ITEM_SPRITE_DOUBLESHOT" />
+		</animation>
+		
+		
+			<animation ID="ITEM_ANI_CRYSTALL" timeLoop="100">
+			<sprite ID="ITEM_SPRITE_CRYSTALL" />
+		</animation>
+
+</gamedata>

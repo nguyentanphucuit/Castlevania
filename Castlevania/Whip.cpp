@@ -1,6 +1,8 @@
 ﻿#include "Whip.h"
 #include "Torch.h"
 #include "Candle.h"
+#include"ItemFactory.h"
+#include"PlayScene.h"
 void Whip::Render()
 {
 	int ani;
@@ -41,7 +43,7 @@ void Whip::GetBoundingBox(float& l, float& t, float& r, float& b)
 
 }
 
-void Whip::Update(DWORD dt, vector<LPGAMEOBJECT>* colliable_objects)
+void Whip::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT>* colliable_objects)
 {
 	if (animations[WHIP_ANI_NORMAL]->GetCurrentFrame()<2)
 	{
@@ -74,8 +76,17 @@ void Whip::Update(DWORD dt, vector<LPGAMEOBJECT>* colliable_objects)
 		if (dynamic_cast<CTorch*>(colliable_objects->at(i))) // kiểm tra phải candle không
 		{
 			CTorch* torch = dynamic_cast<CTorch*>(colliable_objects->at(i));
-			if (this->isColliding(torch))// kiểm tra có va chạm k
+			if (this->isColliding(torch) && !torch->IsDestroyed())// kiểm tra có va chạm k
 			{
+				auto item = ItemFactory::SpawnItem<Item*>(torch->GetItem());
+				if (dynamic_cast<PlayScene*>(scene)) //kiểm tra xem scene hiện tại có phải playscene k
+				{
+					float tx, ty;
+					torch->GetPosition(tx, ty);
+					PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
+					item->SetPosition(tx,ty);
+					pScene->SpawnObject(item);
+				}
 				torch->SetDestroy(); // có va chạm hủy candle
 			}
 		}

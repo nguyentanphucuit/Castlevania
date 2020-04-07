@@ -2,15 +2,21 @@
 #include"Scene.h"
 #include"Simon.h"
 #include"Map.h"
+#include<queue>
 class PlayScene:public Scene
 {
+    RECT cameraBoder;// giới hạn vùng hiển thị cam
     CSIMON* SIMON;
     vector<LPGAMEOBJECT> objects;
     Map* gameMap;
     void LoadSprite(const std::string& filePath, const int tex);
     void LoadAnimation(const string& filePath);
+    // lưu những object vừa thêm vào ở lần upload hiện tại vào hàng đợi
+    // sẽ thêm vào ds objects ở lần cập nhật tiếp theo
+    std::queue<LPGAMEOBJECT> qObjects;
 public:
 
+    void SpawnObject(LPGAMEOBJECT obj) { this->qObjects.push(obj); }
     // overide nó dùng để kt xem mình truyền các parameter vào đúng kiểu
     // của hàm kế thừa k
     //oncreate ta dùng load resource

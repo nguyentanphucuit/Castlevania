@@ -8,12 +8,12 @@
 #include "Torch.h"
 #include "Candle.h"
 
-void CSIMON::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
+void CSIMON::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT> *coObjects)
 {
 	
 
 	// Calculate dx, dy 
-	CGameObject::Update(dt);
+	CGameObject::Update(dt,scene);
 
 	// Simple fall down
 	vy += SIMON_GRAVITY*dt;
@@ -134,7 +134,7 @@ void CSIMON::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 			whip->SetPosition(this->x - 1.5 * SIMON_BIG_BBOX_WIDTH, this->y); //đặt tọa độ whip theo vị trí simon canh chỉnh lại xíu
 		}
 		whip->SetNxDirection(this->nx);
-		whip->Update(dt, coObjects);
+		whip->Update(dt,scene, coObjects);
 	}
 	
 }

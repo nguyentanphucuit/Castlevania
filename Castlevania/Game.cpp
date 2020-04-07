@@ -103,6 +103,8 @@ int CGame::IsKeyDown(int KeyCode)
 
 void CGame::InitKeyboard(LPKEYEVENTHANDLER handler)
 {
+	this->keyHandler = handler;
+
 	HRESULT
 		hr = DirectInput8Create
 		(
@@ -165,8 +167,7 @@ void CGame::InitKeyboard(LPKEYEVENTHANDLER handler)
 		return;
 	}
 
-	this->keyHandler = handler;
-
+	
 	DebugOut(L"[INFO] Keyboard has been initialized successfully\n");
 }
 
@@ -244,7 +245,7 @@ void CGame::OnCreate()
 																 //set scene hiện tại là scene nào
 	// trường hợp này là set để chạy từ scene ban đầu
 	//ta bắt đầu game từ scene nào thì truyền scene đó vào đây
-	sceneStateMachine.SwitchTo(menuSceneID);
+	sceneStateMachine.SwitchTo(playSceneID);
 
 
 }

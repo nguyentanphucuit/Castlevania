@@ -75,7 +75,7 @@ public:
 	}
 	DWORD GetFightTime() { return this->fight_start; }
 	void ResetFightTime() { this->fight_start = 0; }
-	virtual void Update(DWORD dt, vector<LPGAMEOBJECT> *colliable_objects = NULL);
+	virtual void Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT> *colliable_objects = NULL);
 	virtual void Render();
 	void SetState(SIMONSTATE state);
 	void ResetAttack() {

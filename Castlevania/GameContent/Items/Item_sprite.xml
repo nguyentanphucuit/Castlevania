@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<gamedata>
+		<sprite ID="ITEM_SPRITE_AXE">
+			<frame l="131" t="1" r="30" b="28" />
+		</sprite>
+
+		<sprite ID="CROSS_ITEM_01">
+			<frame l="131" t="31" r="32" b="26" />
+		</sprite>
+		<sprite ID="DAGGER_ITEM_01">
+			<frame l="295" t="45" r="32" b="18" />
+		</sprite>
+
+
+
+		<sprite ID="BIG_SPRITE_HEART">
+			<frame l="1" t="11" r="25" b="31" />
+		</sprite>
+		<sprite ID="SMALL_SPRITE_HEART">
+			<frame l="25" t="11" r="41" b="27" />
+		</sprite>
+
+		<sprite ID="HOLYWATER_ITEM_01">
+			<frame l="165" t="31" r="32" b="32" />
+		</sprite>
+
+		<sprite ID="INVICIBILITY_ITEM_01">
+			<frame l="96" t="23" r="33" b="40" />
+		</sprite>
+
+
+		<sprite ID="MONEYBAG_RED">
+			<frame l="1" t="33" r="31" b="30" />
+		</sprite>
+		<sprite ID="MONEYBAG_BLUE">
+			<frame l="32" t="33" r="31" b="30" />
+		</sprite>
+		<sprite ID="MONEYBAG_WHITE">
+			<frame l="63" t="33" r="31" b="30" />
+		</sprite>
+
+
+		<sprite ID="MORNING_STAR_01">
+			<frame l="199" t="31" r="32" b="32" />
+		</sprite>	
+
+		<sprite ID="ROAST_ITEM_01">
+			<frame l="223" t="3" r="32" b="26" />
+		</sprite>
+
+		<sprite ID="STOPWATCH_ITEM_01">
+			<frame l="233" t="31" r="30" b="32" />
+		</sprite>
+
+
+
+		<sprite ID="DOUBLESHOT_ITEM_01">
+			<frame l="163" t="1" r="28" b="28" />
+		</sprite>
+
+		<sprite ID="CRYSTALL_ITEM_01">
+			<frame l="265" t="31" r="28" b="32" />
+		</sprite>
+
+</resource>
