@@ -50,8 +50,10 @@ public:
 	DWORD dt; 
 
 	vector<LPANIMATION> animations;
-
+	bool isDestroy = false;
 public: 
+	void SetDestroy() { this->isDestroy = true; }
+	bool IsDestroy() { return isDestroy; }
 	void SetPosition(float x, float y) { this->x = x, this->y = y; }
 	void SetSpeed(float vx, float vy) { this->vx = vx, this->vy = vy; }
 	void GetPosition(float &x, float &y) { x = this->x; y = this->y; }

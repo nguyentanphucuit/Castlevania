@@ -1,16 +1,8 @@
-﻿  Game.cpp
-C:\Users\16520\OneDrive\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
-C:\Users\16520\OneDrive\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
-C:\Users\16520\OneDrive\Desktop\Castlevania\Castlevania\Game.cpp(82,38): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-C:\Users\16520\OneDrive\Desktop\Castlevania\Castlevania\Game.cpp(346,26): warning C4305: '=': truncation from '__int64' to 'float'
-C:\Users\16520\OneDrive\Desktop\Castlevania\Castlevania\Game.cpp(347,24): warning C4305: '=': truncation from '__int64' to 'float'
-C:\Users\16520\OneDrive\Desktop\Castlevania\Castlevania\Game.cpp(357,26): warning C4305: '=': truncation from '__int64' to 'float'
-C:\Users\16520\OneDrive\Desktop\Castlevania\Castlevania\Game.cpp(358,24): warning C4305: '=': truncation from '__int64' to 'float'
-  GameObject.cpp
-C:\Users\16520\OneDrive\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
-C:\Users\16520\OneDrive\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
+﻿  BHeart.cpp
+  Heart.cpp
+  Item.cpp
   ItemFactory.cpp
-  MenuScene.cpp
+  main.cpp
 C:\Users\16520\OneDrive\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
 C:\Users\16520\OneDrive\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
   PlayScene.cpp
@@ -33,17 +25,8 @@ C:\Users\16520\OneDrive\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning 
 C:\Users\16520\OneDrive\Desktop\Castlevania\Castlevania\Simon.cpp(130,67): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 C:\Users\16520\OneDrive\Desktop\Castlevania\Castlevania\Simon.cpp(130,30): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 C:\Users\16520\OneDrive\Desktop\Castlevania\Castlevania\Simon.cpp(134,30): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  Sprites.cpp
-C:\Users\16520\OneDrive\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
-C:\Users\16520\OneDrive\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
-  Textures.cpp
-C:\Users\16520\OneDrive\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
-C:\Users\16520\OneDrive\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
   Torch.cpp
   Whip.cpp
-C:\Users\16520\OneDrive\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
-C:\Users\16520\OneDrive\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
-  main.cpp
 C:\Users\16520\OneDrive\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
 C:\Users\16520\OneDrive\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
   Generating Code...
