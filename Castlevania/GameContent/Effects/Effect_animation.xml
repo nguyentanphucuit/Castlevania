@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<gamedata>
+		<animation ID="BUBBLE_ANI" timeLoop="100">
+			<frame ID="BUBBLE_SPRITE" />
+		</animation>
+		<animation ID="BUBBLE_ANI" timeLoop="100">
+			<frame ID="BUBBLE_01" />
+		</animation>
+		<animation ID="DEBRIS_ANI" timeLoop="100">
+			<frame ID="DEBRIS_01" />
+
+		</animation>
+
+		<animation ID="SPARK_ANI" timeLoop="100">
+			<frame ID="SPARK_01" />
+		</animation>
+
+		<animation ID="BOSS_DEAD_ANI" timeLoop="100">
+			<frame ID="BOSS_DEAD_01" />
+			<frame ID="BOSS_DEAD_02" />
+			<frame ID="BOSS_DEAD_03" />
+		</animation>
+
+
+		<animation ID="FLAME_ANI_BURNING" timeLoop="100">
+			<frame ID="FLAME_SPRITE_BURNING_01" />
+			<frame ID="FLAME_SPRITE_BURNING_02" />
+			<frame ID="FLAME_SPRITE_BURNING_03" />
+		</animation>
+
+		<animation ID="SCORETEXT_ANI_100" timeLoop="100">
+			<frame ID="SCORETEXT_100" />
+		</animation>
+		<animation ID="SCORETEXT_ANI_400" timeLoop="100">
+			<frame ID="SCORETEXT_400" />
+		</animation>
+		<animation ID="SCORETEXT_ANI_700" timeLoop="100">
+			<frame ID="SCORETEXT_700" />
+		</animation>
+		<animation ID="SCORETEXT_ANI_1000" timeLoop="100">
+			<frame ID="SCORETEXT_1000_01" />
+			<frame ID="SCORETEXT_1000_02" />
+			<frame ID="SCORETEXT_1000_03" />
+		</animation>
+</gamedata>

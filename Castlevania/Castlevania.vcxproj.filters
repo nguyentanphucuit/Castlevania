@@ -22,6 +22,9 @@
     <Filter Include="Source Files\ItemFactory">
       <UniqueIdentifier>{b90e038b-e284-461a-afd5-d0514b47c56f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\EffectFactory">
+      <UniqueIdentifier>{3e5f6944-a610-4493-b972-3aeadb25fd0a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="debug.h">
@@ -99,6 +102,15 @@
     <ClInclude Include="BHeart.h">
       <Filter>Source Files\ItemFactory</Filter>
     </ClInclude>
+    <ClInclude Include="Effect.h">
+      <Filter>Source Files\EffectFactory</Filter>
+    </ClInclude>
+    <ClInclude Include="Flame.h">
+      <Filter>Source Files\EffectFactory</Filter>
+    </ClInclude>
+    <ClInclude Include="EffectFactory.h">
+      <Filter>Source Files\EffectFactory</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -172,6 +184,15 @@
     </ClCompile>
     <ClCompile Include="BHeart.cpp">
       <Filter>Source Files\ItemFactory</Filter>
+    </ClCompile>
+    <ClCompile Include="Effect.cpp">
+      <Filter>Source Files\EffectFactory</Filter>
+    </ClCompile>
+    <ClCompile Include="Flame.cpp">
+      <Filter>Source Files\EffectFactory</Filter>
+    </ClCompile>
+    <ClCompile Include="EffectFactory.cpp">
+      <Filter>Source Files\EffectFactory</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

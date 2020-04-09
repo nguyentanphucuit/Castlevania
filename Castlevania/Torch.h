@@ -11,7 +11,6 @@ class CTorch : public CGameObject
 {
 	//item của torch đọc từ file vì từng torch có các item có thể khác nhau
 	EItem item;// item chứa trong torch
-	bool isDestroy = false;
 public:
 	CTorch() {
 		AddAnimation("TORCH_ANI_BURN");

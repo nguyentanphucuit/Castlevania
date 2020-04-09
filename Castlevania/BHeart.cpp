@@ -1,8 +1,13 @@
 #include "BHeart.h"
 
+void BHeart::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObject)
+{
+	Item::Update(dt, scene, coObject);
+}
+
 void BHeart::Render()
 {
-	if (isDestroy)
+	if (isDestroy || time_wait)
 	{
 		return;
 	}

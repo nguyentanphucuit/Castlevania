@@ -1,8 +1,10 @@
 ﻿#include "Whip.h"
 #include "Torch.h"
 #include "Candle.h"
-#include"ItemFactory.h"
-#include"PlayScene.h"
+#include "ItemFactory.h"
+#include "PlayScene.h"
+#include "EffectFactory.h"
+
 void Whip::Render()
 {
 	int ani;
@@ -79,13 +81,16 @@ void Whip::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT>* colliable_objects
 			if (this->isColliding(torch) && !torch->IsDestroyed())// kiểm tra có va chạm k
 			{
 				auto item = ItemFactory::SpawnItem<Item*>(torch->GetItem());
+				auto effect = EffectFactory::SpawnEffect<Effect*>(CEffect::FLAME);
 				if (dynamic_cast<PlayScene*>(scene)) //kiểm tra xem scene hiện tại có phải playscene k
 				{
 					float tx, ty;
 					torch->GetPosition(tx, ty);
 					PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
 					item->SetPosition(tx,ty);
+					effect->SetPosition(tx, ty);
 					pScene->SpawnObject(item);
+					pScene->SpawnObject(effect);
 				}
 				torch->SetDestroy(); // có va chạm hủy candle
 			}

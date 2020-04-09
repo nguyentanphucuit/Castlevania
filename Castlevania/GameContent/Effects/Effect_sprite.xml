@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<gamedata>
+		<sprite ID="BUBBLE_SPRITE">
+			<frame l="131" t="35" r="145" b="63" />
+		</sprite>
+		
+		<sprite ID="DEBRIS_01">
+			<frame l="1" t="1" r="14" b="16" />
+		</sprite>
+		
+		<sprite ID="SPARK_01">
+			<frame l="421" t="71" r="14" b="28" />
+		</sprite>
+		
+		
+		<sprite ID="FLAME_SPRITE_BURNING_01">
+			<frame l="421" t="93" r="439" b="125" />
+		</sprite>
+		<sprite ID="FLAME_SPRITE_BURNING_02">
+			<frame l="439" t="93" r="457" b="125" />
+		</sprite>
+		<sprite ID="FLAME_SPRITE_BURNING_03">
+			<frame l="457" t="93" r="475" b="125" />
+		</sprite>
+		
+		
+		<sprite ID="BOSS_DEAD_01">
+			<frame l="97" t="65" r="96" b="60" />
+		</sprite>
+		<sprite ID="BOSS_DEAD_02">
+			<frame l="193" t="65" r="96" b="60" />
+		</sprite>
+		<sprite ID="BOSS_DEAD_03">
+			<frame l="289" t="65" r="96" b="60" />
+		</sprite>
+		
+		
+		
+		
+		
+		<sprite ID="SCORETEXT_100">
+			<frame l="387" t="108" r="32" b="17" />
+		</sprite>
+		<sprite ID="SCORETEXT_400">
+			<frame l="387" t="91" r="32" b="17" />
+		</sprite>
+		<sprite ID="SCORETEXT_700">
+			<frame l="387" t="74" r="32" b="17" />
+		</sprite>
+		<sprite ID="SCORETEXT_1000_01">
+			<frame l="387" t="23" r="32" b="17" />
+		</sprite>
+		<sprite ID="SCORETEXT_1000_02">
+			<frame l="387" t="40" r="32" b="17" />
+		</sprite>
+		<sprite ID="SCORETEXT_1000_03">
+			<frame l="387" t="57" r="32" b="17" />
+		</sprite>
+</gamedata>

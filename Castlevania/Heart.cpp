@@ -2,7 +2,7 @@
 
 void CHeart::Render()
 {
-	if (isDestroy)
+	if (isDestroy || time_wait)
 	{
 		return;
 	}
