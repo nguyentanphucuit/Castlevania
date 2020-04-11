@@ -1,14 +1,16 @@
 ﻿#pragma once
-#include"Item.h"
-#include"Heart.h"
-#include"BHeart.h"
+#include "Item.h"
+#include "Heart.h"
+#include "BHeart.h"
+#include "Dagger.h"
+#include "IWhip.h"
 // khai báo các loại item tại đây
 enum class EItem
 {
 	BIGHEART=1,
-	HEART,
-	DAGGER,
 	WHIP,
+	DAGGER,
+	HEART,
 
 };
 
@@ -31,12 +33,14 @@ inline T ItemFactory::SpawnItem(EItem eitem)
     case EItem::BIGHEART: 
         return new BHeart();
         break;
-    case EItem::HEART:
-        return new CHeart();
+    case EItem::WHIP:
+        return new IWhip();
         break;
     case EItem::DAGGER:
+        return new CDagger();
         break;
-    case EItem::WHIP:
+    case EItem::HEART:
+        return new CHeart();
         break;
     default:
         break;

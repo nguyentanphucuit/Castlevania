@@ -1,12 +1,12 @@
 ﻿#include "PlayScene.h"
 #include "define.h"
-#include"Game.h"
-#include"Textures.h"
+#include "Game.h"
+#include "Textures.h"
 #include "Candle.h"
 #include "Torch.h"
-#include"HiddenObject.h"
-#include"Ground.h"
-#include"debug.h"
+#include "HiddenObject.h"
+#include "Ground.h"
+#include "debug.h"
 void PlayScene::LoadSprite(const std::string& filePath, const int tex)
 {
 	// ở đây mình truyền vào man
@@ -350,6 +350,23 @@ void PlayScene::Update(DWORD dt)
 		CGame::GetInstance()->SetCamPos(cx, 0.0f /*cy*/);
 	}
 	
+
+	///Xóa hẳn các object ra khỏi vector object
+	// nếu setdestroy là true, giải phóng luôn con trỏ
+
+
+	for (vector<LPGAMEOBJECT>::iterator it = objects.begin(); it != objects.end(); ) {
+
+		if ((*it)->IsDestroy()) {
+			delete (*it);
+			it = objects.erase(it);
+			
+		}
+		else ++it;
+	}
+
+
+
 }
 
 void PlayScene::Render()

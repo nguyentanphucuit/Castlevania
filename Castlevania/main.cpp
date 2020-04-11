@@ -24,9 +24,9 @@
 
 #include "debug.h"
 #include "Game.h"
-#include<rapidxml/rapidxml.hpp>
-#include<rapidxml/rapidxml_utils.hpp> // Include các thư viện để đọc xml
-#include"define.h"
+#include <rapidxml/rapidxml.hpp>
+#include <rapidxml/rapidxml_utils.hpp> // Include các thư viện để đọc xml
+#include "define.h"
 
 using namespace rapidxml; // namespace để dùng các thành phần trong thư viện rapid
 

@@ -2,6 +2,10 @@
 
 void Flame::Render()
 {
+	if (isDestroy)
+	{
+		return;
+	}
 	animations[0]->Render(0, x, y);
 }
 

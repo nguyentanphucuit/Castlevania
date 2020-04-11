@@ -7,8 +7,8 @@
 		<sprite ID="CROSS_ITEM_01">
 			<frame l="131" t="31" r="32" b="26" />
 		</sprite>
-		<sprite ID="DAGGER_ITEM_01">
-			<frame l="295" t="45" r="32" b="18" />
+		<sprite ID="ITEM_SPRITE_DAGGER">
+			<frame l="295" t="45" r="327" b="63" />
 		</sprite>
 
 
@@ -40,8 +40,8 @@
 		</sprite>
 
 
-		<sprite ID="MORNING_STAR_01">
-			<frame l="199" t="31" r="32" b="32" />
+		<sprite ID="MORNING_SPRITE_STAR">
+			<frame l="199" t="31" r="231" b="63" />
 		</sprite>	
 
 		<sprite ID="ROAST_ITEM_01">

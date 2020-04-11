@@ -111,6 +111,12 @@
     <ClInclude Include="EffectFactory.h">
       <Filter>Source Files\EffectFactory</Filter>
     </ClInclude>
+    <ClInclude Include="Dagger.h">
+      <Filter>Source Files\ItemFactory</Filter>
+    </ClInclude>
+    <ClInclude Include="IWhip.h">
+      <Filter>Source Files\ItemFactory</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -193,6 +199,12 @@
     </ClCompile>
     <ClCompile Include="EffectFactory.cpp">
       <Filter>Source Files\EffectFactory</Filter>
+    </ClCompile>
+    <ClCompile Include="Dagger.cpp">
+      <Filter>Source Files\ItemFactory</Filter>
+    </ClCompile>
+    <ClCompile Include="IWhip.cpp">
+      <Filter>Source Files\ItemFactory</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

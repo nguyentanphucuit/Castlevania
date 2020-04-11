@@ -23,6 +23,7 @@ public:
 
 	Item() : CGameObject() {
 		time_exist = GetTickCount();
+		time_wait = GetTickCount();
 	}
 
 	virtual void Render();

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.3" orientation="orthogonal" renderorder="right-down" width="47" height="11" tilewidth="32" tileheight="32" infinite="0" nextlayerid="6" nextobjectid="14">
+<map version="1.2" tiledversion="1.3.3" orientation="orthogonal" renderorder="right-down" width="47" height="11" tilewidth="32" tileheight="32" infinite="0" nextlayerid="6" nextobjectid="15">
  <tileset firstgid="1" name="Courtyard_bank.png" tilewidth="32" tileheight="32" tilecount="80" columns="8">
   <image source="Courtyard_bank.png" width="256" height="320"/>
  </tileset>
@@ -538,19 +538,24 @@
     <property name="item" type="int" value="1"/>
    </properties>
   </object>
-  <object id="11" gid="153" x="579" y="286" width="32" height="64">
+  <object id="11" gid="153" x="388" y="285" width="32" height="64">
    <properties>
     <property name="item" type="int" value="2"/>
    </properties>
   </object>
-  <object id="12" gid="153" x="964" y="287" width="32" height="64">
+  <object id="12" gid="153" x="643" y="286" width="32" height="64">
+   <properties>
+    <property name="item" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="13" gid="153" x="936" y="285" width="32" height="64">
    <properties>
     <property name="item" type="int" value="1"/>
    </properties>
   </object>
-  <object id="13" gid="153" x="1307" y="286" width="32" height="64">
+  <object id="14" gid="154" x="1193" y="286" width="32" height="64">
    <properties>
-    <property name="item" type="int" value="1"/>
+    <property name="item" type="int" value="3"/>
    </properties>
   </object>
  </objectgroup>

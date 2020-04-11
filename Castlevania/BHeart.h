@@ -5,7 +5,7 @@
 #define BHEART_WIDTH  24
 #define BHEART_HEIGHT 16
 
-#define SMALL_ANI_HEART 0
+#define BIG_ANI_HEART 0
 class BHeart : public Item
 {
 public:

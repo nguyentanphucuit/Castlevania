@@ -1,8 +1,8 @@
 ﻿#pragma once
-#include"Scene.h"
-#include"Simon.h"
-#include"Map.h"
-#include<queue>
+#include "Scene.h"
+#include "Simon.h"
+#include "Map.h"
+#include <queue>
 class PlayScene:public Scene
 {
     RECT cameraBoder;// giới hạn vùng hiển thị cam
