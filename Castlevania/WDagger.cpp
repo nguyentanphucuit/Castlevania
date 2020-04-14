@@ -12,8 +12,8 @@ void WDagger::GetBoundingBox(float& l, float& t, float& r, float& b)
 {
 	l = x;
 	t = y;
-	r = x + DAGGER_WIDTH;
-	b = y + DAGGER_HEIGHT;
+	r = l + DAGGER_BBOX_WIDTH;
+	b = t + DAGGER_BBOX_HEIGHT;
 }
 
 void WDagger::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObject)

@@ -1,8 +1,6 @@
 #pragma once
 #include "GameObject.h"
-#include "define.h"
-#include "PlayScene.h"
-#include "Torch.h"
+
 
 
 class Weapon:public CGameObject

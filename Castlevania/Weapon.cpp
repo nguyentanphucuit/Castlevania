@@ -1,4 +1,7 @@
 #include "Weapon.h"
+#include "define.h"
+#include "PlayScene.h"
+#include "Torch.h"
 
 void Weapon::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObject)
 {

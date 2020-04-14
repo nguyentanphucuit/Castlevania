@@ -32,6 +32,7 @@ void Whip::Upgrade()
 		break;
 	case CHAIN:
 		state = MORINGSTAR;
+		break;
 	case MORINGSTAR:
 		break;
 	default:
@@ -62,10 +63,31 @@ void Whip::GetBoundingBox(float& l, float& t, float& r, float& b)
 
 void Whip::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT>* colliable_objects)
 {
-	if (animations[WHIP_ANI_NORMAL]->GetCurrentFrame()<2)
+	switch (state)
 	{
-		return;
+	case NORMAL:
+		if (animations[WHIP_ANI_NORMAL]->GetCurrentFrame() < 2)
+		{
+			return;
+		}
+		break;
+	case CHAIN:
+		if (animations[WHIP_ANI_CHAIN]->GetCurrentFrame() < 2)
+		{
+			return;
+		}
+		break;
+	case MORINGSTAR:
+		if (animations[WHIP_ANI_MORNINGSTAR]->GetCurrentFrame() < 8)
+		{
+			return;
+		}
+		break;
+	default:
+		break;
 	}
+	
+	
 	//xử lý va chạmgiữaa whip và các object dùng aabb
 
 	//for (size_t i = 0; i < colliable_objects->size(); i++)

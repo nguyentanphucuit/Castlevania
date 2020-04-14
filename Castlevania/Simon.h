@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "GameObject.h"
-#include"Whip.h"
+#include "Whip.h"
 #define SIMON_WALKING_SPEED		0.1f 
 //0.1f
 #define SIMON_JUMP_SPEED_Y		0.5f
@@ -21,10 +21,13 @@
 #define SIMON_ANI_SIT_ATTACK 4 // cai dau tien them vao vector 
 
 #define SIMON_ANI_UP_WHIP 5
-#define SIMON_ANI_DIE				8
+#define SIMON_ANI_DIE	8
 
 #define	SIMON_LEVEL_SMALL	1
 #define	SIMON_LEVEL_BIG		2
+
+#define SIMON_BBOX_WIDTH  32
+#define SIMON_BBOX_HEIGHT 62
 
 #define SIMON_BIG_BBOX_WIDTH  60
 #define SIMON_BIG_BBOX_HEIGHT 66
@@ -35,7 +38,7 @@
 #define SIMON_UNTOUCHABLE_TIME 5000
 #define SIMON_UPGRADE_WHIP_TIME 500
 
-#define SIMON_ATTACT_TIME 350// thời gian đánh mỗi lần bấm hết thời gian reseet lại trạng thái
+#define SIMON_ATTACK_TIME 350// thời gian đánh mỗi lần bấm hết thời gian reseet lại trạng thái
 
 // h nhiêu đây trc đã
  enum class SIMONSTATE 

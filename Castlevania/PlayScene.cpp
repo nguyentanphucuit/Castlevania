@@ -7,6 +7,7 @@
 #include "HiddenObject.h"
 #include "Ground.h"
 #include "debug.h"
+#include "WeaponFactory.h"
 void PlayScene::LoadSprite(const std::string& filePath, const int tex)
 {
 	// ở đây mình truyền vào man
@@ -363,7 +364,7 @@ void PlayScene::Update(DWORD dt)
 	for (vector<LPGAMEOBJECT>::iterator it = objects.begin(); it != objects.end(); ) {
 
 		if ((*it)->IsDestroy()) {
-			delete (*it);
+			//delete (*it);
 			it = objects.erase(it);
 			
 		}
@@ -388,6 +389,7 @@ void PlayScene::Render()
 void PlayScene::OnKeyDown(int KeyCode)
 {
 	DebugOut(L"[INFO] PRESS KEY DOWN: %d\n", KeyCode);
+	if (SIMON->GetState() == SIMONSTATE::UPWHIP) return;
 	switch (KeyCode)
 	{
 	case DIK_SPACE:
@@ -395,13 +397,14 @@ void PlayScene::OnKeyDown(int KeyCode)
 		//kiểm tra nếu trạng thái k phải jump thì mới cho jump
 		if (SIMON->GetFightTime() == 0 // k phải đang đánh mới cho nhảy
 			&& SIMON->GetState() != SIMONSTATE::JUMP
-			&& SIMON->GetState() != SIMONSTATE::SIT) { // ngooif thi k cho nhay
+			&& SIMON->GetState() != SIMONSTATE::SIT) { // ngồi thi k cho nhay
 			SIMON->SetState(SIMONSTATE::JUMP);
 		}
 		break;
 	case DIK_K:
 		if (SIMON->GetFightTime() == 0) // không đánh mới cho đánh tránh trường hợp chưa đánh xong đã đánh lại
 		{
+			SIMON->SpawnWeapon(false);
 			if (SIMON->GetState() != SIMONSTATE::SIT) // 
 			{
 				SIMON->SetState(SIMONSTATE::FIGHT_STAND);
@@ -418,7 +421,21 @@ void PlayScene::OnKeyDown(int KeyCode)
 		SIMON->SetPosition(50.0f, 0.0f);
 		SIMON->SetSpeed(0, 0);
 		break;
+	case DIK_C:
+		// không đánh mới cho đánh tránh trường hợp chưa đánh xong đã đánh lại
+		if (SIMON->GetFightTime() == 0 && SIMON->GetCurrentWeapon() != EWeapon::NONE) {
+			SIMON->ResetSpawnWeapon();
+			SIMON->SpawnWeapon(true);
+			if (SIMON->GetState() != SIMONSTATE::SIT) {
+				SIMON->SetState(SIMONSTATE::FIGHT_STAND);
+			}
+			else {
+				SIMON->SetState(SIMONSTATE::FIGHT_SIT);
+			}
+		}
+		break;
 	}
+	
 }
 
 void PlayScene::OnKeyUp(int KeyCode)
@@ -428,8 +445,13 @@ void PlayScene::OnKeyUp(int KeyCode)
 void PlayScene::KeyState(BYTE* states)
 {
 	CGame* game = CGame::GetInstance();
+	if (SIMON->GetUpgradeTime() != 0 && GetTickCount() - SIMON->GetUpgradeTime() > SIMON_UPGRADE_WHIP_TIME) {
+		SIMON->ResetUpgradeTime();
+		SIMON->SetState(SIMONSTATE::IDLE);
+	}
+	if (SIMON->GetState() == SIMONSTATE::UPWHIP) return;
 	if (SIMON->GetState() == SIMONSTATE::JUMP) return;
-	if (SIMON->GetFightTime() != 0 && GetTickCount() - SIMON->GetFightTime() > SIMON_ATTACT_TIME)
+	if (SIMON->GetFightTime() != 0 && GetTickCount() - SIMON->GetFightTime() > SIMON_ATTACK_TIME)
 	{
 		//reset chỗ này
 		SIMON->ResetAttack();

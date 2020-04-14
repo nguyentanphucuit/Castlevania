@@ -10,7 +10,7 @@ class WDagger:public Weapon
 {
 public:
 	WDagger() :Weapon() {
-		AddAnimation("DAGGER_ITEM_ANI");
+		AddAnimation("ITEM_ANI_DAGGER");
 	}
 
 	virtual void Render();

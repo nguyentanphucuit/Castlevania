@@ -14,6 +14,7 @@ CSIMON::CSIMON() : CGameObject() {
 	level = SIMON_LEVEL_BIG;
 	untouchable = 0;
 	this->fight_start = 0;
+	upgrade_start = 0;
 	state = SIMONSTATE::IDLE; // trạng thái ban đầu cần khai báo khi tạo object
 	whip = new Whip(); // khởi tạo whip
 
@@ -116,7 +117,7 @@ void CSIMON::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT> *coObjects)
 					{
 						vx = 0;
 					}
-					if (nx != 0) vx = 0;
+					/*if (nx != 0) vx = 0;*/
 					if (ny != 0) vy = 0;
 				}
 				
@@ -219,7 +220,7 @@ void CSIMON::Render()
 	case SIMONSTATE::JUMP:
 		ani = SIMON_ANI_SIT;
 		break;
-	case SIMONSTATE:: UPWHIP:
+	case SIMONSTATE::UPWHIP:
 		ani = SIMON_ANI_UP_WHIP;
 		break;
 	case SIMONSTATE::DIE:
@@ -301,7 +302,10 @@ void CSIMON::GetBoundingBox(float &left, float &top, float &right, float &bottom
 	left = x;
 	top = y; 
 
-	if (level==SIMON_LEVEL_BIG)
+	right = left + SIMON_BIG_BBOX_WIDTH;
+	bottom = top + SIMON_BIG_BBOX_HEIGHT;
+
+	/*if (level==SIMON_LEVEL_BIG)
 	{
 		right = x + SIMON_BIG_BBOX_WIDTH;
 		bottom = y + SIMON_BIG_BBOX_HEIGHT;
@@ -310,6 +314,6 @@ void CSIMON::GetBoundingBox(float &left, float &top, float &right, float &bottom
 	{
 		right = x + SIMON_SMALL_BBOX_WIDTH;
 		bottom = y + SIMON_SMALL_BBOX_HEIGHT;
-	}
+	}*/
 }
 

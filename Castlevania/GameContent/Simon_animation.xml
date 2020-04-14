@@ -29,5 +29,10 @@
 		<sprite ID="SIMON_SITTING_ATTACK_03"/>
 	</animation>
 	
+	<animation ID="SIMON_ANI_IDLE_UPWHIP" timeLoop="100">
+		<sprite ID="SIMON_IDLE_UPWHIP_01" />
+		<sprite ID="SIMON_IDLE_UPWHIP_02" />
+		<sprite ID="SIMON_IDLE_UPWHIP_03" />
+	</animation>
 	
 </gamedata>
