@@ -16,6 +16,7 @@ class PlayScene:public Scene
     std::queue<LPGAMEOBJECT> qObjects;
 public:
 
+    D3DXVECTOR2 GetCamera();
     void SpawnObject(LPGAMEOBJECT obj) { this->qObjects.push(obj); }
     // overide nó dùng để kt xem mình truyền các parameter vào đúng kiểu
     // của hàm kế thừa k

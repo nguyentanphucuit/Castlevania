@@ -24,6 +24,21 @@ void Whip::Render()
 	RenderBoundingBox();// vẽ bbox
 }
 
+void Whip::Upgrade()
+{
+	switch (state) {
+	case NORMAL:
+		state = CHAIN;
+		break;
+	case CHAIN:
+		state = MORINGSTAR;
+	case MORINGSTAR:
+		break;
+	default:
+		break;
+	}
+}
+
 void Whip::GetBoundingBox(float& l, float& t, float& r, float& b)
 {
 

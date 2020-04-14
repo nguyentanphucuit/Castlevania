@@ -37,6 +37,8 @@ public:
 		this->animations[WHIP_ANI_MORNINGSTAR]->ResetFrame();
 	}
 	virtual void Render();
+
+	void Upgrade();
 	void SetNxDirection(int nx) { this->nx = nx; }
 	virtual void GetBoundingBox(float& l, float& t, float& r, float& b);
 	virtual void Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* colliable_objects = NULL);

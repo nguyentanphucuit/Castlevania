@@ -2,7 +2,7 @@
 #include "Item.h"
 #include "Heart.h"
 #include "BHeart.h"
-#include "Dagger.h"
+#include "IDagger.h"
 #include "IWhip.h"
 // khai báo các loại item tại đây
 enum class EItem
@@ -37,7 +37,7 @@ inline T ItemFactory::SpawnItem(EItem eitem)
         return new IWhip();
         break;
     case EItem::DAGGER:
-        return new CDagger();
+        return new IDagger();
         break;
     case EItem::HEART:
         return new CHeart();

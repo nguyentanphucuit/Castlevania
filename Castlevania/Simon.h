@@ -19,6 +19,8 @@
 #define SIMON_ANI_SIT 2 // cai dau tien them vao vector 
 #define SIMON_ANI_STAND_ATTACK 3 // cai dau tien them vao vector 
 #define SIMON_ANI_SIT_ATTACK 4 // cai dau tien them vao vector 
+
+#define SIMON_ANI_UP_WHIP 5
 #define SIMON_ANI_DIE				8
 
 #define	SIMON_LEVEL_SMALL	1
@@ -31,6 +33,7 @@
 #define SIMON_SMALL_BBOX_HEIGHT 15
 
 #define SIMON_UNTOUCHABLE_TIME 5000
+#define SIMON_UPGRADE_WHIP_TIME 500
 
 #define SIMON_ATTACT_TIME 350// thời gian đánh mỗi lần bấm hết thời gian reseet lại trạng thái
 
@@ -45,9 +48,10 @@
 	DIE,
 	FIGHT_STAND,
 	FIGHT_SIT,
+	UPWHIP,
 };
 
-
+ enum class EWeapon;
 
 class CSIMON : public CGameObject
 {
@@ -55,26 +59,29 @@ class CSIMON : public CGameObject
 	int untouchable;
 	DWORD untouchable_start;
 	DWORD fight_start; // biến đếm thời gian đánh khi bắt đầu đánh sẽ đếm, khi đủ 350ms reset
+	DWORD upgrade_start;
+	
 	SIMONSTATE state;
 	Whip* whip;
+	EWeapon currentWeapon;
+	bool spawnWeapon = false;
+	bool isSpawnWeapon = false;
 
 public: 
-	CSIMON() : CGameObject()
-	{
-		level = SIMON_LEVEL_BIG;
-		untouchable = 0;
-		this->fight_start = 0;
-		state = SIMONSTATE::IDLE; // trạng thái ban đầu cần khai báo khi tạo object
-		whip = new Whip(); // khởi tạo whip
-		AddAnimation("SIMON_ANI_IDLE");	//0	
-		AddAnimation("SIMON_ANI_WALKING");//	1	
-		AddAnimation("SIMON_ANI_SIT");//	2	
-		AddAnimation("SIMON_ANI_STAND_ATTACK");//	3	
-		AddAnimation("SIMON_ANI_SIT_ATTACK");//	4
-		
-	}
+	CSIMON();
+
+	bool ResetSpawnWeapon() { return this->isSpawnWeapon = false; };
+	bool IsSpawnWeapon() { return spawnWeapon; };
+	void SpawnWeapon(bool flag) { this->spawnWeapon = flag; };
+	
+	EWeapon GetCurrentWeapon() { return this->currentWeapon; };
+
 	DWORD GetFightTime() { return this->fight_start; }
 	void ResetFightTime() { this->fight_start = 0; }
+
+	DWORD GetUpgradeTime() { return this->upgrade_start; }
+	void ResetUpgradeTime() { this->upgrade_start = 0; }
+
 	virtual void Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT> *colliable_objects = NULL);
 	virtual void Render();
 	void SetState(SIMONSTATE state);

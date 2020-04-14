@@ -8,7 +8,24 @@
 #include "Torch.h"
 #include "Candle.h"
 #include "ItemFactory.h"
+#include "WeaponFactory.h"
 
+CSIMON::CSIMON() : CGameObject() {
+	level = SIMON_LEVEL_BIG;
+	untouchable = 0;
+	this->fight_start = 0;
+	state = SIMONSTATE::IDLE; // trạng thái ban đầu cần khai báo khi tạo object
+	whip = new Whip(); // khởi tạo whip
+
+	this->currentWeapon = EWeapon::NONE;
+
+	AddAnimation("SIMON_ANI_IDLE");	//0	
+	AddAnimation("SIMON_ANI_WALKING");//	1	
+	AddAnimation("SIMON_ANI_SIT");//	2	
+	AddAnimation("SIMON_ANI_STAND_ATTACK");//	3	
+	AddAnimation("SIMON_ANI_SIT_ATTACK");//	4
+	AddAnimation("SIMON_ANI_IDLE_UPWHIP"); // 5
+}
 void CSIMON::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT> *coObjects)
 {
 	
@@ -108,6 +125,19 @@ void CSIMON::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT> *coObjects)
 			}
 			else
 			{
+				if (dynamic_cast<Item*>(e->obj)) {
+					Item* item = dynamic_cast<Item*>(e->obj);
+					if (!item->IsDestroy()) {
+						item->SetDestroy();
+					}
+					if (dynamic_cast<IWhip*>(item)) {
+						this->SetState(SIMONSTATE::UPWHIP);
+					}
+					if (dynamic_cast<IDagger*>(item)) {
+						this->currentWeapon = EWeapon::Dagger;
+					}
+				}
+				
 				if (e->nx!=0) // va chạm chiều x
 					x += dx;
 				if (e->ny != 0)
@@ -121,11 +151,18 @@ void CSIMON::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT> *coObjects)
 	// clean up collision events
 	for (UINT i = 0; i < coEvents.size(); i++) delete coEvents[i];
 
+	// xử lý va chạm simon và các items
 	for (size_t i = 0; i < coObjects->size(); i++) {
 		if (this->isColliding(coObjects->at(i))) {
 			if (dynamic_cast<Item*>(coObjects->at(i))) {
 				Item* item = dynamic_cast<Item*>(coObjects->at(i));
 				if(!item->IsDestroy()){
+					if (dynamic_cast<IWhip*>(item)) {
+						this->SetState(SIMONSTATE::UPWHIP);
+					}
+					if (dynamic_cast<IDagger*>(item)) {
+						this->currentWeapon = EWeapon::Dagger;
+					}
 					item->SetDestroy();
 				}
 			}
@@ -135,16 +172,29 @@ void CSIMON::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT> *coObjects)
 
 	if (this->fight_start!=0)// có đánh mới cần set
 	{
-		if (this->state==SIMONSTATE::FIGHT_SIT)
-		{
-			whip->SetPosition(this->x - 1.5 * SIMON_BIG_BBOX_WIDTH, this->y+SIMON_BIG_BBOX_HEIGHT*0.25); //đặt tọa độ whip theo vị trí simon canh chỉnh lại xíu
+		if (!this->spawnWeapon) {
+			if (this->state == SIMONSTATE::FIGHT_SIT)
+			{
+				whip->SetPosition(this->x - 1.5 * SIMON_BIG_BBOX_WIDTH, this->y + SIMON_BIG_BBOX_HEIGHT * 0.25); //đặt tọa độ whip theo vị trí simon canh chỉnh lại xíu
+			}
+			else
+			{
+				whip->SetPosition(this->x - 1.5 * SIMON_BIG_BBOX_WIDTH, this->y); //đặt tọa độ whip theo vị trí simon canh chỉnh lại xíu
+			}
+			whip->SetNxDirection(this->nx);
+			whip->Update(dt, scene, coObjects);
 		}
-		else
-		{
-			whip->SetPosition(this->x - 1.5 * SIMON_BIG_BBOX_WIDTH, this->y); //đặt tọa độ whip theo vị trí simon canh chỉnh lại xíu
+		else if (!isSpawnWeapon) {
+			auto weapon= WeaponFactory::SpawnWeapon<Weapon*>(this->currentWeapon);
+			weapon->SetPosition(x, y);
+			weapon->SetNx(this->nx);
+			if (dynamic_cast<PlayScene*>(scene)) {
+				PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
+				pScene->SpawnObject(weapon);
+				isSpawnWeapon = true;
+			}
 		}
-		whip->SetNxDirection(this->nx);
-		whip->Update(dt,scene, coObjects);
+		
 	}
 	
 }
@@ -169,6 +219,9 @@ void CSIMON::Render()
 	case SIMONSTATE::JUMP:
 		ani = SIMON_ANI_SIT;
 		break;
+	case SIMONSTATE:: UPWHIP:
+		ani = SIMON_ANI_UP_WHIP;
+		break;
 	case SIMONSTATE::DIE:
 		break;
 	case SIMONSTATE::FIGHT_STAND:
@@ -181,7 +234,7 @@ void CSIMON::Render()
 		break;
 	}
 	
-	if (this->fight_start!=0) // có đánh mới vẽ ra
+	if (this->fight_start!=0 && !this->spawnWeapon) // có đánh mới vẽ ra
 	{
 		whip->Render();
 	}
@@ -191,7 +244,7 @@ void CSIMON::Render()
 
 	animations[ani]->Render(nx,x, y, alpha);
 
-	/*RenderBoundingBox();*/
+	RenderBoundingBox();
 }
 
 void CSIMON::SetState(SIMONSTATE state)
@@ -217,6 +270,12 @@ void CSIMON::SetState(SIMONSTATE state)
 		break;
 	case SIMONSTATE::DIE:
 		vy = -SIMON_DIE_DEFLECT_SPEED;
+		break;
+	case SIMONSTATE::UPWHIP:
+		whip->Upgrade();
+		this->ResetAttack();
+		this->upgrade_start = GetTickCount();
+		vx = 0;
 		break;
 	case SIMONSTATE::SIT:
 		vx = 0; // vx vận tốc phương x

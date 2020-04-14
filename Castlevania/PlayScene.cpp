@@ -134,6 +134,11 @@ void PlayScene::LoadAnimation(const string& filePath)
 
 
 }
+D3DXVECTOR2 PlayScene::GetCamera()
+{
+
+	return CGame::GetInstance()->GetCamera();
+}
 void PlayScene::OnCreate()
 {
 	// chút mình load tẽ từ file luôn

@@ -147,7 +147,6 @@
     <ClInclude Include="BHeart.h" />
     <ClInclude Include="Brick.h" />
     <ClInclude Include="Candle.h" />
-    <ClInclude Include="Dagger.h" />
     <ClInclude Include="debug.h" />
     <ClInclude Include="define.h" />
     <ClInclude Include="Effect.h" />
@@ -159,6 +158,7 @@
     <ClInclude Include="Ground.h" />
     <ClInclude Include="Heart.h" />
     <ClInclude Include="HiddenObject.h" />
+    <ClInclude Include="IDagger.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemFactory.h" />
     <ClInclude Include="IWhip.h" />
@@ -173,13 +173,15 @@
     <ClInclude Include="Sprites.h" />
     <ClInclude Include="Textures.h" />
     <ClInclude Include="Torch.h" />
+    <ClInclude Include="WDagger.h" />
+    <ClInclude Include="Weapon.h" />
+    <ClInclude Include="WeaponFactory.h" />
     <ClInclude Include="Whip.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BHeart.cpp" />
     <ClCompile Include="Brick.cpp" />
     <ClCompile Include="Candle.cpp" />
-    <ClCompile Include="Dagger.cpp" />
     <ClCompile Include="debug.cpp" />
     <ClCompile Include="Effect.cpp" />
     <ClCompile Include="EffectFactory.cpp" />
@@ -190,6 +192,7 @@
     <ClCompile Include="Ground.cpp" />
     <ClCompile Include="Heart.cpp" />
     <ClCompile Include="HiddenObject.cpp" />
+    <ClCompile Include="IDagger.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="ItemFactory.cpp" />
     <ClCompile Include="IWhip.cpp" />
@@ -204,6 +207,9 @@
     <ClCompile Include="Sprites.cpp" />
     <ClCompile Include="Textures.cpp" />
     <ClCompile Include="Torch.cpp" />
+    <ClCompile Include="WDagger.cpp" />
+    <ClCompile Include="Weapon.cpp" />
+    <ClCompile Include="WeaponFactory.cpp" />
     <ClCompile Include="Whip.cpp" />
   </ItemGroup>
   <ItemGroup>
