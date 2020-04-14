@@ -31,7 +31,7 @@ void Whip::GetBoundingBox(float& l, float& t, float& r, float& b)
 	{
 		l = x + 20;
 		t = y;
-		r = l+WHIP_BBOX_NORMAL_WIDTH;
+		r = l + WHIP_BBOX_NORMAL_WIDTH;
 		b = y + WHIP_BBOX_NORMAL_HEIGHT;
 	}
 	else

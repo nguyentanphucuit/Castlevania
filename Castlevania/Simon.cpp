@@ -7,6 +7,7 @@
 #include "Ground.h"
 #include "Torch.h"
 #include "Candle.h"
+#include "ItemFactory.h"
 
 void CSIMON::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT> *coObjects)
 {
@@ -120,7 +121,16 @@ void CSIMON::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT> *coObjects)
 	// clean up collision events
 	for (UINT i = 0; i < coEvents.size(); i++) delete coEvents[i];
 
-
+	for (size_t i = 0; i < coObjects->size(); i++) {
+		if (this->isColliding(coObjects->at(i))) {
+			if (dynamic_cast<Item*>(coObjects->at(i))) {
+				Item* item = dynamic_cast<Item*>(coObjects->at(i));
+				if(!item->IsDestroy()){
+					item->SetDestroy();
+				}
+			}
+		}
+	}
 	// để whip update cuối cùng để tránh trường hợp simon xử lý va chạm ở trên làm vị trí thay đổi
 
 	if (this->fight_start!=0)// có đánh mới cần set
@@ -181,7 +191,7 @@ void CSIMON::Render()
 
 	animations[ani]->Render(nx,x, y, alpha);
 
-	RenderBoundingBox();
+	/*RenderBoundingBox();*/
 }
 
 void CSIMON::SetState(SIMONSTATE state)
@@ -201,7 +211,6 @@ void CSIMON::SetState(SIMONSTATE state)
 	case SIMONSTATE::JUMP: // nhảy rồi thì chắc ăn k chạm đất
 
 		vy = -SIMON_JUMP_SPEED_Y;
-		
 		break;
 	case SIMONSTATE::IDLE:
 		vx = 0;
