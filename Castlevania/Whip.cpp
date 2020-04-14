@@ -42,22 +42,36 @@ void Whip::Upgrade()
 
 void Whip::GetBoundingBox(float& l, float& t, float& r, float& b)
 {
-
+	
 	if (nx < 0)
 	{
-		l = x + 20;
+		l = x + 50;
 		t = y;
-		r = l + WHIP_BBOX_NORMAL_WIDTH;
+		if (state == MORINGSTAR) {
+			l = x + 20;
+			r = l + WHIP_BBOX_NORMAL_WIDTH + 30;
+		}
+		else {
+			r = l + WHIP_BBOX_NORMAL_WIDTH;
+		}
 		b = y + WHIP_BBOX_NORMAL_HEIGHT;
+		
 	}
-	else
+	else if(nx > 0)
 	{
-		l = x + 140;
-		t = y;
-		r = l + WHIP_BBOX_NORMAL_WIDTH;
-		b = y + WHIP_BBOX_NORMAL_HEIGHT;
+		
+		l = x + 150;
+		t = y;	
+		if (state == MORINGSTAR) {
 
+			r = l + WHIP_BBOX_NORMAL_WIDTH + 30;
+		}
+		else {
+			r = l + WHIP_BBOX_NORMAL_WIDTH;
+		}
+		b = y + WHIP_BBOX_NORMAL_HEIGHT;
 	}
+	
 
 }
 
