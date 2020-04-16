@@ -203,9 +203,7 @@ int Run()
 		if (dt >= tickPerFrame)
 		{
 			frameStart = now;
-
-			game->ProcessKeyboard();
-			
+			game->ProcessKeyboard(); // bắt sự kiện phím
 			Update(dt);
 			Render();
 		}

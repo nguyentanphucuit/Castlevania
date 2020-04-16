@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<gamedata>
-
-	<animation ID="CANDLE_ANI_BURN" timeLoop= "100">
-		<sprite ID="CANDLE_SPRITE_01"/>
-		<sprite ID="CANDLE_SPRITE_02"/>
-	</animation>
-
-</gamedata>

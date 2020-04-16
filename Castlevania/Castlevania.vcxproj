@@ -159,6 +159,7 @@
     <ClInclude Include="Heart.h" />
     <ClInclude Include="HiddenObject.h" />
     <ClInclude Include="IDagger.h" />
+    <ClInclude Include="IMoney.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemFactory.h" />
     <ClInclude Include="IWhip.h" />
@@ -193,6 +194,7 @@
     <ClCompile Include="Heart.cpp" />
     <ClCompile Include="HiddenObject.cpp" />
     <ClCompile Include="IDagger.cpp" />
+    <ClCompile Include="IMoney.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="ItemFactory.cpp" />
     <ClCompile Include="IWhip.cpp" />

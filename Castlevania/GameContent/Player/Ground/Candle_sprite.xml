@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<gamedata>
+	<sprite ID="CANDLE_SPRITE_01">
+			<frame l="0" t="0" r="16" b="32" />
+	</sprite>
+	<sprite ID="CANDLE_SPRITE_02">
+			<frame l="16" t="0" r="32" b="32" />
+	</sprite>
+</gamedata>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<gamedata>
+
+	<animation ID="TORCH_ANI_BURN" timeLoop= "100">
+		<sprite ID="TORCH_SPRITE_01"/>
+		<sprite ID="TORCH_SPRITE_02"/>
+	</animation>
+
+</gamedata>

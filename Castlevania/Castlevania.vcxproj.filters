@@ -141,6 +141,9 @@
     <ClInclude Include="IDagger.h">
       <Filter>Source Files\ItemFactory</Filter>
     </ClInclude>
+    <ClInclude Include="IMoney.h">
+      <Filter>Source Files\ItemFactory</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -237,6 +240,9 @@
       <Filter>Source Files\WeaponsFactory</Filter>
     </ClCompile>
     <ClCompile Include="IDagger.cpp">
+      <Filter>Source Files\ItemFactory</Filter>
+    </ClCompile>
+    <ClCompile Include="IMoney.cpp">
       <Filter>Source Files\ItemFactory</Filter>
     </ClCompile>
   </ItemGroup>

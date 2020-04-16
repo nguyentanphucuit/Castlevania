@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<gamedata>
-	<sprite ID="TORCH_SPRITE_01">
-			<frame l="0" t="0" r="32" b="64" />
-	</sprite>
-	<sprite ID="TORCH_SPRITE_02">
-			<frame l="32" t="0" r="64" b="64" />
-	</sprite>
-</gamedata>

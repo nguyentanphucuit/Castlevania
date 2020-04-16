@@ -5,14 +5,14 @@
 
 
 	<textures>
-		<tex ID ="0" name = "SIMON" path="GameContent\\Resource\\Simon\\SIMON.png" red="255" green="255" blue ="255"/>
+		<tex ID ="0" name = "SIMON" path="GameContent\\Player\\Simon\\SIMON.png" red="255" green="255" blue ="255"/>
 		<tex ID ="20" name = "MISC" path="textures\\misc.png" red="176" green="224" blue ="248"/>
 		<tex ID ="10" name = "ENEMY" path="textures\\enemies.png" red="3" green="26" blue ="110"/>
 		<tex ID ="-100" name = "BBOX" path="textures\\bbox.png" red="255" green="255" blue ="255"/>
 		<tex ID ="-500" name = "Courtyard_bank" path="GameContent\\Map\\Courtyard_bank.png" red="255" green="255" blue ="255"/>
 		<tex ID ="1" name = "WHIP" path="GameContent\\weapons\\WHIP.png" red="255" green="255" blue ="255"/>
-		<tex ID ="2" name = "TORCH" path="GameContent\\Resource\\Ground\\Torch.png" red="255" green="0" blue ="255"/>
-		<tex ID ="3" name = "CANDLE" path="GameContent\\Resource\\Ground\\Candle.png" red="255" green="0" blue ="255"/>
+		<tex ID ="2" name = "TORCH" path="GameContent\\Player\\Ground\\Torch.png" red="255" green="0" blue ="255"/>
+		<tex ID ="3" name = "CANDLE" path="GameContent\\Player\\Ground\\Candle.png" red="255" green="0" blue ="255"/>
 		<tex ID ="4" name = "ITEM" path="GameContent\\Items\\ITEM.png" red="255" green="0" blue ="255"/>
 		<tex ID ="5" name = "EFFECT" path="GameContent\\Effects\\EFFECT.png" red="255" green="0" blue ="255"/>
 	</textures>
@@ -21,20 +21,20 @@
 		<!-- <objectSprite idTex="10" name="Goomba" path="GameContent\\Goomba_sprite.xml"/> -->
 		<!-- <objectSprite idTex="0" name="Mario" path="GameContent\\Mario_sprite.xml"/>	 -->
 		<objectSprite idTex="20" name="Ground" path="GameContent\\Ground_sprite.xml"/>	
-		<objectSprite idTex="0" name="Simon" path="GameContent\\Simon_sprite.xml"/>	
+		<objectSprite idTex="0" name="Simon" path="GameContent\\Player\\Simon\\Simon_sprite.xml"/>	
 		<objectSprite idTex="1" name="Whip" path="GameContent\\weapons\\Whip_sprite.xml"/>
-		<objectSprite idTex="2" name="Torch" path="GameContent\\Resource\\Ground\\Torch_sprite.xml"/>
-		<objectSprite idTex="3" name="Candle" path="GameContent\\Resource\\Ground\\Candle_sprite.xml"/>
+		<objectSprite idTex="2" name="Torch" path="GameContent\\Player\\Ground\\Torch_sprite.xml"/>
+		<objectSprite idTex="3" name="Candle" path="GameContent\\Player\\Ground\\Candle_sprite.xml"/>
 		<objectSprite idTex="4" name="Item" path="GameContent\\Items\\Item_sprite.xml"/>
 		<objectSprite idTex="5" name="Effect" path="GameContent\\Effects\\Effect_sprite.xml"/>
 	</sprites>
 	
 	<animations>
 		<!-- <objectani name="mario" path="GameContent\\Mario_animation.xml"/> -->
-		<objectani name="simon" path="GameContent\\Simon_animation.xml"/>
+		<objectani name="simon" path="GameContent\\Player\\Simon\\Simon_animation.xml"/>
 		<objectani name="whip" path="GameContent\\weapons\\Whip_animation.xml"/>
-		<objectani name="torch" path="GameContent\\Resource\\Ground\\Torch_animation.xml"/>
-		<objectani name="candle" path="GameContent\\Resource\\Ground\\Candle_animation.xml"/>
+		<objectani name="torch" path="GameContent\\Player\\Ground\\Torch_animation.xml"/>
+		<objectani name="candle" path="GameContent\\Player\\Ground\\Candle_animation.xml"/>
 		<objectani name="item" path="GameContent\\Items\\Item_animation.xml"/>
 		<objectani name="effect" path="GameContent\\Effects\\Effect_animation.xml"/>
 	</animations>

@@ -121,7 +121,6 @@ void Map::BuildMapLayer(xml_node<>* rootNode)
 void Map::BuildTileSet(xml_node<>* node)
 {
 
-
 	xml_node<>* tileSetNode = node->first_node("tileset");
 	tileSet.name = std::string(tileSetNode->first_attribute("name")->value());
 	//nên đọc width và height của image chia cho tilesize để tìm col và rows

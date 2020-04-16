@@ -4,13 +4,16 @@
 #include "BHeart.h"
 #include "IDagger.h"
 #include "IWhip.h"
-// khai báo các loại item tại đây
+#include "IMoney.h"
+
+// declarate Item
 enum class EItem
 {
 	BIGHEART=1,
 	WHIP,
 	DAGGER,
 	HEART,
+    MONEY,
 
 };
 
@@ -19,7 +22,6 @@ class ItemFactory
 
 public:
 	// Kiểu T trả về nhiều kiểu đối tượng khác nhau
-	//đọc thêm về template
 	template <typename T> static T SpawnItem(EItem item);
 
 };
@@ -41,6 +43,9 @@ inline T ItemFactory::SpawnItem(EItem eitem)
         break;
     case EItem::HEART:
         return new CHeart();
+        break;
+    case EItem ::MONEY:
+        return new IMoney();
         break;
     default:
         break;

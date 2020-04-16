@@ -7,7 +7,6 @@ class Layer
 {
 private:
 	bool isVisible; // dùng để ẩn hiện layer;
-
 	int width; // chiều dài layer đã chia tilesize(tilesize= đúng tilesize của map) 
 	int height;
 	int tileWidth;

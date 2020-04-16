@@ -16,13 +16,11 @@ enum class ITEMSTATE
 class Item :public CGameObject
 {
 protected:
-	DWORD time_exist;
 	DWORD time_wait;
 
 public:
 
 	Item() : CGameObject() {
-		time_exist = GetTickCount();
 		time_wait = GetTickCount();
 	}
 

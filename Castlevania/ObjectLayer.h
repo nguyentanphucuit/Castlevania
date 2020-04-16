@@ -42,10 +42,9 @@ class ObjectLayer
 private:
 	int id;
 	std::string name;
-	// khúc này có thể dùng vector cho dễ, còn dùng map thì có thể mở rộng sau này
 	std::map<int, ObjectTile*> objectgroup;
 public:
-	ObjectLayer() :id(0), name("bla bla") {};
+	ObjectLayer() :id(0), name("") {};
 	ObjectLayer(int id, std::string name, std::map<int, ObjectTile*> objectgroup) :id(id)
 		, name(name), objectgroup(objectgroup) {};
 
