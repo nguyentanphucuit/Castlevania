@@ -151,6 +151,7 @@
     <ClInclude Include="define.h" />
     <ClInclude Include="Effect.h" />
     <ClInclude Include="EffectFactory.h" />
+    <ClInclude Include="Entrance.h" />
     <ClInclude Include="Flame.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
@@ -158,6 +159,7 @@
     <ClInclude Include="Ground.h" />
     <ClInclude Include="Heart.h" />
     <ClInclude Include="HiddenObject.h" />
+    <ClInclude Include="HMoney.h" />
     <ClInclude Include="IDagger.h" />
     <ClInclude Include="IMoney.h" />
     <ClInclude Include="Item.h" />
@@ -168,6 +170,7 @@
     <ClInclude Include="MenuScene.h" />
     <ClInclude Include="ObjectLayer.h" />
     <ClInclude Include="PlayScene.h" />
+    <ClInclude Include="RetroGrade.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneStateMachine.h" />
     <ClInclude Include="Simon.h" />
@@ -186,6 +189,7 @@
     <ClCompile Include="debug.cpp" />
     <ClCompile Include="Effect.cpp" />
     <ClCompile Include="EffectFactory.cpp" />
+    <ClCompile Include="Entrance.cpp" />
     <ClCompile Include="Flame.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -193,6 +197,7 @@
     <ClCompile Include="Ground.cpp" />
     <ClCompile Include="Heart.cpp" />
     <ClCompile Include="HiddenObject.cpp" />
+    <ClCompile Include="HMoney.cpp" />
     <ClCompile Include="IDagger.cpp" />
     <ClCompile Include="IMoney.cpp" />
     <ClCompile Include="Item.cpp" />
@@ -204,6 +209,7 @@
     <ClCompile Include="MenuScene.cpp" />
     <ClCompile Include="ObjectLayer.cpp" />
     <ClCompile Include="PlayScene.cpp" />
+    <ClCompile Include="RetroGrade.cpp" />
     <ClCompile Include="SceneStateMachine.cpp" />
     <ClCompile Include="Simon.cpp" />
     <ClCompile Include="Sprites.cpp" />

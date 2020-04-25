@@ -18,7 +18,7 @@ CGameObject::CGameObject()
 void CGameObject::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT> *coObjects)
 {
 	this->dt = dt;
-	dx = vx*dt;
+	dx = vx*dt; 
 	dy = vy*dt;
 }
 
@@ -77,6 +77,7 @@ void CGameObject::CalcPotentialCollisions(
 	}
 
 	std::sort(coEvents.begin(), coEvents.end(), CCollisionEvent::compare);
+	//phải sort theo thời gian
 }
 
 void CGameObject::FilterCollision(
@@ -151,9 +152,10 @@ bool CGameObject::AABB(float l, float t, float r, float b, float l1, float t1, f
 	return !(left > 0 || right < 0 || top < 0 || bottom > 0);
 }
 
-void CGameObject::AddAnimation(string aniId)
+void CGameObject::AddAnimation(string aniId, bool isLoop)
 {
 	LPANIMATION ani = CAnimations::GetInstance()->Get(aniId);
+	ani->SetLoop(isLoop);
 	animations.push_back(ani);
 }
 

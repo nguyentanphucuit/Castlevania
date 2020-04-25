@@ -27,9 +27,9 @@ public:
 
 		this->state = WHIPSTATE::NORMAL;
 		//thêm ani
-		AddAnimation("WHIP_ANI_NORMAL");
-		AddAnimation("WHIP_ANI_CHAIN");
-		AddAnimation("WHIP_ANI_MORNINGSTAR");
+		AddAnimation("WHIP_ANI_NORMAL", false);
+		AddAnimation("WHIP_ANI_CHAIN",false);
+		AddAnimation("WHIP_ANI_MORNINGSTAR",false);
 	}
 	void ResetAttack() {
 		this->animations[WHIP_ANI_NORMAL]->ResetFrame();

@@ -4,7 +4,7 @@
 #define DAGGER_BBOX_WIDTH 32
 #define DAGGER_BBOX_HEIGHT 18
 
-#define DAGGER_VX 0.5f
+#define DAGGER_VX 0.35f
 
 class WDagger:public Weapon
 {

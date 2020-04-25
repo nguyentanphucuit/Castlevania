@@ -45,8 +45,6 @@ public:
 
 	int nx;	 
 
-	//int state;
-
 	DWORD dt; 
 
 	vector<LPANIMATION> animations;
@@ -58,8 +56,6 @@ public:
 	void SetSpeed(float vx, float vy) { this->vx = vx, this->vy = vy; }
 	void GetPosition(float &x, float &y) { x = this->x; y = this->y; }
 	void GetSpeed(float &vx, float &vy) { vx = this->vx; vy = this->vy; }
-
-	//int GetState() { return this->state; }
 
 	void RenderBoundingBox();
 
@@ -79,10 +75,7 @@ public:
 	// thuat toan xu ly va cham AABB
 	bool AABB(float l, float t, float r, float b, float l1, float t1, float r1, float b1);
 
-
-
-
-	void AddAnimation(string aniId);
+	void AddAnimation(string aniId,bool isLoop=true);
 
 	CGameObject();
 

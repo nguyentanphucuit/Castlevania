@@ -1,4 +1,5 @@
-#include "WDagger.h"
+﻿#include "WDagger.h"
+
 
 void WDagger::Render()
 {
@@ -6,6 +7,7 @@ void WDagger::Render()
 		return;
 	}
 	animations[0]->Render(nx, x, y);
+	//RenderBoundingBox();
 }
 
 void WDagger::GetBoundingBox(float& l, float& t, float& r, float& b)
@@ -25,5 +27,6 @@ void WDagger::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObject)
 	vx = nx > 0 ? this->vx = DAGGER_VX : this->vx = -DAGGER_VX;
 
 	Weapon::Update(dt, scene, coObject);
+	
 }
 

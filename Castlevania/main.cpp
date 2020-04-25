@@ -197,7 +197,7 @@ int Run()
 		DWORD now = GetTickCount();
 
 		// dt: the time between (beginning of last frame) and now
-		// this frame: the frame we are about to render
+		// this frame: the frame we are about to renderf
 		DWORD dt = now - frameStart;
 
 		if (dt >= tickPerFrame)
@@ -206,7 +206,7 @@ int Run()
 			game->ProcessKeyboard(); // bắt sự kiện phím
 			Update(dt);
 			Render();
-		}
+		} 
 		else
 			Sleep(tickPerFrame - dt);	
 	}

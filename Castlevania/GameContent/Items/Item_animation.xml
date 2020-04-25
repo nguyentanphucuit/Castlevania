@@ -22,17 +22,5 @@
 			<sprite ID="MONEYBAG_SPRITE_BLUE" />
 			<sprite ID="MONEYBAG_SPRITE_WHITE" />
 		</animation>
-		
-		<animation ID="MONEYBAG_ANI_BLUE" timeLoop="100">
-			<sprite ID="MONEYBAG_SPRITE_BLUE" />
-		</animation>
-		<animation ID="MONEYBAG_ANI_RED" timeLoop="100">
-			<sprite ID="MONEYBAG_SPRITE_RED" />
-		</animation>
-		<animation ID="MONEYBAG_ANI_WHITE" timeLoop="100">
-			<sprite ID="MONEYBAG_SPRITE_WHITE" />
-		</animation>
-		
-
 
 </gamedata>

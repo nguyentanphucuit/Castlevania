@@ -21,7 +21,7 @@ void Whip::Render()
 		break;
 	}
 	animations[ani]->Render(nx, x, y);
-	RenderBoundingBox();// vẽ bbox
+	//RenderBoundingBox();// vẽ bbox
 }
 
 void Whip::Upgrade()
@@ -118,19 +118,12 @@ void Whip::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT>* colliable_objects
 
 	for (size_t i = 0; i < colliable_objects->size(); i++)
 	{
-		if (dynamic_cast<CCandle*>(colliable_objects->at(i))) // kiểm tra phải candle không
-		{
-			CCandle* candle = dynamic_cast<CCandle*>(colliable_objects->at(i));
-			if (this->isColliding(candle))// kiểm tra có va chạm k
-			{
-				candle->SetDestroy(); // có va chạm hủy candle
-			}
-		}
 		if (dynamic_cast<CTorch*>(colliable_objects->at(i))) // kiểm tra phải candle không
 		{
 			CTorch* torch = dynamic_cast<CTorch*>(colliable_objects->at(i));
 			if (this->isColliding(torch) && !torch->IsDestroyed())// kiểm tra có va chạm k
 			{
+				//khởi tạo item và effect
 				auto item = ItemFactory::SpawnItem<Item*>(torch->GetItem());
 				auto effect = EffectFactory::SpawnEffect<Effect*>(CEffect::FLAME);
 				if (dynamic_cast<PlayScene*>(scene)) //kiểm tra xem scene hiện tại có phải playscene k
@@ -140,6 +133,7 @@ void Whip::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT>* colliable_objects
 					PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
 					item->SetPosition(tx,ty);
 					effect->SetPosition(tx, ty);
+					// bỏ vô hàng đợi
 					pScene->SpawnObject(item);
 					pScene->SpawnObject(effect);
 				}

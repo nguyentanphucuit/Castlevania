@@ -7,6 +7,7 @@ void MenuScene::SetSwitchToScene(unsigned int id)
 
 void MenuScene::OnCreate()
 {
+
 }
 
 void MenuScene::OnDestroy()
@@ -25,7 +26,6 @@ void MenuScene::OnKeyDown(int KeyCode)
 {
 	switch (KeyCode)
 	{
-		// bấm space để chuyển scene
 	case DIK_SPACE: {
 		this->sceneStateMachine.SwitchTo(this->switchToState);
 		break;

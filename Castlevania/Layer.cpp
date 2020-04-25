@@ -7,9 +7,7 @@ void Layer::Render(D3DXVECTOR2 cam)
 	{
 		return;
 	}
-	/// ta chỉ vẽ ra các phần tile nằm trong vùng camera vì nằm ngoài vẽ ra cũng chẳng thấy đc
-	//=> tiết kiệm bộ nhớ
-	// cột bắt đầu vẽ
+
 	int beginCol = (int)(((int)cam.x) / tileHeight);
 	if (beginCol < 0)
 	{

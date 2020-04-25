@@ -6,8 +6,6 @@
 
 	<textures>
 		<tex ID ="0" name = "SIMON" path="GameContent\\Player\\Simon\\SIMON.png" red="255" green="255" blue ="255"/>
-		<tex ID ="20" name = "MISC" path="textures\\misc.png" red="176" green="224" blue ="248"/>
-		<tex ID ="10" name = "ENEMY" path="textures\\enemies.png" red="3" green="26" blue ="110"/>
 		<tex ID ="-100" name = "BBOX" path="textures\\bbox.png" red="255" green="255" blue ="255"/>
 		<tex ID ="-500" name = "Courtyard_bank" path="GameContent\\Map\\Courtyard_bank.png" red="255" green="255" blue ="255"/>
 		<tex ID ="1" name = "WHIP" path="GameContent\\weapons\\WHIP.png" red="255" green="255" blue ="255"/>
@@ -18,9 +16,7 @@
 	</textures>
 	
 	<sprites>
-		<!-- <objectSprite idTex="10" name="Goomba" path="GameContent\\Goomba_sprite.xml"/> -->
-		<!-- <objectSprite idTex="0" name="Mario" path="GameContent\\Mario_sprite.xml"/>	 -->
-		<objectSprite idTex="20" name="Ground" path="GameContent\\Ground_sprite.xml"/>	
+		
 		<objectSprite idTex="0" name="Simon" path="GameContent\\Player\\Simon\\Simon_sprite.xml"/>	
 		<objectSprite idTex="1" name="Whip" path="GameContent\\weapons\\Whip_sprite.xml"/>
 		<objectSprite idTex="2" name="Torch" path="GameContent\\Player\\Ground\\Torch_sprite.xml"/>
@@ -30,7 +26,6 @@
 	</sprites>
 	
 	<animations>
-		<!-- <objectani name="mario" path="GameContent\\Mario_animation.xml"/> -->
 		<objectani name="simon" path="GameContent\\Player\\Simon\\Simon_animation.xml"/>
 		<objectani name="whip" path="GameContent\\weapons\\Whip_animation.xml"/>
 		<objectani name="torch" path="GameContent\\Player\\Ground\\Torch_animation.xml"/>

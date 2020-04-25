@@ -64,7 +64,19 @@ void CAnimation::Render(int nx,float x, float y, int alpha)
 		{
 			currentFrame++;
 			lastFrameTime = now;
-			if (currentFrame == frames.size()) currentFrame = 0;
+			if (currentFrame == frames.size())
+			{
+				if (isLoop)
+				{
+					currentFrame = 0;
+				}
+				else
+				{
+					currentFrame--;
+				}
+				
+			}
+			
 		}
 		
 	}

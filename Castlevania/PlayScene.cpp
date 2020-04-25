@@ -8,22 +8,22 @@
 #include "Ground.h"
 #include "debug.h"
 #include "WeaponFactory.h"
+#include "HMoney.h"
+#include "Entrance.h"
+#include "RetroGrade.h"
 void PlayScene::LoadSprite(const std::string& filePath, const int tex)
 {
-	// ở đây mình truyền vào man
 	CTextures* textures = CTextures::GetInstance();
 	CSprites* sprites = CSprites::GetInstance();
 
 
 	LPDIRECT3DTEXTURE9 objecttex = textures->Get(tex);
-	// đọc vào file xml
-	char* fileLoc = new char[filePath.size() + 1]; // filepath lưu đường dẫn đến file XML đang đọc
+	char* fileLoc = new char[filePath.size() + 1]; 
 #
 
 
 
 	   //TODO: make multi format version of string copy
-	// phần này k quan tâm lắm dạng như cú pháp thôi
 #ifdef MACOS
 	strlcpy(fileLoc, file.c_str(), file.size() + 1);
 #else
@@ -35,59 +35,21 @@ void PlayScene::LoadSprite(const std::string& filePath, const int tex)
 	rapidxml::xml_document<> doc;
 	doc.parse<0>(xmlFile.data());
 
-	// truy vấn node trong file dùng xml_node<>* 
-	xml_node<>* rootNode = doc.first_node("gamedata"); //rootnode là node đầu tiên ở đây là "gamedata"
+	xml_node<>* rootNode = doc.first_node("gamedata"); 
 
-	////à ví dụ đọc vào node sprite đầu tiên
-	//xml_node<>* spriteNode = rootNode->first_node("sprite");
-
-	//// đọc ở đây man. đây hả um đọc node lên game thôi man code đọc node lên game ấy
-
-	//xml_node<>* frameNode = spriteNode->first_node("frame");
-
-	// cách đọc thuộc tính của node vd như thằng id của node sprite
-
-
-	//std::string Id = std::string(spriteNode->first_attribute("ID")->value()); // đọc attibute thì dùng node->first_attribute("name")
-
-	//// quăng ra debug luôn
-	//std::wstring cover = std::wstring(Id.begin(), Id.end()); 
-	//DebugOut(L"ID= %s", cover.c_str()); //%s truyền biến kiểu string, %d kiểu int, %f kiểu float
-
-
-
-
-
-
-	// lập toàn bộ các node con của node gamedata
-
-	for (xml_node<>* child = rootNode->first_node(); child; child = child->next_sibling()) //cú pháp lập
+	for (xml_node<>* child = rootNode->first_node(); child; child = child->next_sibling()) 
 	{
-		// lấy ra id của sprite
 		const std::string& ID = std::string(child->first_attribute("ID")->value());
-		// truy vấn vào node frame
 		xml_node<>* frameNode = child->first_node("frame");
-
-		// std::string đọc lên kiểu string
-		//std::atoi đọc lên kiểu int
-		//std::atof đọc lên kiểu float
-
 
 		int l = std::atoi(frameNode->first_attribute("l")->value());
 		int t = std::atoi(frameNode->first_attribute("t")->value());
 		int r = std::atoi(frameNode->first_attribute("r")->value());
 		int b = std::atoi(frameNode->first_attribute("b")->value());
-
-
-		/*	std::wstring cover = std::wstring(ID.begin(), ID.end());
-
-
-			DebugOut(L" ID= %s, l=%d, t=%d , r=%d , b=%d \n", cover.c_str(),l,t,r,b);*/
-			//	DebugOut(L" ID= %d, l=%d, t=%d , r=%d , b=%d \n", ID, l, t, r, b);
+	
+		//	DebugOut(L" ID= %d, l=%d, t=%d , r=%d , b=%d \n", ID, l, t, r, b);
 		sprites->Add(ID, l, t, r, b, objecttex);
 	}
-
-
 
 
 }
@@ -96,10 +58,9 @@ void PlayScene::LoadAnimation(const string& filePath)
 	CAnimations* animations = CAnimations::GetInstance();
 	LPANIMATION ani;
 
-	char* fileLoc = new char[filePath.size() + 1]; // filepath lưu đường dẫn đến file XML đang đọc
+	char* fileLoc = new char[filePath.size() + 1]; 
 #
 	   //TODO: make multi format version of string copy
-	// phần này k quan tâm lắm dạng như cú pháp thôi
 #ifdef MACOS
 	strlcpy(fileLoc, file.c_str(), file.size() + 1);
 #else
@@ -111,15 +72,14 @@ void PlayScene::LoadAnimation(const string& filePath)
 	rapidxml::xml_document<> doc;
 	doc.parse<0>(xmlFile.data());
 
-	// truy vấn node trong file dùng xml_node<>* 
-	xml_node<>* rootNode = doc.first_node("gamedata"); //rootnode là node đầu tiên ở đây là "gamedata"
+	xml_node<>* rootNode = doc.first_node("gamedata"); 
 
 	for (xml_node<>* child = rootNode->first_node(); child; child = child->next_sibling())
 	{
 
 		const std::string& ID = std::string(child->first_attribute("ID")->value());
 		int timeLoop = std::atoi(child->first_attribute("timeLoop")->value());
-		ani = new CAnimation(timeLoop);	// idle big right
+		ani = new CAnimation(timeLoop);
 		for (xml_node<>* grand = child->first_node(); grand; grand = grand->next_sibling())// lập thêm lần nữa lấy hết sprite id
 		{
 			const std::string& spriteID = std::string(grand->first_attribute("ID")->value());
@@ -142,32 +102,16 @@ D3DXVECTOR2 PlayScene::GetCamera()
 }
 void PlayScene::OnCreate()
 {
-	// chút mình load tẽ từ file luôn
-	// thứ tự load : tex,sprite,ani , thay đổi=> lỗi
 	CTextures* textures = CTextures::GetInstance();
-
-
-
-	//textures->Add(ID_TEX_SIMON, L"GameContent\\Resource\\Simon\\SIMON.png",D3DCOLOR_XRGB(255, 255, 255));
-	//textures->Add(ID_TEX_MISC, L"textures\\misc.png", D3DCOLOR_XRGB(176, 224, 248));
-	//textures->Add(ID_TEX_ENEMY, L"textures\\enemies.png", D3DCOLOR_XRGB(3, 26, 110));
-	//textures->Add(ID_TEX_BBOX, L"textures\\bbox.png", D3DCOLOR_XRGB(255, 255, 255));
-
 
 	CSprites* sprites = CSprites::GetInstance();
 	CAnimations* animations = CAnimations::GetInstance();
 
-	// load từ đây nha man, nữa tex mình cũng viết thêm hàm load như load sprite
-
-
 	const std::string filePath = "GameContent\\Base.xml";
 
-	// cú pháp load file
-	// đọc vào file xml
-	char* fileLoc = new char[filePath.size() + 1]; // filepath lưu đường dẫn đến file XML đang đọc
+	char* fileLoc = new char[filePath.size() + 1]; 
 #
 	   //TODO: make multi format version of string copy
-	// phần này k quan tâm lắm dạng như cú pháp thôi
 #ifdef MACOS
 	strlcpy(fileLoc, file.c_str(), file.size() + 1);
 #else
@@ -179,9 +123,7 @@ void PlayScene::OnCreate()
 	rapidxml::xml_document<> doc;
 	doc.parse<0>(xmlFile.data());
 
-	// truy vấn node trong file dùng xml_node<>* 
-	xml_node<>* rootNode = doc.first_node("Base"); //rootnode là node đầu tiên ở đây là "gamedata"
-
+	xml_node<>* rootNode = doc.first_node("Base"); 
 	xml_node<>* texNode = rootNode->first_node("textures");
 
 	for (xml_node<>* child = texNode->first_node(); child; child = child->next_sibling()) //cú pháp lập
@@ -205,26 +147,16 @@ void PlayScene::OnCreate()
 	}
 
 
-	xml_node<>* spriteNode = rootNode->first_node("sprites"); // tex voi ani chua dung man, dung trc sprite da
-//	xml_node<>* objNode = spriteNode->first_node("objectSprite");
-	//load sprite
+	xml_node<>* spriteNode = rootNode->first_node("sprites"); 
+	// load sprite
 	for (xml_node<>* child = spriteNode->first_node(); child; child = child->next_sibling()) //cú pháp lập
 	{
-		// duyệtt	
-		//mình load từ file lên mà man. 
-		// load path và idtex lên truyền vào loadsprite
 		int idTex;
-		// nhớ ép kiểu
 		const std::string& path = std::string(child->first_attribute("path")->value());
 		idTex = std::atoi(child->first_attribute("idTex")->value());
 
 		LoadSprite(path, idTex);
-
 	}
-	// h mình load file base lên rồi load node sprites trong base
-	//để lấy đường dẫn sprite của object rồi truyền vào hàm load sprite
-	// mục đính là dùng vòng lập load tâtts cả các sprite của object luôn
-
 
 	//load ani
 	xml_node<>* aniNode = rootNode->first_node("animations");
@@ -235,15 +167,12 @@ void PlayScene::OnCreate()
 
 	}
 
-
-	//file here
 	gameMap = new Map();
+
 	//load map
 	xml_node<>* mapNode = rootNode->first_node("map");
 	const std::string& path = std::string(mapNode->first_attribute("path")->value());
 	gameMap->BuildMap(path);
-
-
 
 
 
@@ -252,65 +181,88 @@ void PlayScene::OnCreate()
 	objects.push_back(SIMON);
 
 
+	auto objectLayer = gameMap->GetObjectLayer();
 
-
-	for (auto const& x : gameMap->GetObjectLayer())
+	for (auto const& x : objectLayer)
 	{
 		DebugOut(L"ID= %d", static_cast<ObjLayer>(x.first));
 		switch (static_cast<ObjLayer>(x.first))
 		{
-		
+
 		case ObjLayer::PlayerPos:
 			for (auto const& y : x.second->GetObjectGroup())
 			{
 				SIMON->SetPosition(y.second->GetX(), y.second->GetY() - y.second->GetHeight());
 			}
 			break;
-	
+
 		case ObjLayer::Torch:
 			for (auto const& y : x.second->GetObjectGroup())
 			{
 				CTorch* torch = new CTorch();
-				
+
 				torch->SetPosition(y.second->GetX(), y.second->GetY() - y.second->GetHeight());
 				torch->SetItem(static_cast<EItem>(y.second->GetProperty("item")));
 				objects.push_back(torch);
 			}
-			break; //lol
+			break;
 
 		case ObjLayer::Camera:
 			for (auto const& y : x.second->GetObjectGroup())
 			{
 				this->cameraBoder.left = y.second->GetX();
 				this->cameraBoder.top = y.second->GetX();
-				this->cameraBoder.right = y.second->GetX()+y.second->GetWidth();
-				this->cameraBoder.bottom = y.second->GetY()+y.second->GetHeight();
-					
+				this->cameraBoder.right = y.second->GetX() + y.second->GetWidth();
+				this->cameraBoder.bottom = y.second->GetY() + y.second->GetHeight();
+
 			}
-			break; //lol
+			break;
 		case ObjLayer::Ground:
 			for (auto const& y : x.second->GetObjectGroup())
 			{
 				HiddenObject* ground = new Ground();
-				// với loại object vẽ bằng hình chữ nhật 
-				// không - y.second->GetHeight()
 				ground->SetPosition(y.second->GetX(), y.second->GetY());
 				ground->SetSize(y.second->GetWidth(), y.second->GetHeight());
 				objects.push_back(ground);
 			}
 			break;
+		case ObjLayer::HMoney:
+			for (auto const& y : x.second->GetObjectGroup()) {
+				HMoney* hMoney = new HMoney();
+				hMoney->SetPosition(y.second->GetX(), y.second->GetY());
+				hMoney->SetSize(y.second->GetWidth(), y.second->GetHeight());
+				auto moneyLayer = objectLayer.at(11);
+				for (auto const& child : moneyLayer->GetObjectGroup()) {
+					auto moneyItem = ItemFactory::SpawnItem<Item*>(EItem::MONEY);
+					moneyItem->SetPosition(child.second->GetX(), child.second->GetY() - child.second->GetHeight());
+					hMoney->SetItem(moneyItem);
+				}
+				objects.push_back(hMoney);
+			}
+			break;
+		case ObjLayer::Entrance:
+			for (auto const& y : x.second->GetObjectGroup()) {
+				Entrance* entrance = new Entrance();
+				entrance->SetSize(y.second->GetWidth(), y.second->GetHeight());
+				entrance->SetPosition(y.second->GetX(), y.second->GetY());
+				objects.push_back(entrance);
+			}
+			break;
+		case ObjLayer::CheckRetrograde:
+			for (auto const& y : x.second->GetObjectGroup()) {
+				RetroGrade* retroGrade = new RetroGrade();
+				retroGrade->SetSize(y.second->GetWidth(), y.second->GetHeight());
+				retroGrade->SetPosition(y.second->GetX(), y.second->GetY());
+				objects.push_back(retroGrade);
+			}
 		default:
 			break;
 		}
 	}
 
-
-
-
 	CGame::GetInstance()->SetCamPos(0, 0);
 }
 
-// dọn rác
 void PlayScene::OnDestroy()
 {
 	for (auto& x : objects)
@@ -323,13 +275,9 @@ void PlayScene::Update(DWORD dt)
 {
 	// We know that SIMON is the first object in the list hence we won't add him into the colliable object list
 	// TO-DO: This is a "dirty" way, need a more organized way 
-
-	/// Thêm các object trong hàng đợi vào ds object
-
-	while (!qObjects.empty()) // lập nếu queue còn phần tử
-	{
+	while (!qObjects.empty()){
 		this->objects.push_back(qObjects.front());
-		qObjects.pop();// thêm vào object rồi thì xóa object vừa thêm khỏi queue
+		qObjects.pop();
 	}
 
 	vector<LPGAMEOBJECT> coObjects;
@@ -338,10 +286,9 @@ void PlayScene::Update(DWORD dt)
 		coObjects.push_back(objects[i]);
 	}
 
-	/// truyền playscene vào hàm update của các object
 	for (int i = 0; i < objects.size(); i++)
 	{
-		objects[i]->Update(dt,this, &coObjects);
+		objects[i]->Update(dt, this, &coObjects);
 	}
 
 
@@ -349,24 +296,21 @@ void PlayScene::Update(DWORD dt)
 	float cx, cy;
 	SIMON->GetPosition(cx, cy);
 
-	cx -= SCREEN_WIDTH / 2;
-	cy -= SCREEN_HEIGHT / 2;
-	if (cx> this->cameraBoder.left && cx<this->cameraBoder.right- SCREENSIZE::WIDTH)
+	cx -= SCREEN_WIDTH / 1.5;
+	cy -= SCREEN_HEIGHT / 1.5;
+	if (cx > this->cameraBoder.left && cx < this->cameraBoder.right - SCREENSIZE::WIDTH)
 	{
 		CGame::GetInstance()->SetCamPos(cx, 0.0f /*cy*/);
 	}
-	
-
-	///Xóa hẳn các object ra khỏi vector object
-	// nếu setdestroy là true, giải phóng luôn con trỏ
-
 
 	for (vector<LPGAMEOBJECT>::iterator it = objects.begin(); it != objects.end(); ) {
 
 		if ((*it)->IsDestroy()) {
-			//delete (*it);
+			if (dynamic_cast<WDagger*>(*it))
+			{
+				subWeapon--;
+			}
 			it = objects.erase(it);
-			
 		}
 		else ++it;
 	}
@@ -380,62 +324,90 @@ void PlayScene::Render()
 	CGame* game = CGame::GetInstance();
 	D3DXVECTOR2 cam = game->GetCamera();
 	gameMap->Render(cam);
+
 	for (int i = 0; i < objects.size(); i++)
 		objects[i]->Render();
-	SIMON->Render();// vẽ simon lên trên tất cả object
+
+	SIMON->Render();
+	if (SIMON->GetState() == SIMONSTATE::ENTERENTRANCE)
+	{
+		gameMap->GetLayer("font")->Render(cam);
+		isEntrance = true;
+	}
+
 
 }
 
 void PlayScene::OnKeyDown(int KeyCode)
 {
+	CGame* game = CGame::GetInstance();
+
 	DebugOut(L"[INFO] PRESS KEY DOWN: %d\n", KeyCode);
-	if (SIMON->GetState() == SIMONSTATE::UPWHIP) return;
+	if (isEntrance || SIMON->GetState() == SIMONSTATE::UPWHIP ) return;
 	switch (KeyCode)
 	{
 	case DIK_SPACE:
-		// ta cần kiểm tra
-		//kiểm tra nếu trạng thái k phải jump thì mới cho jump
-		if (SIMON->GetFightTime() == 0 // k phải đang đánh mới cho nhảy
+		if (SIMON->GetFightTime() == 0 
 			&& SIMON->GetState() != SIMONSTATE::JUMP
-			&& SIMON->GetState() != SIMONSTATE::SIT) { // ngồi thi k cho nhay
+			&& SIMON->GetState() != SIMONSTATE::SIT
+			&& SIMON->isOnGround){
 			SIMON->SetState(SIMONSTATE::JUMP);
 		}
 		break;
-	case DIK_K:
-		if (SIMON->GetFightTime() == 0) // không đánh mới cho đánh tránh trường hợp chưa đánh xong đã đánh lại
+	case DIK_F:
+		if (SIMON->GetFightTime() == 0) 
 		{
-			SIMON->SpawnWeapon(false);
-			if (SIMON->GetState() != SIMONSTATE::SIT) // 
+			if (game->IsKeyDown(DIK_UP))
 			{
-				SIMON->SetState(SIMONSTATE::FIGHT_STAND);
+				if (SIMON->GetCurrentWeapon() != EWeapon::NONE && subWeapon < 1) {
+
+					subWeapon++;
+
+					SIMON->ResetSpawnWeapon();
+					SIMON->SpawnWeapon(true);
+					if (SIMON->GetState() != SIMONSTATE::SIT) {
+						SIMON->SetState(SIMONSTATE::FIGHT_STAND);
+					}
+					else {
+						SIMON->SetState(SIMONSTATE::FIGHT_SIT);
+					}
+				}
+				else
+				{
+					SIMON->SpawnWeapon(false);
+					if (SIMON->GetState() != SIMONSTATE::SIT) 
+					{
+						SIMON->SetState(SIMONSTATE::FIGHT_STAND);
+					}
+					else
+					{
+						SIMON->SetState(SIMONSTATE::FIGHT_SIT);
+					}
+				}
+
 			}
 			else
 			{
-				SIMON->SetState(SIMONSTATE::FIGHT_SIT);
+				SIMON->SpawnWeapon(false);
+				if (SIMON->GetState() != SIMONSTATE::SIT) 
+				{
+					SIMON->SetState(SIMONSTATE::FIGHT_STAND);
+				}
+				else
+				{
+					SIMON->SetState(SIMONSTATE::FIGHT_SIT);
+				}
 			}
-		}
-		break;
-	case DIK_A: // reset
+
+			break;
+	case DIK_A: 
 		SIMON->SetState(SIMONSTATE::IDLE);
-		SIMON->SetLevel(SIMON_LEVEL_BIG);
 		SIMON->SetPosition(50.0f, 0.0f);
 		SIMON->SetSpeed(0, 0);
 		break;
-	case DIK_C:
-		// không đánh mới cho đánh tránh trường hợp chưa đánh xong đã đánh lại
-		if (SIMON->GetFightTime() == 0 && SIMON->GetCurrentWeapon() != EWeapon::NONE) {
-			SIMON->ResetSpawnWeapon();
-			SIMON->SpawnWeapon(true);
-			if (SIMON->GetState() != SIMONSTATE::SIT) {
-				SIMON->SetState(SIMONSTATE::FIGHT_STAND);
-			}
-			else {
-				SIMON->SetState(SIMONSTATE::FIGHT_SIT);
-			}
 		}
-		break;
+
 	}
-	
 }
 
 void PlayScene::OnKeyUp(int KeyCode)
@@ -444,29 +416,31 @@ void PlayScene::OnKeyUp(int KeyCode)
 
 void PlayScene::KeyState(BYTE* states)
 {
+
 	CGame* game = CGame::GetInstance();
+
+	if (SIMON->GetState() == SIMONSTATE::ENTERENTRANCE) return;
 	if (SIMON->GetUpgradeTime() != 0 && GetTickCount() - SIMON->GetUpgradeTime() > SIMON_UPGRADE_WHIP_TIME) {
 		SIMON->ResetUpgradeTime();
 		SIMON->SetState(SIMONSTATE::IDLE);
 	}
 	if (SIMON->GetState() == SIMONSTATE::UPWHIP) return;
 	if (SIMON->GetState() == SIMONSTATE::JUMP) return;
+	if (SIMON->GetState() == SIMONSTATE::RETROGRADE) return;
 	if (SIMON->GetFightTime() != 0 && GetTickCount() - SIMON->GetFightTime() > SIMON_ATTACK_TIME)
 	{
-		//reset chỗ này
 		SIMON->ResetAttack();
 
 	}
 
-	if (SIMON->GetFightTime() != 0) // còn đánh thì return tránh trường hợp bị set lại state là idle
+	if (SIMON->GetFightTime() != 0) 
 	{
 		return;
 	}
 
-	// nhay thi khong cho bam gi luon
-	if (game->IsKeyDown(DIK_RIGHT)) // bắt phím mũi tên phải
+	if (game->IsKeyDown(DIK_RIGHT)) 
 	{
-		SIMON->SetState(SIMONSTATE::WALKING_RIGHT); //đi phải
+		SIMON->SetState(SIMONSTATE::WALKING_RIGHT); 
 
 	}
 	else if (game->IsKeyDown(DIK_LEFT))
@@ -482,12 +456,4 @@ void PlayScene::KeyState(BYTE* states)
 		SIMON->SetState(SIMONSTATE::IDLE);
 	}
 
-	// disable control key when SIMON die 
-	/*if (SIMON->GetState() == SIMON_STATE_DIE) return;
-	if (game->IsKeyDown(DIK_RIGHT))
-		SIMON->SetState(SIMON_STATE_WALKING_RIGHT);
-	else if (game->IsKeyDown(DIK_LEFT))
-		SIMON->SetState(SIMON_STATE_WALKING_LEFT);
-	else
-		SIMON->SetState(SIMON_STATE_IDLE);*/
 }

@@ -6,7 +6,7 @@ void IMoney::Render()
 		return;
 	}
 	animations[0]->Render(0, x, y);
-	RenderBoundingBox();
+	//RenderBoundingBox();
 }
 
 void IMoney::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObject)
@@ -23,11 +23,15 @@ void IMoney::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObject)
 			}
 		}
 	}
-	if (!isCoGround) {
+	if (isCoGround) {
+		y += dy;
+	}
+	else
+	{
 		vx = 0;
 		vy = 0;
 	}
-	y += dy;
+
 }
 
 void IMoney::GetBoundingBox(float& l, float& t, float& r, float& b)

@@ -3,8 +3,6 @@
 #include<map>
 
 
-// hiện tại property chỉ hỗ trợ kiểu int
-// mỗi object có thể có 1 ds property
 struct OProperty
 {
 	std::string name;

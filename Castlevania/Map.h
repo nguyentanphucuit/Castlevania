@@ -30,21 +30,24 @@ enum class ObjLayer
 	PlayerPos = 2,
 	Ground = 3,
 	Torch = 4,
-	Camera=5,
+	Camera = 5,
+	HMoney = 14,
+	Entrance = 8,
+	CheckRetrograde = 18,
 };
 
 class Map
 {
 private:
-	int width; // chiều dài map (đã chia cho tileWidth)
-	int height; // chiều cao map (đã chia cho tileHeight)
+	int width; 
+	int height;
 
-	int tileWidth;// chiều dài mỗi tile
-	int tileHeight;// chiều cao mỗi tile
+	int tileWidth;
+	int tileHeight;
 	TileSet tileSet;
 	// lưu toàn bộ layer của map
 	std::map<std::string, Layer*> layers;
-	// dùng int hồi dò group = enum cho dễ
+
 	std::map<int, ObjectLayer*> objectLayers;
 	void BuildMapLayer(xml_node<>* node);
 	void BuildTileSet(xml_node<>* node);
@@ -59,7 +62,8 @@ public:
 	}
 	Map() :width(0), height(0), tileWidth(0), tileHeight(0) {};
 	void BuildMap(const std::string path);
-	// vẽ toàn bộ layer theo camera
+
 	void Render(D3DXVECTOR2 camera);
+	Layer* GetLayer(std::string name);
 };
 

@@ -21,7 +21,7 @@ class ItemFactory
 {
 
 public:
-	// Kiểu T trả về nhiều kiểu đối tượng khác nhau
+
 	template <typename T> static T SpawnItem(EItem item);
 
 };
@@ -44,7 +44,7 @@ inline T ItemFactory::SpawnItem(EItem eitem)
     case EItem::HEART:
         return new CHeart();
         break;
-    case EItem ::MONEY:
+    case EItem::MONEY:
         return new IMoney();
         break;
     default:

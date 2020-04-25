@@ -40,6 +40,9 @@
     <Filter Include="Source Files\WeaponsFactory">
       <UniqueIdentifier>{24f766f2-e48e-45b3-9a59-bb7a3bf43259}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Objects\Hide">
+      <UniqueIdentifier>{553e8df8-5b95-41fe-9abc-bc9efb8d0310}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sprites.h">
@@ -96,9 +99,6 @@
     <ClInclude Include="IWhip.h">
       <Filter>Source Files\ItemFactory</Filter>
     </ClInclude>
-    <ClInclude Include="Simon.h">
-      <Filter>Source Files\Player</Filter>
-    </ClInclude>
     <ClInclude Include="Whip.h">
       <Filter>Source Files\Player</Filter>
     </ClInclude>
@@ -111,13 +111,7 @@
     <ClInclude Include="Torch.h">
       <Filter>Source Files\Objects</Filter>
     </ClInclude>
-    <ClInclude Include="HiddenObject.h">
-      <Filter>Source Files\Objects</Filter>
-    </ClInclude>
     <ClInclude Include="GameObject.h">
-      <Filter>Source Files\Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="Ground.h">
       <Filter>Source Files\Objects</Filter>
     </ClInclude>
     <ClInclude Include="define.h">
@@ -143,6 +137,24 @@
     </ClInclude>
     <ClInclude Include="IMoney.h">
       <Filter>Source Files\ItemFactory</Filter>
+    </ClInclude>
+    <ClInclude Include="HiddenObject.h">
+      <Filter>Source Files\Objects\Hide</Filter>
+    </ClInclude>
+    <ClInclude Include="Ground.h">
+      <Filter>Source Files\Objects\Hide</Filter>
+    </ClInclude>
+    <ClInclude Include="HMoney.h">
+      <Filter>Source Files\Objects\Hide</Filter>
+    </ClInclude>
+    <ClInclude Include="Entrance.h">
+      <Filter>Source Files\Objects\Hide</Filter>
+    </ClInclude>
+    <ClInclude Include="Simon.h">
+      <Filter>Source Files\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="RetroGrade.h">
+      <Filter>Source Files\Objects\Hide</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -206,13 +218,7 @@
     <ClCompile Include="Simon.cpp">
       <Filter>Source Files\Player</Filter>
     </ClCompile>
-    <ClCompile Include="Ground.cpp">
-      <Filter>Source Files\Objects</Filter>
-    </ClCompile>
     <ClCompile Include="GameObject.cpp">
-      <Filter>Source Files\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="HiddenObject.cpp">
       <Filter>Source Files\Objects</Filter>
     </ClCompile>
     <ClCompile Include="Brick.cpp">
@@ -244,6 +250,21 @@
     </ClCompile>
     <ClCompile Include="IMoney.cpp">
       <Filter>Source Files\ItemFactory</Filter>
+    </ClCompile>
+    <ClCompile Include="HiddenObject.cpp">
+      <Filter>Source Files\Objects\Hide</Filter>
+    </ClCompile>
+    <ClCompile Include="Ground.cpp">
+      <Filter>Source Files\Objects\Hide</Filter>
+    </ClCompile>
+    <ClCompile Include="HMoney.cpp">
+      <Filter>Source Files\Objects\Hide</Filter>
+    </ClCompile>
+    <ClCompile Include="Entrance.cpp">
+      <Filter>Source Files\Objects\Hide</Filter>
+    </ClCompile>
+    <ClCompile Include="RetroGrade.cpp">
+      <Filter>Source Files\Objects\Hide</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -12,6 +12,7 @@ public:
 	BHeart() {
 		AddAnimation("BIG_ANI_HEART");
 	}
+	
 	virtual void Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObject = NULL);
 	virtual void Render();
 	virtual void GetBoundingBox(float& l, float& t, float& r, float& b);
