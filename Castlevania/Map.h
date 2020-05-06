@@ -11,8 +11,8 @@ using namespace rapidxml;
 
 struct TileSet // dùng demo nữa ta mở rộng sau h chỉ đọc duy nhất 1 tileset
 {
-	int imageWidth;// chiều rộng hình  Great_Hall_bank
-	int imageHeight; //chiều dài hình Great_Hall_bank
+	int imageWidth;// chiều rộng hình  
+	int imageHeight; //chiều dài hình 
 	std::string name;
 	int columns; // số cột được chia
 	int rows; // số hàng được chia
@@ -23,8 +23,6 @@ struct TileSet // dùng demo nữa ta mở rộng sau h chỉ đọc duy nhất 
 
 };
 
-
-// nên đọc name load qua đừng dùng id
 enum class ObjLayer
 {
 	PlayerPos = 2,

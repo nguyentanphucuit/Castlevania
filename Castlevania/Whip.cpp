@@ -1,6 +1,5 @@
 ﻿#include "Whip.h"
 #include "Torch.h"
-#include "Candle.h"
 #include "ItemFactory.h"
 #include "PlayScene.h"
 #include "EffectFactory.h"
@@ -101,32 +100,17 @@ void Whip::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT>* colliable_objects
 		break;
 	}
 	
-	
-	//xử lý va chạmgiữaa whip và các object dùng aabb
-
-	//for (size_t i = 0; i < colliable_objects->size(); i++)
-	//{
-	//	if (dynamic_cast<CTorch*>(colliable_objects->at(i))) // kiểm tra phải torch không
-	//	{
-	//		CTorch * torch= dynamic_cast<CTorch*>(colliable_objects->at(i));
-	//		if (this->isColliding(torch))// kiểm tra có va chạm k
-	//		{
-	//			torch->SetDestroy(); // có va chạm hủy torch
-	//		}
-	//	}
-	//}
-
 	for (size_t i = 0; i < colliable_objects->size(); i++)
 	{
-		if (dynamic_cast<CTorch*>(colliable_objects->at(i))) // kiểm tra phải candle không
+		if (dynamic_cast<CTorch*>(colliable_objects->at(i)))
 		{
 			CTorch* torch = dynamic_cast<CTorch*>(colliable_objects->at(i));
-			if (this->isColliding(torch) && !torch->IsDestroyed())// kiểm tra có va chạm k
+			if (this->isColliding(torch) && !torch->IsDestroyed()) // check CO
 			{
 				//khởi tạo item và effect
 				auto item = ItemFactory::SpawnItem<Item*>(torch->GetItem());
 				auto effect = EffectFactory::SpawnEffect<Effect*>(CEffect::FLAME);
-				if (dynamic_cast<PlayScene*>(scene)) //kiểm tra xem scene hiện tại có phải playscene k
+				if (dynamic_cast<PlayScene*>(scene)) // check scene cur
 				{
 					float tx, ty;
 					torch->GetPosition(tx, ty);
@@ -137,7 +121,7 @@ void Whip::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT>* colliable_objects
 					pScene->SpawnObject(item);
 					pScene->SpawnObject(effect);
 				}
-				torch->SetDestroy(); // có va chạm hủy candle
+				torch->SetDestroy(); // check CO = true => destroy 
 			}
 		}
 	}

@@ -17,11 +17,7 @@ void Map::BuildMap(const std::string path)
 	rapidxml::xml_document<> doc;
 	doc.parse<0>(xmlFile.data());
 
-	// truy vấn node trong file dùng xml_node<>* 
-	xml_node<>* rootNode = doc.first_node("map"); //rootnode là node đầu tiên ở đây là "gamedata"
-	// Đọc lên các thông tin cơ bản của map
-
-
+	xml_node<>* rootNode = doc.first_node("map"); 
 
 	this->width = std::atoi(rootNode->first_attribute("width")->value());
 	this->height = std::atoi(rootNode->first_attribute("height")->value());
@@ -111,8 +107,6 @@ void Map::BuildTileSet(xml_node<>* node)
 	xml_node<>* imgNode = tileSetNode->first_node("image");
 	tileSet.imageHeight = std::atoi(imgNode->first_attribute("height")->value());
 	tileSet.imageWidth = std::atoi(imgNode->first_attribute("width")->value());
-
-
 
 	tileSet.columns = tileSet.imageWidth / tileSet.tileWidth;
 	tileSet.rows = tileSet.imageHeight / tileSet.tileHeight;

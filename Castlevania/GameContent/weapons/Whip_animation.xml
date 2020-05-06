@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <gamedata>
 	<animation ID="WHIP_ANI_NORMAL" timeLoop="100">
-			<sprite ID="WHIP_NORMAL_01" />
+			<frame ID="WHIP_NORMAL_01" />
 			<frame ID="WHIP_NORMAL_02" />
 			<frame ID="WHIP_NORMAL_03" />
 		</animation>

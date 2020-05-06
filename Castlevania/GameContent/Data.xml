@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!-- Lưu toàn bộ các thông tin game như sprite tex, map -->
+<Data> 
+	<textures>
+		<texture ID ="0" name = "SIMON" path="GameContent\\Player\\Simon\\SIMON.png" red="255" green="255" blue ="255"/>
+		<texture ID ="1" name = "WHIP" path="GameContent\\weapons\\WHIP.png" red="255" green="255" blue ="255"/>
+		<texture ID ="2" name = "TORCH" path="GameContent\\Player\\Ground\\Torch.png" red="255" green="0" blue ="255"/>
+		<texture ID ="4" name = "ITEM" path="GameContent\\Items\\ITEM.png" red="255" green="0" blue ="255"/>
+		<texture ID ="5" name = "EFFECT" path="GameContent\\Effects\\EFFECT.png" red="255" green="0" blue ="255"/>
+		<texture ID ="-100" name = "BBOX" path="textures\\bbox.png" red="255" green="255" blue ="255"/>
+		<texture ID ="-500" name = "Courtyard_bank" path="GameContent\\Map\\Courtyard_bank.png" red="255" green="255" blue ="255"/>
+	</textures>
+	
+	<sprites>
+		<sprite ID="0" name="Simon" path="GameContent\\Player\\Simon\\Simon_sprite.xml"/>	
+		<sprite ID="1" name="Whip" path="GameContent\\weapons\\Whip_sprite.xml"/>
+		<sprite ID="2" name="Torch" path="GameContent\\Player\\Ground\\Torch_sprite.xml"/>
+		<sprite ID="4" name="Item" path="GameContent\\Items\\Item_sprite.xml"/>
+		<sprite ID="5" name="Effect" path="GameContent\\Effects\\Effect_sprite.xml"/>
+	</sprites>
+	
+	<animations>
+		<animation name="simon" path="GameContent\\Player\\Simon\\Simon_animation.xml"/>
+		<animation name="whip" path="GameContent\\weapons\\Whip_animation.xml"/>
+		<animation name="torch" path="GameContent\\Player\\Ground\\Torch_animation.xml"/>
+		<animation name="item" path="GameContent\\Items\\Item_animation.xml"/>
+		<animation name="effect" path="GameContent\\Effects\\Effect_animation.xml"/>
+	</animations>
+	
+	<map path="GameContent\\Map\\Courtyard_map.tmx"/>
+	
+</Data>

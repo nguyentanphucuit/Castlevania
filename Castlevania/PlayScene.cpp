@@ -1,12 +1,11 @@
 ﻿#include "PlayScene.h"
 #include "define.h"
+#include "debug.h"
 #include "Game.h"
 #include "Textures.h"
-#include "Candle.h"
 #include "Torch.h"
 #include "HiddenObject.h"
 #include "Ground.h"
-#include "debug.h"
 #include "WeaponFactory.h"
 #include "HMoney.h"
 #include "Entrance.h"
@@ -80,7 +79,7 @@ void PlayScene::LoadAnimation(const string& filePath)
 		const std::string& ID = std::string(child->first_attribute("ID")->value());
 		int timeLoop = std::atoi(child->first_attribute("timeLoop")->value());
 		ani = new CAnimation(timeLoop);
-		for (xml_node<>* grand = child->first_node(); grand; grand = grand->next_sibling())// lập thêm lần nữa lấy hết sprite id
+		for (xml_node<>* grand = child->first_node(); grand; grand = grand->next_sibling())// lặp thêm lần nữa lấy hết sprite id
 		{
 			const std::string& spriteID = std::string(grand->first_attribute("ID")->value());
 
@@ -95,6 +94,7 @@ void PlayScene::LoadAnimation(const string& filePath)
 
 
 }
+
 D3DXVECTOR2 PlayScene::GetCamera()
 {
 
@@ -107,7 +107,7 @@ void PlayScene::OnCreate()
 	CSprites* sprites = CSprites::GetInstance();
 	CAnimations* animations = CAnimations::GetInstance();
 
-	const std::string filePath = "GameContent\\Base.xml";
+	const std::string filePath = "GameContent\\Data.xml";
 
 	char* fileLoc = new char[filePath.size() + 1]; 
 #
@@ -123,7 +123,7 @@ void PlayScene::OnCreate()
 	rapidxml::xml_document<> doc;
 	doc.parse<0>(xmlFile.data());
 
-	xml_node<>* rootNode = doc.first_node("Base"); 
+	xml_node<>* rootNode = doc.first_node("Data"); 
 	xml_node<>* texNode = rootNode->first_node("textures");
 
 	for (xml_node<>* child = texNode->first_node(); child; child = child->next_sibling()) //cú pháp lập
@@ -153,7 +153,7 @@ void PlayScene::OnCreate()
 	{
 		int idTex;
 		const std::string& path = std::string(child->first_attribute("path")->value());
-		idTex = std::atoi(child->first_attribute("idTex")->value());
+		idTex = std::atoi(child->first_attribute("ID")->value());
 
 		LoadSprite(path, idTex);
 	}
@@ -167,21 +167,19 @@ void PlayScene::OnCreate()
 
 	}
 
-	gameMap = new Map();
-
 	//load map
+	Maps = new Map();
+
 	xml_node<>* mapNode = rootNode->first_node("map");
 	const std::string& path = std::string(mapNode->first_attribute("path")->value());
-	gameMap->BuildMap(path);
+	Maps->BuildMap(path);
 
 
 
 	SIMON = new CSIMON();
-
 	objects.push_back(SIMON);
 
-
-	auto objectLayer = gameMap->GetObjectLayer();
+	auto objectLayer = Maps->GetObjectLayer();
 
 	for (auto const& x : objectLayer)
 	{
@@ -255,6 +253,7 @@ void PlayScene::OnCreate()
 				retroGrade->SetPosition(y.second->GetX(), y.second->GetY());
 				objects.push_back(retroGrade);
 			}
+			break;
 		default:
 			break;
 		}
@@ -323,7 +322,7 @@ void PlayScene::Render()
 {
 	CGame* game = CGame::GetInstance();
 	D3DXVECTOR2 cam = game->GetCamera();
-	gameMap->Render(cam);
+	Maps->Render(cam);
 
 	for (int i = 0; i < objects.size(); i++)
 		objects[i]->Render();
@@ -331,7 +330,7 @@ void PlayScene::Render()
 	SIMON->Render();
 	if (SIMON->GetState() == SIMONSTATE::ENTERENTRANCE)
 	{
-		gameMap->GetLayer("font")->Render(cam);
+		Maps->GetLayer("font")->Render(cam);
 		isEntrance = true;
 	}
 
@@ -426,7 +425,7 @@ void PlayScene::KeyState(BYTE* states)
 	}
 	if (SIMON->GetState() == SIMONSTATE::UPWHIP) return;
 	if (SIMON->GetState() == SIMONSTATE::JUMP) return;
-	if (SIMON->GetState() == SIMONSTATE::RETROGRADE) return;
+	//if (SIMON->GetState() == SIMONSTATE::RETROGRADE) return;
 	if (SIMON->GetFightTime() != 0 && GetTickCount() - SIMON->GetFightTime() > SIMON_ATTACK_TIME)
 	{
 		SIMON->ResetAttack();

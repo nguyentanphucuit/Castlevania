@@ -71,7 +71,6 @@ class CSIMON : public CGameObject
 	EWeapon currentWeapon;
 	bool spawnWeapon = false;
 	bool isSpawnWeapon = false; 
-
 public: 
 	CSIMON();
 	bool isOnGround = false;

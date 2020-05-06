@@ -146,7 +146,6 @@
   <ItemGroup>
     <ClInclude Include="BHeart.h" />
     <ClInclude Include="Brick.h" />
-    <ClInclude Include="Candle.h" />
     <ClInclude Include="debug.h" />
     <ClInclude Include="define.h" />
     <ClInclude Include="Effect.h" />
@@ -155,7 +154,6 @@
     <ClInclude Include="Flame.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
-    <ClInclude Include="Goomba.h" />
     <ClInclude Include="Ground.h" />
     <ClInclude Include="Heart.h" />
     <ClInclude Include="HiddenObject.h" />
@@ -185,7 +183,6 @@
   <ItemGroup>
     <ClCompile Include="BHeart.cpp" />
     <ClCompile Include="Brick.cpp" />
-    <ClCompile Include="Candle.cpp" />
     <ClCompile Include="debug.cpp" />
     <ClCompile Include="Effect.cpp" />
     <ClCompile Include="EffectFactory.cpp" />
@@ -193,7 +190,6 @@
     <ClCompile Include="Flame.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="Goomba.cpp" />
     <ClCompile Include="Ground.cpp" />
     <ClCompile Include="Heart.cpp" />
     <ClCompile Include="HiddenObject.cpp" />

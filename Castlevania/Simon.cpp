@@ -1,11 +1,9 @@
 ﻿#include <algorithm>
 #include "debug.h"
-
 #include "SIMON.h"
 #include "Game.h"
 #include "Ground.h"
 #include "Torch.h"
-#include "Candle.h"
 #include "ItemFactory.h"
 #include "WeaponFactory.h"
 #include "HMoney.h"
@@ -120,7 +118,7 @@ void CSIMON::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT> *coObjects)
 				}
 				else if (dynamic_cast<RetroGrade*>(e->obj)) {
 					this->SetState(SIMONSTATE::RETROGRADE);
-				}
+				}	
 				else if (dynamic_cast<Entrance*>(e->obj)) {
 					auto entrance = dynamic_cast<Entrance*> (e->obj);
 					entrance->SetDestroy();
@@ -207,6 +205,7 @@ void CSIMON::Render()
 		ani = SIMON_ANI_WALKING;
 		break;		
 	case SIMONSTATE::RETROGRADE:
+		break;
 	case SIMONSTATE::WALKING_LEFT:
 		ani = SIMON_ANI_WALKING;
 		break;
@@ -257,6 +256,9 @@ void CSIMON::SetState(SIMONSTATE state)
 		vx = SIMON_WALKING_SPEED / 2;
 		break;
 	case SIMONSTATE::RETROGRADE:
+		//isTouchRetroGrade = true;
+		//vx = 0;
+		//break;
 	case SIMONSTATE::WALKING_RIGHT:
 		isTouchRetroGrade = false;
 		vx = SIMON_WALKING_SPEED;

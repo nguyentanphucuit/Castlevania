@@ -3,16 +3,21 @@
 #include "Simon.h"
 #include "Map.h"
 #include <queue>
+
 class PlayScene:public Scene
 {
     RECT cameraBoder;
     CSIMON* SIMON;
     vector<LPGAMEOBJECT> objects;
-    Map* gameMap;
+
+    Map* Maps;
+
     void LoadSprite(const std::string& filePath, const int tex);
     void LoadAnimation(const string& filePath);
 
-    std::queue<LPGAMEOBJECT> qObjects; 
+    std::queue<LPGAMEOBJECT> qObjects;
+
+   
     int subWeapon = 0;
     bool isEntrance = false;
 public:
