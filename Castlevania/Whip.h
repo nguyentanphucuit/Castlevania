@@ -1,9 +1,9 @@
 ﻿#pragma once
 #include"GameObject.h"
 
-#define WHIP_ANI_NORMAL 0 //3 frame
-#define WHIP_ANI_CHAIN 1 // 3 frame
-#define WHIP_ANI_MORNINGSTAR 2 // cái này tới 12 frame 
+#define WHIP_ANI_NORMAL 0 
+#define WHIP_ANI_CHAIN 1 
+#define WHIP_ANI_MORNINGSTAR 2 
 
 
 #define WHIP_BBOX_NORMAL_HEIGHT 50
@@ -26,7 +26,7 @@ public:
 	{
 
 		this->state = WHIPSTATE::NORMAL;
-		//thêm ani
+
 		AddAnimation("WHIP_ANI_NORMAL", false);
 		AddAnimation("WHIP_ANI_CHAIN",false);
 		AddAnimation("WHIP_ANI_MORNINGSTAR",false);

@@ -10,6 +10,7 @@
 		<texture ID ="5" name = "EFFECT" path="GameContent\\Effects\\EFFECT.png" red="255" green="0" blue ="255"/>
 		<texture ID ="-100" name = "BBOX" path="textures\\bbox.png" red="255" green="255" blue ="255"/>
 		<texture ID ="-500" name = "Courtyard_bank" path="GameContent\\Map\\Courtyard_bank.png" red="255" green="255" blue ="255"/>
+		<texture ID ="-600" name = "MainHall_bank" path="GameContent\\Map\\MainHall_bank.png" red="255" green="255" blue ="255"/>
 	</textures>
 	
 	<sprites>
@@ -28,6 +29,15 @@
 		<animation name="effect" path="GameContent\\Effects\\Effect_animation.xml"/>
 	</animations>
 	
-	<map path="GameContent\\Map\\Courtyard_map.tmx"/>
+	<maps>
+		<map texID="-500" id ="0" name="Courtyard" path="GameContent\\Map\\Courtyard_map.tmx"/>
+		<map texID="-600" id ="1" name="MainHall" path="GameContent\\Map\\MainHall_map.tmx"/>
+	</maps>
 	
+	<scenes>
+		<pscene activeID="0">
+			<pscenes id="0" mapID="0" entry="C_E1" border="C_B1" state="1" name="Courtyard"/>
+			<pscenes id="1" mapID="1" entry="MH_E1" border="MH_B1" state="1" name="MainHall"/>
+		</pscene>
+	</scenes>
 </Data>

@@ -17,7 +17,7 @@ public:
 		this->item = EItem::HEART;
 	}
 	void SetDestroy() { this->isDestroy = true; }
-	//Xem torch có bị hủy chưa
+
 	bool IsDestroyed() { return isDestroy; }
 
 	EItem GetItem() { return this->item; }

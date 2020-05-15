@@ -51,7 +51,7 @@ void Weapon::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObject)
 						PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
 						item->SetPosition(tx, ty);
 						effect->SetPosition(tx, ty);
-						// bỏ vô hàng đợi
+						
 						pScene->SpawnObject(item);
 						pScene->SpawnObject(effect);
 					}

@@ -15,9 +15,11 @@ private:
 	std::string name;
 	std::vector<std::vector<int>> tileMatrix;
 
+	int mapID;
+
 public:
-	Layer(std::string name, int width, int height, int tileWidth, int tileHeight, bool isVisible)
-		:name(name), width(width), height(height), tileWidth(tileWidth), tileHeight(tileHeight), isVisible(isVisible)
+	Layer(std::string name, int width, int height, int tileWidth, int tileHeight, bool isVisible, int mapID)
+		:name(name), width(width), height(height), tileWidth(tileWidth), tileHeight(tileHeight), isVisible(isVisible), mapID(mapID)
 	{
 
 		tileMatrix.resize(height); 

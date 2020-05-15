@@ -173,6 +173,7 @@
     <ClInclude Include="SceneStateMachine.h" />
     <ClInclude Include="Simon.h" />
     <ClInclude Include="Sprites.h" />
+    <ClInclude Include="SwitchScene.h" />
     <ClInclude Include="Textures.h" />
     <ClInclude Include="Torch.h" />
     <ClInclude Include="WDagger.h" />
@@ -209,6 +210,7 @@
     <ClCompile Include="SceneStateMachine.cpp" />
     <ClCompile Include="Simon.cpp" />
     <ClCompile Include="Sprites.cpp" />
+    <ClCompile Include="SwitchScene.cpp" />
     <ClCompile Include="Textures.cpp" />
     <ClCompile Include="Torch.cpp" />
     <ClCompile Include="WDagger.cpp" />

@@ -38,7 +38,7 @@
 #define SIMON_UNTOUCHABLE_TIME 5000
 #define SIMON_UPGRADE_WHIP_TIME 500
 
-#define SIMON_ATTACK_TIME 350// thời gian đánh mỗi lần bấm hết thời gian reseet lại trạng thái
+#define SIMON_ATTACK_TIME 350
 
 
  enum class SIMONSTATE 
@@ -94,7 +94,7 @@ public:
 		whip->ResetAttack();
 		animations[SIMON_ANI_STAND_ATTACK]->ResetFrame();
 		animations[SIMON_ANI_SIT_ATTACK]->ResetFrame();
-		this->fight_start = 0;//reset time hamf nay luoon
+		this->fight_start = 0;
 	}
 	SIMONSTATE GetState() {
 		return this->state;

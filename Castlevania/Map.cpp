@@ -2,7 +2,7 @@
 #include"debug.h"
 #include"Textures.h"
 #include"Sprites.h"
-void Map::BuildMap(const std::string path)
+void Map::BuildMap(const std::string path, int texID)
 {
 	char* fileLoc = new char[path.size() + 1]; // filepath lưu đường dẫn đến file XML đang đọc
 
@@ -25,7 +25,7 @@ void Map::BuildMap(const std::string path)
 	this->tileHeight = std::atoi(rootNode->first_attribute("tileheight")->value());
 
 
-	BuildTileSet(rootNode);
+	BuildTileSet(rootNode, texID);
 	BuildMapLayer(rootNode);
 	BuildObjectLayer(rootNode);
 
@@ -86,7 +86,7 @@ void Map::BuildMapLayer(xml_node<>* rootNode)
 
 
 
-		layer = new Layer(name, width, height, this->tileWidth, this->tileHeight, isVisible);
+		layer = new Layer(name, width, height, this->tileWidth, this->tileHeight, isVisible, this->mapID);
 
 		layer->SetTileMatrix(tileMatrix);
 		this->layers.insert(std::make_pair(name, layer));
@@ -94,7 +94,7 @@ void Map::BuildMapLayer(xml_node<>* rootNode)
 	}
 }
 
-void Map::BuildTileSet(xml_node<>* node)
+void Map::BuildTileSet(xml_node<>* node, int texID)
 {
 
 	xml_node<>* tileSetNode = node->first_node("tileset");
@@ -114,7 +114,7 @@ void Map::BuildTileSet(xml_node<>* node)
 	///DEMO
 	CTextures* textures = CTextures::GetInstance();
 
-	LPDIRECT3DTEXTURE9 objecttex = textures->Get(-500);
+	LPDIRECT3DTEXTURE9 objecttex = textures->Get(texID);
 
 	int TileId = 1;	
 
@@ -156,7 +156,7 @@ void Map::BuildObjectLayer(xml_node<>* rootNode)
 			const float height = std::atof(ggchild->first_attribute("height")->value());
 
 
-			//ĐỌC PROPERTY CỦA OBJECT
+			// PROPERTY
 
 			xml_node<>* propNode = ggchild->first_node("properties");
 			ObjectTile* object = new ObjectTile(ggid, x, y, width, height);

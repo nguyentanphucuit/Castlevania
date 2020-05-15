@@ -107,7 +107,7 @@ void Whip::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT>* colliable_objects
 			CTorch* torch = dynamic_cast<CTorch*>(colliable_objects->at(i));
 			if (this->isColliding(torch) && !torch->IsDestroyed()) // check CO
 			{
-				//khởi tạo item và effect
+
 				auto item = ItemFactory::SpawnItem<Item*>(torch->GetItem());
 				auto effect = EffectFactory::SpawnEffect<Effect*>(CEffect::FLAME);
 				if (dynamic_cast<PlayScene*>(scene)) // check scene cur
@@ -117,11 +117,11 @@ void Whip::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT>* colliable_objects
 					PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
 					item->SetPosition(tx,ty);
 					effect->SetPosition(tx, ty);
-					// bỏ vô hàng đợi
+
 					pScene->SpawnObject(item);
 					pScene->SpawnObject(effect);
 				}
-				torch->SetDestroy(); // check CO = true => destroy 
+				torch->SetDestroy(); 
 			}
 		}
 	}

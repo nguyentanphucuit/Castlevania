@@ -78,15 +78,15 @@ void CSIMON::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT> *coObjects)
 		{
 			LPCOLLISIONEVENT e = coEventsResult[i];
 
-			if (dynamic_cast<Ground*>(e->obj)) { //brick lúc này là ground
+			if (dynamic_cast<Ground*>(e->obj)) { 
 				isOnGround = true;
 				
-				if (e->ny != 0) { // kiểm tra va chạm trục y có va chạm trục y nhảy vào đây
+				if (e->ny != 0) { 
 					
 					if (GetState() == SIMONSTATE::JUMP) {
 						SetState(SIMONSTATE::IDLE);
 					}
-					if (this->state == SIMONSTATE::FIGHT_STAND) //đang đánh trên không tiếp đất =>set lại vx=0
+					if (this->state == SIMONSTATE::FIGHT_STAND)
 					{
 						vx = 0;
 					}
@@ -133,7 +133,7 @@ void CSIMON::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT> *coObjects)
 					}
 				}
 				
-				if (e->nx!=0) // va chạm chiều x
+				if (e->nx!=0) 
 					x += dx;
 				if (e->ny != 0)
 					y += dy;
@@ -147,33 +147,33 @@ void CSIMON::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT> *coObjects)
 	for (UINT i = 0; i < coEvents.size(); i++) delete coEvents[i];
 
 	// xử lý va chạm simon và các items
-	for (size_t i = 0; i < coObjects->size(); i++) {
-		if (this->isColliding(coObjects->at(i))) {
-			if (dynamic_cast<Item*>(coObjects->at(i))) {
-				Item* item = dynamic_cast<Item*>(coObjects->at(i));
-				if(!item->IsDestroy()){
-					if (dynamic_cast<IWhip*>(item)) {
-						this->SetState(SIMONSTATE::UPWHIP);
-					}
-					if (dynamic_cast<IDagger*>(item)) {
-						this->currentWeapon = EWeapon::Dagger;
-					}
-					item->SetDestroy();
-				}
-			}
-		}
-	}
+	//for (size_t i = 0; i < coObjects->size(); i++) {
+	//	if (this->isColliding(coObjects->at(i))) {
+	//		if (dynamic_cast<Item*>(coObjects->at(i))) {
+	//			Item* item = dynamic_cast<Item*>(coObjects->at(i));
+	//			if(!item->IsDestroy()){
+	//				if (dynamic_cast<IWhip*>(item)) {
+	//					this->SetState(SIMONSTATE::UPWHIP);
+	//				}
+	//				if (dynamic_cast<IDagger*>(item)) {
+	//					this->currentWeapon = EWeapon::Dagger;
+	//				}
+	//				item->SetDestroy();
+	//			}
+	//		}
+	//	}
+	//}
 
-	if (this->fight_start!=0)// có đánh mới cần set
+	if (this->fight_start!=0) // có đánh mới cần set
 	{
 		if (!this->spawnWeapon) {
 			if (this->state == SIMONSTATE::FIGHT_SIT)
 			{
-				whip->SetPosition(this->x - 1.5 * SIMON_SPRITE_WIDTH, this->y + SIMON_SPRITE_HEIGHT * 0.25); //đặt tọa độ whip theo vị trí simon canh chỉnh lại xíu
+				whip->SetPosition(this->x - 1.5 * SIMON_SPRITE_WIDTH, this->y + SIMON_SPRITE_HEIGHT * 0.25); //đặt tọa độ whip theo vị trí simon
 			}
 			else
 			{
-				whip->SetPosition(this->x - 1.5 * SIMON_SPRITE_WIDTH, this->y); //đặt tọa độ whip theo vị trí simon canh chỉnh lại xíu
+				whip->SetPosition(this->x - 1.5 * SIMON_SPRITE_WIDTH, this->y); 
 			}
 			whip->SetNxDirection(this->nx);
 			whip->Update(dt, scene, coObjects);
@@ -256,9 +256,9 @@ void CSIMON::SetState(SIMONSTATE state)
 		vx = SIMON_WALKING_SPEED / 2;
 		break;
 	case SIMONSTATE::RETROGRADE:
-		//isTouchRetroGrade = true;
-		//vx = 0;
-		//break;
+		isTouchRetroGrade = true;
+		vx = 0;
+		break;
 	case SIMONSTATE::WALKING_RIGHT:
 		isTouchRetroGrade = false;
 		vx = SIMON_WALKING_SPEED;

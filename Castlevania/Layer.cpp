@@ -13,9 +13,9 @@ void Layer::Render(D3DXVECTOR2 cam)
 	{
 		beginCol = 0;
 	}
-	//+1 vì nếu vẽ vừa đủ cột cuối cùng mỗi khi render sẽ nhấp nháy
-	int endCol = ((int)cam.x + SCREEN_WIDTH * 2) / tileHeight; // chú ý toạ độ camera ở góc trên bên trái màn hình
-	// full màn hình sẽ là cam.x + SCREEN_WIDTH * 2, +1 để tránh trường hợp map bị nhấp nhái
+
+	int endCol = ((int)cam.x + SCREEN_WIDTH * 2) / tileHeight; 
+	
 	if (endCol >= this->width)
 		endCol = this->width;
 	int beginRow = (int)cam.y / tileHeight;

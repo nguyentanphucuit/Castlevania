@@ -234,9 +234,8 @@ void CGame::OnCreate()
 	unsigned int menuSceneID = sceneStateMachine.Add(menuScene); 
 	
 
-	menuScene->SetSwitchToScene(playSceneID);
-																 
-	sceneStateMachine.SwitchTo(playSceneID);
+	menuScene->SetSwitchToScene(playSceneID);															 
+	sceneStateMachine.SwitchTo(menuSceneID);
 
 
 }

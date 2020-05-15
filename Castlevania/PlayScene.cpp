@@ -10,6 +10,8 @@
 #include "HMoney.h"
 #include "Entrance.h"
 #include "RetroGrade.h"
+#include "SwitchScene.h"
+
 void PlayScene::LoadSprite(const std::string& filePath, const int tex)
 {
 	CTextures* textures = CTextures::GetInstance();
@@ -95,6 +97,33 @@ void PlayScene::LoadAnimation(const string& filePath)
 
 }
 
+void PlayScene::LoadSceneContent(xml_node<>* root)
+{
+	xml_node<>* sceneNode = root->first_node("scenes");
+	xml_node<>* playSceneNode = sceneNode->first_node("pscene");
+	const int activeID = std::atoi(playSceneNode->first_attribute("activeID")->value());
+	for (xml_node<>* child = playSceneNode->first_node(); child; child = child->next_sibling()) {
+		pScene* _pScene = new pScene();
+		const int id = std::atoi(child->first_attribute("id")->value());
+		const int mapID = std::atoi(child->first_attribute("mapID")->value());
+		const std::string& border = std::string(child->first_attribute("border")->value());
+		const std::string& entry = std::string(child->first_attribute("entry")->value());
+
+		_pScene->id = id;
+		_pScene->mapID = mapID;
+		_pScene->border = border;
+		_pScene->entry = entry;
+		this->pScenes.insert(std::make_pair(id, _pScene));
+	}
+	this->currentPScene = this->pScenes.at(activeID);
+
+	this->currentMap = this->Maps.at(this->currentPScene->mapID);
+	this->cameraBorder = this->pSceneBorders.at(this->currentPScene->border);
+	this->currentEntryPoints = this->entryPoints.at(this->currentPScene->entry);
+	CGame::GetInstance()->SetCamPos(cameraBorder.left, cameraBorder.top);
+	this->SIMON->SetPosition(currentEntryPoints.x, currentEntryPoints.y);
+}
+
 D3DXVECTOR2 PlayScene::GetCamera()
 {
 
@@ -168,99 +197,114 @@ void PlayScene::OnCreate()
 	}
 
 	//load map
-	Maps = new Map();
-
-	xml_node<>* mapNode = rootNode->first_node("map");
-	const std::string& path = std::string(mapNode->first_attribute("path")->value());
-	Maps->BuildMap(path);
+	xml_node<>* mapsNode = rootNode->first_node("maps");
+	for (xml_node<>* child = mapsNode->first_node(); child; child = child->next_sibling()) {
+		const std::string& path = std::string(child->first_attribute("path")->value());
+		const int id = std::atoi(child->first_attribute("id")->value());
+		const int texID = std::atoi(child->first_attribute("texID")->value());
+		Map* map = new Map(id);
+		map->BuildMap(path, texID);
+		this->Maps.insert(std::make_pair(id, map));
+	}
 
 
 
 	SIMON = new CSIMON();
 	objects.push_back(SIMON);
 
-	auto objectLayer = Maps->GetObjectLayer();
+	for (auto const& m : Maps) {
+		auto objectLayer = m.second->GetObjectLayer();
 
-	for (auto const& x : objectLayer)
-	{
-		DebugOut(L"ID= %d", static_cast<ObjLayer>(x.first));
-		switch (static_cast<ObjLayer>(x.first))
+		for (auto const& x : objectLayer)
 		{
-
-		case ObjLayer::PlayerPos:
-			for (auto const& y : x.second->GetObjectGroup())
+			DebugOut(L"ID= %d", static_cast<ObjLayer>(x.first));
+			switch (static_cast<ObjLayer>(x.first))
 			{
-				SIMON->SetPosition(y.second->GetX(), y.second->GetY() - y.second->GetHeight());
-			}
-			break;
 
-		case ObjLayer::Torch:
-			for (auto const& y : x.second->GetObjectGroup())
-			{
-				CTorch* torch = new CTorch();
-
-				torch->SetPosition(y.second->GetX(), y.second->GetY() - y.second->GetHeight());
-				torch->SetItem(static_cast<EItem>(y.second->GetProperty("item")));
-				objects.push_back(torch);
-			}
-			break;
-
-		case ObjLayer::Camera:
-			for (auto const& y : x.second->GetObjectGroup())
-			{
-				this->cameraBoder.left = y.second->GetX();
-				this->cameraBoder.top = y.second->GetX();
-				this->cameraBoder.right = y.second->GetX() + y.second->GetWidth();
-				this->cameraBoder.bottom = y.second->GetY() + y.second->GetHeight();
-
-			}
-			break;
-		case ObjLayer::Ground:
-			for (auto const& y : x.second->GetObjectGroup())
-			{
-				HiddenObject* ground = new Ground();
-				ground->SetPosition(y.second->GetX(), y.second->GetY());
-				ground->SetSize(y.second->GetWidth(), y.second->GetHeight());
-				objects.push_back(ground);
-			}
-			break;
-		case ObjLayer::HMoney:
-			for (auto const& y : x.second->GetObjectGroup()) {
-				HMoney* hMoney = new HMoney();
-				hMoney->SetPosition(y.second->GetX(), y.second->GetY());
-				hMoney->SetSize(y.second->GetWidth(), y.second->GetHeight());
-				auto moneyLayer = objectLayer.at(11);
-				for (auto const& child : moneyLayer->GetObjectGroup()) {
-					auto moneyItem = ItemFactory::SpawnItem<Item*>(EItem::MONEY);
-					moneyItem->SetPosition(child.second->GetX(), child.second->GetY() - child.second->GetHeight());
-					hMoney->SetItem(moneyItem);
+			case ObjLayer::PlayerPos:
+				for (auto const& y : x.second->GetObjectGroup())
+				{
+					SIMON->SetPosition(y.second->GetX(), y.second->GetY() - y.second->GetHeight());
 				}
-				objects.push_back(hMoney);
-			}
-			break;
-		case ObjLayer::Entrance:
-			for (auto const& y : x.second->GetObjectGroup()) {
-				Entrance* entrance = new Entrance();
-				entrance->SetSize(y.second->GetWidth(), y.second->GetHeight());
-				entrance->SetPosition(y.second->GetX(), y.second->GetY());
-				objects.push_back(entrance);
-			}
-			break;
-		case ObjLayer::CheckRetrograde:
-			for (auto const& y : x.second->GetObjectGroup()) {
-				RetroGrade* retroGrade = new RetroGrade();
-				retroGrade->SetSize(y.second->GetWidth(), y.second->GetHeight());
-				retroGrade->SetPosition(y.second->GetX(), y.second->GetY());
-				objects.push_back(retroGrade);
-			}
-			break;
-		default:
-			break;
-		}
-	}
+				break;
 
-	CGame::GetInstance()->SetCamPos(0, 0);
-}
+			case ObjLayer::Torch:
+				for (auto const& y : x.second->GetObjectGroup())
+				{
+					CTorch* torch = new CTorch();
+
+					torch->SetPosition(y.second->GetX(), y.second->GetY() - y.second->GetHeight());
+					torch->SetItem(static_cast<EItem>(y.second->GetProperty("item")));
+					objects.push_back(torch);
+				}
+				break;
+
+			case ObjLayer::Camera:
+				for (auto const& y : x.second->GetObjectGroup())
+				{
+					RECT border;
+					border.left = y.second->GetX();
+					border.top = y.second->GetX();
+					border.right = y.second->GetX() + y.second->GetWidth();
+					border.bottom = y.second->GetY() + y.second->GetHeight();
+
+					this->pSceneBorders.insert(std::make_pair(y.second->GetName(), border));
+					
+				}
+				break;
+			case ObjLayer::Ground:
+				for (auto const& y : x.second->GetObjectGroup())
+				{
+					HiddenObject* ground = new Ground();
+					ground->SetPosition(y.second->GetX(), y.second->GetY());
+					ground->SetSize(y.second->GetWidth(), y.second->GetHeight());
+					objects.push_back(ground);
+				}
+				break;
+			case ObjLayer::HMoney:
+				for (auto const& y : x.second->GetObjectGroup()) {
+					HMoney* hMoney = new HMoney();
+					hMoney->SetPosition(y.second->GetX(), y.second->GetY());
+					hMoney->SetSize(y.second->GetWidth(), y.second->GetHeight());
+					auto moneyLayer = objectLayer.at(11);
+					for (auto const& child : moneyLayer->GetObjectGroup()) {
+						auto moneyItem = ItemFactory::SpawnItem<Item*>(EItem::MONEY);
+						moneyItem->SetPosition(child.second->GetX(), child.second->GetY() - child.second->GetHeight());
+						hMoney->SetItem(moneyItem);
+					}
+					objects.push_back(hMoney);
+				}
+				break;
+			case ObjLayer::Entrance:
+				for (auto const& y : x.second->GetObjectGroup()) {
+					Entrance* entrance = new Entrance();
+					entrance->SetSize(y.second->GetWidth(), y.second->GetHeight());
+					entrance->SetPosition(y.second->GetX(), y.second->GetY());
+					objects.push_back(entrance);
+				}
+				break;
+			case ObjLayer::CheckRetrograde:
+				for (auto const& y : x.second->GetObjectGroup()) {
+					RetroGrade* retroGrade = new RetroGrade();
+					retroGrade->SetSize(y.second->GetWidth(), y.second->GetHeight());
+					retroGrade->SetPosition(y.second->GetX(), y.second->GetY());
+					objects.push_back(retroGrade);
+				}
+				break;
+			case ObjLayer::PScene:
+				for (auto const& y : x.second->GetObjectGroup()) {
+					auto pSwitch = new SwitchScene(std::atoi(y.second->GetProperty("sceneID").c_str()), y.second->GetProperty("MH_1"));
+					p->
+				}
+			default:
+				break;
+			}
+		}
+
+		LoadSceneContent(rootNode);
+	}
+	}
+	
 
 void PlayScene::OnDestroy()
 {
@@ -297,9 +341,9 @@ void PlayScene::Update(DWORD dt)
 
 	cx -= SCREEN_WIDTH / 1.5;
 	cy -= SCREEN_HEIGHT / 1.5;
-	if (cx > this->cameraBoder.left && cx < this->cameraBoder.right - SCREENSIZE::WIDTH)
+	if (cx > this->cameraBorder.left && cx < this->cameraBorder.right - SCREENSIZE::WIDTH)
 	{
-		CGame::GetInstance()->SetCamPos(cx, 0.0f /*cy*/);
+		CGame::GetInstance()->SetCamPos(cx, this->cameraBorder.top /*cy*/);
 	}
 
 	for (vector<LPGAMEOBJECT>::iterator it = objects.begin(); it != objects.end(); ) {
@@ -314,6 +358,15 @@ void PlayScene::Update(DWORD dt)
 		else ++it;
 	}
 
+	if (switchScene) {
+		this->currentMap = this->Maps.at(this->currentPScene->mapID);
+		this->cameraBorder = this->pSceneBorders.at(this->currentPScene->border);
+		switchScene = false;
+		SIMON->SetState(SIMONSTATE::IDLE);
+		this->currentEntryPoints = this->entryPoints.at(this->currentPScene->entry);
+		this->SIMON->SetPosition(currentEntryPoints.x, currentEntryPoints.y);
+		CGame::GetInstance()->SetCamPos(cameraBorder.left, cameraBorder.top);
+	}
 
 
 }
@@ -322,7 +375,7 @@ void PlayScene::Render()
 {
 	CGame* game = CGame::GetInstance();
 	D3DXVECTOR2 cam = game->GetCamera();
-	Maps->Render(cam);
+	currentMap->Render(cam);
 
 	for (int i = 0; i < objects.size(); i++)
 		objects[i]->Render();
@@ -330,7 +383,7 @@ void PlayScene::Render()
 	SIMON->Render();
 	if (SIMON->GetState() == SIMONSTATE::ENTERENTRANCE)
 	{
-		Maps->GetLayer("font")->Render(cam);
+		currentMap->GetLayer("font")->Render(cam);
 		isEntrance = true;
 	}
 
@@ -419,13 +472,15 @@ void PlayScene::KeyState(BYTE* states)
 	CGame* game = CGame::GetInstance();
 
 	if (SIMON->GetState() == SIMONSTATE::ENTERENTRANCE) return;
+	if (SIMON->GetState() == SIMONSTATE::RETROGRADE) return;
+
 	if (SIMON->GetUpgradeTime() != 0 && GetTickCount() - SIMON->GetUpgradeTime() > SIMON_UPGRADE_WHIP_TIME) {
 		SIMON->ResetUpgradeTime();
 		SIMON->SetState(SIMONSTATE::IDLE);
 	}
 	if (SIMON->GetState() == SIMONSTATE::UPWHIP) return;
 	if (SIMON->GetState() == SIMONSTATE::JUMP) return;
-	//if (SIMON->GetState() == SIMONSTATE::RETROGRADE) return;
+
 	if (SIMON->GetFightTime() != 0 && GetTickCount() - SIMON->GetFightTime() > SIMON_ATTACK_TIME)
 	{
 		SIMON->ResetAttack();

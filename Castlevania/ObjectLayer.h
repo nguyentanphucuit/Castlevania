@@ -14,6 +14,7 @@ struct OProperty
 class ObjectTile
 {
 private:
+	std::string name;
 	int id;
 	float x;
 	float y;
@@ -32,7 +33,7 @@ public:
 	float GetHeight() { return height; }
 
 	int GetProperty(std::string key);
-
+	std::string GetName() { return name; }
 };
 
 class ObjectLayer

@@ -9,14 +9,14 @@
 using namespace rapidxml;
 
 
-struct TileSet // dùng demo nữa ta mở rộng sau h chỉ đọc duy nhất 1 tileset
+struct TileSet 
 {
-	int imageWidth;// chiều rộng hình  
-	int imageHeight; //chiều dài hình 
+	int imageWidth;
+	int imageHeight; 
 	std::string name;
-	int columns; // số cột được chia
-	int rows; // số hàng được chia
-	int tileCount;// tổng số tile được chia
+	int columns; 
+	int rows; 
+	int tileCount;
 
 	int tileWidth;
 	int tileHeight;
@@ -32,6 +32,7 @@ enum class ObjLayer
 	HMoney = 14,
 	Entrance = 8,
 	CheckRetrograde = 18,
+	PScene = 20,
 };
 
 class Map
@@ -39,6 +40,7 @@ class Map
 private:
 	int width; 
 	int height;
+	int mapID;
 
 	int tileWidth;
 	int tileHeight;
@@ -48,7 +50,7 @@ private:
 
 	std::map<int, ObjectLayer*> objectLayers;
 	void BuildMapLayer(xml_node<>* node);
-	void BuildTileSet(xml_node<>* node);
+	void BuildTileSet(xml_node<>* node, int texID);
 	void BuildObjectLayer(xml_node<>* node);
 public:
 
@@ -58,8 +60,8 @@ public:
 		return objectLayers;
 
 	}
-	Map() :width(0), height(0), tileWidth(0), tileHeight(0) {};
-	void BuildMap(const std::string path);
+	Map(int id) :width(0), height(0), tileWidth(0), tileHeight(0), mapID(id) {};
+	void BuildMap(const std::string path, int texID);
 
 	void Render(D3DXVECTOR2 camera);
 	Layer* GetLayer(std::string name);
