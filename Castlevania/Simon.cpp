@@ -147,22 +147,22 @@ void CSIMON::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT> *coObjects)
 	for (UINT i = 0; i < coEvents.size(); i++) delete coEvents[i];
 
 	// xử lý va chạm simon và các items
-	//for (size_t i = 0; i < coObjects->size(); i++) {
-	//	if (this->isColliding(coObjects->at(i))) {
-	//		if (dynamic_cast<Item*>(coObjects->at(i))) {
-	//			Item* item = dynamic_cast<Item*>(coObjects->at(i));
-	//			if(!item->IsDestroy()){
-	//				if (dynamic_cast<IWhip*>(item)) {
-	//					this->SetState(SIMONSTATE::UPWHIP);
-	//				}
-	//				if (dynamic_cast<IDagger*>(item)) {
-	//					this->currentWeapon = EWeapon::Dagger;
-	//				}
-	//				item->SetDestroy();
-	//			}
-	//		}
-	//	}
-	//}
+	for (size_t i = 0; i < coObjects->size(); i++) {
+		if (this->isColliding(coObjects->at(i))) {
+			if (dynamic_cast<Item*>(coObjects->at(i))) {
+				Item* item = dynamic_cast<Item*>(coObjects->at(i));
+				if(!item->IsDestroy()){
+					if (dynamic_cast<IWhip*>(item)) {
+						this->SetState(SIMONSTATE::UPWHIP);
+					}
+					if (dynamic_cast<IDagger*>(item)) {
+						this->currentWeapon = EWeapon::Dagger;
+					}
+					item->SetDestroy();
+				}
+			}
+		}
+	}
 
 	if (this->fight_start!=0) // có đánh mới cần set
 	{

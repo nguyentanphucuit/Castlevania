@@ -1049,7 +1049,7 @@
   </data>
  </layer>
  <objectgroup id="2" name="Player">
-  <object id="1" name="C_E1" gid="82" x="51.3333" y="270.667" width="60" height="64"/>
+  <object id="1" name="M1_E1" gid="82" x="51.3333" y="270.667" width="60" height="64"/>
  </objectgroup>
  <objectgroup id="3" name="Ground">
   <object id="9" name="Ground" x="1" y="289.5" width="1503" height="30"/>
@@ -1085,7 +1085,7 @@
   <object id="34" gid="155" x="1250" y="319" width="30" height="30"/>
  </objectgroup>
  <objectgroup id="5" name="Camera" visible="0">
-  <object id="8" name="C_B1" x="1" y="-1" width="1503.33" height="351"/>
+  <object id="8" name="M1_C1" x="1" y="-1" width="1503.33" height="351"/>
  </objectgroup>
  <objectgroup id="20" name="NextScene">
   <object id="46" x="1487" y="168" width="13" height="121"/>

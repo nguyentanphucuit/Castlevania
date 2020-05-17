@@ -14,6 +14,8 @@ public:
 	void Update(DWORD deltaTime);
 	void Render();
 
+	std::shared_ptr<Scene> GetCurrentScene() { return this->curScene; };
+
 	unsigned int Add(std::shared_ptr<Scene> scene);
 
 	void SwitchTo(unsigned int id);

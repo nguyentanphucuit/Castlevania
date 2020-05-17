@@ -6,8 +6,8 @@
 struct OProperty
 {
 	std::string name;
-	int value;
-	OProperty() :name(""), value(-1) {};
+	std::string value;
+	OProperty() :name(""), value("-1") {};
 };
 
 
@@ -22,17 +22,17 @@ private:
 	float height;
 	std::map<std::string, OProperty*> properties;
 public:
-	ObjectTile(int id, float x, float y, float width, float height) :id(id), x(x), y(y)
-		, width(width), height(height) {};
+	ObjectTile(int id, float x, float y, float width, float height, std::string name) :id(id), x(x), y(y)
+		, width(width), height(height), name(name) {};
 
-	void SetProerties(std::map<std::string, OProperty*> properties) { this->properties = properties; };
+	void SetProperties(std::map<std::string, OProperty*> properties) { this->properties = properties; };
 	int GetID() { return id; }
 	float GetX() { return x; }
 	float GetY() { return y; }
 	float GetWidth() { return width; }
 	float GetHeight() { return height; }
 
-	int GetProperty(std::string key);
+	std::string GetProperty(std::string key);
 	std::string GetName() { return name; }
 };
 

@@ -753,11 +753,11 @@
   </data>
  </layer>
  <objectgroup id="2" name="Player">
-  <object id="1" name="MH_E1" gid="104" x="581.425" y="737.349" width="60" height="64"/>
+  <object id="1" name="M2_E1" gid="104" x="659.425" y="721.349" width="60" height="64"/>
  </objectgroup>
- <objectgroup id="3" name="Camera">
-  <object id="2" name="MH_B1" x="510.135" y="381.22" width="480.668" height="386.745"/>
-  <object id="3" name="MH_B2" x="0" y="-1.84164" width="990.803" height="383.061"/>
+ <objectgroup id="3" name="Camera" visible="0">
+  <object id="2" name="Map2_C1" x="510.135" y="381.22" width="480.668" height="386.745"/>
+  <object id="3" name="Map2_C2" x="0" y="-1.84164" width="990.803" height="383.061"/>
  </objectgroup>
  <objectgroup id="4" name="Ground">
   <object id="4" x="512" y="738.667" width="446.667" height="29.3333"/>

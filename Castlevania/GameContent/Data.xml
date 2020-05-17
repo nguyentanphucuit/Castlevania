@@ -30,14 +30,14 @@
 	</animations>
 	
 	<maps>
-		<map texID="-500" id ="0" name="Courtyard" path="GameContent\\Map\\Courtyard_map.tmx"/>
-		<map texID="-600" id ="1" name="MainHall" path="GameContent\\Map\\MainHall_map.tmx"/>
+		<map texID="-500" id ="0" name="Courtyard_map" path="GameContent\\Map\\Courtyard_map.tmx"/>
+		<map texID="-600" id ="1" name="MainHall_map" path="GameContent\\Map\\MainHall_map.tmx"/>
 	</maps>
 	
 	<scenes>
 		<pscene activeID="0">
-			<pscenes id="0" mapID="0" entry="C_E1" border="C_B1" state="1" name="Courtyard"/>
-			<pscenes id="1" mapID="1" entry="MH_E1" border="MH_B1" state="1" name="MainHall"/>
+			<pscenes id="0" mapID="0" entry="M1_E1" border="M1_C1" state="1" name="Courtyard"/>
+			<pscenes id="1" mapID="1" entry="M2_E1" border="Map2_C1" state="2" name="MainHall"/>
 		</pscene>
 	</scenes>
 </Data>

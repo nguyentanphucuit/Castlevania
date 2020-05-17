@@ -74,7 +74,7 @@ void PlayScene::LoadAnimation(const string& filePath)
 	doc.parse<0>(xmlFile.data());
 
 	xml_node<>* rootNode = doc.first_node("gamedata"); 
-
+	xml_node<>* aniNode = rootNode->first_node("animation");
 	for (xml_node<>* child = rootNode->first_node(); child; child = child->next_sibling())
 	{
 
@@ -104,16 +104,16 @@ void PlayScene::LoadSceneContent(xml_node<>* root)
 	const int activeID = std::atoi(playSceneNode->first_attribute("activeID")->value());
 	for (xml_node<>* child = playSceneNode->first_node(); child; child = child->next_sibling()) {
 		pScene* _pScene = new pScene();
-		const int id = std::atoi(child->first_attribute("id")->value());
-		const int mapID = std::atoi(child->first_attribute("mapID")->value());
-		const std::string& border = std::string(child->first_attribute("border")->value());
-		const std::string& entry = std::string(child->first_attribute("entry")->value());
+		const int _id = std::atoi(child->first_attribute("id")->value());
+		const int _mapID = std::atoi(child->first_attribute("mapID")->value());
+		const std::string& _border = std::string(child->first_attribute("border")->value());
+		const std::string& _entry = std::string(child->first_attribute("entry")->value());
 
-		_pScene->id = id;
-		_pScene->mapID = mapID;
-		_pScene->border = border;
-		_pScene->entry = entry;
-		this->pScenes.insert(std::make_pair(id, _pScene));
+		_pScene->id = _id;
+		_pScene->mapID = _mapID;
+		_pScene->border = _border;
+		_pScene->entry = _entry;
+		this->pScenes.insert(std::make_pair(_id, _pScene));
 	}
 	this->currentPScene = this->pScenes.at(activeID);
 
@@ -224,7 +224,10 @@ void PlayScene::OnCreate()
 			case ObjLayer::PlayerPos:
 				for (auto const& y : x.second->GetObjectGroup())
 				{
-					SIMON->SetPosition(y.second->GetX(), y.second->GetY() - y.second->GetHeight());
+					D3DXVECTOR2 entry;
+					entry.x = y.second->GetX();
+					entry.y = y.second->GetY() - y.second->GetHeight();
+					this->entryPoints.insert(std::make_pair(y.second->GetName(), entry));
 				}
 				break;
 
@@ -234,7 +237,7 @@ void PlayScene::OnCreate()
 					CTorch* torch = new CTorch();
 
 					torch->SetPosition(y.second->GetX(), y.second->GetY() - y.second->GetHeight());
-					torch->SetItem(static_cast<EItem>(y.second->GetProperty("item")));
+					torch->SetItem(static_cast<EItem>(std::atoi(y.second->GetProperty("item").c_str())));
 					objects.push_back(torch);
 				}
 				break;
@@ -293,9 +296,12 @@ void PlayScene::OnCreate()
 				break;
 			case ObjLayer::PScene:
 				for (auto const& y : x.second->GetObjectGroup()) {
-					auto pSwitch = new SwitchScene(std::atoi(y.second->GetProperty("sceneID").c_str()), y.second->GetProperty("MH_1"));
-					p->
+					auto pSwitch = new SwitchScene(std::atoi(y.second->GetProperty("sceneID").c_str()), y.second->GetProperty("Map2_C1"));
+					pSwitch->SetSize(y.second->GetX(), y.second->GetHeight());
+					pSwitch->SetPosition(y.second->GetX(), y.second->GetY());
+					objects.push_back(pSwitch);
 				}
+				break;
 			default:
 				break;
 			}

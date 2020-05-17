@@ -122,7 +122,7 @@ void Map::BuildTileSet(xml_node<>* node, int texID)
 	{
 		for (std::size_t j = 0; j < tileSet.columns; j++)
 		{
-			CSprites::GetInstance()->Add("map_" + std::to_string(TileId), j * this->tileHeight, i * this->tileHeight, j * this->tileHeight + this->tileHeight, i * this->tileHeight + this->tileHeight, objecttex);
+			CSprites::GetInstance()->Add("map_" + std::to_string(mapID) +std::to_string(TileId), j * this->tileHeight, i * this->tileHeight, j * this->tileHeight + this->tileHeight, i * this->tileHeight + this->tileHeight, objecttex);
 			TileId++;
 		}
 	}
@@ -132,54 +132,67 @@ void Map::BuildTileSet(xml_node<>* node, int texID)
 
 void Map::BuildObjectLayer(xml_node<>* rootNode)
 {
+	// lập các node trong map lấy ra các node objectgroup
 	for (xml_node<>* child = rootNode->first_node("objectgroup"); child; child = child->next_sibling()) //cú pháp lập
 	{
 		const std::string nodeName = child->name();
-		if (nodeName != "objectgroup") 
+		if (nodeName != "objectgroup") // kiểm tra node có phải layer không cho chắc ăn
 		{
-			continue;
+			continue;// không phải tiếp tục vòng lặp
 		}
 
-		ObjectLayer* objectlayer;
+		ObjectLayer* objectlayer;// object layer tượng chưng cho 1 object group
 
 		const std::string name = std::string(child->first_attribute("name")->value());
 		const int id = std::atoi(child->first_attribute("id")->value());
 		std::map<int, ObjectTile*> objectgroup;
 
+		// child  lúc này là 1 object group tại lần lập hiện tại
+			//lập toàn bộ objectgroup node lấy ra thông tin các object
 		for (xml_node<>* ggchild = child->first_node(); ggchild; ggchild = ggchild->next_sibling()) //cú pháp lập
 		{
-		
+			//	const std::string ggname = std::string(ggchild->first_attribute("name")->value());
 			const int ggid = std::atoi(ggchild->first_attribute("id")->value());
 			const float x = std::atof(ggchild->first_attribute("x")->value());
 			const float y = std::atof(ggchild->first_attribute("y")->value());
 			const float width = std::atof(ggchild->first_attribute("width")->value());
 			const float height = std::atof(ggchild->first_attribute("height")->value());
-
-
-			// PROPERTY
+			std::string lName = "NONAME";
+			xml_attribute<>* name = ggchild->first_attribute("name");
+			if (name != NULL)
+			{
+				lName = name->value();
+			}
+			//ĐỌC PROPERTY CỦA OBJECT
 
 			xml_node<>* propNode = ggchild->first_node("properties");
-			ObjectTile* object = new ObjectTile(ggid, x, y, width, height);
+			ObjectTile* object = new ObjectTile(ggid, x, y, width, height, lName);
 			if (propNode != NULL)
 			{
 				std::map<std::string, OProperty*> properties;
 				for (xml_node<>* pchild = propNode->first_node(); pchild; pchild = pchild->next_sibling()) //cú pháp lập
 				{
-					OProperty* property=new OProperty();
-					property->name= std::string(pchild->first_attribute("name")->value());
-					property->value = std::atoi(pchild->first_attribute("value")->value());
+					OProperty* property = new OProperty();
+					property->name = std::string(pchild->first_attribute("name")->value());
+					property->value = std::string(pchild->first_attribute("value")->value());
 					properties.insert(std::make_pair(property->name, property));
 
 				}
-				object->SetProerties(properties);
+				object->SetProperties(properties);
 			}
 
 
+
+			//tạo 1 object
+
+			// cho vào object group
+			// khi kết thúc vòng lập ta lưu được hết các object trong group hiện tại
+			// sau đó child sẽ là objectgroup tiếp theo trong map
 			objectgroup.insert(std::make_pair(ggid, object));
 		}
-		
+		// khởi tạo object group với id, name và các object con nằm trong nó
 		objectlayer = new ObjectLayer(id, name, objectgroup);
-
+		//cho objectgroup vào cái std::map lưu object của Map
 		this->objectLayers.insert(std::make_pair(id, objectlayer));
 
 

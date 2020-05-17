@@ -29,7 +29,7 @@ void Layer::Render(D3DXVECTOR2 cam)
 			int id = this->tileMatrix[i][j];
 			if (id)
 			{
-				CSprites::GetInstance()->Get("map_" + std::to_string(id))->Draw(j * 32, i * 32);
+				CSprites::GetInstance()->Get("map_" + std::to_string(mapID) + std::to_string(id))->Draw(j * 32, i * 32);
 			}
 
 		}
