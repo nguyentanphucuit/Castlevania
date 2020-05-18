@@ -23,18 +23,6 @@ struct TileSet
 
 };
 
-enum class ObjLayer
-{
-	PlayerPos = 2,
-	Ground = 3,
-	Torch = 4,
-	Camera = 5,
-	HMoney = 14,
-	Entrance = 8,
-	CheckRetrograde = 18,
-	PScene = 20,
-};
-
 class Map
 {
 private:
@@ -48,14 +36,14 @@ private:
 	// lưu toàn bộ layer của map
 	std::map<std::string, Layer*> layers;
 
-	std::map<int, ObjectLayer*> objectLayers;
+	std::map<std::string, ObjectLayer*> objectLayers;
 	void BuildMapLayer(xml_node<>* node);
 	void BuildTileSet(xml_node<>* node, int texID);
 	void BuildObjectLayer(xml_node<>* node);
 public:
 
 
-	std::map<int, ObjectLayer*> GetObjectLayer()
+	std::map<std::string, ObjectLayer*> GetObjectLayer()
 	{
 		return objectLayers;
 

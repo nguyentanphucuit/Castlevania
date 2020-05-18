@@ -10,6 +10,7 @@
 #include "Entrance.h"
 #include "HMoney.h"
 #include "RetroGrade.h"
+#include "SwitchScene.h"
 
 CSIMON::CSIMON() : CGameObject() {
 	level = SIMON_LEVEL_BIG;
@@ -99,6 +100,15 @@ void CSIMON::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT> *coObjects)
 				
 				
 
+			}
+			else if (dynamic_cast<SwitchScene*>(e->obj)) {
+				auto switchScene = dynamic_cast<SwitchScene*>(e->obj);
+				if (dynamic_cast<PlayScene*> (scene)) {
+					auto pScene = dynamic_cast<PlayScene*>(scene);
+					int id = switchScene->GetSceneID();
+					pScene->SwitchPScene(id);
+					switchScene->SetDestroy();
+				}
 			}
 			else
 			{

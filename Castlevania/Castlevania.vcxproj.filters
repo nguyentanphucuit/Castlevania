@@ -150,6 +150,9 @@
     <ClInclude Include="SwitchScene.h">
       <Filter>Source Files\Objects\Hide</Filter>
     </ClInclude>
+    <ClInclude Include="Convert.h">
+      <Filter>Source Files\Utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -256,6 +259,9 @@
     </ClCompile>
     <ClCompile Include="SwitchScene.cpp">
       <Filter>Source Files\Objects\Hide</Filter>
+    </ClCompile>
+    <ClCompile Include="Convert.cpp">
+      <Filter>Source Files\Utils</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -1088,7 +1088,12 @@
   <object id="8" name="M1_C1" x="1" y="-1" width="1503.33" height="351"/>
  </objectgroup>
  <objectgroup id="20" name="NextScene">
-  <object id="46" x="1487" y="168" width="13" height="121"/>
+  <object id="46" x="1487" y="168" width="13" height="121">
+   <properties>
+    <property name="border" value=""/>
+    <property name="sceneID" type="int" value="1"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="8" name="Entrance">
   <object id="32" x="1385" y="274" width="12" height="16"/>

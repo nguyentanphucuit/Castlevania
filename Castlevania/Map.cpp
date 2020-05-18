@@ -193,7 +193,7 @@ void Map::BuildObjectLayer(xml_node<>* rootNode)
 		// khởi tạo object group với id, name và các object con nằm trong nó
 		objectlayer = new ObjectLayer(id, name, objectgroup);
 		//cho objectgroup vào cái std::map lưu object của Map
-		this->objectLayers.insert(std::make_pair(id, objectlayer));
+		this->objectLayers.insert(std::make_pair(name, objectlayer));
 
 
 	}

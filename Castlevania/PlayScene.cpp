@@ -11,6 +11,7 @@
 #include "Entrance.h"
 #include "RetroGrade.h"
 #include "SwitchScene.h"
+#include "Convert.h"
 
 void PlayScene::LoadSprite(const std::string& filePath, const int tex)
 {
@@ -215,13 +216,15 @@ void PlayScene::OnCreate()
 	for (auto const& m : Maps) {
 		auto objectLayer = m.second->GetObjectLayer();
 
+		
 		for (auto const& x : objectLayer)
 		{
-			DebugOut(L"ID= %d", static_cast<ObjLayer>(x.first));
-			switch (static_cast<ObjLayer>(x.first))
+			ObjectID objID = string2EntityType.at(x.first);
+			/*DebugOut(L"ID= %d", static_cast<ObjLayer>(x.first));*/
+			switch (objID)
 			{
 
-			case ObjLayer::PlayerPos:
+			case _Player:
 				for (auto const& y : x.second->GetObjectGroup())
 				{
 					D3DXVECTOR2 entry;
@@ -231,7 +234,7 @@ void PlayScene::OnCreate()
 				}
 				break;
 
-			case ObjLayer::Torch:
+			case _Torch:
 				for (auto const& y : x.second->GetObjectGroup())
 				{
 					CTorch* torch = new CTorch();
@@ -242,7 +245,7 @@ void PlayScene::OnCreate()
 				}
 				break;
 
-			case ObjLayer::Camera:
+			case _Camera:
 				for (auto const& y : x.second->GetObjectGroup())
 				{
 					RECT border;
@@ -255,7 +258,7 @@ void PlayScene::OnCreate()
 					
 				}
 				break;
-			case ObjLayer::Ground:
+			case _Ground:
 				for (auto const& y : x.second->GetObjectGroup())
 				{
 					HiddenObject* ground = new Ground();
@@ -264,12 +267,12 @@ void PlayScene::OnCreate()
 					objects.push_back(ground);
 				}
 				break;
-			case ObjLayer::HMoney:
+			case _HMoney:
 				for (auto const& y : x.second->GetObjectGroup()) {
 					HMoney* hMoney = new HMoney();
 					hMoney->SetPosition(y.second->GetX(), y.second->GetY());
 					hMoney->SetSize(y.second->GetWidth(), y.second->GetHeight());
-					auto moneyLayer = objectLayer.at(11);
+					auto moneyLayer = objectLayer.at("HMoney");
 					for (auto const& child : moneyLayer->GetObjectGroup()) {
 						auto moneyItem = ItemFactory::SpawnItem<Item*>(EItem::MONEY);
 						moneyItem->SetPosition(child.second->GetX(), child.second->GetY() - child.second->GetHeight());
@@ -278,7 +281,7 @@ void PlayScene::OnCreate()
 					objects.push_back(hMoney);
 				}
 				break;
-			case ObjLayer::Entrance:
+			case _Entrance:
 				for (auto const& y : x.second->GetObjectGroup()) {
 					Entrance* entrance = new Entrance();
 					entrance->SetSize(y.second->GetWidth(), y.second->GetHeight());
@@ -286,7 +289,7 @@ void PlayScene::OnCreate()
 					objects.push_back(entrance);
 				}
 				break;
-			case ObjLayer::CheckRetrograde:
+			case _CheckRetrograde:
 				for (auto const& y : x.second->GetObjectGroup()) {
 					RetroGrade* retroGrade = new RetroGrade();
 					retroGrade->SetSize(y.second->GetWidth(), y.second->GetHeight());
@@ -294,9 +297,9 @@ void PlayScene::OnCreate()
 					objects.push_back(retroGrade);
 				}
 				break;
-			case ObjLayer::PScene:
+			case _NextScene:
 				for (auto const& y : x.second->GetObjectGroup()) {
-					auto pSwitch = new SwitchScene(std::atoi(y.second->GetProperty("sceneID").c_str()), y.second->GetProperty("Map2_C1"));
+					auto pSwitch = new SwitchScene(std::atoi(y.second->GetProperty("sceneID").c_str()), y.second->GetProperty("border"));
 					pSwitch->SetSize(y.second->GetX(), y.second->GetHeight());
 					pSwitch->SetPosition(y.second->GetX(), y.second->GetY());
 					objects.push_back(pSwitch);
