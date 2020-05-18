@@ -174,6 +174,7 @@
     <ClInclude Include="SceneStateMachine.h" />
     <ClInclude Include="Simon.h" />
     <ClInclude Include="Sprites.h" />
+    <ClInclude Include="Stair.h" />
     <ClInclude Include="SwitchScene.h" />
     <ClInclude Include="Textures.h" />
     <ClInclude Include="Torch.h" />
@@ -212,6 +213,7 @@
     <ClCompile Include="SceneStateMachine.cpp" />
     <ClCompile Include="Simon.cpp" />
     <ClCompile Include="Sprites.cpp" />
+    <ClCompile Include="Stair.cpp" />
     <ClCompile Include="SwitchScene.cpp" />
     <ClCompile Include="Textures.cpp" />
     <ClCompile Include="Torch.cpp" />

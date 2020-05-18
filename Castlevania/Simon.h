@@ -1,12 +1,14 @@
 ﻿#pragma once
 #include "GameObject.h"
 #include "Whip.h"
-#define SIMON_WALKING_SPEED		0.15f 
+#define SIMON_WALKING_SPEED		0.15f  //0.15
 //0.1f
 #define SIMON_JUMP_SPEED_Y		0.5f
 #define SIMON_JUMP_DEFLECT_SPEED 0.2f
 #define SIMON_GRAVITY			0.0015f
 #define SIMON_DIE_DEFLECT_SPEED	 0.5f
+
+#define SIMON_UPSTAIR_VELOCITY 0.04f  // stair
 
 #define SIMON_STATE_IDLE			0
 #define SIMON_STATE_WALKING_RIGHT	100
@@ -19,8 +21,9 @@
 #define SIMON_ANI_SIT 2 
 #define SIMON_ANI_STAND_ATTACK 3 
 #define SIMON_ANI_SIT_ATTACK 4 
-
 #define SIMON_ANI_UP_WHIP 5
+#define SIMON_ANI_STEP_UPSTAIR 6
+
 #define SIMON_ANI_DIE	8
 
 #define	SIMON_LEVEL_SMALL	1
@@ -54,6 +57,7 @@
 	UPWHIP,
 	ENTERENTRANCE,
 	RETROGRADE,
+	STAIR,
 };
 
  enum class EWeapon;
@@ -71,6 +75,7 @@ class CSIMON : public CGameObject
 	EWeapon currentWeapon;
 	bool spawnWeapon = false;
 	bool isSpawnWeapon = false; 
+	bool isStair = false;
 public: 
 	CSIMON();
 	bool isOnGround = false;

@@ -52,7 +52,41 @@
 			<frame l="120" t="330" r="180" b="396" />
 		</sprite>
 		
+		<!-- Stair -->
 		
+		<sprite ID="SIMON_UPSTAIR_01">
+			<frame l="60" t="66" r="120" b="132" />
+		</sprite>
+		<sprite ID="SIMON_UPSTAIR_02">
+			<frame l="120" t="66" r="180" b="132" />
+		</sprite>
+		<sprite ID="SIMON_DOWNSTAIR_01">
+			<frame l="180" t="66" r="240" b="132" />
+		</sprite>
+		<sprite ID="SIMON_DOWNSTAIR_02">
+			<frame l="240" t="66" r="300" b="132" />
+		</sprite>
 		
+		<sprite ID="SIMON_UPSTAIR_ATTACK_01">
+			<frame l="120" t="132" r="180" b="198" />
+		</sprite>
+		<sprite ID="SIMON_UPSTAIR_ATTACK_02">
+			<frame l="180" t="132" r="240" b="198" />
+		</sprite>
+		<sprite ID="SIMON_UPSTAIR_ATTACK_03">
+			<frame l="240" t="132" r="300" b="198" />
+		</sprite>
+
+
+
+		<sprite ID="SIMON_DOWNSTAIR_ATTACK_01">
+			<frame l="300" t="132" r="360" b="198" />
+		</sprite>
+		<sprite ID="SIMON_DOWNSTAIR_ATTACK_02">
+			<frame l="360" t="132" r="420" b="198" />
+		</sprite>
+		<sprite ID="SIMON_DOWNSTAIR_ATTACK_03">
+			<frame l="420" t="132" r="480" b="198" />
+		</sprite>
 		
 </gamedata>

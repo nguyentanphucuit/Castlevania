@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.3" orientation="orthogonal" renderorder="right-down" width="47" height="11" tilewidth="32" tileheight="32" infinite="0" nextlayerid="21" nextobjectid="48">
+<map version="1.2" tiledversion="1.3.3" orientation="orthogonal" renderorder="right-down" width="47" height="11" tilewidth="32" tileheight="32" infinite="0" nextlayerid="23" nextobjectid="52">
  <tileset firstgid="1" name="Courtyard_bank.png" tilewidth="32" tileheight="32" tilecount="80" columns="8">
   <image source="Courtyard_bank.png" width="256" height="320"/>
  </tileset>
@@ -1088,7 +1088,7 @@
   <object id="8" name="M1_C1" x="1" y="-1" width="1503.33" height="351"/>
  </objectgroup>
  <objectgroup id="20" name="NextScene">
-  <object id="46" x="1487" y="168" width="13" height="121">
+  <object id="46" x="140.333" y="261.333" width="13" height="27.6667">
    <properties>
     <property name="border" value=""/>
     <property name="sceneID" type="int" value="1"/>

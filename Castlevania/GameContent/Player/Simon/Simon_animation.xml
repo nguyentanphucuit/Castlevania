@@ -35,4 +35,34 @@
 		<sprite ID="SIMON_IDLE_UPWHIP_03" />
 	</animation>
 	
+	<!-- Stair -->
+	<animation ID="SIMON_ANI_IDLE_UPSTAIR" timeLoop="100">
+		<sprite ID="SIMON_UPSTAIR_02" />
+	</animation>
+
+	<animation ID="SIMON_ANI_STEP_UPSTAIR" timeLoop="100">
+		<sprite ID="SIMON_UPSTAIR_01" />
+		<sprite ID="SIMON_UPSTAIR_02" />
+	</animation>
+
+	<animation ID="SIMON_ANI_IDLE_DOWNSTAIR" timeLoop="100">
+		<sprite ID="SIMON_DOWNSTAIR_02" />
+	</animation>
+	
+	<animation ID="SIMON_ANI_STEP_DOWNSTAIR" timeLoop="100">
+		<sprite ID="SIMON_DOWNSTAIR_01" />
+		<sprite ID="SIMON_DOWNSTAIR_02" />
+	</animation>
+
+	<animation ID="SIMON_ANI_UPSTAIR_ATTACK" timeLoop="100">
+		<sprite ID="SIMON_UPSTAIR_ATTACK_01" />
+		<sprite ID="SIMON_UPSTAIR_ATTACK_02" />
+		<sprite ID="SIMON_UPSTAIR_ATTACK_03" />	
+	</animation>
+	<animation ID="SIMON_ANI_DOWNSTAIR_ATTACK" timeLoop="100">
+		<sprite ID="SIMON_DOWNSTAIR_ATTACK_01" />
+		<sprite ID="SIMON_DOWNSTAIR_ATTACK_02" />
+		<sprite ID="SIMON_DOWNSTAIR_ATTACK_03" />
+	</animation>
+	
 </gamedata>

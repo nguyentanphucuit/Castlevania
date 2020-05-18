@@ -12,6 +12,7 @@
 #include "RetroGrade.h"
 #include "SwitchScene.h"
 #include "Convert.h"
+#include "Stair.h"
 
 void PlayScene::LoadSprite(const std::string& filePath, const int tex)
 {
@@ -250,7 +251,7 @@ void PlayScene::OnCreate()
 				{
 					RECT border;
 					border.left = y.second->GetX();
-					border.top = y.second->GetX();
+					border.top = y.second->GetY();
 					border.right = y.second->GetX() + y.second->GetWidth();
 					border.bottom = y.second->GetY() + y.second->GetHeight();
 
@@ -272,7 +273,7 @@ void PlayScene::OnCreate()
 					HMoney* hMoney = new HMoney();
 					hMoney->SetPosition(y.second->GetX(), y.second->GetY());
 					hMoney->SetSize(y.second->GetWidth(), y.second->GetHeight());
-					auto moneyLayer = objectLayer.at("HMoney");
+					auto moneyLayer = objectLayer.at("IMoney");
 					for (auto const& child : moneyLayer->GetObjectGroup()) {
 						auto moneyItem = ItemFactory::SpawnItem<Item*>(EItem::MONEY);
 						moneyItem->SetPosition(child.second->GetX(), child.second->GetY() - child.second->GetHeight());
@@ -300,9 +301,17 @@ void PlayScene::OnCreate()
 			case _NextScene:
 				for (auto const& y : x.second->GetObjectGroup()) {
 					auto pSwitch = new SwitchScene(std::atoi(y.second->GetProperty("sceneID").c_str()), y.second->GetProperty("border"));
-					pSwitch->SetSize(y.second->GetX(), y.second->GetHeight());
+					pSwitch->SetSize(y.second->GetWidth(), y.second->GetHeight());
 					pSwitch->SetPosition(y.second->GetX(), y.second->GetY());
 					objects.push_back(pSwitch);
+				}
+				break;
+			case _Stair:
+				for (auto const& y : x.second->GetObjectGroup()) {
+					Stair* stair = new Stair();
+					stair->SetSize(y.second->GetWidth(), y.second->GetHeight());
+					stair->SetPosition(y.second->GetX(), y.second->GetY());
+					objects.push_back(stair);
 				}
 				break;
 			default:
@@ -370,6 +379,7 @@ void PlayScene::Update(DWORD dt)
 	if (switchScene) {
 		this->currentMap = this->Maps.at(this->currentPScene->mapID);
 		this->cameraBorder = this->pSceneBorders.at(this->currentPScene->border);
+		
 		switchScene = false;
 		SIMON->SetState(SIMONSTATE::IDLE);
 		this->currentEntryPoints = this->entryPoints.at(this->currentPScene->entry);
@@ -404,7 +414,9 @@ void PlayScene::OnKeyDown(int KeyCode)
 	CGame* game = CGame::GetInstance();
 
 	DebugOut(L"[INFO] PRESS KEY DOWN: %d\n", KeyCode);
-	if (isEntrance || SIMON->GetState() == SIMONSTATE::UPWHIP ) return;
+	if (SIMON->GetState() == SIMONSTATE::ENTERENTRANCE 
+		|| SIMON->GetState() == SIMONSTATE::UPWHIP 
+		) return;
 	switch (KeyCode)
 	{
 	case DIK_SPACE:
@@ -482,6 +494,7 @@ void PlayScene::KeyState(BYTE* states)
 
 	if (SIMON->GetState() == SIMONSTATE::ENTERENTRANCE) return;
 	if (SIMON->GetState() == SIMONSTATE::RETROGRADE) return;
+
 
 	if (SIMON->GetUpgradeTime() != 0 && GetTickCount() - SIMON->GetUpgradeTime() > SIMON_UPGRADE_WHIP_TIME) {
 		SIMON->ResetUpgradeTime();

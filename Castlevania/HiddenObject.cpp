@@ -2,7 +2,7 @@
 
 void HiddenObject::Render()
 {
-	//RenderBoundingBox();
+	RenderBoundingBox();
 }
 
 void HiddenObject::GetBoundingBox(float& l, float& t, float& r, float& b)
