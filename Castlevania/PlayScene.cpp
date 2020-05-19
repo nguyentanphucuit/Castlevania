@@ -423,7 +423,8 @@ void PlayScene::OnKeyDown(int KeyCode)
 		if (SIMON->GetFightTime() == 0 
 			&& SIMON->GetState() != SIMONSTATE::JUMP
 			&& SIMON->GetState() != SIMONSTATE::SIT
-			&& SIMON->isOnGround){
+			&& SIMON->isOnGround
+			&& SIMON->GetState()!=SIMONSTATE::STAIR){
 			SIMON->SetState(SIMONSTATE::JUMP);
 		}
 		break;
@@ -526,6 +527,13 @@ void PlayScene::KeyState(BYTE* states)
 	else if (game->IsKeyDown(DIK_DOWN))
 	{
 		SIMON->SetState(SIMONSTATE::SIT);
+	}
+	else if (game->IsKeyDown(DIK_UP)) {
+		if (SIMON->isStair) {
+			SIMON->onStair = true;
+			SIMON->SetState(SIMONSTATE::STAIR);
+		}
+		
 	}
 	else
 	{

@@ -43,7 +43,7 @@ void CSIMON::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT> *coObjects)
 	
 
 	// Simple fall down
-	if (!isStair) {
+	if (!onStair) {
 		vy += SIMON_GRAVITY * dt;	
 	}
 	else {
@@ -91,7 +91,7 @@ void CSIMON::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT> *coObjects)
 		for (UINT i = 0; i < coEventsResult.size(); i++)
 		{
 			LPCOLLISIONEVENT e = coEventsResult[i];
-			//isStair = false;
+			
 			if (dynamic_cast<Ground*>(e->obj)) { 
 				isOnGround = true;
 				
@@ -159,6 +159,8 @@ void CSIMON::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT> *coObjects)
 						pScene->SpawnObject(hmoney->GetItem());
 					}
 				}
+				
+					
 				
 				
 				if (e->nx!=0) 
@@ -237,7 +239,7 @@ void CSIMON::Render()
 	case SIMONSTATE::RETROGRADE:
 		break;
 	case SIMONSTATE::STAIR:
-		ani = SIMON_ANI_WALKING;
+		ani = SIMON_ANI_STEP_UPSTAIR;
 		break;
 	case SIMONSTATE::WALKING_LEFT:
 		ani = SIMON_ANI_WALKING;
@@ -273,7 +275,7 @@ void CSIMON::Render()
 
 	animations[ani]->Render(nx,x, y, alpha);
 
-	//RenderBoundingBox();
+	RenderBoundingBox();
 }
 
 void CSIMON::SetState(SIMONSTATE state)
@@ -283,6 +285,9 @@ void CSIMON::SetState(SIMONSTATE state)
 	switch (state)
 	{
 	case SIMONSTATE::STAIR:
+		vx = SIMON_WALKING_SPEED;
+		vy = -SIMON_WALKING_SPEED;
+		nx = 1;
 		break;
 	case SIMONSTATE::ENTERENTRANCE:
 		this->ResetAttack();
@@ -296,15 +301,16 @@ void CSIMON::SetState(SIMONSTATE state)
 	case SIMONSTATE::WALKING_RIGHT: 
 		isTouchRetroGrade = false;
 		vx = SIMON_WALKING_SPEED;
-			if (isStair) {
-				vy = -SIMON_WALKING_SPEED;
-				// x = 50, dis x = 10 => x = 60,
-				//x +=  vx ()
-				// y+= vy
-				//Autoxcalk(left, disx, disy);
-			
-			}
 		nx = 1;
+			//if (isStair) {
+			//	vy = -SIMON_WALKING_SPEED;
+			//	// x = 50, dis x = 10 => x = 60,
+			//	//x +=  vx ()
+			//	// y+= vy
+			//	//Autoxcalk(left, disx, disy);
+			//
+			//}
+		
 		break;
 	case SIMONSTATE::WALKING_LEFT:
 		vx = -SIMON_WALKING_SPEED;

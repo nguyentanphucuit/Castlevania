@@ -1,7 +1,7 @@
 ﻿  Simon.cpp
 C:\Users\16520\OneDrive\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
 C:\Users\16520\OneDrive\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
-C:\Users\16520\OneDrive\Desktop\Castlevania\Castlevania\Simon.cpp(200,67): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\16520\OneDrive\Desktop\Castlevania\Castlevania\Simon.cpp(200,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\16520\OneDrive\Desktop\Castlevania\Castlevania\Simon.cpp(204,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\16520\OneDrive\Desktop\Castlevania\Castlevania\Simon.cpp(202,67): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\16520\OneDrive\Desktop\Castlevania\Castlevania\Simon.cpp(202,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\16520\OneDrive\Desktop\Castlevania\Castlevania\Simon.cpp(206,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   Castlevania.vcxproj -> C:\Users\16520\OneDrive\Desktop\Castlevania\Debug\Castlevania.exe

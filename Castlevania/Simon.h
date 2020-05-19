@@ -75,10 +75,12 @@ class CSIMON : public CGameObject
 	EWeapon currentWeapon;
 	bool spawnWeapon = false;
 	bool isSpawnWeapon = false; 
-	bool isStair = false;
+	
 public: 
 	CSIMON();
 	bool isOnGround = false;
+	bool isStair = false;
+	bool onStair = false;
 	bool isTouchRetroGrade = true;
 	bool ResetSpawnWeapon() { return this->isSpawnWeapon = false; };
 	bool IsSpawnWeapon() { return spawnWeapon; };
