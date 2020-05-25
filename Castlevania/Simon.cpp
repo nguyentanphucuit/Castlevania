@@ -140,7 +140,15 @@ void CSIMON::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT> *coObjects)
 					}
 				}
 				else if (dynamic_cast<Stair*>(e->obj)) {
-					isStair = true;
+					if (!isStair) {
+						isStair = true;
+						onStair = true;
+					}
+					else
+					{
+						onStair = false;
+						isStair = false;
+					}
 					this->SetState(SIMONSTATE::STAIR);
 				}
 				else if (dynamic_cast<RetroGrade*>(e->obj)) {
