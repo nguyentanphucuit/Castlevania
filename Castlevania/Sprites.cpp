@@ -20,7 +20,7 @@ CSprites *CSprites::GetInstance()
 	return __instance;
 }
 
-void CSprite::Draw(float x, float y, int alpha,DIRECTION nx)
+void CSprite::Draw(DIRECTION nx, float x, float y, int alpha)
 {
 	CGame * game = CGame::GetInstance();
 	game->Draw(nx,x, y, texture, left, top, right, bottom, alpha);
@@ -81,7 +81,7 @@ void CAnimation::Render(DIRECTION nx,float x, float y, int alpha)
 		
 	}
 
-	frames[currentFrame]->GetSprite()->Draw(x, y, alpha,nx);
+	frames[currentFrame]->GetSprite()->Draw(nx,x, y, alpha);
 }
 
 CAnimations * CAnimations::__instance = NULL;

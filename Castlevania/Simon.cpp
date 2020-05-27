@@ -13,113 +13,113 @@
 #include "SwitchScene.h"
 #include "Stair.h"
 
-void CSIMON::HandleFristStepOnStair()
-{
-	if (onStairDirection == STAIRDIRECTION::DEFAULT) {
-		return;
-	}
-	this->vx = 0;
-	this->vy = 0;
-
-	if (this->state == SIMONSTATE :: WALKING_RIGHT) {
-		int a = 2;
-	}
-
-	if (onStairDirection == STAIRDIRECTION::UPRIGHT) {
-		if (stairBeginPos.x - this->x > SIMON_UPSTAIR_RIGHT_DISTANCE) {
-			this->autoWalk = true;
-			SetState(SIMONSTATE::WALKING_RIGHT);
-			return;
-		}
-		else if(stairBeginPos.x - this->x < SIMON_UPSTAIR_RIGHT_DISTANCE - 5){
-			this->autoWalk = true;
-			SetState(SIMONSTATE::WALKING_LEFT);
-			return;
-		}
-		else {
-			if (state == SIMONSTATE::WALKING_LEFT) {
-				if (nx == DIRECTION::LEFT) nx = DIRECTION::RIGHT;
-				else if (nx == DIRECTION::RIGHT) nx = DIRECTION::LEFT;
-			}
-			this->autoWalk = false;
-			this->isOnStair = true;
-			this->isFirstStepOnStair = true;
-			this->stairEndPos = { floor(this->x), floor(this->y) };
-			this->SetState(SIMONSTATE::UP_STAIR_RIGHT);
-		}
-	}
-	else if (onStairDirection == STAIRDIRECTION::UPLEFT) {
-		if (stairBeginPos.x - this->x < SIMON_UPSTAIR_LEFT_DISTANCE) {
-			this->autoWalk = true;
-			SetState(SIMONSTATE::WALKING_LEFT);
-			return;
-		}
-		else if (stairBeginPos.x - this->x > SIMON_UPSTAIR_LEFT_DISTANCE + 5) {
-			this->autoWalk = true;
-			SetState(SIMONSTATE::WALKING_RIGHT);
-			return;
-		}
-		else {
-			if (state == SIMONSTATE::WALKING_RIGHT) {
-				if (nx == DIRECTION::LEFT) nx = DIRECTION::RIGHT;
-				else if (nx == DIRECTION::RIGHT) nx = DIRECTION::LEFT;
-			}
-			this->autoWalk = false;
-			this->isOnStair = true;
-			this->isFirstStepOnStair = true;
-			this->stairEndPos = { floor(this->x), floor(this->y) };
-
-			this->SetState(SIMONSTATE::UP_STAIR_RIGHT);
-		}
-
-	}
-	else if (onStairDirection == STAIRDIRECTION::DOWNLEFT) {
-		if (stairBeginPos.x - this->x < SIMON_DOWNSTAIR_LEFT_DISTANCE) {
-			this->autoWalk = true;
-			SetState(SIMONSTATE::WALKING_LEFT);
-			return;
-		}
-		else if (stairBeginPos.x - this->x > SIMON_DOWNSTAIR_LEFT_DISTANCE + 5) {
-			this->autoWalk = true;
-			SetState(SIMONSTATE::WALKING_RIGHT);
-			return;
-		}
-		else {
-			if (state == SIMONSTATE::WALKING_RIGHT) {
-				if (nx == DIRECTION::LEFT) nx = DIRECTION::RIGHT;
-				else if (nx == DIRECTION::RIGHT) nx = DIRECTION::LEFT;
-			}
-			this->autoWalk = false;
-			this->isOnStair = true;
-			this->isFirstStepOnStair = true;
-			this->stairEndPos = { floor(this->x), floor(this->y) };
-			this->SetState(SIMONSTATE::DOWN_STAIR_LEFT);
-		}
-	}
-	else if (onStairDirection == STAIRDIRECTION::DOWNRIGHT) {
-		if (stairBeginPos.x - this->x > SIMON_DOWNSTAIR_RIGHT_DISTANCE) {
-			this->autoWalk = true;
-			SetState(SIMONSTATE::WALKING_RIGHT);
-			return;
-		}
-		else if (stairBeginPos.x - this->x < SIMON_DOWNSTAIR_RIGHT_DISTANCE - 5) {
-			this->autoWalk = true;
-			SetState(SIMONSTATE::WALKING_LEFT);
-			return;
-		}
-		else {
-			if (state == SIMONSTATE::WALKING_LEFT) {
-				if (nx == DIRECTION::LEFT) nx = DIRECTION::RIGHT;
-				else if (nx == DIRECTION::RIGHT) nx = DIRECTION::LEFT;
-			}
-			this->autoWalk = false;
-			this->isOnStair = true;
-			this->isFirstStepOnStair = true;
-			this->stairEndPos = { floor(this->x), floor(this->y) };
-			this->SetState(SIMONSTATE::DOWN_STAIR_RIGHT);
-		}
-	}
-}
+//void CSIMON::HandleFristStepOnStair()
+//{
+//	if (onStairDirection == STAIRDIRECTION::DEFAULT) {
+//		return;
+//	}
+//	this->vx = 0;
+//	this->vy = 0;
+//
+//	if (this->state == SIMONSTATE :: WALKING_RIGHT) {
+//		int a = 2;
+//	}
+//
+//	if (onStairDirection == STAIRDIRECTION::UPRIGHT) {
+//		if (stairBeginPos.x - this->x > SIMON_UPSTAIR_RIGHT_DISTANCE) {
+//			this->autoWalk = true;
+//			SetState(SIMONSTATE::WALKING_RIGHT);
+//			return;
+//		}
+//		else if(stairBeginPos.x - this->x < SIMON_UPSTAIR_RIGHT_DISTANCE - 5){
+//			this->autoWalk = true;
+//			SetState(SIMONSTATE::WALKING_LEFT);
+//			return;
+//		}
+//		else {
+//			if (state == SIMONSTATE::WALKING_LEFT) {
+//				if (nx == DIRECTION::LEFT) nx = DIRECTION::RIGHT;
+//				else if (nx == DIRECTION::RIGHT) nx = DIRECTION::LEFT;
+//			}
+//			this->autoWalk = false;
+//			this->isOnStair = true;
+//			this->isFirstStepOnStair = true;
+//			this->stairEndPos = { floor(this->x), floor(this->y) };
+//			this->SetState(SIMONSTATE::UP_STAIR_RIGHT);
+//		}
+//	}
+//	else if (onStairDirection == STAIRDIRECTION::UPLEFT) {
+//		if (stairBeginPos.x - this->x < SIMON_UPSTAIR_LEFT_DISTANCE) {
+//			this->autoWalk = true;
+//			SetState(SIMONSTATE::WALKING_LEFT);
+//			return;
+//		}
+//		else if (stairBeginPos.x - this->x > SIMON_UPSTAIR_LEFT_DISTANCE + 5) {
+//			this->autoWalk = true;
+//			SetState(SIMONSTATE::WALKING_RIGHT);
+//			return;
+//		}
+//		else {
+//			if (state == SIMONSTATE::WALKING_RIGHT) {
+//				if (nx == DIRECTION::LEFT) nx = DIRECTION::RIGHT;
+//				else if (nx == DIRECTION::RIGHT) nx = DIRECTION::LEFT;
+//			}
+//			this->autoWalk = false;
+//			this->isOnStair = true;
+//			this->isFirstStepOnStair = true;
+//			this->stairEndPos = { floor(this->x), floor(this->y) };
+//
+//			this->SetState(SIMONSTATE::UP_STAIR_RIGHT);
+//		}
+//
+//	}
+//	else if (onStairDirection == STAIRDIRECTION::DOWNLEFT) {
+//		if (stairBeginPos.x - this->x < SIMON_DOWNSTAIR_LEFT_DISTANCE) {
+//			this->autoWalk = true;
+//			SetState(SIMONSTATE::WALKING_LEFT);
+//			return;
+//		}
+//		else if (stairBeginPos.x - this->x > SIMON_DOWNSTAIR_LEFT_DISTANCE + 5) {
+//			this->autoWalk = true;
+//			SetState(SIMONSTATE::WALKING_RIGHT);
+//			return;
+//		}
+//		else {
+//			if (state == SIMONSTATE::WALKING_RIGHT) {
+//				if (nx == DIRECTION::LEFT) nx = DIRECTION::RIGHT;
+//				else if (nx == DIRECTION::RIGHT) nx = DIRECTION::LEFT;
+//			}
+//			this->autoWalk = false;
+//			this->isOnStair = true;
+//			this->isFirstStepOnStair = true;
+//			this->stairEndPos = { floor(this->x), floor(this->y) };
+//			this->SetState(SIMONSTATE::DOWN_STAIR_LEFT);
+//		}
+//	}
+//	else if (onStairDirection == STAIRDIRECTION::DOWNRIGHT) {
+//		if (stairBeginPos.x - this->x > SIMON_DOWNSTAIR_RIGHT_DISTANCE) {
+//			this->autoWalk = true;
+//			SetState(SIMONSTATE::WALKING_RIGHT);
+//			return;
+//		}
+//		else if (stairBeginPos.x - this->x < SIMON_DOWNSTAIR_RIGHT_DISTANCE - 5) {
+//			this->autoWalk = true;
+//			SetState(SIMONSTATE::WALKING_LEFT);
+//			return;
+//		}
+//		else {
+//			if (state == SIMONSTATE::WALKING_LEFT) {
+//				if (nx == DIRECTION::LEFT) nx = DIRECTION::RIGHT;
+//				else if (nx == DIRECTION::RIGHT) nx = DIRECTION::LEFT;
+//			}
+//			this->autoWalk = false;
+//			this->isOnStair = true;
+//			this->isFirstStepOnStair = true;
+//			this->stairEndPos = { floor(this->x), floor(this->y) };
+//			this->SetState(SIMONSTATE::DOWN_STAIR_RIGHT);
+//		}
+//	}
+//}
 
 CSIMON::CSIMON() : CGameObject() {
 	level = SIMON_LEVEL_BIG;
@@ -419,11 +419,11 @@ void CSIMON::SetState(SIMONSTATE state)
 	case SIMONSTATE::STAIR:
 		vx = SIMON_WALKING_SPEED;
 		vy = -SIMON_WALKING_SPEED;
-		nx = 1;
+		nx = DIRECTION::RIGHT;
 		break;
 	case SIMONSTATE::ENTERENTRANCE:
 		this->ResetAttack();
-		nx = 1;
+		nx = DIRECTION::RIGHT;
 		vx = SIMON_WALKING_SPEED / 2;
 		break;
 	case SIMONSTATE::RETROGRADE:
@@ -433,7 +433,7 @@ void CSIMON::SetState(SIMONSTATE state)
 	case SIMONSTATE::WALKING_RIGHT: 
 		isTouchRetroGrade = false;
 		vx = SIMON_WALKING_SPEED;
-		nx = 1;
+		nx = DIRECTION::RIGHT;
 			//if (isStair) {
 			//	vy = -SIMON_WALKING_SPEED;
 			//	// x = 50, dis x = 10 => x = 60,
@@ -447,7 +447,7 @@ void CSIMON::SetState(SIMONSTATE state)
 	case SIMONSTATE::WALKING_LEFT:
 		vx = -SIMON_WALKING_SPEED;
 
-		nx = -1;
+		nx = DIRECTION::LEFT;
 		break;
 	case SIMONSTATE::JUMP: // nhảy rồi thì chắc ăn k chạm đất
 		isOnGround = false;

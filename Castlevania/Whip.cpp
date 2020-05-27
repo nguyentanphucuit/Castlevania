@@ -42,7 +42,7 @@ void Whip::Upgrade()
 void Whip::GetBoundingBox(float& l, float& t, float& r, float& b)
 {
 	
-	if (nx < 0)
+	if (nx == DIRECTION::LEFT)
 	{
 		l = x + 50;
 		t = y;
@@ -56,7 +56,7 @@ void Whip::GetBoundingBox(float& l, float& t, float& r, float& b)
 		b = y + WHIP_BBOX_NORMAL_HEIGHT;
 		
 	}
-	else if(nx > 0)
+	else if(nx == DIRECTION::RIGHT)
 	{
 		
 		l = x + 150;

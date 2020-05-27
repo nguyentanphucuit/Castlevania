@@ -1,7 +1,759 @@
-﻿  Simon.cpp
-C:\Users\16520\OneDrive\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
-C:\Users\16520\OneDrive\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
-C:\Users\16520\OneDrive\Desktop\Castlevania\Castlevania\Simon.cpp(210,67): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\16520\OneDrive\Desktop\Castlevania\Castlevania\Simon.cpp(210,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\16520\OneDrive\Desktop\Castlevania\Castlevania\Simon.cpp(214,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  Castlevania.vcxproj -> C:\Users\16520\OneDrive\Desktop\Castlevania\Debug\Castlevania.exe
+﻿  BHeart.cpp
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(22,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,32): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(45,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(31,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(32,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(33,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(36,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(37,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(38,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,36): error C2039: 'nx': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,49): error C2065: 'nx': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(29,1): warning C4005: 'SIMON_STATE_DOWNSTAIR_IDLE': macro redefinition
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(25): message : see previous definition of 'SIMON_STATE_DOWNSTAIR_IDLE'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(107,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(155,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(160,3): error C2065: 'animations': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(161,3): error C2065: 'animations': undeclared identifier
+  Brick.cpp
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(22,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,32): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(45,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(31,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(32,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(33,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(36,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(37,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(38,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,36): error C2039: 'nx': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,49): error C2065: 'nx': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(29,1): warning C4005: 'SIMON_STATE_DOWNSTAIR_IDLE': macro redefinition
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(25): message : see previous definition of 'SIMON_STATE_DOWNSTAIR_IDLE'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(107,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(155,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(160,3): error C2065: 'animations': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(161,3): error C2065: 'animations': undeclared identifier
+  Convert.cpp
+  Effect.cpp
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(22,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,32): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(45,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(31,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(32,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(33,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(36,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(37,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(38,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,36): error C2039: 'nx': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,49): error C2065: 'nx': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(29,1): warning C4005: 'SIMON_STATE_DOWNSTAIR_IDLE': macro redefinition
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(25): message : see previous definition of 'SIMON_STATE_DOWNSTAIR_IDLE'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(107,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(155,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(160,3): error C2065: 'animations': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(161,3): error C2065: 'animations': undeclared identifier
+  EffectFactory.cpp
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(22,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,32): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(45,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(31,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(32,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(33,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(36,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(37,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(38,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,36): error C2039: 'nx': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,49): error C2065: 'nx': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(29,1): warning C4005: 'SIMON_STATE_DOWNSTAIR_IDLE': macro redefinition
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(25): message : see previous definition of 'SIMON_STATE_DOWNSTAIR_IDLE'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(107,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(155,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(160,3): error C2065: 'animations': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(161,3): error C2065: 'animations': undeclared identifier
+  Entrance.cpp
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(22,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,32): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(45,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(31,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(32,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(33,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(36,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(37,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(38,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,36): error C2039: 'nx': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,49): error C2065: 'nx': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(29,1): warning C4005: 'SIMON_STATE_DOWNSTAIR_IDLE': macro redefinition
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(25): message : see previous definition of 'SIMON_STATE_DOWNSTAIR_IDLE'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(107,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(155,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(160,3): error C2065: 'animations': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(161,3): error C2065: 'animations': undeclared identifier
+  Flame.cpp
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(22,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,32): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(45,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(31,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(32,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(33,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(36,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(37,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(38,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,36): error C2039: 'nx': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,49): error C2065: 'nx': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(29,1): warning C4005: 'SIMON_STATE_DOWNSTAIR_IDLE': macro redefinition
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(25): message : see previous definition of 'SIMON_STATE_DOWNSTAIR_IDLE'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(107,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(155,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(160,3): error C2065: 'animations': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(161,3): error C2065: 'animations': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Flame.cpp(9,31): error C2664: 'void CAnimation::Render(DIRECTION,float,float,int)': cannot convert argument 1 from 'int' to 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Flame.cpp(9,24): message : Conversion to enumeration type requires an explicit cast (static_cast, C-style cast or function-style cast)
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Sprites.h(73,7): message : see declaration of 'CAnimation::Render'
+  Game.cpp
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Sprites.h(22,22): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Sprites.h(73,24): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\GameObject.h(46,14): error C3646: 'nx': unknown override specifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\GameObject.h(46,14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,32): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,36): error C2039: 'nx': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,49): error C2065: 'nx': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(29,1): warning C4005: 'SIMON_STATE_DOWNSTAIR_IDLE': macro redefinition
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(25): message : see previous definition of 'SIMON_STATE_DOWNSTAIR_IDLE'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Game.cpp(82,38): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Game.cpp(335,26): warning C4305: '=': truncation from '__int64' to 'float'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Game.cpp(336,24): warning C4305: '=': truncation from '__int64' to 'float'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Game.cpp(346,26): warning C4305: '=': truncation from '__int64' to 'float'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Game.cpp(347,24): warning C4305: '=': truncation from '__int64' to 'float'
+  GameObject.cpp
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Sprites.h(22,22): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Sprites.h(73,24): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\GameObject.h(46,14): error C3646: 'nx': unknown override specifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\GameObject.h(46,14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,32): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,36): error C2039: 'nx': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,49): error C2065: 'nx': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(29,1): warning C4005: 'SIMON_STATE_DOWNSTAIR_IDLE': macro redefinition
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(25): message : see previous definition of 'SIMON_STATE_DOWNSTAIR_IDLE'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Castlevania\Castlevania\GameObject.cpp(15,2): error C2065: 'nx': undeclared identifier
+  Ground.cpp
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(22,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,32): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(45,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(31,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(32,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(33,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(36,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(37,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(38,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,36): error C2039: 'nx': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,49): error C2065: 'nx': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(29,1): warning C4005: 'SIMON_STATE_DOWNSTAIR_IDLE': macro redefinition
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(25): message : see previous definition of 'SIMON_STATE_DOWNSTAIR_IDLE'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(107,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(155,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(160,3): error C2065: 'animations': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(161,3): error C2065: 'animations': undeclared identifier
+  Heart.cpp
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(22,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,32): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(45,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(31,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(32,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(33,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(36,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(37,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(38,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,36): error C2039: 'nx': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,49): error C2065: 'nx': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(29,1): warning C4005: 'SIMON_STATE_DOWNSTAIR_IDLE': macro redefinition
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(25): message : see previous definition of 'SIMON_STATE_DOWNSTAIR_IDLE'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(107,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(155,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(160,3): error C2065: 'animations': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(161,3): error C2065: 'animations': undeclared identifier
+  HiddenObject.cpp
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(22,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,32): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(45,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(31,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(32,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(33,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(36,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(37,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(38,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,36): error C2039: 'nx': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,49): error C2065: 'nx': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(29,1): warning C4005: 'SIMON_STATE_DOWNSTAIR_IDLE': macro redefinition
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(25): message : see previous definition of 'SIMON_STATE_DOWNSTAIR_IDLE'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(107,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(155,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(160,3): error C2065: 'animations': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(161,3): error C2065: 'animations': undeclared identifier
+  HMoney.cpp
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(22,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,32): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(45,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(31,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(32,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(33,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(36,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(37,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(38,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,36): error C2039: 'nx': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,49): error C2065: 'nx': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(29,1): warning C4005: 'SIMON_STATE_DOWNSTAIR_IDLE': macro redefinition
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(25): message : see previous definition of 'SIMON_STATE_DOWNSTAIR_IDLE'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(107,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(155,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(160,3): error C2065: 'animations': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(161,3): error C2065: 'animations': undeclared identifier
+  IDagger.cpp
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(22,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,32): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(45,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(31,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(32,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(33,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(36,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(37,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(38,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,36): error C2039: 'nx': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,49): error C2065: 'nx': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(29,1): warning C4005: 'SIMON_STATE_DOWNSTAIR_IDLE': macro redefinition
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(25): message : see previous definition of 'SIMON_STATE_DOWNSTAIR_IDLE'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(107,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(155,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(160,3): error C2065: 'animations': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(161,3): error C2065: 'animations': undeclared identifier
+  IMoney.cpp
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(22,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,32): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(45,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(31,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(32,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(33,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(36,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(37,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(38,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,36): error C2039: 'nx': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,49): error C2065: 'nx': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(29,1): warning C4005: 'SIMON_STATE_DOWNSTAIR_IDLE': macro redefinition
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(25): message : see previous definition of 'SIMON_STATE_DOWNSTAIR_IDLE'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(107,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(155,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(160,3): error C2065: 'animations': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(161,3): error C2065: 'animations': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\IMoney.cpp(8,31): error C2664: 'void CAnimation::Render(DIRECTION,float,float,int)': cannot convert argument 1 from 'int' to 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\IMoney.cpp(8,24): message : Conversion to enumeration type requires an explicit cast (static_cast, C-style cast or function-style cast)
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Sprites.h(73,7): message : see declaration of 'CAnimation::Render'
+  Item.cpp
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(22,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,32): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(45,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(31,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(32,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(33,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(36,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(37,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(38,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,36): error C2039: 'nx': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,49): error C2065: 'nx': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(29,1): warning C4005: 'SIMON_STATE_DOWNSTAIR_IDLE': macro redefinition
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(25): message : see previous definition of 'SIMON_STATE_DOWNSTAIR_IDLE'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(107,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(155,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(160,3): error C2065: 'animations': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(161,3): error C2065: 'animations': undeclared identifier
+  ItemFactory.cpp
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(22,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,32): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(45,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(31,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(32,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(33,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(36,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(37,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(38,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,36): error C2039: 'nx': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,49): error C2065: 'nx': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(29,1): warning C4005: 'SIMON_STATE_DOWNSTAIR_IDLE': macro redefinition
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(25): message : see previous definition of 'SIMON_STATE_DOWNSTAIR_IDLE'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(107,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(155,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(160,3): error C2065: 'animations': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(161,3): error C2065: 'animations': undeclared identifier
+  IWhip.cpp
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(22,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,32): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(45,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(31,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(32,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(33,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(36,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(37,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(38,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,36): error C2039: 'nx': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,49): error C2065: 'nx': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(29,1): warning C4005: 'SIMON_STATE_DOWNSTAIR_IDLE': macro redefinition
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(25): message : see previous definition of 'SIMON_STATE_DOWNSTAIR_IDLE'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(107,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(155,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(160,3): error C2065: 'animations': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(161,3): error C2065: 'animations': undeclared identifier
+  Layer.cpp
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Castlevania\Castlevania\GameObject.h(46,14): error C3646: 'nx': unknown override specifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\GameObject.h(46,14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Admin\Desktop\Castlevania\Castlevania\GameObject.h(50,9): error C2065: 'LPANIMATION': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\GameObject.h(50,2): error C2923: 'std::vector': 'LPANIMATION' is not a valid template type argument for parameter '_Ty'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,32): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(36,1): error C2678: binary '[': no operator found which takes a left-hand operand of type 'std::vector' (or there is no acceptable conversion)
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.25.28610\include\vector(1507,27): message : could be 'const _Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept const'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.25.28610\include\vector(1497,21): message : or       '_Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(36,1): message : while trying to match the argument list '(std::vector, int)'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(37,1): error C2678: binary '[': no operator found which takes a left-hand operand of type 'std::vector' (or there is no acceptable conversion)
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.25.28610\include\vector(1507,27): message : could be 'const _Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept const'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.25.28610\include\vector(1497,21): message : or       '_Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(37,1): message : while trying to match the argument list '(std::vector, int)'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(38,1): error C2678: binary '[': no operator found which takes a left-hand operand of type 'std::vector' (or there is no acceptable conversion)
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.25.28610\include\vector(1507,27): message : could be 'const _Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept const'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.25.28610\include\vector(1497,21): message : or       '_Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(38,1): message : while trying to match the argument list '(std::vector, int)'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,36): error C2039: 'nx': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,49): error C2065: 'nx': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(29,1): warning C4005: 'SIMON_STATE_DOWNSTAIR_IDLE': macro redefinition
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(25): message : see previous definition of 'SIMON_STATE_DOWNSTAIR_IDLE'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(160,1): error C2678: binary '[': no operator found which takes a left-hand operand of type 'std::vector' (or there is no acceptable conversion)
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.25.28610\include\vector(1507,27): message : could be 'const _Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept const'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.25.28610\include\vector(1497,21): message : or       '_Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(160,1): message : while trying to match the argument list '(std::vector, int)'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(161,1): error C2678: binary '[': no operator found which takes a left-hand operand of type 'std::vector' (or there is no acceptable conversion)
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.25.28610\include\vector(1507,27): message : could be 'const _Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept const'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.25.28610\include\vector(1497,21): message : or       '_Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(161,1): message : while trying to match the argument list '(std::vector, int)'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.cpp(32,107): error C2660: 'CSprite::Draw': function does not take 2 arguments
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Sprites.h(22,7): message : see declaration of 'CSprite::Draw'
+  main.cpp
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Sprites.h(22,22): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Sprites.h(73,24): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\GameObject.h(46,14): error C3646: 'nx': unknown override specifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\GameObject.h(46,14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,32): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,36): error C2039: 'nx': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,49): error C2065: 'nx': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(29,1): warning C4005: 'SIMON_STATE_DOWNSTAIR_IDLE': macro redefinition
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(25): message : see previous definition of 'SIMON_STATE_DOWNSTAIR_IDLE'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+  Compiling...
+  Map.cpp
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Castlevania\Castlevania\GameObject.h(46,14): error C3646: 'nx': unknown override specifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\GameObject.h(46,14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Admin\Desktop\Castlevania\Castlevania\GameObject.h(50,9): error C2065: 'LPANIMATION': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\GameObject.h(50,2): error C2923: 'std::vector': 'LPANIMATION' is not a valid template type argument for parameter '_Ty'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,32): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(36,1): error C2678: binary '[': no operator found which takes a left-hand operand of type 'std::vector' (or there is no acceptable conversion)
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.25.28610\include\vector(1507,27): message : could be 'const _Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept const'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.25.28610\include\vector(1497,21): message : or       '_Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(36,1): message : while trying to match the argument list '(std::vector, int)'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(37,1): error C2678: binary '[': no operator found which takes a left-hand operand of type 'std::vector' (or there is no acceptable conversion)
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.25.28610\include\vector(1507,27): message : could be 'const _Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept const'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.25.28610\include\vector(1497,21): message : or       '_Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(37,1): message : while trying to match the argument list '(std::vector, int)'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(38,1): error C2678: binary '[': no operator found which takes a left-hand operand of type 'std::vector' (or there is no acceptable conversion)
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.25.28610\include\vector(1507,27): message : could be 'const _Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept const'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.25.28610\include\vector(1497,21): message : or       '_Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(38,1): message : while trying to match the argument list '(std::vector, int)'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,36): error C2039: 'nx': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,49): error C2065: 'nx': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(29,1): warning C4005: 'SIMON_STATE_DOWNSTAIR_IDLE': macro redefinition
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(25): message : see previous definition of 'SIMON_STATE_DOWNSTAIR_IDLE'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(160,1): error C2678: binary '[': no operator found which takes a left-hand operand of type 'std::vector' (or there is no acceptable conversion)
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.25.28610\include\vector(1507,27): message : could be 'const _Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept const'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.25.28610\include\vector(1497,21): message : or       '_Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(160,1): message : while trying to match the argument list '(std::vector, int)'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(161,1): error C2678: binary '[': no operator found which takes a left-hand operand of type 'std::vector' (or there is no acceptable conversion)
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.25.28610\include\vector(1507,27): message : could be 'const _Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept const'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.25.28610\include\vector(1497,21): message : or       '_Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(161,1): message : while trying to match the argument list '(std::vector, int)'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Map.cpp(121,28): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Map.cpp(123,29): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Map.cpp(156,29): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Map.cpp(156,18): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Map.cpp(157,29): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Map.cpp(157,18): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Map.cpp(158,33): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Map.cpp(158,22): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Map.cpp(159,34): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Map.cpp(159,23): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
+  MenuScene.cpp
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Sprites.h(22,22): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Sprites.h(73,24): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\GameObject.h(46,14): error C3646: 'nx': unknown override specifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\GameObject.h(46,14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,32): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,36): error C2039: 'nx': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,49): error C2065: 'nx': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(29,1): warning C4005: 'SIMON_STATE_DOWNSTAIR_IDLE': macro redefinition
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(25): message : see previous definition of 'SIMON_STATE_DOWNSTAIR_IDLE'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
+  PlayScene.cpp
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Sprites.h(22,22): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Sprites.h(73,24): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\GameObject.h(46,14): error C3646: 'nx': unknown override specifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\GameObject.h(46,14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,32): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,36): error C2039: 'nx': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,49): error C2065: 'nx': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(29,1): warning C4005: 'SIMON_STATE_DOWNSTAIR_IDLE': macro redefinition
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(25): message : see previous definition of 'SIMON_STATE_DOWNSTAIR_IDLE'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Weapon.h(12,27): error C2039: 'nx': is not a member of 'Weapon'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Weapon.h(6): message : see declaration of 'Weapon'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\PlayScene.cpp(125,65): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\Admin\Desktop\Castlevania\Castlevania\PlayScene.cpp(125,46): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\Admin\Desktop\Castlevania\Castlevania\PlayScene.cpp(253,34): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+C:\Users\Admin\Desktop\Castlevania\Castlevania\PlayScene.cpp(254,33): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+C:\Users\Admin\Desktop\Castlevania\Castlevania\PlayScene.cpp(255,38): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+C:\Users\Admin\Desktop\Castlevania\Castlevania\PlayScene.cpp(256,39): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+C:\Users\Admin\Desktop\Castlevania\Castlevania\PlayScene.cpp(345,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Castlevania\Castlevania\PlayScene.cpp(350,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Castlevania\Castlevania\PlayScene.cpp(360,26): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\PlayScene.cpp(364,57): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\Admin\Desktop\Castlevania\Castlevania\PlayScene.cpp(387,66): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\Admin\Desktop\Castlevania\Castlevania\PlayScene.cpp(387,47): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\Admin\Desktop\Castlevania\Castlevania\PlayScene.cpp(399,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Castlevania\Castlevania\PlayScene.cpp(427,22): error C2039: 'onStair': is not a member of 'CSIMON'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(106): message : see declaration of 'CSIMON'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\PlayScene.cpp(518,51): error C2039: 'onStair': is not a member of 'CSIMON'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(106): message : see declaration of 'CSIMON'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\PlayScene.cpp(523,55): error C2039: 'onStair': is not a member of 'CSIMON'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(106): message : see declaration of 'CSIMON'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\PlayScene.cpp(532,21): error C2039: 'isStair': is not a member of 'CSIMON'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(106): message : see declaration of 'CSIMON'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\PlayScene.cpp(533,19): error C2039: 'onStair': is not a member of 'CSIMON'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(106): message : see declaration of 'CSIMON'
+  RetroGrade.cpp
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(22,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,32): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(45,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(31,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(32,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(33,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(36,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(37,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(38,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,36): error C2039: 'nx': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,49): error C2065: 'nx': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(29,1): warning C4005: 'SIMON_STATE_DOWNSTAIR_IDLE': macro redefinition
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(25): message : see previous definition of 'SIMON_STATE_DOWNSTAIR_IDLE'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(107,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(155,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(160,3): error C2065: 'animations': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(161,3): error C2065: 'animations': undeclared identifier
+  Simon.cpp
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Sprites.h(22,22): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Sprites.h(73,24): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\GameObject.h(46,14): error C3646: 'nx': unknown override specifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\GameObject.h(46,14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,32): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,36): error C2039: 'nx': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,49): error C2065: 'nx': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\SIMON.h(29,1): warning C4005: 'SIMON_STATE_DOWNSTAIR_IDLE': macro redefinition
+C:\Users\Admin\Desktop\Castlevania\Castlevania\SIMON.h(25): message : see previous definition of 'SIMON_STATE_DOWNSTAIR_IDLE'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Weapon.h(12,27): error C2039: 'nx': is not a member of 'Weapon'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Weapon.h(6): message : see declaration of 'Weapon'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.cpp(316,67): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.cpp(316,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.cpp(320,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.cpp(322,33): error C2039: 'nx': is not a member of 'CSIMON'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\SIMON.h(106): message : see declaration of 'CSIMON'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.cpp(322,33): error C2660: 'Whip::SetNxDirection': function does not take 1 arguments
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,7): message : see declaration of 'Whip::SetNxDirection'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.cpp(328,26): error C2039: 'nx': is not a member of 'CSIMON'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\SIMON.h(106): message : see declaration of 'CSIMON'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.cpp(408,26): error C2065: 'nx': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.cpp(422,3): error C2065: 'nx': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.cpp(426,3): error C2065: 'nx': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.cpp(436,3): error C2065: 'nx': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.cpp(450,3): error C2065: 'nx': undeclared identifier
+  Sprites.cpp
+C:\Users\Admin\Desktop\Castlevania\Castlevania\GameObject.h(46,14): error C3646: 'nx': unknown override specifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\GameObject.h(46,14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Admin\Desktop\Castlevania\Castlevania\GameObject.h(50,9): error C2065: 'LPANIMATION': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\GameObject.h(50,2): error C2923: 'std::vector': 'LPANIMATION' is not a valid template type argument for parameter '_Ty'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,32): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(36,1): error C2678: binary '[': no operator found which takes a left-hand operand of type 'std::vector' (or there is no acceptable conversion)
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.25.28610\include\vector(1507,27): message : could be 'const _Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept const'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.25.28610\include\vector(1497,21): message : or       '_Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(36,1): message : while trying to match the argument list '(std::vector, int)'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(37,1): error C2678: binary '[': no operator found which takes a left-hand operand of type 'std::vector' (or there is no acceptable conversion)
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.25.28610\include\vector(1507,27): message : could be 'const _Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept const'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.25.28610\include\vector(1497,21): message : or       '_Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(37,1): message : while trying to match the argument list '(std::vector, int)'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(38,1): error C2678: binary '[': no operator found which takes a left-hand operand of type 'std::vector' (or there is no acceptable conversion)
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.25.28610\include\vector(1507,27): message : could be 'const _Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept const'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.25.28610\include\vector(1497,21): message : or       '_Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(38,1): message : while trying to match the argument list '(std::vector, int)'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,36): error C2039: 'nx': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,49): error C2065: 'nx': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(29,1): warning C4005: 'SIMON_STATE_DOWNSTAIR_IDLE': macro redefinition
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(25): message : see previous definition of 'SIMON_STATE_DOWNSTAIR_IDLE'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(160,1): error C2678: binary '[': no operator found which takes a left-hand operand of type 'std::vector' (or there is no acceptable conversion)
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.25.28610\include\vector(1507,27): message : could be 'const _Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept const'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.25.28610\include\vector(1497,21): message : or       '_Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(160,1): message : while trying to match the argument list '(std::vector, int)'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(161,1): error C2678: binary '[': no operator found which takes a left-hand operand of type 'std::vector' (or there is no acceptable conversion)
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.25.28610\include\vector(1507,27): message : could be 'const _Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept const'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.25.28610\include\vector(1497,21): message : or       '_Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(161,1): message : while trying to match the argument list '(std::vector, int)'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
+  Stair.cpp
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(22,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,32): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(45,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(31,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(32,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(33,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(36,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(37,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(38,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,36): error C2039: 'nx': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,49): error C2065: 'nx': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(29,1): warning C4005: 'SIMON_STATE_DOWNSTAIR_IDLE': macro redefinition
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(25): message : see previous definition of 'SIMON_STATE_DOWNSTAIR_IDLE'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(107,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(155,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(160,3): error C2065: 'animations': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(161,3): error C2065: 'animations': undeclared identifier
+  SwitchScene.cpp
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(22,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,32): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(45,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(31,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(32,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(33,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(36,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(37,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(38,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,36): error C2039: 'nx': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,49): error C2065: 'nx': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(29,1): warning C4005: 'SIMON_STATE_DOWNSTAIR_IDLE': macro redefinition
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(25): message : see previous definition of 'SIMON_STATE_DOWNSTAIR_IDLE'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(107,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(155,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(160,3): error C2065: 'animations': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(161,3): error C2065: 'animations': undeclared identifier
+  Textures.cpp
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Sprites.h(22,22): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Sprites.h(73,24): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\GameObject.h(46,14): error C3646: 'nx': unknown override specifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\GameObject.h(46,14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,32): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,36): error C2039: 'nx': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,49): error C2065: 'nx': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(29,1): warning C4005: 'SIMON_STATE_DOWNSTAIR_IDLE': macro redefinition
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(25): message : see previous definition of 'SIMON_STATE_DOWNSTAIR_IDLE'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
+  Torch.cpp
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(22,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,32): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(45,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(31,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(32,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(33,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(36,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(37,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(38,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,36): error C2039: 'nx': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,49): error C2065: 'nx': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(29,1): warning C4005: 'SIMON_STATE_DOWNSTAIR_IDLE': macro redefinition
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(25): message : see previous definition of 'SIMON_STATE_DOWNSTAIR_IDLE'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(107,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(155,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(160,3): error C2065: 'animations': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(161,3): error C2065: 'animations': undeclared identifier
+  WDagger.cpp
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(22,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,32): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(45,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(31,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(32,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(33,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(36,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(37,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(38,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,36): error C2039: 'nx': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,49): error C2065: 'nx': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(29,1): warning C4005: 'SIMON_STATE_DOWNSTAIR_IDLE': macro redefinition
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(25): message : see previous definition of 'SIMON_STATE_DOWNSTAIR_IDLE'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(107,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(155,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(160,3): error C2065: 'animations': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(161,3): error C2065: 'animations': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\WDagger.cpp(27,10): error C2676: binary '>': 'DIRECTION' does not define this operator or a conversion to a type acceptable to the predefined operator
+  Weapon.cpp
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(22,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,32): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(45,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(31,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(32,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(33,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(36,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(37,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(38,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,36): error C2039: 'nx': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,49): error C2065: 'nx': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(29,1): warning C4005: 'SIMON_STATE_DOWNSTAIR_IDLE': macro redefinition
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(25): message : see previous definition of 'SIMON_STATE_DOWNSTAIR_IDLE'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(107,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(155,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(160,3): error C2065: 'animations': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(161,3): error C2065: 'animations': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
+  WeaponFactory.cpp
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(22,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,32): error C2061: syntax error: identifier 'DIRECTION'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(45,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(31,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(32,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(33,3): error C3861: 'AddAnimation': identifier not found
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(36,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(37,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(38,1): error C2039: 'animations': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,36): error C2039: 'nx': is not a member of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(21): message : see declaration of 'Whip'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Whip.h(43,49): error C2065: 'nx': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(29,1): warning C4005: 'SIMON_STATE_DOWNSTAIR_IDLE': macro redefinition
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(25): message : see previous definition of 'SIMON_STATE_DOWNSTAIR_IDLE'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(107,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(155,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(160,3): error C2065: 'animations': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(161,3): error C2065: 'animations': undeclared identifier
+  Whip.cpp
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(29,1): warning C4005: 'SIMON_STATE_DOWNSTAIR_IDLE': macro redefinition
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(25): message : see previous definition of 'SIMON_STATE_DOWNSTAIR_IDLE'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(107,1): error C2504: 'CGameObject': base class undefined
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(115,6): error C2143: syntax error: missing ';' before '*'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(115,6): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(115,12): error C2238: unexpected token(s) preceding ';'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(155,65): error C2061: syntax error: identifier 'vector'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(159,3): error C2065: 'whip': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(160,3): error C2065: 'animations': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(161,3): error C2065: 'animations': undeclared identifier
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...

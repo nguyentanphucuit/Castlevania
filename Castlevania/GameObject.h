@@ -43,7 +43,7 @@ public:
 	float vx;
 	float vy;
 
-	int nx;	 
+	DIRECTION nx;	 
 
 	DWORD dt; 
 
