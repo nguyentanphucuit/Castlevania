@@ -3,6 +3,7 @@
 #include "ItemFactory.h"
 #include "PlayScene.h"
 #include "EffectFactory.h"
+#include "define.h"
 
 void Whip::Render()
 {
@@ -56,7 +57,7 @@ void Whip::GetBoundingBox(float& l, float& t, float& r, float& b)
 		b = y + WHIP_BBOX_NORMAL_HEIGHT;
 		
 	}
-	else if(nx == DIRECTION::RIGHT)
+	else if(nx > DIRECTION::RIGHT)
 	{
 		
 		l = x + 150;

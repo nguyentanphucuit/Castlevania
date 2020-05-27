@@ -1,6 +1,5 @@
 ﻿#pragma once
 #include"GameObject.h"
-#include"Simon.h"
 
 #define WHIP_ANI_NORMAL 0 
 #define WHIP_ANI_CHAIN 1 

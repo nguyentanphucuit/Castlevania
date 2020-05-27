@@ -2,7 +2,7 @@
 #include <Windows.h>
 #include <d3dx9.h>
 #include <unordered_map>
-#include "Simon.h"
+#include "define.h"
 
 using namespace std;
 
@@ -19,7 +19,7 @@ class CSprite
 public: 
 	CSprite(string id, int left, int top, int right, int bottom, LPDIRECT3DTEXTURE9 tex);
 
-	void Draw(DIRECTION nx, float x, float y, int alpha = 255);
+	void Draw(DIRECTION nx, float x, float y, int alpha = 255 );
 };
 
 typedef CSprite * LPSPRITE;
@@ -70,7 +70,7 @@ public:
 	void Add(string spriteId, DWORD time = 0);
 	void ResetFrame() { this->currentFrame = -1; }
 	int GetCurrentFrame() { return this->currentFrame; }
-	void Render(DIRECTION nx,float x, float y, int alpha=255);
+	void Render(DIRECTION nx ,float x, float y, int alpha=255);
 };
 
 typedef CAnimation *LPANIMATION;
