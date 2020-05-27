@@ -16,6 +16,24 @@
 #define SIMON_STATE_JUMP			300
 #define SIMON_STATE_DIE				400
 
+
+#define SIMON_ONSTAIR_DISTANCE_X 16
+#define SIMON_ONSTAIR_DISTANCE_Y 16
+#define SIMON_STATE_UPSTAIR_IDLE 1000
+#define SIMON_STATE_UPSTAIR_RIGHT 1100
+#define SIMON_STATE_UPSTAIR_LEFT 1200
+#define SIMON_STATE_DOWNSTAIR_IDLE 1300
+#define SIMON_STATE_DOWNSTAIR_RIGHT 1400
+#define SIMON_STATE_DOWNSTAIR_LEFT 1500
+#define SIMON_STATE_UPSTAIR_ATTACK 1600
+#define SIMON_STATE_DOWNSTAIR_IDLE 1700
+#define SIMON_STATE_FALL_DOWN 1800
+
+#define SIMON_UPSTAIR_RIGHT_DISTANCE 12
+#define SIMON_UPSTAIR_LEFT_DISTANCE 16
+#define SIMON_DOWNSTAIR_RIGHT_DISTANCE 10
+#define SIMON_DOWNSTAIR_LEFT_DISTANCE 18
+
 #define SIMON_ANI_IDLE 0 
 #define SIMON_ANI_WALKING 1 
 #define SIMON_ANI_SIT 2 
@@ -58,9 +76,32 @@
 	ENTERENTRANCE,
 	RETROGRADE,
 	STAIR,
+	DOWN_STAIR_LEFT,
+	DOWN_STAIR_RIGHT,
+	DOWN_STAIR_IDLE,
+	UP_STAIR_LEFT,
+	UP_STAIR_RIGHT,
+	UP_STAIR_IDLE,
+
 };
 
  enum class EWeapon;
+
+ enum class DIRECTION {
+	 DEFAULT = 0,
+	 LEFT = -1,
+	 RIGHT = 1,
+	 TOP = 2,
+	 BOTTOM = -2,
+ };
+ 
+ enum class STAIRDIRECTION {
+	 DEFAULT = -1,
+	 UPRIGHT,
+	 UPLEFT,
+	 DOWNRIGHT,
+	 DOWNLEFT,
+ };
 
 class CSIMON : public CGameObject
 {
@@ -75,13 +116,30 @@ class CSIMON : public CGameObject
 	EWeapon currentWeapon;
 	bool spawnWeapon = false;
 	bool isSpawnWeapon = false; 
+	// STAIR
+	bool isOnStair = false;
+	bool startOnStair = false;
+	bool autoWalk = false;
+	bool isCoStair = false;
+	bool isFirstStepOnStair = false;
+	bool isLastStepOnStair = false;
+
+	STAIRDIRECTION onStairDirection = STAIRDIRECTION::DEFAULT;
+	int lastState = -1;
+	D3DXVECTOR2 stairBeginPos;
+	D3DXVECTOR2 stairEndPos;
+
+	void HandleFristStepOnStair();
+	void HandlePerStepOnStair();
+	float lastPosition;
+	void Renderer(int ani);
 	
 public: 
 	CSIMON();
 	bool isOnGround = false;
-	bool isStair = false;
-	bool onStair = false;
 	bool isTouchRetroGrade = true;
+
+
 	bool ResetSpawnWeapon() { return this->isSpawnWeapon = false; };
 	bool IsSpawnWeapon() { return spawnWeapon; };
 	void SpawnWeapon(bool flag) { this->spawnWeapon = flag; };
@@ -110,4 +168,44 @@ public:
 	void StartUntouchable() { untouchable = 1; untouchable_start = GetTickCount(); }
 
 	virtual void GetBoundingBox(float &left, float &top, float &right, float &bottom);
+
+	void ResetState() {
+		isOnStair = startOnStair = isCoStair = isFirstStepOnStair = isOnGround = false;
+		this->onStairDirection = STAIRDIRECTION::DEFAULT;
+		this->lastState = -1;
+		this->untouchable = 0;
+		this->untouchable_start = 0;
+
+	}
+
+	void StartOnStair(bool flag) {
+		this->startOnStair = flag;
+	}
+	void SimonAutoWalkStep(float step);
+
+	bool CheckStepUp() {
+		if (this->onStairDirection == STAIRDIRECTION::UPLEFT || this->onStairDirection == STAIRDIRECTION::UPRIGHT)
+			return true;
+		return false;
+	}
+
+	bool CheckOnStair() {
+		return this->isOnStair;
+	}
+
+	bool CheckCoStair() {
+		return this->isCoStair;
+	}
+
+	void SetStartOnStair() {
+		this->startOnStair = true;
+	}
+
+	void SetAutoWalk(bool flag) {
+		this->autoWalk = flag;
+	}
+
+	bool CheckAutoWalk() {
+		return this->autoWalk;
+	}
 };

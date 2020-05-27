@@ -13,6 +13,114 @@
 #include "SwitchScene.h"
 #include "Stair.h"
 
+void CSIMON::HandleFristStepOnStair()
+{
+	if (onStairDirection == STAIRDIRECTION::DEFAULT) {
+		return;
+	}
+	this->vx = 0;
+	this->vy = 0;
+
+	if (this->state == SIMONSTATE :: WALKING_RIGHT) {
+		int a = 2;
+	}
+
+	if (onStairDirection == STAIRDIRECTION::UPRIGHT) {
+		if (stairBeginPos.x - this->x > SIMON_UPSTAIR_RIGHT_DISTANCE) {
+			this->autoWalk = true;
+			SetState(SIMONSTATE::WALKING_RIGHT);
+			return;
+		}
+		else if(stairBeginPos.x - this->x < SIMON_UPSTAIR_RIGHT_DISTANCE - 5){
+			this->autoWalk = true;
+			SetState(SIMONSTATE::WALKING_LEFT);
+			return;
+		}
+		else {
+			if (state == SIMONSTATE::WALKING_LEFT) {
+				if (nx == DIRECTION::LEFT) nx = DIRECTION::RIGHT;
+				else if (nx == DIRECTION::RIGHT) nx = DIRECTION::LEFT;
+			}
+			this->autoWalk = false;
+			this->isOnStair = true;
+			this->isFirstStepOnStair = true;
+			this->stairEndPos = { floor(this->x), floor(this->y) };
+			this->SetState(SIMONSTATE::UP_STAIR_RIGHT);
+		}
+	}
+	else if (onStairDirection == STAIRDIRECTION::UPLEFT) {
+		if (stairBeginPos.x - this->x < SIMON_UPSTAIR_LEFT_DISTANCE) {
+			this->autoWalk = true;
+			SetState(SIMONSTATE::WALKING_LEFT);
+			return;
+		}
+		else if (stairBeginPos.x - this->x > SIMON_UPSTAIR_LEFT_DISTANCE + 5) {
+			this->autoWalk = true;
+			SetState(SIMONSTATE::WALKING_RIGHT);
+			return;
+		}
+		else {
+			if (state == SIMONSTATE::WALKING_RIGHT) {
+				if (nx == DIRECTION::LEFT) nx = DIRECTION::RIGHT;
+				else if (nx == DIRECTION::RIGHT) nx = DIRECTION::LEFT;
+			}
+			this->autoWalk = false;
+			this->isOnStair = true;
+			this->isFirstStepOnStair = true;
+			this->stairEndPos = { floor(this->x), floor(this->y) };
+
+			this->SetState(SIMONSTATE::UP_STAIR_RIGHT);
+		}
+
+	}
+	else if (onStairDirection == STAIRDIRECTION::DOWNLEFT) {
+		if (stairBeginPos.x - this->x < SIMON_DOWNSTAIR_LEFT_DISTANCE) {
+			this->autoWalk = true;
+			SetState(SIMONSTATE::WALKING_LEFT);
+			return;
+		}
+		else if (stairBeginPos.x - this->x > SIMON_DOWNSTAIR_LEFT_DISTANCE + 5) {
+			this->autoWalk = true;
+			SetState(SIMONSTATE::WALKING_RIGHT);
+			return;
+		}
+		else {
+			if (state == SIMONSTATE::WALKING_RIGHT) {
+				if (nx == DIRECTION::LEFT) nx = DIRECTION::RIGHT;
+				else if (nx == DIRECTION::RIGHT) nx = DIRECTION::LEFT;
+			}
+			this->autoWalk = false;
+			this->isOnStair = true;
+			this->isFirstStepOnStair = true;
+			this->stairEndPos = { floor(this->x), floor(this->y) };
+			this->SetState(SIMONSTATE::DOWN_STAIR_LEFT);
+		}
+	}
+	else if (onStairDirection == STAIRDIRECTION::DOWNRIGHT) {
+		if (stairBeginPos.x - this->x > SIMON_DOWNSTAIR_RIGHT_DISTANCE) {
+			this->autoWalk = true;
+			SetState(SIMONSTATE::WALKING_RIGHT);
+			return;
+		}
+		else if (stairBeginPos.x - this->x < SIMON_DOWNSTAIR_RIGHT_DISTANCE - 5) {
+			this->autoWalk = true;
+			SetState(SIMONSTATE::WALKING_LEFT);
+			return;
+		}
+		else {
+			if (state == SIMONSTATE::WALKING_LEFT) {
+				if (nx == DIRECTION::LEFT) nx = DIRECTION::RIGHT;
+				else if (nx == DIRECTION::RIGHT) nx = DIRECTION::LEFT;
+			}
+			this->autoWalk = false;
+			this->isOnStair = true;
+			this->isFirstStepOnStair = true;
+			this->stairEndPos = { floor(this->x), floor(this->y) };
+			this->SetState(SIMONSTATE::DOWN_STAIR_RIGHT);
+		}
+	}
+}
+
 CSIMON::CSIMON() : CGameObject() {
 	level = SIMON_LEVEL_BIG;
 	untouchable = 0;
@@ -30,6 +138,12 @@ CSIMON::CSIMON() : CGameObject() {
 	AddAnimation("SIMON_ANI_SIT_ATTACK",false);
 	AddAnimation("SIMON_ANI_IDLE_UPWHIP"); 
 	AddAnimation("SIMON_ANI_STEP_UPSTAIR");
+	AddAnimation("SIMON_ANI_IDLE_UPSTAIR");    
+	AddAnimation("SIMON_ANI_IDLE_DOWNSTAIR");   
+	AddAnimation("SIMON_ANI_STEP_DOWNSTAIR");    
+	AddAnimation("SIMON_ANI_UPSTAIR_ATTACK", false);    
+	AddAnimation("SIMON_ANI_DOWNSTAIR_ATTACK", false); 
+	//AddAnimation("SIMON_ANI_DIE", false); 
 }
 void CSIMON::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT> *coObjects)
 {
@@ -43,7 +157,7 @@ void CSIMON::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT> *coObjects)
 	
 
 	// Simple fall down
-	if (!onStair) {
+	if (!isOnStair) {
 		vy += SIMON_GRAVITY * dt;	
 	}
 	else {
@@ -140,15 +254,7 @@ void CSIMON::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT> *coObjects)
 					}
 				}
 				else if (dynamic_cast<Stair*>(e->obj)) {
-					if (!isStair) {
-						isStair = true;
-						onStair = true;
-					}
-					else
-					{
-						onStair = false;
-						isStair = false;
-					}
+					
 					this->SetState(SIMONSTATE::STAIR);
 				}
 				else if (dynamic_cast<RetroGrade*>(e->obj)) {
@@ -268,6 +374,24 @@ void CSIMON::Render()
 		break;
 	case SIMONSTATE::FIGHT_SIT:
 		ani = SIMON_ANI_SIT_ATTACK;
+		break;
+	case SIMONSTATE::DOWN_STAIR_IDLE:
+		ani = SIMON_STATE_DOWNSTAIR_IDLE;
+		break;
+	case SIMONSTATE::DOWN_STAIR_RIGHT:
+		ani = SIMON_STATE_DOWNSTAIR_RIGHT;
+		break;
+	case SIMONSTATE::DOWN_STAIR_LEFT:
+		ani = SIMON_STATE_DOWNSTAIR_LEFT;
+		break;
+	case SIMONSTATE::UP_STAIR_IDLE:
+		ani = SIMON_STATE_UPSTAIR_IDLE;
+		break;
+	case SIMONSTATE::UP_STAIR_LEFT:
+		ani = SIMON_STATE_UPSTAIR_LEFT;
+		break;
+	case SIMONSTATE::UP_STAIR_RIGHT:
+		ani = SIMON_STATE_UPSTAIR_RIGHT;
 		break;
 	default:
 		break;
