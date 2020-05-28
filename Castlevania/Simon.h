@@ -42,10 +42,15 @@
 #define SIMON_ANI_SIT_ATTACK 4 
 #define SIMON_ANI_UP_WHIP 5
 #define SIMON_ANI_STEP_UPSTAIR 6
-#define SIMON_ANI_UPSTAIR_ATTACK 7
-#define SIMON_ANI_DOWNSTAIR_ATTACK 8
+#define SIMON_ANI_UPSTAIR_IDLE 7
+#define SIMON_ANI_DOWNSTAIR_IDLE 8
+#define SIMON_ANI_STEP_DOWNSTAIR 9
+#define SIMON_ANI_UPSTAIR_ATTACK 10
+#define SIMON_ANI_DOWNSTAIR_ATTACK 11
+#define SIMON_ANI_DIE 12
 
-#define SIMON_ANI_DIE	8
+
+
 
 #define	SIMON_LEVEL_SMALL	1
 #define	SIMON_LEVEL_BIG		2
@@ -116,8 +121,8 @@ class CSIMON : public CGameObject
 
 	STAIRDIRECTION onStairDirection = STAIRDIRECTION::DEFAULT;
 	int lastState = -1;
-	D3DXVECTOR2 stairBeginPos;
-	D3DXVECTOR2 stairEndPos;
+	D3DXVECTOR2 stairPos;
+	D3DXVECTOR2 LastStepOnStairPos;
 
 	void HandleFristStepOnStair();
 	void HandlePerStepOnStair();
