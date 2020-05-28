@@ -165,7 +165,12 @@ public:
 		this->untouchable_start = 0;
 
 	}
-
+	void SetStepOnStairDirection(STAIRDIRECTION dir) {
+		this->onStairDirection = dir;
+	}
+	STAIRDIRECTION CheckStairDirection() {
+		return this->onStairDirection;
+	}
 	void StartOnStair(bool flag) {
 		this->startOnStair = flag;
 	}

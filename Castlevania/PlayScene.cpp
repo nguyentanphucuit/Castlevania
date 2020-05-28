@@ -311,6 +311,7 @@ void PlayScene::OnCreate()
 					Stair* stair = new Stair();
 					stair->SetSize(y.second->GetWidth(), y.second->GetHeight());
 					stair->SetPosition(y.second->GetX(), y.second->GetY());
+					stair->SetDirection(std::atoi(y.second->GetProperty("dir").c_str()));
 					objects.push_back(stair);
 				}
 				break;
@@ -479,7 +480,7 @@ void PlayScene::OnKeyDown(int KeyCode)
 		SIMON->SetSpeed(0, 0);
 		break;
 		}
-
+		
 	}
 }
 
@@ -525,15 +526,50 @@ void PlayScene::KeyState(BYTE* states)
 	}
 	else if (game->IsKeyDown(DIK_DOWN))
 	{
-		SIMON->SetState(SIMONSTATE::SIT);
+		if (SIMON->GetState() == SIMONSTATE::UP_STAIR_IDLE) {
+			if (SIMON->CheckStairDirection() == STAIRDIRECTION::UPRIGHT)
+				SIMON->SetStepOnStairDirection(STAIRDIRECTION::DOWNLEFT);
+			else if (SIMON->CheckStairDirection() == STAIRDIRECTION::UPLEFT)
+				SIMON->SetStepOnStairDirection(STAIRDIRECTION::DOWNRIGHT);
+			SIMON->SetStartOnStair();
+			return;
+		}
+		else if (SIMON->CheckStepUp()) {
+			if (!SIMON->CheckOnStair() && SIMON->CheckCoStair()) {
+				SIMON->SetStartOnStair();
+			}
+			else if (SIMON->GetState() == SIMONSTATE::UP_STAIR_IDLE) {
+				SIMON->SetStartOnStair();
+			}
+			return;
+		}
 	}
 	else if (game->IsKeyDown(DIK_UP)) {
-		SIMON->SetState(SIMONSTATE::STAIR);
+		if (SIMON->GetState() == SIMONSTATE::DOWN_STAIR_IDLE) {
+			if (SIMON->CheckStairDirection() == STAIRDIRECTION::DOWNLEFT)
+				SIMON->SetStepOnStairDirection(STAIRDIRECTION::UPRIGHT);
+			else if (SIMON->CheckStairDirection() == STAIRDIRECTION::DOWNRIGHT)
+				SIMON->SetStepOnStairDirection(STAIRDIRECTION::UPLEFT);
+			SIMON->SetStartOnStair();
+			return;
+		}
+		else if (SIMON->CheckStepUp()) {
+			if (!SIMON->CheckOnStair() && SIMON->CheckCoStair()) {
+				SIMON->SetStartOnStair();
+			}
+			else if (SIMON->GetState() == SIMONSTATE::UP_STAIR_IDLE) {
+				SIMON->SetStartOnStair();
+			}
+			return;
+		}
 		
 	}
 	else
 	{
 		SIMON->SetState(SIMONSTATE::IDLE);
+	}
+	if (SIMON->CheckOnStair() || SIMON->CheckStartOnStair()) {
+		return;
 	}
 
 }
