@@ -39,7 +39,7 @@ public:
 	virtual void Render();
 
 	void Upgrade();
-	void SetNxDirection(int nx) { this->nx = nx; }
+	void SetNxDirection(DIRECTION nx) { this->nx = nx; }
 	virtual void GetBoundingBox(float& l, float& t, float& r, float& b);
 	virtual void Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* colliable_objects = NULL);
 	WHIPSTATE GetState() { return this->state; };

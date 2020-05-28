@@ -1,4 +1,5 @@
 ﻿#include "WDagger.h"
+#include "define.h"
 
 
 void WDagger::Render()
@@ -24,7 +25,7 @@ void WDagger::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObject)
 		return;
 	}
 	
-	vx = nx > 0 ? this->vx = DAGGER_VX : this->vx = -DAGGER_VX;
+	vx = nx == DIRECTION::RIGHT ? this->vx = DAGGER_VX : this->vx = -DAGGER_VX;
 
 	Weapon::Update(dt, scene, coObject);
 	

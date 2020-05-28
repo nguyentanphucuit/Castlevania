@@ -12,7 +12,7 @@ CGameObject::CGameObject()
 {
 	x = y = 0;
 	vx = vy = 0;
-	nx = 1;	
+	nx = DIRECTION::RIGHT;	
 }
 
 void CGameObject::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT> *coObjects)
@@ -129,7 +129,7 @@ void CGameObject::RenderBoundingBox()
 	rect.right = (int)r - (int)l;
 	rect.bottom = (int)b - (int)t;
 
-	CGame::GetInstance()->Draw(0,l, t, bbox, rect.left, rect.top, rect.right, rect.bottom, 128);//128 alpa độ trong của hình
+	CGame::GetInstance()->Draw(DIRECTION::DEFAULT,l, t, bbox, rect.left, rect.top, rect.right, rect.bottom, 128);//128 alpa độ trong của hình
 }
 
 bool CGameObject::isColliding(LPGAMEOBJECT a)

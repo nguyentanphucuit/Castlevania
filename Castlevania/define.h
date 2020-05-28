@@ -19,3 +19,19 @@ const enum  SCREENSIZE
 	WIDTH=512,
 	HEIGHT=480
 };
+
+enum class DIRECTION {
+	DEFAULT = 0,
+	LEFT = -1,
+	RIGHT = 1,
+	TOP = 2,
+	BOTTOM = -2,
+};
+
+enum class STAIRDIRECTION {
+	DEFAULT = -1,
+	UPRIGHT,
+	UPLEFT,
+	DOWNRIGHT,
+	DOWNLEFT,
+};

@@ -6,6 +6,7 @@
 #define DIRECTINPUT_VERSION 0x0800
 #include <dinput.h>
 #include"PlayScene.h"
+#include "define.h"
 
 #define KEYBOARD_BUFFER_SIZE 1024
 /*
@@ -46,7 +47,7 @@ class CGame
 public:
 	void InitKeyboard(LPKEYEVENTHANDLER handler);
 	void Init(HWND hWnd);
-	void Draw(int nx, float x, float y, LPDIRECT3DTEXTURE9 texture, int left, int top, int right, int bottom, int alpha = 255);
+	void Draw(DIRECTION nx, float x, float y, LPDIRECT3DTEXTURE9 texture, int left, int top, int right, int bottom, int alpha = 255);
 
 	//lấy ra toạ độ cam
 	D3DXVECTOR2 GetCamera() { return D3DXVECTOR2(cam_x, cam_y); }
