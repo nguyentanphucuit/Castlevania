@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.5" orientation="orthogonal" renderorder="right-down" width="31" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="7" nextobjectid="12">
+<map version="1.2" tiledversion="1.3.3" orientation="orthogonal" renderorder="right-down" width="31" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="7" nextobjectid="12">
  <tileset firstgid="1" name="MainHall_bank.png" tilewidth="32" tileheight="32" tilecount="100" columns="5">
   <image source="MainHall_bank.png" width="160" height="640"/>
  </tileset>
@@ -755,7 +755,7 @@
  <objectgroup id="2" name="Player">
   <object id="1" name="M2_E1" gid="104" x="659.425" y="721.349" width="60" height="64"/>
  </objectgroup>
- <objectgroup id="3" name="Camera" visible="0">
+ <objectgroup id="3" name="Camera">
   <object id="2" name="Map2_C1" x="511.408" y="381.038" width="480.668" height="386.745"/>
   <object id="3" name="Map2_C2" x="0" y="-1.84164" width="990.803" height="383.061"/>
  </objectgroup>
@@ -765,15 +765,7 @@
   <object id="6" x="576.667" y="546.667" width="252.667" height="29.3333"/>
  </objectgroup>
  <objectgroup id="6" name="Stair">
-  <object id="9" x="717.969" y="706.485" width="32" height="32">
-   <properties>
-    <property name="dir" type="int" value="0"/>
-   </properties>
-  </object>
-  <object id="11" x="849" y="577.333" width="32" height="32">
-   <properties>
-    <property name="dir" type="int" value="3"/>
-   </properties>
-  </object>
+  <object id="9" x="734.636" y="721.818" width="6.72727" height="14.1818"/>
+  <object id="11" x="855" y="606" width="9" height="8"/>
  </objectgroup>
 </map>
