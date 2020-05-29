@@ -412,7 +412,6 @@ void PlayScene::Render()
 void PlayScene::OnKeyDown(int KeyCode)
 {
 	CGame* game = CGame::GetInstance();
-
 	DebugOut(L"[INFO] PRESS KEY DOWN: %d\n", KeyCode);
 	if (SIMON->GetState() == SIMONSTATE::ENTERENTRANCE 
 		|| SIMON->GetState() == SIMONSTATE::UPWHIP 
@@ -424,7 +423,7 @@ void PlayScene::OnKeyDown(int KeyCode)
 			&& SIMON->GetState() != SIMONSTATE::JUMP
 			&& SIMON->GetState() != SIMONSTATE::SIT
 			&& SIMON->isOnGround
-			&& !SIMON->onStair){
+			){
 			SIMON->SetState(SIMONSTATE::JUMP);
 		}
 		break;
@@ -515,12 +514,12 @@ void PlayScene::KeyState(BYTE* states)
 		return;
 	}
 
-	if (game->IsKeyDown(DIK_RIGHT) && !SIMON->onStair) 
+	if (game->IsKeyDown(DIK_RIGHT)) 
 	{
 		SIMON->SetState(SIMONSTATE::WALKING_RIGHT); 
 
 	}
-	else if (game->IsKeyDown(DIK_LEFT) && !SIMON->onStair)
+	else if (game->IsKeyDown(DIK_LEFT))
 	{
 		SIMON->SetState(SIMONSTATE::WALKING_LEFT);
 	}
@@ -529,10 +528,7 @@ void PlayScene::KeyState(BYTE* states)
 		SIMON->SetState(SIMONSTATE::SIT);
 	}
 	else if (game->IsKeyDown(DIK_UP)) {
-		if (SIMON->isStair) {
-			SIMON->onStair = true;
-			SIMON->SetState(SIMONSTATE::STAIR);
-		}
+		SIMON->SetState(SIMONSTATE::STAIR);
 		
 	}
 	else
