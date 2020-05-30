@@ -753,7 +753,7 @@
   </data>
  </layer>
  <objectgroup id="2" name="Player">
-  <object id="1" name="M2_E1" gid="104" x="659.425" y="721.349" width="60" height="64"/>
+  <object id="1" name="M2_E1" gid="104" x="608.092" y="719.349" width="60" height="64"/>
  </objectgroup>
  <objectgroup id="3" name="Camera" visible="0">
   <object id="2" name="Map2_C1" x="511.408" y="381.038" width="480.668" height="386.745"/>
@@ -765,12 +765,12 @@
   <object id="6" x="576.667" y="546.667" width="252.667" height="29.3333"/>
  </objectgroup>
  <objectgroup id="6" name="Stair">
-  <object id="9" x="717.969" y="706.485" width="32" height="32">
+  <object id="9" name="StairBottom" x="717.969" y="706.485" width="32" height="32">
    <properties>
     <property name="dir" type="int" value="0"/>
    </properties>
   </object>
-  <object id="11" x="849" y="577.333" width="32" height="32">
+  <object id="11" name="StairTop" x="850.333" y="516" width="32" height="32">
    <properties>
     <property name="dir" type="int" value="3"/>
    </properties>

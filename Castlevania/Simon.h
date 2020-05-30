@@ -95,7 +95,9 @@ class CSIMON : public CGameObject
 	EWeapon currentWeapon;
 	bool spawnWeapon = false;
 	bool isSpawnWeapon = false; 
+	//Stair
 
+	bool isOnStair = false;
 	
 public: 
 	CSIMON();

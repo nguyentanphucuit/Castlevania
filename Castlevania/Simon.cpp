@@ -138,9 +138,6 @@ void CSIMON::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT> *coObjects)
 						this->currentWeapon = EWeapon::Dagger;
 					}
 				}
-				else if (dynamic_cast<Stair*>(e->obj)) {
-					
-				}
 				else if (dynamic_cast<RetroGrade*>(e->obj)) {
 					this->SetState(SIMONSTATE::RETROGRADE);
 				}	
@@ -188,6 +185,9 @@ void CSIMON::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT> *coObjects)
 					}
 					item->SetDestroy();
 				}
+			}
+			else if (dynamic_cast<Stair*>(coObjects->at(i))) {
+
 			}
 		}
 	}
