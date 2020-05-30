@@ -78,16 +78,6 @@
 	UPWHIP,
 	ENTERENTRANCE,
 	RETROGRADE,
-	STAIR,
-	DOWN_STAIR_LEFT,
-	DOWN_STAIR_RIGHT,
-	DOWN_STAIR_IDLE,
-	UP_STAIR_LEFT,
-	UP_STAIR_RIGHT,
-	UP_STAIR_IDLE,
-	UP_STAIR_ATTACK,
-	DOWN_STAIR_ATTACK,
-	FALL_DOWN,
 };
 
  enum class EWeapon;
@@ -106,23 +96,6 @@ class CSIMON : public CGameObject
 	bool spawnWeapon = false;
 	bool isSpawnWeapon = false; 
 
-	// STAIR
-	bool isOnStair = false;
-	bool startOnStair = false;
-	bool autoWalk = false;
-	bool isCoStair = false;
-	bool isFirstStepOnStair = false;
-	bool isLastStepOnStair = false;
-
-	STAIRDIRECTION onStairDirection = STAIRDIRECTION::DEFAULT;
-	int lastState = -1;
-	D3DXVECTOR2 stairBeginPos;
-	D3DXVECTOR2 stairEndPos;
-
-	void HandleFristStepOnStair();
-	void HandlePerStepOnStair();
-	float lastPosition;
-	void Renderer(int ani);
 	
 public: 
 	CSIMON();
@@ -157,51 +130,4 @@ public:
 
 	virtual void GetBoundingBox(float &left, float &top, float &right, float &bottom);
 
-	void ResetState() {
-		isOnStair = startOnStair = isCoStair = isFirstStepOnStair = isOnGround = false;
-		this->onStairDirection = STAIRDIRECTION::DEFAULT;
-		this->lastState = -1;
-		this->untouchable = 0;
-		this->untouchable_start = 0;
-
-	}
-
-	void StartOnStair(bool flag) {
-		this->startOnStair = flag;
-	}
-	bool CheckStartOnStair() {
-		return this->startOnStair;
-	}
-	bool SimonAutoWalkStep(float step);
-
-	bool CheckStepUp() {
-		if (this->onStairDirection == STAIRDIRECTION::UPLEFT || this->onStairDirection == STAIRDIRECTION::UPRIGHT)
-			return true;
-		return false;
-	}
-	bool CheckStepDown() {
-		if (this->onStairDirection == STAIRDIRECTION::DOWNLEFT || this->onStairDirection == STAIRDIRECTION::DOWNRIGHT)
-			return true;
-		return false;
-	}
-
-	bool CheckOnStair() {
-		return this->isOnStair;
-	}
-
-	bool CheckCoStair() {
-		return this->isCoStair;
-	}
-
-	void SetStartOnStair() {
-		this->startOnStair = true;
-	}
-
-	void SetAutoWalk(bool flag) {
-		this->autoWalk = flag;
-	}
-
-	bool CheckAutoWalk() {
-		return this->autoWalk;
-	}
 };

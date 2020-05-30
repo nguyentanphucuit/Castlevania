@@ -476,7 +476,7 @@ void PlayScene::OnKeyDown(int KeyCode)
 	case DIK_A: 
 		SIMON->SetState(SIMONSTATE::IDLE);
 		SIMON->SetPosition(50.0f, 0.0f);
-		SIMON->SetSpeed(0, 0);
+		SIMON->SetSpeed(0, 0); 
 		break;
 		}
 
@@ -522,14 +522,6 @@ void PlayScene::KeyState(BYTE* states)
 	else if (game->IsKeyDown(DIK_LEFT))
 	{
 		SIMON->SetState(SIMONSTATE::WALKING_LEFT);
-	}
-	else if (game->IsKeyDown(DIK_DOWN))
-	{
-		SIMON->SetState(SIMONSTATE::SIT);
-	}
-	else if (game->IsKeyDown(DIK_UP)) {
-		SIMON->SetState(SIMONSTATE::STAIR);
-		
 	}
 	else
 	{
