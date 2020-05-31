@@ -48,8 +48,13 @@ void CSIMON::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT> *coObjects)
 	if (this->state == SIMONSTATE::DIE) {
 		return;
 	}
-	
-	vy += SIMON_GRAVITY * dt;
+	if (coStair) {
+		vx = 0; 
+		vy = 0;
+	}
+	else {
+		vy += SIMON_GRAVITY * dt;
+	}
 
 	
 	vector<LPCOLLISIONEVENT> coEvents;
@@ -152,7 +157,15 @@ void CSIMON::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT> *coObjects)
 					}
 				}
 				else if (dynamic_cast<Stair*>(e->obj)) {
-					coStair = true;
+					if (coStair == true) {
+						coStair = false;
+					}
+					else {
+						coStair = true;
+					}
+					
+					auto stair = dynamic_cast<Stair*>(e->obj);
+					stair->SetDestroy();
 				}
 				
 					
@@ -186,9 +199,16 @@ void CSIMON::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT> *coObjects)
 					item->SetDestroy();
 				}
 			}
-			else if (dynamic_cast<Stair*>(coObjects->at(i))) {
-				coStair = true;
-			}
+		/*	else if (dynamic_cast<Stair*>(coObjects->at(i))) {
+				if (coStair == true) {
+						coStair = false;
+					}
+					else {
+						coStair = true;
+					}
+				auto stair = dynamic_cast<Stair*>(coObjects->at(i));
+				stair->SetDestroy();
+			}*/
 		}
 	}
 
@@ -333,8 +353,10 @@ void CSIMON::SetState(SIMONSTATE state)
 		this->fight_start = GetTickCount();
 		break;
 	case SIMONSTATE::UP_STAIR_RIGHT:
-		vx = SIMON_WALKING_SPEED;
-		vy = -SIMON_WALKING_SPEED;
+		if (coStair) {
+			vx = SIMON_WALKING_SPEED;
+			vy = -SIMON_WALKING_SPEED;
+		}
 		break;
 	}
 

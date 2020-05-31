@@ -1,4 +1,18 @@
-﻿  PlayScene.cpp
+﻿  Game.cpp
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Game.cpp(82,38): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Game.cpp(335,26): warning C4305: '=': truncation from '__int64' to 'float'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Game.cpp(336,24): warning C4305: '=': truncation from '__int64' to 'float'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Game.cpp(346,26): warning C4305: '=': truncation from '__int64' to 'float'
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Game.cpp(347,24): warning C4305: '=': truncation from '__int64' to 'float'
+  GameObject.cpp
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
+  MenuScene.cpp
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
+  PlayScene.cpp
 C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Admin\Desktop\Castlevania\Castlevania\PlayScene.cpp(125,65): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
@@ -21,8 +35,23 @@ C:\Users\Admin\Desktop\Castlevania\Castlevania\PlayScene.cpp(37): message : see 
   Simon.cpp
 C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.cpp(200,67): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.cpp(200,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.cpp(204,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.cpp(220,67): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.cpp(220,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.cpp(224,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Sprites.cpp
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
+  Textures.cpp
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
+  Weapon.cpp
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
+  Whip.cpp
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
+  main.cpp
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
   Generating Code...
   Castlevania.vcxproj -> C:\Users\Admin\Desktop\Castlevania\Debug\Castlevania.exe
