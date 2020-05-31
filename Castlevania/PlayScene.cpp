@@ -493,7 +493,6 @@ void PlayScene::KeyState(BYTE* states)
 	CGame* game = CGame::GetInstance();
 
 	if (SIMON->GetState() == SIMONSTATE::ENTERENTRANCE) return;
-	if (SIMON->GetState() == SIMONSTATE::RETROGRADE) return;
 
 
 	if (SIMON->GetUpgradeTime() != 0 && GetTickCount() - SIMON->GetUpgradeTime() > SIMON_UPGRADE_WHIP_TIME) {

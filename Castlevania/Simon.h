@@ -77,7 +77,6 @@
 	FIGHT_SIT,
 	UPWHIP,
 	ENTERENTRANCE,
-	RETROGRADE,
 };
 
  enum class EWeapon;

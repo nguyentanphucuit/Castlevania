@@ -138,9 +138,6 @@ void CSIMON::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT> *coObjects)
 						this->currentWeapon = EWeapon::Dagger;
 					}
 				}
-				else if (dynamic_cast<RetroGrade*>(e->obj)) {
-					this->SetState(SIMONSTATE::RETROGRADE);
-				}	
 				else if (dynamic_cast<Entrance*>(e->obj)) {
 					auto entrance = dynamic_cast<Entrance*> (e->obj);
 					entrance->SetDestroy();
@@ -234,8 +231,6 @@ void CSIMON::Render()
 	case SIMONSTATE::WALKING_RIGHT:
 		ani = SIMON_ANI_WALKING;
 		break;		
-	case SIMONSTATE::RETROGRADE:
-		break;
 	case SIMONSTATE::WALKING_LEFT:
 		ani = SIMON_ANI_WALKING;
 		break;
@@ -283,10 +278,6 @@ void CSIMON::SetState(SIMONSTATE state)
 		this->ResetAttack();
 		nx = DIRECTION::RIGHT;
 		vx = SIMON_WALKING_SPEED / 2;
-		break;
-	case SIMONSTATE::RETROGRADE:
-		isTouchRetroGrade = true;
-		vx = 0;
 		break;
 	case SIMONSTATE::WALKING_RIGHT: 
 		isTouchRetroGrade = false;
