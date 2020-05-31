@@ -77,6 +77,7 @@
 	FIGHT_SIT,
 	UPWHIP,
 	ENTERENTRANCE,
+	UP_STAIR_RIGHT,
 };
 
  enum class EWeapon;
@@ -96,11 +97,13 @@ class CSIMON : public CGameObject
 	bool isSpawnWeapon = false; 
 	//Stair
 
-	bool isOnStair = false;
+	
+	bool coStair = false;
 	
 public: 
 	CSIMON();
 	bool isOnGround = false;
+	bool isOnStair = false;
 	bool isTouchRetroGrade = true;
 	bool ResetSpawnWeapon() { return this->isSpawnWeapon = false; };
 	bool IsSpawnWeapon() { return spawnWeapon; };

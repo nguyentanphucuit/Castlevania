@@ -1,7 +1,4 @@
-﻿  main.cpp
-C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
-  PlayScene.cpp
+﻿  PlayScene.cpp
 C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Admin\Desktop\Castlevania\Castlevania\PlayScene.cpp(125,65): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
@@ -24,8 +21,8 @@ C:\Users\Admin\Desktop\Castlevania\Castlevania\PlayScene.cpp(37): message : see 
   Simon.cpp
 C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.cpp(197,67): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.cpp(197,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.cpp(201,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.cpp(200,67): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.cpp(200,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.cpp(204,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   Generating Code...
   Castlevania.vcxproj -> C:\Users\Admin\Desktop\Castlevania\Debug\Castlevania.exe

@@ -522,9 +522,14 @@ void PlayScene::KeyState(BYTE* states)
 	{
 		SIMON->SetState(SIMONSTATE::WALKING_LEFT);
 	}
+	else if (game->IsKeyDown(DIK_UP)) {
+		SIMON->isOnStair = true;
+		SIMON->SetState(SIMONSTATE::UP_STAIR_RIGHT);
+	}
 	else
 	{
 		SIMON->SetState(SIMONSTATE::IDLE);
 	}
+	
 
 }

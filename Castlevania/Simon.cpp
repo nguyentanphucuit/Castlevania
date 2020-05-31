@@ -151,6 +151,9 @@ void CSIMON::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT> *coObjects)
 						pScene->SpawnObject(hmoney->GetItem());
 					}
 				}
+				else if (dynamic_cast<Stair*>(e->obj)) {
+					coStair = true;
+				}
 				
 					
 				
@@ -184,7 +187,7 @@ void CSIMON::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT> *coObjects)
 				}
 			}
 			else if (dynamic_cast<Stair*>(coObjects->at(i))) {
-
+				coStair = true;
 			}
 		}
 	}
@@ -250,6 +253,9 @@ void CSIMON::Render()
 		break;
 	case SIMONSTATE::FIGHT_SIT:
 		ani = SIMON_ANI_SIT_ATTACK;
+		break;
+	case SIMONSTATE::UP_STAIR_RIGHT:
+		ani = SIMON_ANI_STEP_UPSTAIR;
 		break;
 	default:
 		break;
@@ -325,6 +331,10 @@ void CSIMON::SetState(SIMONSTATE state)
 	case SIMONSTATE::FIGHT_SIT:
 		vx = 0;
 		this->fight_start = GetTickCount();
+		break;
+	case SIMONSTATE::UP_STAIR_RIGHT:
+		vx = SIMON_WALKING_SPEED;
+		vy = -SIMON_WALKING_SPEED;
 		break;
 	}
 
