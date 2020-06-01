@@ -35,15 +35,23 @@
 #define SIMON_DOWNSTAIR_RIGHT_DISTANCE 10
 #define SIMON_DOWNSTAIR_LEFT_DISTANCE 18
 
+
+
 #define SIMON_ANI_IDLE 0 
 #define SIMON_ANI_WALKING 1 
 #define SIMON_ANI_SIT 2 
 #define SIMON_ANI_STAND_ATTACK 3 
 #define SIMON_ANI_SIT_ATTACK 4 
-#define SIMON_ANI_UP_WHIP 5
-#define SIMON_ANI_STEP_UPSTAIR 6
-#define SIMON_ANI_UPSTAIR_ATTACK 7
-#define SIMON_ANI_DOWNSTAIR_ATTACK 8
+//#define SIMON_ANI_DEFLECT               5
+#define SIMON_ANI_UP_WHIP              5
+#define SIMON_ANI_STEP_UPSTAIR            6
+#define SIMON_ANI_IDLE_UPSTAIR          7
+
+#define SIMON_ANI_IDLE_DOWNSTAIR         8
+#define SIMON_ANI_STEP_DOWNSTAIR            9
+#define SIMON_ANI_UPSTAIR_ATTACK            10
+#define SIMON_ANI_DOWNSTAIR_ATTACK         11
+#define SIMON_ANI_DIE         
 
 #define SIMON_ANI_DIE	8
 
@@ -63,7 +71,10 @@
 #define SIMON_UPGRADE_WHIP_TIME 500
 
 #define SIMON_ATTACK_TIME 350
-
+#define SIMON_UPSTAIR_RIGHT_OFFSET  12
+#define SIMON_UPSTAIR_LEFT_OFFSET 16 // da giam 3px
+#define SIMON_DOWNSTAIR_LEFT_OFFSET 10
+#define SIMON_DOWNSTAIR_RIGHT_OFFET 18
 
  enum class SIMONSTATE 
 {
@@ -78,6 +89,11 @@
 	UPWHIP,
 	ENTERENTRANCE,
 	UP_STAIR_RIGHT,
+	UP_STAIR_IDLE,
+	DOWN_STAIR_RIGHT,
+	DOWN_STAIR_IDLE,
+	UP_STAIR_LEFT,
+	DOWN_STAIR_LEFT
 };
 
  enum class EWeapon;
@@ -96,20 +112,31 @@ class CSIMON : public CGameObject
 	bool spawnWeapon = false;
 	bool isSpawnWeapon = false; 
 	//Stair
+	bool isAutoWalk = false;
+	
+	bool isOnStair = false;
+	bool startOnStair = false;
+	bool isColliceWithStair = false;
+	bool isFirstStepOnStair = false;
+	STAIRDIRECTION onStairDirection = STAIRDIRECTION::DEFAULT;
+	D3DXVECTOR2 stairPos;
+	D3DXVECTOR2 LastStepOnStairPos;
 
-	
-	
-	
+	void HandleFirstStepOnStair();
+	void HandlePerStepOnStair();
 public: 
 	CSIMON();
 	bool isOnGround = false;
-	bool isOnStair = false;
-	bool coStair = false;
 	bool isTouchRetroGrade = true;
 	bool ResetSpawnWeapon() { return this->isSpawnWeapon = false; };
 	bool IsSpawnWeapon() { return spawnWeapon; };
 	void SpawnWeapon(bool flag) { this->spawnWeapon = flag; };
-	
+	void SetStepOnStairDirection(STAIRDIRECTION dir) {
+		this->onStairDirection = dir;
+	}
+	STAIRDIRECTION CheckStepOnStairDirection() {
+		return this->onStairDirection;
+	}
 	EWeapon GetCurrentWeapon() { return this->currentWeapon; };
 
 	DWORD GetFightTime() { return this->fight_start; }
@@ -130,6 +157,32 @@ public:
 	SIMONSTATE GetState() {
 		return this->state;
 	}
+	bool CheckCanStepUp() {
+		if (this->onStairDirection == STAIRDIRECTION::UPLEFT || this->onStairDirection == STAIRDIRECTION::UPRIGHT)
+			return true;
+		return false;
+	}
+	void SetAutoWalk(bool flag) {
+		this->isAutoWalk = flag;
+	}
+	bool CheckCanStepDown() {
+		if (this->onStairDirection == STAIRDIRECTION::DOWNLEFT || this->onStairDirection == STAIRDIRECTION::DOWNRIGHT)
+			return true;
+		return false;
+	}
+	bool CheckStairOnStair() {
+		return this->startOnStair;
+	}
+	bool CheckIsOnStair() {
+		return this->isOnStair;
+	}
+	bool CheckCollideWithStair() {
+		return this->isColliceWithStair;
+	}
+	void SetStartStepOnStair() {
+		this->startOnStair = true;
+	}
+
 	void SetLevel(int l) { level = l; }
 	void StartUntouchable() { untouchable = 1; untouchable_start = GetTickCount(); }
 

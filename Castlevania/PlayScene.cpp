@@ -21,12 +21,12 @@ void PlayScene::LoadSprite(const std::string& filePath, const int tex)
 
 
 	LPDIRECT3DTEXTURE9 objecttex = textures->Get(tex);
-	char* fileLoc = new char[filePath.size() + 1]; 
+	char* fileLoc = new char[filePath.size() + 1];
 #
 
 
 
-	   //TODO: make multi format version of string copy
+	//TODO: make multi format version of string copy
 #ifdef MACOS
 	strlcpy(fileLoc, file.c_str(), file.size() + 1);
 #else
@@ -38,9 +38,9 @@ void PlayScene::LoadSprite(const std::string& filePath, const int tex)
 	rapidxml::xml_document<> doc;
 	doc.parse<0>(xmlFile.data());
 
-	xml_node<>* rootNode = doc.first_node("gamedata"); 
+	xml_node<>* rootNode = doc.first_node("gamedata");
 
-	for (xml_node<>* child = rootNode->first_node(); child; child = child->next_sibling()) 
+	for (xml_node<>* child = rootNode->first_node(); child; child = child->next_sibling())
 	{
 		const std::string& ID = std::string(child->first_attribute("ID")->value());
 		xml_node<>* frameNode = child->first_node("frame");
@@ -49,7 +49,7 @@ void PlayScene::LoadSprite(const std::string& filePath, const int tex)
 		int t = std::atoi(frameNode->first_attribute("t")->value());
 		int r = std::atoi(frameNode->first_attribute("r")->value());
 		int b = std::atoi(frameNode->first_attribute("b")->value());
-	
+
 		//	DebugOut(L" ID= %d, l=%d, t=%d , r=%d , b=%d \n", ID, l, t, r, b);
 		sprites->Add(ID, l, t, r, b, objecttex);
 	}
@@ -61,9 +61,9 @@ void PlayScene::LoadAnimation(const string& filePath)
 	CAnimations* animations = CAnimations::GetInstance();
 	LPANIMATION ani;
 
-	char* fileLoc = new char[filePath.size() + 1]; 
+	char* fileLoc = new char[filePath.size() + 1];
 #
-	   //TODO: make multi format version of string copy
+	//TODO: make multi format version of string copy
 #ifdef MACOS
 	strlcpy(fileLoc, file.c_str(), file.size() + 1);
 #else
@@ -75,7 +75,7 @@ void PlayScene::LoadAnimation(const string& filePath)
 	rapidxml::xml_document<> doc;
 	doc.parse<0>(xmlFile.data());
 
-	xml_node<>* rootNode = doc.first_node("gamedata"); 
+	xml_node<>* rootNode = doc.first_node("gamedata");
 	xml_node<>* aniNode = rootNode->first_node("animation");
 	for (xml_node<>* child = rootNode->first_node(); child; child = child->next_sibling())
 	{
@@ -140,9 +140,9 @@ void PlayScene::OnCreate()
 
 	const std::string filePath = "GameContent\\Data.xml";
 
-	char* fileLoc = new char[filePath.size() + 1]; 
+	char* fileLoc = new char[filePath.size() + 1];
 #
-	   //TODO: make multi format version of string copy
+	//TODO: make multi format version of string copy
 #ifdef MACOS
 	strlcpy(fileLoc, file.c_str(), file.size() + 1);
 #else
@@ -154,7 +154,7 @@ void PlayScene::OnCreate()
 	rapidxml::xml_document<> doc;
 	doc.parse<0>(xmlFile.data());
 
-	xml_node<>* rootNode = doc.first_node("Data"); 
+	xml_node<>* rootNode = doc.first_node("Data");
 	xml_node<>* texNode = rootNode->first_node("textures");
 
 	for (xml_node<>* child = texNode->first_node(); child; child = child->next_sibling()) //cú pháp lập
@@ -178,7 +178,7 @@ void PlayScene::OnCreate()
 	}
 
 
-	xml_node<>* spriteNode = rootNode->first_node("sprites"); 
+	xml_node<>* spriteNode = rootNode->first_node("sprites");
 	// load sprite
 	for (xml_node<>* child = spriteNode->first_node(); child; child = child->next_sibling()) //cú pháp lập
 	{
@@ -217,7 +217,7 @@ void PlayScene::OnCreate()
 	for (auto const& m : Maps) {
 		auto objectLayer = m.second->GetObjectLayer();
 
-		
+
 		for (auto const& x : objectLayer)
 		{
 			ObjectID objID = string2EntityType.at(x.first);
@@ -256,7 +256,7 @@ void PlayScene::OnCreate()
 					border.bottom = y.second->GetY() + y.second->GetHeight();
 
 					this->pSceneBorders.insert(std::make_pair(y.second->GetName(), border));
-					
+
 				}
 				break;
 			case _Ground:
@@ -311,6 +311,7 @@ void PlayScene::OnCreate()
 					Stair* stair = new Stair();
 					stair->SetSize(y.second->GetWidth(), y.second->GetHeight());
 					stair->SetPosition(y.second->GetX(), y.second->GetY());
+					stair->SetDirection(std::atoi(y.second->GetProperty("dir").c_str()));
 					objects.push_back(stair);
 				}
 				break;
@@ -321,8 +322,8 @@ void PlayScene::OnCreate()
 
 		LoadSceneContent(rootNode);
 	}
-	}
-	
+}
+
 
 void PlayScene::OnDestroy()
 {
@@ -336,7 +337,7 @@ void PlayScene::Update(DWORD dt)
 {
 	// We know that SIMON is the first object in the list hence we won't add him into the colliable object list
 	// TO-DO: This is a "dirty" way, need a more organized way 
-	while (!qObjects.empty()){
+	while (!qObjects.empty()) {
 		this->objects.push_back(qObjects.front());
 		qObjects.pop();
 	}
@@ -379,7 +380,7 @@ void PlayScene::Update(DWORD dt)
 	if (switchScene) {
 		this->currentMap = this->Maps.at(this->currentPScene->mapID);
 		this->cameraBorder = this->pSceneBorders.at(this->currentPScene->border);
-		
+
 		switchScene = false;
 		SIMON->SetState(SIMONSTATE::IDLE);
 		this->currentEntryPoints = this->entryPoints.at(this->currentPScene->entry);
@@ -413,22 +414,30 @@ void PlayScene::OnKeyDown(int KeyCode)
 {
 	CGame* game = CGame::GetInstance();
 	DebugOut(L"[INFO] PRESS KEY DOWN: %d\n", KeyCode);
-	if (SIMON->GetState() == SIMONSTATE::ENTERENTRANCE 
-		|| SIMON->GetState() == SIMONSTATE::UPWHIP 
+	if (SIMON->GetState() == SIMONSTATE::ENTERENTRANCE
+		|| SIMON->GetState() == SIMONSTATE::UPWHIP
 		) return;
 	switch (KeyCode)
 	{
+	case DIK_1:
+		this->switchScene = true;
+		this->currentPScene = this->pScenes.at(0);
+		break;
+	case DIK_2:
+		this->switchScene = true;
+		this->currentPScene = this->pScenes.at(1);
+		break;
 	case DIK_SPACE:
-		if (SIMON->GetFightTime() == 0 
+		if (SIMON->GetFightTime() == 0
 			&& SIMON->GetState() != SIMONSTATE::JUMP
 			&& SIMON->GetState() != SIMONSTATE::SIT
 			&& SIMON->isOnGround
-			&& !SIMON->coStair){
+			) {
 			SIMON->SetState(SIMONSTATE::JUMP);
 		}
 		break;
 	case DIK_F:
-		if (SIMON->GetFightTime() == 0) 
+		if (SIMON->GetFightTime() == 0)
 		{
 			if (game->IsKeyDown(DIK_UP))
 			{
@@ -448,7 +457,7 @@ void PlayScene::OnKeyDown(int KeyCode)
 				else
 				{
 					SIMON->SpawnWeapon(false);
-					if (SIMON->GetState() != SIMONSTATE::SIT) 
+					if (SIMON->GetState() != SIMONSTATE::SIT)
 					{
 						SIMON->SetState(SIMONSTATE::FIGHT_STAND);
 					}
@@ -462,7 +471,7 @@ void PlayScene::OnKeyDown(int KeyCode)
 			else
 			{
 				SIMON->SpawnWeapon(false);
-				if (SIMON->GetState() != SIMONSTATE::SIT) 
+				if (SIMON->GetState() != SIMONSTATE::SIT)
 				{
 					SIMON->SetState(SIMONSTATE::FIGHT_STAND);
 				}
@@ -473,10 +482,10 @@ void PlayScene::OnKeyDown(int KeyCode)
 			}
 
 			break;
-	case DIK_A: 
+	case DIK_A:
 		SIMON->SetState(SIMONSTATE::IDLE);
 		SIMON->SetPosition(50.0f, 0.0f);
-		SIMON->SetSpeed(0, 0); 
+		SIMON->SetSpeed(0, 0);
 		break;
 		}
 
@@ -493,7 +502,7 @@ void PlayScene::KeyState(BYTE* states)
 	CGame* game = CGame::GetInstance();
 
 	if (SIMON->GetState() == SIMONSTATE::ENTERENTRANCE) return;
-
+	
 
 	if (SIMON->GetUpgradeTime() != 0 && GetTickCount() - SIMON->GetUpgradeTime() > SIMON_UPGRADE_WHIP_TIME) {
 		SIMON->ResetUpgradeTime();
@@ -508,14 +517,71 @@ void PlayScene::KeyState(BYTE* states)
 
 	}
 
-	if (SIMON->GetFightTime() != 0) 
+	if (SIMON->GetFightTime() != 0)
 	{
 		return;
 	}
 
-	if (game->IsKeyDown(DIK_RIGHT)) 
+	if (game->IsKeyDown(DIK_UP))
 	{
-		SIMON->SetState(SIMONSTATE::WALKING_RIGHT); 
+
+		if (SIMON->GetState() == SIMONSTATE::DOWN_STAIR_IDLE) {
+
+
+			if (SIMON->CheckStepOnStairDirection() == STAIRDIRECTION::DOWNLEFT)
+				SIMON->SetStepOnStairDirection(STAIRDIRECTION::UPRIGHT);
+			else if (SIMON->CheckStepOnStairDirection() == STAIRDIRECTION::DOWNRIGHT)
+				SIMON->SetStepOnStairDirection(STAIRDIRECTION::UPLEFT);
+			SIMON->SetStartStepOnStair();
+			DebugOut(L"Simon up to down \n");
+			return;
+		}
+
+		else if (SIMON->CheckCanStepUp()) {
+			if (!SIMON->CheckIsOnStair() && SIMON->CheckCollideWithStair()) {
+				SIMON->SetStartStepOnStair();
+			}
+			else if (SIMON->GetState() == SIMONSTATE::UP_STAIR_IDLE) {
+
+				SIMON->SetStartStepOnStair();
+			}
+			return;
+		}
+
+	}
+	else if (game->IsKeyDown(DIK_DOWN))
+	{
+
+		if (SIMON->GetState() == SIMONSTATE::UP_STAIR_IDLE) {
+			if (SIMON->CheckStepOnStairDirection() == STAIRDIRECTION::UPRIGHT)
+				SIMON->SetStepOnStairDirection(STAIRDIRECTION::DOWNLEFT);
+			else if (SIMON->CheckStepOnStairDirection() == STAIRDIRECTION::UPLEFT) {
+				SIMON->SetStepOnStairDirection(STAIRDIRECTION::DOWNRIGHT);
+			}
+			SIMON->SetStartStepOnStair();
+			DebugOut(L"Simon up to down \n");
+			return;
+		}
+		if (SIMON->CheckCanStepDown()) {
+			if (!SIMON->CheckIsOnStair() && SIMON->CheckCollideWithStair()) {
+				SIMON->SetStartStepOnStair();
+			}
+			else if (SIMON->GetState() == SIMONSTATE::DOWN_STAIR_IDLE) {
+				SIMON->SetStartStepOnStair();
+			}
+			return;
+		}
+
+	}
+	if (SIMON->CheckIsOnStair() || SIMON->CheckStairOnStair()) {
+		return;
+	}
+
+
+
+	if (game->IsKeyDown(DIK_RIGHT))
+	{
+		SIMON->SetState(SIMONSTATE::WALKING_RIGHT);
 
 	}
 	else if (game->IsKeyDown(DIK_LEFT))
@@ -523,13 +589,12 @@ void PlayScene::KeyState(BYTE* states)
 		SIMON->SetState(SIMONSTATE::WALKING_LEFT);
 	}
 	else if (game->IsKeyDown(DIK_UP)) {
-		SIMON->isOnStair = true;
 		SIMON->SetState(SIMONSTATE::UP_STAIR_RIGHT);
 	}
 	else
 	{
 		SIMON->SetState(SIMONSTATE::IDLE);
 	}
-	
+
 
 }
