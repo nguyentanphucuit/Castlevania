@@ -157,6 +157,16 @@ void CGameObject::AddAnimation(string aniId, bool isLoop)
 	animations.push_back(ani);
 }
 
+void CGameObject::ResetFrame(int frameID)
+{
+	animations[frameID]->ResetAnimation();
+}
+
+void CGameObject::ResetAnimation()
+{
+	for (auto ani : animations)
+		ani->ResetAnimation();
+}
 
 CGameObject::~CGameObject()
 {

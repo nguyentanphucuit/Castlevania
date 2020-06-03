@@ -77,6 +77,10 @@ void Whip::GetBoundingBox(float& l, float& t, float& r, float& b)
 
 void Whip::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT>* colliable_objects)
 {
+	if (animations[currentAnimation]->GetCurrentFrame()
+		!= animations[currentAnimation]->GetLastFrame()) {
+		return;
+	}
 	switch (state)
 	{
 	case NORMAL:
@@ -143,4 +147,9 @@ void Whip::SetState(WHIPSTATE state)
 		break;
 	}
 	this->state = state;
+}
+
+bool Whip::CheckLastFrame()
+{
+	return animations[currentAnimation]->CheckAnimationDone();
 }

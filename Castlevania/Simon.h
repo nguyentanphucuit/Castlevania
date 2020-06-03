@@ -103,7 +103,7 @@ class CSIMON : public CGameObject
 	int level;
 	int untouchable;
 	DWORD untouchable_start;
-	DWORD fight_start; // biến đếm thời gian đánh khi bắt đầu đánh sẽ đếm, khi đủ 350ms reset
+	DWORD fight_start = 0; // biến đếm thời gian đánh khi bắt đầu đánh sẽ đếm, khi đủ 350ms reset
 	DWORD upgrade_start;
 	
 	SIMONSTATE state;
@@ -111,9 +111,9 @@ class CSIMON : public CGameObject
 	EWeapon currentWeapon;
 	bool spawnWeapon = false;
 	bool isSpawnWeapon = false; 
+
 	//Stair
 	bool isAutoWalk = false;
-	
 	bool isOnStair = false;
 	bool startOnStair = false;
 	bool isColliceWithStair = false;
@@ -124,6 +124,8 @@ class CSIMON : public CGameObject
 
 	void HandleFirstStepOnStair();
 	void HandlePerStepOnStair();
+	bool isActack = false;
+	int lastState = -1;
 public: 
 	CSIMON();
 	bool isOnGround = false;
@@ -157,6 +159,7 @@ public:
 	SIMONSTATE GetState() {
 		return this->state;
 	}
+
 	bool CheckCanStepUp() {
 		if (this->onStairDirection == STAIRDIRECTION::UPLEFT || this->onStairDirection == STAIRDIRECTION::UPRIGHT)
 			return true;
@@ -188,4 +191,20 @@ public:
 
 	virtual void GetBoundingBox(float &left, float &top, float &right, float &bottom);
 
+	bool CheckAttack() {
+
+		return this->isActack;
+	}
+	void StartActack() {
+		this->isActack = true;
+		//	this->ResetSpriteFrame();
+
+	};
+	void ResetSpriteFrame() {
+		this->ResetFrame(SIMON_ANI_STAND_ATTACK);
+		this->ResetFrame(SIMON_ANI_UPSTAIR_ATTACK);
+		this->ResetFrame(SIMON_ANI_DOWNSTAIR_ATTACK);
+		this->ResetFrame(SIMON_ANI_SIT_ATTACK);
+		whip->ResetAnimationFrame();
+	}
 };

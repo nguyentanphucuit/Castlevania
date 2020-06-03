@@ -54,6 +54,7 @@ void CAnimation::Render(DIRECTION nx,float x, float y, int alpha)
 	DWORD now = GetTickCount();
 	if (currentFrame == -1) 
 	{
+		this->isDone = false;
 		currentFrame = 0; 
 		lastFrameTime = now;
 	}
@@ -68,10 +69,12 @@ void CAnimation::Render(DIRECTION nx,float x, float y, int alpha)
 			{
 				if (isLoop)
 				{
+					
 					currentFrame = 0;
 				}
 				else
 				{
+					this->isDone = true;
 					currentFrame--;
 				}
 				
