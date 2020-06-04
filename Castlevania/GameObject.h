@@ -76,7 +76,8 @@ public:
 	bool AABB(float l, float t, float r, float b, float l1, float t1, float r1, float b1);
 
 	void AddAnimation(string aniId,bool isLoop=true);
-
+	void ResetFrame(int frameID);
+	void ResetAnimation();
 	CGameObject();
 
 	virtual void GetBoundingBox(float &left, float &top, float &right, float &bottom) = 0;
@@ -84,7 +85,7 @@ public:
 	virtual void Render() = 0;
 	//virtual void SetState(int state) { this->state = state; }
 
-
+	
 	~CGameObject();
 };
 
