@@ -20,7 +20,6 @@ enum WHIPSTATE
 class Whip:public CGameObject
 {
 private:
-	int currentAnimation = 0;
 	WHIPSTATE state;
 public:
 	Whip()
@@ -45,17 +44,6 @@ public:
 	virtual void Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* colliable_objects = NULL);
 	WHIPSTATE GetState() { return this->state; };
 	void SetState(WHIPSTATE state);
-	void ResetAnimationFrame() {
-		animations[currentAnimation]->ResetAnimation();
-	}
-	void ResetLastFrame() {
-		animations[currentAnimation]->ResetLastFrame();
-	}
-	void SetVelocity(float vx, float vy) {
-		this->vx = vx;
-		this->vy = vy;
 
-	};
-	bool CheckLastFrame();
 };
 
