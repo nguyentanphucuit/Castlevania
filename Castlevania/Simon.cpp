@@ -392,10 +392,7 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 						this->isOnStair = false;
 						this->startOnStair = false;
 						this->isFirstStepOnStair = false;
-
 						return;
-
-
 					}
 					this->isColliceWithStair = true;
 					this->onStairDirection = static_cast<STAIRDIRECTION>(f->GetDirection());
@@ -518,7 +515,13 @@ void CSIMON::Render()
 	case SIMONSTATE::DOWN_STAIR_RIGHT:
 		ani = SIMON_ANI_STEP_DOWNSTAIR;
 		break;
-		
+	case SIMONSTATE::UP_STAIR_FIGHT:
+		ani = SIMON_ANI_UPSTAIR_ATTACK;
+		break;
+	case SIMONSTATE::DOWN_STAIR_FIGHT:
+		ani = SIMON_ANI_DOWNSTAIR_ATTACK;
+		break;
+	
 	default:
 		break;
 	}
@@ -591,7 +594,12 @@ void CSIMON::SetState(SIMONSTATE state)
 		this->fight_start = GetTickCount();
 		break;
 	case SIMONSTATE::FIGHT_SIT:
-		vx = 0;
+		this->fight_start = GetTickCount();
+		break;
+	case SIMONSTATE::DOWN_STAIR_FIGHT:
+		this->fight_start = GetTickCount();
+		break;
+	case SIMONSTATE::UP_STAIR_FIGHT:
 		this->fight_start = GetTickCount();
 		break;
 	case SIMONSTATE::UP_STAIR_RIGHT: {

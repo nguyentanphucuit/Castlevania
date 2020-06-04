@@ -93,7 +93,9 @@
 	DOWN_STAIR_RIGHT,
 	DOWN_STAIR_IDLE,
 	UP_STAIR_LEFT,
-	DOWN_STAIR_LEFT
+	DOWN_STAIR_LEFT,
+	UP_STAIR_FIGHT,
+	DOWN_STAIR_FIGHT,
 };
 
  enum class EWeapon;
@@ -114,10 +116,11 @@ class CSIMON : public CGameObject
 	//Stair
 	bool isAutoWalk = false;
 	
-	bool isOnStair = false;
+	
 	bool startOnStair = false;
 	bool isColliceWithStair = false;
 	bool isFirstStepOnStair = false;
+	bool isOnStair = false;
 	STAIRDIRECTION onStairDirection = STAIRDIRECTION::DEFAULT;
 	D3DXVECTOR2 stairPos;
 	D3DXVECTOR2 LastStepOnStairPos;
@@ -126,6 +129,7 @@ class CSIMON : public CGameObject
 	void HandlePerStepOnStair();
 public: 
 	CSIMON();
+	
 	bool isOnGround = false;
 	bool isTouchRetroGrade = true;
 	bool ResetSpawnWeapon() { return this->isSpawnWeapon = false; };
@@ -152,6 +156,8 @@ public:
 		whip->ResetAttack();
 		animations[SIMON_ANI_STAND_ATTACK]->ResetFrame();
 		animations[SIMON_ANI_SIT_ATTACK]->ResetFrame();
+		animations[SIMON_ANI_UPSTAIR_ATTACK]->ResetFrame();
+		animations[SIMON_ANI_DOWNSTAIR_ATTACK]->ResetFrame();
 		this->fight_start = 0;
 	}
 	SIMONSTATE GetState() {

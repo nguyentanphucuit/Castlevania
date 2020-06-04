@@ -432,62 +432,55 @@ void PlayScene::OnKeyDown(int KeyCode)
 			&& SIMON->GetState() != SIMONSTATE::JUMP
 			&& SIMON->GetState() != SIMONSTATE::SIT
 			&& SIMON->isOnGround
-			) {
+			&& !SIMON->CheckIsOnStair()) {
 			SIMON->SetState(SIMONSTATE::JUMP);
 		}
 		break;
 	case DIK_F:
 		if (SIMON->GetFightTime() == 0)
 		{
-			if (game->IsKeyDown(DIK_UP))
-			{
+			if (game->IsKeyDown(DIK_UP)){
 				if (SIMON->GetCurrentWeapon() != EWeapon::NONE && subWeapon < 1) {
 
 					subWeapon++;
-
 					SIMON->ResetSpawnWeapon();
 					SIMON->SpawnWeapon(true);
-					if (SIMON->GetState() != SIMONSTATE::SIT) {
-						SIMON->SetState(SIMONSTATE::FIGHT_STAND);
-					}
-					else {
-						SIMON->SetState(SIMONSTATE::FIGHT_SIT);
-					}
 				}
-				else
-				{
+				else 
 					SIMON->SpawnWeapon(false);
-					if (SIMON->GetState() != SIMONSTATE::SIT)
-					{
-						SIMON->SetState(SIMONSTATE::FIGHT_STAND);
-					}
-					else
-					{
-						SIMON->SetState(SIMONSTATE::FIGHT_SIT);
-					}
-				}
-
 			}
-			else
-			{
+			else 
 				SIMON->SpawnWeapon(false);
-				if (SIMON->GetState() != SIMONSTATE::SIT)
+			if (SIMON->CheckIsOnStair())
+			{
+				if (SIMON->CheckStepOnStairDirection() == STAIRDIRECTION::UPLEFT
+					|| SIMON->CheckStepOnStairDirection() == STAIRDIRECTION::UPRIGHT
+					&& SIMON->GetState() == SIMONSTATE::UP_STAIR_IDLE)
 				{
-					SIMON->SetState(SIMONSTATE::FIGHT_STAND);
+					SIMON->SetState(SIMONSTATE::UP_STAIR_FIGHT);
 				}
-				else
+				else if (SIMON->CheckStepOnStairDirection() == STAIRDIRECTION::DOWNLEFT
+					|| SIMON->CheckStepOnStairDirection() == STAIRDIRECTION::DOWNRIGHT
+					&& SIMON->GetState() == SIMONSTATE::DOWN_STAIR_IDLE)
 				{
-					SIMON->SetState(SIMONSTATE::FIGHT_SIT);
+					SIMON->SetState(SIMONSTATE::DOWN_STAIR_FIGHT);
 				}
 			}
-
-			break;
+			else {
+				if (SIMON->GetState() != SIMONSTATE::SIT)
+					SIMON->SetState(SIMONSTATE::FIGHT_STAND);
+				else
+					SIMON->SetState(SIMONSTATE::FIGHT_SIT);
+			}
+			
+		}
+		break;
 	case DIK_A:
 		SIMON->SetState(SIMONSTATE::IDLE);
 		SIMON->SetPosition(50.0f, 0.0f);
 		SIMON->SetSpeed(0, 0);
 		break;
-		}
+		
 
 	}
 }
@@ -524,7 +517,7 @@ void PlayScene::KeyState(BYTE* states)
 
 	if (game->IsKeyDown(DIK_UP))
 	{
-
+			
 		if (SIMON->GetState() == SIMONSTATE::DOWN_STAIR_IDLE) {
 
 
@@ -587,9 +580,6 @@ void PlayScene::KeyState(BYTE* states)
 	else if (game->IsKeyDown(DIK_LEFT))
 	{
 		SIMON->SetState(SIMONSTATE::WALKING_LEFT);
-	}
-	else if (game->IsKeyDown(DIK_UP)) {
-		SIMON->SetState(SIMONSTATE::UP_STAIR_RIGHT);
 	}
 	else
 	{
