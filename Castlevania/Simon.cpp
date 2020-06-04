@@ -225,44 +225,6 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 	//DebugOut(L"This-> state=%d \n", this->state);
 
 	DebugOut(L"This-> stair dir =%d \n", this->onStairDirection);
-	if (this->isActack && !this->isAutoWalk) {
-
-		if (whip->CheckLastFrame()) {
-			//DebugOut(L"Time count =%d \n", GetTickCount() - actack_start);
-			this->isActack = false;
-			if (this->isOnStair)
-			{
-				if (this->onStairDirection == STAIRDIRECTION::UPLEFT
-					|| this->onStairDirection == STAIRDIRECTION::UPRIGHT)
-				{
-					this->lastState = SIMON_STATE_UPSTAIR_ATTACK;
-					SetState(SIMONSTATE::UP_STAIR_IDLE);
-				}
-				else if (this->onStairDirection == STAIRDIRECTION::DOWNLEFT
-					|| this->onStairDirection == STAIRDIRECTION::DOWNRIGHT)
-				{
-					this->lastState = SIMON_STATE_DOWNSTAIR_ATTACK;
-					SetState(SIMONSTATE::DOWN_STAIR_IDLE);
-				}
-			}
-			else {
-				this->state = SIMONSTATE::IDLE; // use set state insteal of SetState() prevent set vx=0
-			}
-			whip->ResetLastFrame();
-			ResetSpriteFrame();
-			GetFightTime();
-			this->animations[SIMON_ANI_STAND_ATTACK]->ResetAnimation();
-			this->animations[SIMON_ANI_SIT_ATTACK]->ResetAnimation();
-			this->animations[SIMON_ANI_UPSTAIR_ATTACK]->ResetAnimation();
-			this->animations[SIMON_ANI_DOWNSTAIR_ATTACK]->ResetAnimation();
-
-		}
-
-		whip->SetVelocity(this->vx, this->vy);
-		whip->SetNxDirection(this->nx);
-		/*whip->Update(dt, CSIMON::score_, coObjects);*/
-
-	}
 	if (this->startOnStair) {
 		if (!this->isFirstStepOnStair)
 			HandleFirstStepOnStair();
@@ -430,7 +392,7 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 						this->isOnStair = false;
 						this->startOnStair = false;
 						this->isFirstStepOnStair = false;
-						this->isActack = false;
+
 						return;
 
 
@@ -438,7 +400,6 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 					this->isColliceWithStair = true;
 					this->onStairDirection = static_cast<STAIRDIRECTION>(f->GetDirection());
 					this->stairPos = { f->x,f->y };
-
 					f->SetActive(true);
 					return;
 				}
