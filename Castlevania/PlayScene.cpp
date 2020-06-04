@@ -437,6 +437,13 @@ void PlayScene::OnKeyDown(int KeyCode)
 		}
 		break;
 	case DIK_F:
+		if (SIMON->GetState() == SIMONSTATE::DOWN_STAIR_LEFT
+			|| SIMON->GetState() == SIMONSTATE::DOWN_STAIR_RIGHT
+			|| SIMON->GetState() == SIMONSTATE::UP_STAIR_LEFT
+			|| SIMON->GetState() == SIMONSTATE::UP_STAIR_RIGHT)
+		{
+			return;
+		}
 		if (SIMON->GetFightTime() == 0)
 		{
 			if (game->IsKeyDown(DIK_UP)){
@@ -507,6 +514,14 @@ void PlayScene::KeyState(BYTE* states)
 	if (SIMON->GetFightTime() != 0 && GetTickCount() - SIMON->GetFightTime() > SIMON_ATTACK_TIME)
 	{
 		SIMON->ResetAttack();
+		if (SIMON->GetState()==SIMONSTATE::UP_STAIR_FIGHT )
+		{
+			SIMON->SetState(SIMONSTATE::UP_STAIR_IDLE);
+		}
+		if (SIMON->GetState() == SIMONSTATE::DOWN_STAIR_FIGHT)
+		{
+			SIMON->SetState(SIMONSTATE::DOWN_STAIR_IDLE);
+		}
 
 	}
 
