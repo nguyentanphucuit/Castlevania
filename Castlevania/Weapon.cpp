@@ -4,6 +4,7 @@
 #include "Torch.h"
 #include "ItemFactory.h"
 #include "EffectFactory.h"
+#include "Candle.h"
 
 void Weapon::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObject)
 {
@@ -56,6 +57,26 @@ void Weapon::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObject)
 						pScene->SpawnObject(effect);
 					}
 					torch->SetDestroy();
+				}
+				this->SetDestroy();
+			}
+			else if (dynamic_cast<CCandle*>(e->obj)) {
+				CCandle* candle = dynamic_cast<CCandle*>(e->obj);
+				if (!candle->IsDestroy()) {
+					auto item = ItemFactory::SpawnItem<Item*>(candle->GetItem());
+					auto effect = EffectFactory::SpawnEffect<Effect*>(CEffect::FLAME);
+					if (dynamic_cast<PlayScene*>(scene)) //kiểm tra xem scene hiện tại có phải playscene k
+					{
+						float tx, ty;
+						candle->GetPosition(tx, ty);
+						PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
+						item->SetPosition(tx, ty);
+						effect->SetPosition(tx, ty);
+
+						pScene->SpawnObject(item);
+						pScene->SpawnObject(effect);
+					}
+					candle->SetDestroy();
 				}
 				this->SetDestroy();
 			}
