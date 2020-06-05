@@ -24,7 +24,7 @@ const enum ObjectID
 	_BossBorder,
 	_BossTrigger,
 	_Water,
-	_CheckRetrograde
+	_CheckRetrograde,
 };
 
 const auto string2EntityType = std::unordered_map<std::string, ObjectID>

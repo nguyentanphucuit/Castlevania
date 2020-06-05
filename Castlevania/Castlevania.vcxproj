@@ -146,6 +146,7 @@
   <ItemGroup>
     <ClInclude Include="BHeart.h" />
     <ClInclude Include="Brick.h" />
+    <ClInclude Include="Candle.h" />
     <ClInclude Include="Convert.h" />
     <ClInclude Include="debug.h" />
     <ClInclude Include="define.h" />
@@ -186,6 +187,7 @@
   <ItemGroup>
     <ClCompile Include="BHeart.cpp" />
     <ClCompile Include="Brick.cpp" />
+    <ClCompile Include="Candle.cpp" />
     <ClCompile Include="Convert.cpp" />
     <ClCompile Include="debug.cpp" />
     <ClCompile Include="Effect.cpp" />

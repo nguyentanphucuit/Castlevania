@@ -683,7 +683,7 @@ void CSIMON::SetState(SIMONSTATE state)
 
 void CSIMON::GetBoundingBox(float& left, float& top, float& right, float& bottom)
 {
-	left = x + 17;
+	left = x + 14;
 	top = y;
 
 	right = left + SIMON_BBOX_WIDTH;

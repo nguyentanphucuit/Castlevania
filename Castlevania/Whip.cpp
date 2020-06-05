@@ -4,6 +4,7 @@
 #include "PlayScene.h"
 #include "EffectFactory.h"
 #include "define.h"
+#include "Candle.h"
 
 void Whip::Render()
 {
@@ -123,6 +124,27 @@ void Whip::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT>* colliable_objects
 					pScene->SpawnObject(effect);
 				}
 				torch->SetDestroy(); 
+			}
+		}
+		else if (dynamic_cast<CCandle*>(colliable_objects->at(i))) {
+			CCandle* candle = dynamic_cast<CCandle*>(colliable_objects->at(i));
+			if (this->isColliding(candle) && !candle->IsDestroyed()) // check CO
+			{
+
+				auto item = ItemFactory::SpawnItem<Item*>(candle->GetItem());
+				auto effect = EffectFactory::SpawnEffect<Effect*>(CEffect::FLAME);
+				if (dynamic_cast<PlayScene*>(scene)) // check scene cur
+				{
+					float tx, ty;
+					candle->GetPosition(tx, ty);
+					PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
+					item->SetPosition(tx, ty);
+					effect->SetPosition(tx, ty);
+
+					pScene->SpawnObject(item);
+					pScene->SpawnObject(effect);
+				}
+				candle->SetDestroy();
 			}
 		}
 	}

@@ -8,6 +8,7 @@
 		<texture ID ="2" name = "TORCH" path="GameContent\\Player\\Ground\\Torch.png" red="255" green="0" blue ="255"/>
 		<texture ID ="4" name = "ITEM" path="GameContent\\Items\\ITEM.png" red="255" green="0" blue ="255"/>
 		<texture ID ="5" name = "EFFECT" path="GameContent\\Effects\\EFFECT.png" red="255" green="0" blue ="255"/>
+		<texture ID ="3" name = "CANDLE" path="GameContent\\Player\\Ground\\Candle.png" red="255" green="0" blue ="255"/>
 		<texture ID ="-100" name = "BBOX" path="textures\\bbox.png" red="255" green="255" blue ="255"/>
 		<texture ID ="-500" name = "Courtyard_bank" path="GameContent\\Map\\Courtyard_bank.png" red="255" green="255" blue ="255"/>
 		<texture ID ="-600" name = "MainHall_bank" path="GameContent\\Map\\MainHall_bank.png" red="255" green="255" blue ="255"/>
@@ -17,6 +18,7 @@
 		<sprite ID="0" name="Simon" path="GameContent\\Player\\Simon\\Simon_sprite.xml"/>	
 		<sprite ID="1" name="Whip" path="GameContent\\weapons\\Whip_sprite.xml"/>
 		<sprite ID="2" name="Torch" path="GameContent\\Player\\Ground\\Torch_sprite.xml"/>
+		<sprite ID="3" name="Candle" path="GameContent\\Player\\Ground\\Candle_sprite.xml"/>
 		<sprite ID="4" name="Item" path="GameContent\\Items\\Item_sprite.xml"/>
 		<sprite ID="5" name="Effect" path="GameContent\\Effects\\Effect_sprite.xml"/>
 	</sprites>
@@ -25,6 +27,7 @@
 		<animation name="simon" path="GameContent\\Player\\Simon\\Simon_animation.xml"/>
 		<animation name="whip" path="GameContent\\weapons\\Whip_animation.xml"/>
 		<animation name="torch" path="GameContent\\Player\\Ground\\Torch_animation.xml"/>
+		<animation name="candle" path="GameContent\\Player\\Ground\\Candle_animation.xml"/>
 		<animation name="item" path="GameContent\\Items\\Item_animation.xml"/>
 		<animation name="effect" path="GameContent\\Effects\\Effect_animation.xml"/>
 	</animations>

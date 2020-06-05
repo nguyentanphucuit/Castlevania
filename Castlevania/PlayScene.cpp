@@ -13,6 +13,7 @@
 #include "SwitchScene.h"
 #include "Convert.h"
 #include "Stair.h"
+#include "Candle.h"
 
 void PlayScene::LoadSprite(const std::string& filePath, const int tex)
 {
@@ -239,7 +240,6 @@ void PlayScene::OnCreate()
 				for (auto const& y : x.second->GetObjectGroup())
 				{
 					CTorch* torch = new CTorch();
-
 					torch->SetPosition(y.second->GetX(), y.second->GetY() - y.second->GetHeight());
 					torch->SetItem(static_cast<EItem>(std::atoi(y.second->GetProperty("item").c_str())));
 					objects.push_back(torch);
@@ -313,6 +313,15 @@ void PlayScene::OnCreate()
 					stair->SetPosition(y.second->GetX(), y.second->GetY());
 					stair->SetDirection(std::atoi(y.second->GetProperty("dir").c_str()));
 					objects.push_back(stair);
+				}
+				break;
+			case _Candle:
+				for (auto const& y : x.second->GetObjectGroup())
+				{
+					CCandle* candle = new CCandle();
+					candle->SetPosition(y.second->GetX(), y.second->GetY() - y.second->GetHeight());
+					candle->SetItem(static_cast<EItem>(std::atoi(y.second->GetProperty("item").c_str())));
+					objects.push_back(candle);
 				}
 				break;
 			default:
