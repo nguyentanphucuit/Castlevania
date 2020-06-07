@@ -303,7 +303,7 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 					y += dy;
 					continue;
 				}
-				if (e->ny != 0) {
+				if (e->ny != 1) {
 
 					if (GetState() == SIMONSTATE::JUMP) {
 						SetState(SIMONSTATE::IDLE);
@@ -316,6 +316,10 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 					if (state != SIMONSTATE::ENTERENTRANCE) {
 						if (nx != 0) vx = 0;
 					}
+				}
+				else if (e->ny!=-1)
+				{
+					y += dy;
 				}
 				if (state == SIMONSTATE::ENTERENTRANCE) { break; }
 
@@ -643,8 +647,9 @@ void CSIMON::SetState(SIMONSTATE state)
 			this->onStairDirection = STAIRDIRECTION::DOWNLEFT;
 		}
 
-		this->LastStepOnStairPos = { floor(this->x),floor(this->y) };
-
+		if (this->state != SIMONSTATE::DOWN_STAIR_FIGHT && this->state != SIMONSTATE::UP_STAIR_FIGHT) {
+			this->LastStepOnStairPos = { floor(this->x),floor(this->y) };
+		}
 
 		vx = 0;
 		vy = 0;
@@ -666,7 +671,9 @@ void CSIMON::SetState(SIMONSTATE state)
 			this->onStairDirection = STAIRDIRECTION::UPLEFT;
 		}
 
-		this->LastStepOnStairPos = { floor(this->x),floor(this->y) };
+		if (this->state != SIMONSTATE::DOWN_STAIR_FIGHT && this->state != SIMONSTATE::UP_STAIR_FIGHT) {
+			this->LastStepOnStairPos = { floor(this->x),floor(this->y) };
+		}
 
 
 		//DebugOut(L" LastStepOnStairPos x=%f y=%f", LastStepOnStairPos.x, LastStepOnStairPos.y);
