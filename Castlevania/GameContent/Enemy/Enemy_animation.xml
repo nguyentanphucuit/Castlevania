@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resource>
+	<animations AtlasPath="Zombie_sprite.xml">
+		<animation ID="ZOMBIE_ANI_WALKING" defaulttime="100">
+			<frame spriteID="ZOMBIE_WALKING_01" />
+			<frame spriteID="ZOMBIE_WALKING_02" />
+		</animation>
+				<animation ID="BAT_ANI_IDLE" defaulttime="100">
+			<frame spriteID="BAT_SPRITE_IDLE" />
+		</animation>
+		<animation ID="BAT_ANI_FLYING" defaulttime="100">
+			<frame spriteID="BAT_SPITE_FLYING_01" />
+			<frame spriteID="BAT_SPITE_FLYING_02" />
+			<frame spriteID="BAT_SPITE_FLYING_03" />
+		</animation>
+		<animation ID="FIREBALL_ANI" defaulttime="100">
+			<frame spriteID="FIREBALL_01" />
+		</animation>
+			<animation ID="FISHMAN_ANI_JUMP" defaulttime="100">
+			<frame spriteID="FISHMAN_IDLE" />
+		</animation>
+		<animation ID="FISHMAN_ANI_WALKING" defaulttime="100">
+			<frame spriteID="FISHMAN_IDLE" />
+			<frame spriteID="FISHMAN_WALKING_01" />
+		</animation>
+			<animation ID="FISHMAN_ANI_SHOOTING" defaulttime="1000">
+			<frame spriteID="FISHMAN_SHOOTING_01" />
+		</animation>
+			<animation ID="PANTHER_ANI_LIEDOWN" defaulttime="100">
+			<frame spriteID="PANTHER_SPRITE_LIEDOWN" />
+		</animation>
+		<animation ID="PANTHER_ANI_JUMP" defaulttime="100">
+			<frame spriteID="PANTHER_SPRITE_JUMP" />
+		</animation>
+		<animation ID="PANTHER_ANI_RUNNING" defaulttime="100">
+			<frame spriteID="PANTHER_SPRITE_RUN_01" />
+			<frame spriteID="PANTHER_SPRITE_RUN_02" />
+		</animation>
+		
+	</animations>
+
+</resource>

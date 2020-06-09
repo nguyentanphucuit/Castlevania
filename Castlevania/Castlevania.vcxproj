@@ -152,6 +152,8 @@
     <ClInclude Include="define.h" />
     <ClInclude Include="Effect.h" />
     <ClInclude Include="EffectFactory.h" />
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="Enemy1.h" />
     <ClInclude Include="Entrance.h" />
     <ClInclude Include="Flame.h" />
     <ClInclude Include="Game.h" />
@@ -192,6 +194,8 @@
     <ClCompile Include="debug.cpp" />
     <ClCompile Include="Effect.cpp" />
     <ClCompile Include="EffectFactory.cpp" />
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="Enemy1.cpp" />
     <ClCompile Include="Entrance.cpp" />
     <ClCompile Include="Flame.cpp" />
     <ClCompile Include="Game.cpp" />

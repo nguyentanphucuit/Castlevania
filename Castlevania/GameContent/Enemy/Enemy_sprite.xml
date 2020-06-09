@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resource>
+	<spritesheet TextureAtlas="enemy_pack.png">
+		<sprite ID="ZOMBIE_WALKING_01">
+			<frame x="459" y="23" width="32" height="64" />
+		</sprite>
+		<sprite ID="ZOMBIE_WALKING_02">
+			<frame x="491" y="23" width="32" height="64" />
+		</sprite>
+
+		<sprite ID="BAT_SPRITE_IDLE">
+			<frame x="355" y="89" width="32" height="32" />
+		</sprite>
+		<sprite ID="BAT_SPITE_FLYING_01">
+			<frame x="259" y="89" width="32" height="32" />
+		</sprite>
+		<sprite ID="BAT_SPITE_FLYING_02">
+			<frame x="291" y="89" width="32" height="32" />
+		</sprite>
+		<sprite ID="BAT_SPITE_FLYING_03">
+			<frame x="323" y="89" width="32" height="32" />
+		</sprite>
+
+		<sprite ID="FIREBALL_01">
+			<frame x="559" y="75" width="14" height="12" />
+		</sprite>
+
+		<sprite ID="PANTHER_SPRITE_LIEDOWN">
+			<frame x="197" y="89" width="64" height="32" />
+		</sprite>
+		<sprite ID="PANTHER_SPRITE_RUN_01">
+			<frame x="65" y="89" width="64" height="32" />
+		</sprite>
+		<sprite ID="PANTHER_SPRITE_RUN_02">
+			<frame x="129" y="89" width="64" height="32" />
+		</sprite>
+		<sprite ID="PANTHER_SPRITE_JUMP">
+			<frame x="1" y="89" width="64" height="32" />
+		</sprite>
+
+		<sprite ID="FISHMAN_SHOOTING_01">
+			<frame x="335" y="23" width="32" height="64" />
+		</sprite>
+		<sprite ID="FISHMAN_WALKING_01">
+			<frame x="271" y="23" width="32" height="64" />
+		</sprite>
+		<sprite ID="FISHMAN_IDLE">
+			<frame x="303" y="23" width="32" height="64" />
+		</sprite>
+
+
+
+	</spritesheet>
+</resource>
