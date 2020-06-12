@@ -14,6 +14,8 @@
 #include "Convert.h"
 #include "Stair.h"
 #include "Candle.h"
+#include "Bat.h"
+#include"Spawer.h"
 
 void PlayScene::LoadSprite(const std::string& filePath, const int tex)
 {
@@ -296,6 +298,14 @@ void PlayScene::OnCreate()
 					retroGrade->SetSize(y.second->GetWidth(), y.second->GetHeight());
 					retroGrade->SetPosition(y.second->GetX(), y.second->GetY());
 					objects.push_back(retroGrade);
+				}
+				break;
+			case _Enemy:
+				for (auto const& y : x.second->GetObjectGroup()) {
+					Spawner* spawner = new Spawner(static_cast<CEnemy>(std::atoi(y.second->GetProperty("edef").c_str())), std::atoi(y.second->GetProperty("time").c_str()),std::atoi(y.second->GetProperty("num").c_str()));
+					spawner->SetSize(y.second->GetWidth(), y.second->GetHeight());
+					spawner->SetPosition(y.second->GetX(), y.second->GetY());
+					objects.push_back(spawner);
 				}
 				break;
 			case _NextScene:

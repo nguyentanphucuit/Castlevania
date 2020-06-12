@@ -16,8 +16,8 @@
 
 const enum  SCREENSIZE
 {
-	WIDTH=512,
-	HEIGHT=480
+	WIDTH=480,
+	HEIGHT=512
 };
 
 enum class DIRECTION {
@@ -34,8 +34,4 @@ enum class STAIRDIRECTION {
 	UPLEFT,
 	DOWNRIGHT,
 	DOWNLEFT,
-};
-
-enum ENEMYDEF {
-	BAT
 };

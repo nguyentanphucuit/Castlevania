@@ -5,5 +5,15 @@
 		<sprite ID="BAT_SPITE_FLYING_02" />
 		<sprite ID="BAT_SPITE_FLYING_03" />
 	</animation>
+	<animation ID="BAT_ANI_IDLE" timeLoop="100">
+		<sprite ID="BAT_SPRITE_IDLE" />
+	</animation>
+	
+	<animation ID="BLACKKNIGHT_ANI_WALK" timeLoop="100">
+		<sprite ID="BLACKKNIGHT_SPRITE_01" />
+		<sprite ID="BLACKKNIGHT_SPRITE_02" />
+		<sprite ID="BLACKKNIGHT_SPRITE_03" />
+		<sprite ID="BLACKKNIGHT_SPRITE_04" />
+	</animation>
 
 </gamedata>

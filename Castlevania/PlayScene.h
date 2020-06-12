@@ -3,7 +3,6 @@
 #include "Simon.h"
 #include "Map.h"
 #include <queue>
-#include "Enemy.h"
 
 struct pScene {
     int id;
@@ -15,6 +14,8 @@ class PlayScene:public Scene
 {
     RECT cameraBorder;
     CSIMON* SIMON;
+
+    
     vector<LPGAMEOBJECT> objects;
 
     void LoadSprite(const std::string& filePath, const int tex);

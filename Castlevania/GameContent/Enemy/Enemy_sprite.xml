@@ -12,4 +12,17 @@
 	<sprite ID="BAT_SPITE_FLYING_03">
 		<frame l="323" t="89" r="355" b="121" />
 	</sprite>
+	
+	<sprite ID="BLACKKNIGHT_SPRITE_01">
+		<frame l="140" t="23" r="172" b="87" />
+	</sprite>
+	<sprite ID="BLACKKNIGHT_SPRITE_02">
+		<frame l="172" t="23" r="204" b="87" />
+	</sprite>
+	<sprite ID="BLACKKNIGHT_SPRITE_03">
+		<frame l="204" t="23" r="236" b="87" />
+	</sprite>
+	<sprite ID="BLACKKNIGHT_SPRITE_04">
+		<frame l="236" t="23" r="268" b="87" />
+	</sprite>
 </gamedata>

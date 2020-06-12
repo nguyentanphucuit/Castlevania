@@ -61,7 +61,7 @@ void CGame::Draw(DIRECTION nx,float x, float y, LPDIRECT3DTEXTURE9 texture, int 
 
 //D3DXVECTOR3 p(floor(x), floor(y), 0); // https://docs.microsoft.com/vi-vn/windows/desktop/direct3d9/directly-mapping-texels-to-pixels
 // Try removing floor() to see blurry SIMON
-	D3DXVECTOR3 p(floor(x - cam_x), floor(y - cam_y), 0);
+	D3DXVECTOR3 p(floor(x - cam_x), floor(y - cam_y)+80, 0);
 	RECT r; 
 	r.left = left;
 	r.top = top;

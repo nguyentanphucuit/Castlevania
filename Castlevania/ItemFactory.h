@@ -29,7 +29,7 @@ public:
 template<typename T>
 inline T ItemFactory::SpawnItem(EItem eitem)
 {
-    Item* item = NULL;
+   
     switch (eitem)
     {
     case EItem::BIGHEART: 
