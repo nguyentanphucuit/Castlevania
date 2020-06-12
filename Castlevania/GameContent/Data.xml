@@ -22,7 +22,7 @@
 		<sprite ID="3" name="Candle" path="GameContent\\Player\\Ground\\Candle_sprite.xml"/>
 		<sprite ID="4" name="Item" path="GameContent\\Items\\Item_sprite.xml"/>
 		<sprite ID="5" name="Effect" path="GameContent\\Effects\\Effect_sprite.xml"/>
-		<sprite ID="30" name="Enemy"path="GameContent\\Enemy\\Enemy_sprite.xml" />
+		<sprite ID="30" name="Enemy" path="GameContent\\Enemy\\Enemy_sprite.xml" />
 	</sprites>
 	
 	<animations>
@@ -32,6 +32,7 @@
 		<animation name="candle" path="GameContent\\Player\\Ground\\Candle_animation.xml"/>
 		<animation name="item" path="GameContent\\Items\\Item_animation.xml"/>
 		<animation name="effect" path="GameContent\\Effects\\Effect_animation.xml"/>
+		<animation name="enemy" path="GameContent\\Enemy\\Enemy_animation.xml" />
 	</animations>
 	
 	<maps>

@@ -1,17 +1,1 @@
-﻿  Enemy.cpp
-C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(56,1): warning C4005: 'SIMON_ANI_DIE': macro redefinition
-C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(54): message : see previous definition of 'SIMON_ANI_DIE'
-C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
-  Enemy1.cpp
-C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(56,1): warning C4005: 'SIMON_ANI_DIE': macro redefinition
-C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(54): message : see previous definition of 'SIMON_ANI_DIE'
-C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
-  Whip.cpp
-C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(56,1): warning C4005: 'SIMON_ANI_DIE': macro redefinition
-C:\Users\Admin\Desktop\Castlevania\Castlevania\Simon.h(54): message : see previous definition of 'SIMON_ANI_DIE'
-C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Admin\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
-  Generating Code...
-  Castlevania.vcxproj -> C:\Users\Admin\Desktop\Castlevania\Debug\Castlevania.exe
+﻿  Castlevania.vcxproj -> C:\Users\16520\Desktop\Castlevania\Debug\Castlevania.exe

@@ -35,3 +35,7 @@ enum class STAIRDIRECTION {
 	DOWNRIGHT,
 	DOWNLEFT,
 };
+
+enum ENEMYDEF {
+	BAT
+};

@@ -3,6 +3,7 @@
 #include "Simon.h"
 #include "Map.h"
 #include <queue>
+#include "Enemy.h"
 
 struct pScene {
     int id;
@@ -50,6 +51,7 @@ public:
 
     void SpawnObject(LPGAMEOBJECT obj) { this->qObjects.push(obj); }
 
+
     void OnCreate() override;
     void OnDestroy() override;
     
@@ -60,5 +62,6 @@ public:
     void OnKeyDown(int KeyCode) override;
     void OnKeyUp(int KeyCode) override;
     void KeyState(BYTE* states) override;
+
 };
 

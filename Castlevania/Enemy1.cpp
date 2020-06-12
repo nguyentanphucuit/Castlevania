@@ -1,7 +1,6 @@
 #include "Enemy1.h"
 
 
-
 void Bat::GetBoundingBox(float& left, float& top, float& right, float& bottom)
 {
 	left = x;
@@ -10,20 +9,17 @@ void Bat::GetBoundingBox(float& left, float& top, float& right, float& bottom)
 	bottom = top + BAT_BBOX_HEIGHT;
 }
 
-void Bat::Update(DWORD dt, Scene* scene,vector<LPGAMEOBJECT>* coObjects)
+void Bat::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 {
 	if (this->isDestroy)
 	{
 		return;
 	}
 
-	if (this->isFreeze)
-	{
-		return;
-	}
 	if (nx == DIRECTION::RIGHT) vx = BAT_FLY_SPEED_X;
 	else if (nx == DIRECTION::LEFT) vx = -BAT_FLY_SPEED_X;
 
+	CGameObject::Update(dt, scene);
 	vector<LPCOLLISIONEVENT> coEvents;
 	vector<LPCOLLISIONEVENT> coEventsResult;
 	coEventsResult.clear();
@@ -43,6 +39,7 @@ void Bat::Update(DWORD dt, Scene* scene,vector<LPGAMEOBJECT>* coObjects)
 	// clean up collision events
 	for (std::size_t i = 0; i < coEvents.size(); i++) delete coEvents[i];
 }
+
 
 void Bat::Render()
 {

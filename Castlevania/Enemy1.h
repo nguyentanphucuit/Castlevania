@@ -15,7 +15,7 @@ private:
 	float oy; // tọa độ oy bat sẽ di chuyển quanh trục này ( =y)
 public:
 	virtual void GetBoundingBox(float& left, float& top, float& right, float& bottom);
-	virtual void Update(DWORD dt, Scene * scene,vector<LPGAMEOBJECT>* coObjects);
+	virtual void Update(DWORD dt,Scene*scene, vector<LPGAMEOBJECT>* coObjects = NULL);
 	virtual void Render();
 	virtual void GetSpriteBox(float& _width, float& _height) {
 		_width = BAT_BBOX_WIDTH;
