@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.5" orientation="orthogonal" renderorder="right-down" width="96" height="35" tilewidth="32" tileheight="32" infinite="0" nextlayerid="18" nextobjectid="59">
+<map version="1.2" tiledversion="1.3.5" orientation="orthogonal" renderorder="right-down" width="96" height="35" tilewidth="32" tileheight="32" infinite="0" nextlayerid="18" nextobjectid="61">
  <tileset firstgid="1" name="Map_bank.png" tilewidth="32" tileheight="32" tilecount="945" columns="27">
   <image source="Map_bank.png" width="864" height="1120"/>
  </tileset>
@@ -6735,29 +6735,13 @@
    <tile/>
   </data>
  </layer>
- <objectgroup id="2" name="Camera" visible="0">
+ <objectgroup id="2" name="Camera">
   <object id="1" name="M1_C1" x="508" y="732" width="1540" height="318.667"/>
   <object id="2" name="M2_C1" x="2048" y="734" width="509.333" height="381.333"/>
   <object id="3" name="M2_C2" x="1536" y="350.333" width="1022" height="381"/>
   <object id="5" name="M3_C1" x="0.5" y="350" width="1535" height="381.5"/>
   <object id="6" name="M3_C2" x="1" y="32" width="1533.5" height="318.5"/>
   <object id="7" name="M4_C1" x="1535" y="0" width="1536.5" height="350"/>
-  <object id="54" x="2239.33" y="828.667" width="32" height="64">
-   <properties>
-    <property name="edef" value="1"/>
-    <property name="endPos" value="828"/>
-    <property name="num" value="1"/>
-    <property name="startPos" value="576"/>
-    <property name="time" value="1000"/>
-   </properties>
-  </object>
-  <object id="55" x="2117.33" y="736.667" width="32" height="32">
-   <properties>
-    <property name="edef" value="0"/>
-    <property name="num" value="1"/>
-    <property name="time" value="1000"/>
-   </properties>
-  </object>
  </objectgroup>
  <objectgroup id="11" name="HMoney">
   <object id="48" x="1929.5" y="1007.5" width="35" height="14"/>
@@ -6843,7 +6827,24 @@
   <object id="38" x="322" y="324" width="318" height="24"/>
   <object id="39" x="1537" y="319" width="1535" height="31"/>
  </objectgroup>
- <objectgroup id="15" name="Enemy"/>
+ <objectgroup id="15" name="Enemy">
+  <object id="59" x="2240" y="829" width="32" height="64">
+   <properties>
+    <property name="edef" value="1"/>
+    <property name="endPos" value="828"/>
+    <property name="num" value="1"/>
+    <property name="startPos" value="576"/>
+    <property name="time" value="1000"/>
+   </properties>
+  </object>
+  <object id="60" x="2118" y="737" width="32" height="32">
+   <properties>
+    <property name="edef" value="0"/>
+    <property name="num" value="1"/>
+    <property name="time" value="1000"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup id="16" name="Candle">
   <object id="56" gid="1023" x="2453.67" y="993.333" width="16" height="32">
    <properties>
