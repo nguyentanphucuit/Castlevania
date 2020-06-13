@@ -9,6 +9,7 @@ struct pScene {
     int mapID;
     std::string border;
     std::string entry;
+    bool isRight = false;
 };
 class PlayScene:public Scene
 {

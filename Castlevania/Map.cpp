@@ -120,7 +120,7 @@ void Map::BuildTileSet(xml_node<>* node, int texID)
 
 	for (std::size_t i = 0; i < tileSet.rows; i++)
 	{
-		for (std::size_t j = 0; j < tileSet.columns; j++)
+		for (std::size_t j = 0; j < tileSet.columns ; j++)
 		{
 			CSprites::GetInstance()->Add("map_" + std::to_string(mapID) +std::to_string(TileId), j * this->tileHeight, i * this->tileHeight, j * this->tileHeight + this->tileHeight, i * this->tileHeight + this->tileHeight, objecttex);
 			TileId++;
@@ -199,12 +199,12 @@ void Map::BuildObjectLayer(xml_node<>* rootNode)
 	}
 }
 
-void Map::Render(D3DXVECTOR2 camera)
+void Map::Render(D3DXVECTOR2 cam,RECT rect)
 {
 	
 	for (auto const& x : this->layers)
 	{
-		x.second->Render(camera);
+		x.second->Render(cam,rect);
 	}
 
 

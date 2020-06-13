@@ -51,7 +51,7 @@ public:
 	Map(int id) :width(0), height(0), tileWidth(0), tileHeight(0), mapID(id) {};
 	void BuildMap(const std::string path, int texID);
 
-	void Render(D3DXVECTOR2 camera);
+	void Render(D3DXVECTOR2 cam,RECT rect);
 	Layer* GetLayer(std::string name);
 };
 

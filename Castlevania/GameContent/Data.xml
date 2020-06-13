@@ -10,8 +10,9 @@
 		<texture ID ="5" name = "EFFECT" path="GameContent\\Effects\\EFFECT.png" red="255" green="0" blue ="255"/>
 		<texture ID ="3" name = "CANDLE" path="GameContent\\Player\\Ground\\Candle.png" red="255" green="0" blue ="255"/>
 		<texture ID ="-100" name = "BBOX" path="textures\\bbox.png" red="255" green="255" blue ="255"/>
-		<texture ID ="-500" name = "Courtyard_bank" path="GameContent\\Map\\Courtyard_bank.png" red="255" green="255" blue ="255"/>
-		<texture ID ="-600" name = "MainHall_bank" path="GameContent\\Map\\MainHall_bank.png" red="255" green="255" blue ="255"/>
+		<texture ID ="-500" name = "Map" path="GameContent\\Map\\Map\\Map_bank.png" red="255" green="255" blue ="255"/>
+		
+		
 		<texture ID ="30" name="ENEMY" path="GameContent\\Enemy\\enemy_pack.png" red="255" green="0" blue="255"/>
 	</textures>
 	
@@ -36,14 +37,17 @@
 	</animations>
 	
 	<maps>
-		<map texID="-500" id ="0" name="Courtyard_map" path="GameContent\\Map\\Courtyard_map.tmx"/>
-		<map texID="-600" id ="1" name="MainHall_map" path="GameContent\\Map\\MainHall_map.tmx"/>
+		<map texID="-500" id ="0" name="Map" path="GameContent\\Map\\Map\\Map_map.tmx"/>
 	</maps>
 	
 	<scenes>
 		<pscene activeID="0">
-			<pscenes id="0" mapID="0" entry="M1_E1" border="M1_C1" state="1" name="Courtyard"/>
-			<pscenes id="1" mapID="1" entry="M2_E1" border="Map2_C1" state="2" name="MainHall"/>
+			<pscenes id="0" mapID="0" entry="M1_E1" border="M1_C1" isRight="1" name="Courtyard"/>
+			<pscenes id="1" mapID="0" entry="M2_E1" border="M2_C1" isRight="1" name="MainHall"/>
+			<pscenes id="2" mapID="0" entry="M2_E2" border="M2_C2" isRight="1" name="MainHall"/>
+			<pscenes id="3" mapID="0" entry="M3_E1" border="M3_C1" isRight="0" name="MainHall"/>
+			<pscenes id="4" mapID="0" entry="M3_E2" border="M3_C2" isRight="1" name="MainHall"/>
+			<pscenes id="5" mapID="0" entry="M4_E1" border="M4_C1" isRight="1" name="MainHall"/>
 		</pscene>
 	</scenes>
 </Data>

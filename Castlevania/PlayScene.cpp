@@ -111,12 +111,22 @@ void PlayScene::LoadSceneContent(xml_node<>* root)
 		pScene* _pScene = new pScene();
 		const int _id = std::atoi(child->first_attribute("id")->value());
 		const int _mapID = std::atoi(child->first_attribute("mapID")->value());
+		const int _isRight = std::atoi(child->first_attribute("isRight")->value());
 		const std::string& _border = std::string(child->first_attribute("border")->value());
 		const std::string& _entry = std::string(child->first_attribute("entry")->value());
 
 		_pScene->id = _id;
 		_pScene->mapID = _mapID;
 		_pScene->border = _border;
+		if (_isRight)
+		{
+			_pScene->isRight = false;
+		}
+		else
+		{
+			_pScene->isRight = true;
+		}
+		
 		_pScene->entry = _entry;
 		this->pScenes.insert(std::make_pair(_id, _pScene));
 	}
@@ -404,7 +414,11 @@ void PlayScene::Update(DWORD dt)
 		SIMON->SetState(SIMONSTATE::IDLE);
 		this->currentEntryPoints = this->entryPoints.at(this->currentPScene->entry);
 		this->SIMON->SetPosition(currentEntryPoints.x, currentEntryPoints.y);
-		CGame::GetInstance()->SetCamPos(cameraBorder.left, cameraBorder.top);
+		if (this->currentPScene->isRight)
+		{
+			CGame::GetInstance()->SetCamPos(cameraBorder.right-SCREENSIZE::WIDTH, cameraBorder.top);
+		}
+		else	CGame::GetInstance()->SetCamPos(cameraBorder.left, cameraBorder.top);
 	}
 
 
@@ -414,17 +428,18 @@ void PlayScene::Render()
 {
 	CGame* game = CGame::GetInstance();
 	D3DXVECTOR2 cam = game->GetCamera();
-	currentMap->Render(cam);
+
+	currentMap->Render(cam, cameraBorder);
 
 	for (int i = 0; i < objects.size(); i++)
 		objects[i]->Render();
 
 	SIMON->Render();
-	if (SIMON->GetState() == SIMONSTATE::ENTERENTRANCE)
-	{
-		currentMap->GetLayer("font")->Render(cam);
-		isEntrance = true;
-	}
+	//if (SIMON->GetState() == SIMONSTATE::ENTERENTRANCE)
+	//{
+	//	currentMap->GetLayer("font")->Render(currentPScene->border);
+	//	isEntrance = true;
+	//}
 
 
 }
@@ -445,6 +460,22 @@ void PlayScene::OnKeyDown(int KeyCode)
 	case DIK_2:
 		this->switchScene = true;
 		this->currentPScene = this->pScenes.at(1);
+		break;
+	case DIK_3:
+		this->switchScene = true;
+		this->currentPScene = this->pScenes.at(2);
+		break;
+	case DIK_4:
+		this->switchScene = true;
+		this->currentPScene = this->pScenes.at(3);
+		break;
+	case DIK_5:
+		this->switchScene = true;
+		this->currentPScene = this->pScenes.at(4);
+		break;
+	case DIK_6:
+		this->switchScene = true;
+		this->currentPScene = this->pScenes.at(5);
 		break;
 	case DIK_SPACE:
 		if (SIMON->GetFightTime() == 0
@@ -604,12 +635,9 @@ void PlayScene::KeyState(BYTE* states)
 		return;
 	}
 
-
-
 	if (game->IsKeyDown(DIK_RIGHT))
 	{
 		SIMON->SetState(SIMONSTATE::WALKING_RIGHT);
-
 	}
 	else if (game->IsKeyDown(DIK_LEFT))
 	{

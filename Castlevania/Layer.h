@@ -28,7 +28,7 @@ public:
 
 	};
 
-	void Render(D3DXVECTOR2 cam);
+	void Render(D3DXVECTOR2 cam, RECT rect);
 
 
 	void SetTileMatrix(std::vector<std::vector<int>> tileMatrix)
