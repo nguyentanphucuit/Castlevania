@@ -6828,12 +6828,12 @@
   <object id="39" x="1537" y="319" width="1535" height="31"/>
  </objectgroup>
  <objectgroup id="15" name="Enemy">
-  <object id="59" x="2240" y="829" width="32" height="64">
+  <object id="59" x="2157" y="829" width="32" height="64">
    <properties>
     <property name="edef" value="1"/>
-    <property name="endPos" value="828"/>
+    <property name="endPos" value="2363"/>
     <property name="num" value="1"/>
-    <property name="startPos" value="576"/>
+    <property name="startPos" value="2111"/>
     <property name="time" value="1000"/>
    </properties>
   </object>

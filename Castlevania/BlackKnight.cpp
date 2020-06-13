@@ -28,9 +28,18 @@ void BlackKnight::Update(DWORD dt, Scene* scene , vector<LPGAMEOBJECT>* coObject
 	// 
 		// Simple fall down
 	vy += BLACKKNIGHT_GRAVITY * dt;
-	if (nx == DIRECTION::RIGHT) vx = BLACKKNIGHT_WALKING_SPEED;
-	else if (nx == DIRECTION::LEFT) vx = -BLACKKNIGHT_WALKING_SPEED;
-
+	/*if (nx == DIRECTION::RIGHT) vx = BLACKKNIGHT_WALKING_SPEED;
+	else if (nx == DIRECTION::LEFT) vx = -BLACKKNIGHT_WALKING_SPEED;*/
+	if (left == false) vx = BLACKKNIGHT_WALKING_SPEED;
+	else if (left == true) vx = -BLACKKNIGHT_WALKING_SPEED;
+	if (x > 2270) {
+		nx == DIRECTION::LEFT;
+		left = true;
+	}
+	if (x < 2170){
+		nx == DIRECTION::RIGHT;
+		left = false;
+	}
 
 	if (coEvents.size() == 0)
 	{
@@ -63,6 +72,7 @@ void BlackKnight::Update(DWORD dt, Scene* scene , vector<LPGAMEOBJECT>* coObject
 
 			}
 		}
+
 
 	}
 	for (UINT i = 0; i < coEvents.size(); i++) delete coEvents[i];

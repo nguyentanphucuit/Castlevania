@@ -5,9 +5,12 @@
 
 #define BLACKKNIGHT_GRAVITY			0.002f
 #define BLACKKNIGHT_WALKING_SPEED			0.10f
+
+
 class BlackKnight :public Enemy
 {
 private:
+	int left = false;
 public:
 	virtual void GetBoundingBox(float& left, float& top, float& right, float& bottom);
 	virtual void Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects);
