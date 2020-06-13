@@ -127,7 +127,6 @@ void Map::BuildTileSet(xml_node<>* node, int texID)
 		}
 	}
 
-
 }
 
 void Map::BuildObjectLayer(xml_node<>* rootNode)

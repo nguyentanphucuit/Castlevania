@@ -1082,7 +1082,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="11" name="IMoney">
+ <objectgroup id="11" name="IMoney" visible="0">
   <object id="34" gid="155" x="1250" y="319" width="30" height="30"/>
  </objectgroup>
  <objectgroup id="5" name="Camera" visible="0">

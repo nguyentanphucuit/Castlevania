@@ -435,11 +435,11 @@ void PlayScene::Render()
 		objects[i]->Render();
 
 	SIMON->Render();
-	//if (SIMON->GetState() == SIMONSTATE::ENTERENTRANCE)
-	//{
-	//	currentMap->GetLayer("font")->Render(currentPScene->border);
-	//	isEntrance = true;
-	//}
+	if (SIMON->GetState() == SIMONSTATE::ENTERENTRANCE)
+	{
+		currentMap->GetLayer("font")->Render(cam, cameraBorder);
+		isEntrance = true;
+	}
 
 
 }
@@ -642,6 +642,10 @@ void PlayScene::KeyState(BYTE* states)
 	else if (game->IsKeyDown(DIK_LEFT))
 	{
 		SIMON->SetState(SIMONSTATE::WALKING_LEFT);
+	}
+	else if (game->IsKeyDown(DIK_DOWN))
+	{
+		SIMON->SetState(SIMONSTATE::SIT);
 	}
 	else
 	{
