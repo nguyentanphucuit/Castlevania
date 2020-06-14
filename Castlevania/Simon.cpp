@@ -12,6 +12,7 @@
 #include "RetroGrade.h"
 #include "SwitchScene.h"
 #include "Stair.h"
+#include "Platform.h"
 
 CSIMON::CSIMON() : CGameObject() {
 	level = SIMON_LEVEL_BIG;
@@ -334,6 +335,17 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 					pScene->SwitchPScene(id);
 					switchScene->SetDestroy();
 				}
+			}
+			else if (dynamic_cast<CPlatform*>(e->obj)) {
+ 				CPlatform* platform = dynamic_cast<CPlatform*>(e->obj);
+				if (e->ny != 0) {
+					if (GetState() == SIMONSTATE::JUMP && vy >= 0) {
+						SetState(SIMONSTATE::IDLE);
+					}
+					if (ny != 0) vy = 0;
+					
+				}
+				this->x += platform->dx*3;
 			}
 			else
 			{
