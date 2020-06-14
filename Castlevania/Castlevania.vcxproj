@@ -151,6 +151,7 @@
     <ClInclude Include="BrickWall.h" />
     <ClInclude Include="Candle.h" />
     <ClInclude Include="Convert.h" />
+    <ClInclude Include="DebrisBrick.h" />
     <ClInclude Include="debug.h" />
     <ClInclude Include="define.h" />
     <ClInclude Include="Effect.h" />
@@ -161,10 +162,12 @@
     <ClInclude Include="Flame.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Ghost.h" />
     <ClInclude Include="Ground.h" />
     <ClInclude Include="Heart.h" />
     <ClInclude Include="HiddenObject.h" />
     <ClInclude Include="HMoney.h" />
+    <ClInclude Include="Hunchback.h" />
     <ClInclude Include="IDagger.h" />
     <ClInclude Include="IMoney.h" />
     <ClInclude Include="Item.h" />
@@ -199,6 +202,7 @@
     <ClCompile Include="BrickWall.cpp" />
     <ClCompile Include="Candle.cpp" />
     <ClCompile Include="Convert.cpp" />
+    <ClCompile Include="DebrisBrick.cpp" />
     <ClCompile Include="debug.cpp" />
     <ClCompile Include="Effect.cpp" />
     <ClCompile Include="EffectFactory.cpp" />
@@ -208,10 +212,12 @@
     <ClCompile Include="Flame.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="Ghost.cpp" />
     <ClCompile Include="Ground.cpp" />
     <ClCompile Include="Heart.cpp" />
     <ClCompile Include="HiddenObject.cpp" />
     <ClCompile Include="HMoney.cpp" />
+    <ClCompile Include="Hunchback.cpp" />
     <ClCompile Include="IDagger.cpp" />
     <ClCompile Include="IMoney.cpp" />
     <ClCompile Include="Item.cpp" />

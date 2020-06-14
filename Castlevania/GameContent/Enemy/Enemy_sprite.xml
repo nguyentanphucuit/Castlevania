@@ -1,28 +1,68 @@
 <?lml version="1.0" encoding="utf-8" ?>
 <gamedata>
 	<sprite ID="BAT_SPRITE_IDLE">
-		<frame l="355" t="89" r="387" b="121" />
+		<frame l="578" t="96" r="610" b="128" />
 	</sprite>
 	<sprite ID="BAT_SPITE_FLYING_01">
-		<frame l="259" t="89" r="291" b="121" />
+		<frame l="658" t="96" r="690" b="128" />
 	</sprite>
 	<sprite ID="BAT_SPITE_FLYING_02">
-		<frame l="291" t="89" r="323" b="121" />
+		<frame l="738" t="96" r="770" b="128" />
 	</sprite>
 	<sprite ID="BAT_SPITE_FLYING_03">
-		<frame l="323" t="89" r="355" b="121" />
+		<frame l="818" t="96" r="850" b="128" />
+	</sprite>
+	
+	<sprite ID="ZOMBIE_SPRITE_01">
+		<frame l="178" t="0" r="210" b="62" />
+	</sprite>
+	<sprite ID="ZOMBIE_SPRITE_02">
+		<frame l="258" t="0" r="290" b="62" />
 	</sprite>
 	
 	<sprite ID="BLACKKNIGHT_SPRITE_01">
-		<frame l="140" t="23" r="172" b="87" />
+		<frame l="578" t="320" r="610" b="384" />
 	</sprite>
 	<sprite ID="BLACKKNIGHT_SPRITE_02">
-		<frame l="172" t="23" r="204" b="87" />
+		<frame l="658" t="320" r="690" b="384" />
 	</sprite>
 	<sprite ID="BLACKKNIGHT_SPRITE_03">
-		<frame l="204" t="23" r="236" b="87" />
+		<frame l="738" t="320" r="770" b="384" />
 	</sprite>
-	<sprite ID="BLACKKNIGHT_SPRITE_04">
-		<frame l="236" t="23" r="268" b="87" />
+	
+	<sprite ID="GHOST_SPRITE_01">
+		<frame l="178" t="176" r="210" b="208" />
 	</sprite>
+	<sprite ID="GHOST_SPRITE_02">
+		<frame l="258" t="176" r="290" b="208" />
+	</sprite>
+	
+	
+	<sprite ID="HUNCHBACK_SPRITE_01">
+		<frame l="178" t="256" r="210" b="288" />
+	</sprite>
+	<sprite ID="HUNCHBACK_SPRITE_02">
+		<frame l="258" t="256" r="290" b="288" />
+	</sprite>
+	
+	<sprite ID="SKELETON_SPRITE_01">
+		<frame l="418" t="478" r="450" b="542" />
+	</sprite>
+	<sprite ID="SKELETON_SPRITE_02">
+		<frame l="498" t="478" r="530" b="542" />
+	</sprite>
+	
+	<sprite ID="RAVEN_SPRITE_01">
+		<frame l="338" t="656" r="370" b="688" />
+	</sprite>
+	<sprite ID="RAVEN_SPRITE_02">
+		<frame l="418" t="656" r="450" b="688" />
+	</sprite>
+	<sprite ID="RAVEN_SPRITE_03">
+		<frame l="498" t="656" r="530" b="688" />
+	</sprite>
+	<sprite ID="RAVEN_SPRITE_04">
+		<frame l="578" t="656" r="610" b="688" />
+	</sprite>
+
 </gamedata>

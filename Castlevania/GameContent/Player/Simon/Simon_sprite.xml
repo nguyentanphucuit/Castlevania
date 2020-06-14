@@ -89,4 +89,8 @@
 			<frame l="420" t="132" r="480" b="198" />
 		</sprite>
 		
+		<sprite ID="SIMON_SPRITE_DEFLECT">
+			<frame l="0" t="132" r="60" b="198" />
+		</sprite>
+		
 </gamedata>

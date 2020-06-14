@@ -5,6 +5,7 @@
 		<sprite ID="BAT_SPITE_FLYING_02" />
 		<sprite ID="BAT_SPITE_FLYING_03" />
 	</animation>
+	
 	<animation ID="BAT_ANI_IDLE" timeLoop="100">
 		<sprite ID="BAT_SPRITE_IDLE" />
 	</animation>
@@ -13,7 +14,27 @@
 		<sprite ID="BLACKKNIGHT_SPRITE_01" />
 		<sprite ID="BLACKKNIGHT_SPRITE_02" />
 		<sprite ID="BLACKKNIGHT_SPRITE_03" />
-		<sprite ID="BLACKKNIGHT_SPRITE_04" />
+	</animation>
+	
+	<animation ID="ZOMBIE_ANI_WALK" timeLoop="100">
+		<sprite ID="ZOMBIE_SPRITE_01" />
+		<sprite ID="ZOMBIE_SPRITE_02" />
 	</animation>
 
+	<animation ID="GHOST_ANI_FLY" timeLoop="100">
+		<sprite ID="GHOST_SPRITE_01" />
+		<sprite ID="GHOST_SPRITE_02" />
+	</animation>
+	
+	<animation ID="HUNCHBACK_ANI_JUMP" timeLoop="100">
+		<sprite ID="HUNCHBACK_SPRITE_01" />
+		<sprite ID="HUNCHBACK_SPRITE_02" />
+	</animation>
+	
+	<animation ID="RAVEN_ANI_FLY" timeLoop="100">
+		<sprite ID="RAVEN_SPRITE_01" />
+		<sprite ID="RAVEN_SPRITE_02" />
+		<sprite ID="RAVEN_SPRITE_03" />
+		<sprite ID="RAVEN_SPRITE_04" />
+	</animation>
 </gamedata>

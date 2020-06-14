@@ -13,6 +13,7 @@
 #include "SwitchScene.h"
 #include "Stair.h"
 #include "Platform.h"
+#include "Enemy.h"
 
 CSIMON::CSIMON() : CGameObject() {
 	level = SIMON_LEVEL_BIG;
@@ -37,6 +38,7 @@ CSIMON::CSIMON() : CGameObject() {
 	AddAnimation("SIMON_ANI_STEP_DOWNSTAIR");
 	AddAnimation("SIMON_ANI_UPSTAIR_ATTACK", false);
 	AddAnimation("SIMON_ANI_DOWNSTAIR_ATTACK", false);
+	AddAnimation("SIMON_ANI_DEFLECT");
 	//AddAnimation("SIMON_ANI_DIE", false); 
 }
 
@@ -436,9 +438,6 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 					item->SetDestroy();
 				}
 			}
-
-
-
 			/*	else if (dynamic_cast<Stair*>(coObjects->at(i))) {
 					if (coStair == true) {
 							coStair = false;
@@ -449,6 +448,29 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 					auto stair = dynamic_cast<Stair*>(coObjects->at(i));
 					stair->SetDestroy();
 				}*/
+		} 
+		if (dynamic_cast<Enemy*>(coObjects->at(i))) {
+			Enemy* enemy = dynamic_cast<Enemy*> (coObjects->at(i));
+
+			if (this->isColliding(enemy))
+			{
+				if (untouchable_start == 0) {
+
+					DebugOut(L"Collice with enemy \n", this->vy, this->vx);
+					if (!this->isOnStair)
+					{
+						this->SetState(SIMONSTATE::DEFLECT);
+						/*x += dx;
+						y += dy;*/
+					}
+					if (untouchable != 1) {
+						StartUntouchable();
+					}
+				}
+				else if (this->nx == DIRECTION::DEFAULT) {
+					y += dy;
+				}
+			}
 		}
 
 		if (this->fight_start != 0) // có đánh mới cần set
@@ -534,7 +556,9 @@ void CSIMON::Render()
 	case SIMONSTATE::DOWN_STAIR_FIGHT:
 		ani = SIMON_ANI_DOWNSTAIR_ATTACK;
 		break;
-	
+	case SIMONSTATE::DEFLECT:
+		ani = SIMON_ANI_DEFLECT;
+		break;
 	default:
 		break;
 	}
@@ -688,6 +712,20 @@ void CSIMON::SetState(SIMONSTATE state)
 		//DebugOut(L" LastStepOnStairPos x=%f y=%f", LastStepOnStairPos.x, LastStepOnStairPos.y);
 		vx = 0;
 		vy = 0;
+		break;
+	case SIMONSTATE::DEFLECT:	
+		vy = -SIMON_DEFLECT_SPEED_Y;
+		if (nx == DIRECTION::LEFT)
+		{
+			vx = SIMON_DEFLECT_SPEED_X;
+		}
+		else
+		{
+			vx = -SIMON_DEFLECT_SPEED_X;
+		}
+		DebugOut(L"State SIMONSTATE:DEFLECT \n");
+		this->ResetAttack();
+		this->upgrade_start = GetTickCount();
 		break;
 	}
 

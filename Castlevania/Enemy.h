@@ -8,7 +8,7 @@ class Enemy :public CGameObject
 protected:
 
 public:
-	
+	bool IsDestroyed() { return isDestroy; }
 	void SetNx(DIRECTION nx) {
 		this->nx = nx;
 	}

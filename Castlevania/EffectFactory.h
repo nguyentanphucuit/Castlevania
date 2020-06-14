@@ -1,9 +1,11 @@
 #pragma once
 #include "Effect.h"
 #include "Flame.h"
+#include"DebrisBrick.h"
 
 enum class CEffect {
 	FLAME,
+	DEBRIS,
 };
 class EffectFactory
 {
@@ -17,6 +19,9 @@ inline T EffectFactory::SpawnEffect(CEffect ceffect)
 	switch (ceffect) {
 	case CEffect::FLAME:
 		return new Flame();
+		break;
+	case CEffect::DEBRIS:
+		return new DebrisBrick();
 		break;
 	default:
 		break;

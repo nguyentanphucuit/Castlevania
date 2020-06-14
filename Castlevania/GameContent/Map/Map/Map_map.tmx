@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.5" orientation="orthogonal" renderorder="right-down" width="96" height="35" tilewidth="32" tileheight="32" infinite="0" nextlayerid="21" nextobjectid="91">
+<map version="1.2" tiledversion="1.3.5" orientation="orthogonal" renderorder="right-down" width="96" height="35" tilewidth="32" tileheight="32" infinite="0" nextlayerid="21" nextobjectid="98">
  <tileset firstgid="1" name="Map_bank.png" tilewidth="32" tileheight="32" tilecount="945" columns="27">
   <image source="Map_bank.png" width="864" height="1120"/>
  </tileset>
@@ -6737,7 +6737,7 @@
    <tile/>
   </data>
  </layer>
- <layer id="19" name="brick" width="96" height="35" visible="0">
+ <layer id="19" name="brick" width="96" height="35">
   <data>
    <tile/>
    <tile/>
@@ -10101,16 +10101,16 @@
    <tile/>
   </data>
  </layer>
- <objectgroup id="20" name="BrickWall">
-  <object id="88" gid="1026" x="2485" y="957" width="42" height="96">
+ <objectgroup id="20" name="BrickWall" visible="0">
+  <object id="88" gid="1026" x="2486" y="957" width="42" height="96">
    <properties>
     <property name="item" value="3"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="2" name="Camera" visible="0">
+ <objectgroup id="2" name="Camera">
   <object id="1" name="M1_C1" x="508" y="732" width="1540" height="318.667"/>
-  <object id="2" name="M2_C1" x="2048" y="734" width="509.333" height="381.333"/>
+  <object id="2" name="M2_C1" x="2048" y="734" width="527.333" height="381.333"/>
   <object id="3" name="M2_C2" x="1536" y="350.333" width="1022" height="381"/>
   <object id="5" name="M3_C1" x="0.5" y="350" width="1535" height="381.5"/>
   <object id="6" name="M3_C2" x="1" y="32" width="1533.5" height="318.5"/>
@@ -10181,7 +10181,7 @@
  </objectgroup>
  <objectgroup id="4" name="Player">
   <object id="11" name="M1_E1" gid="949" x="526" y="1000" width="60" height="64"/>
-  <object id="12" name="M2_E1" gid="949" x="2410" y="953.333" width="60" height="64"/>
+  <object id="12" name="M2_E1" gid="949" x="2086" y="1066.83" width="60" height="64"/>
   <object id="13" name="M2_E2" gid="956" x="1761" y="490.5" width="60" height="64"/>
   <object id="14" name="M3_E1" gid="2147484597" x="1396" y="658" width="60" height="64"/>
   <object id="15" name="M3_E2" gid="2147484604" x="65" y="311.333" width="60" height="64"/>
@@ -10191,7 +10191,7 @@
   <object id="17" x="510" y="1022" width="1535" height="28"/>
   <object id="18" x="2047" y="1086" width="512" height="30"/>
   <object id="23" x="1344" y="672" width="190.667" height="58.6667"/>
-  <object id="24" x="252.667" y="710.667" width="1086" height="13.3333"/>
+  <object id="24" x="252.667" y="706" width="1086" height="18"/>
   <object id="32" x="2400.67" y="958.667" width="127.333" height="27.3333"/>
   <object id="33" x="2111.33" y="894" width="252" height="28.6667"/>
   <object id="34" x="2464" y="577.333" width="31.3333" height="25.3333"/>
@@ -10205,12 +10205,14 @@
   <object id="71" x="1665" y="575" width="61" height="29"/>
   <object id="72" x="1540" y="513" width="56" height="24"/>
   <object id="76" x="2528" y="861" width="31" height="126"/>
+  <object id="91" x="830.667" y="606.667" width="62.6667" height="30.6667"/>
+  <object id="92" x="576" y="609.333" width="60" height="26.6667"/>
  </objectgroup>
  <objectgroup id="18" name="Platform">
   <object id="73" gid="1025" x="1598" y="537" width="64" height="16"/>
  </objectgroup>
  <objectgroup id="15" name="Enemy">
-  <object id="59" x="2157" y="829" width="32" height="64">
+  <object id="59" name="BlackKnight" x="2157" y="829" width="32" height="64">
    <properties>
     <property name="edef" value="1"/>
     <property name="endPos" value="2323"/>
@@ -10219,14 +10221,14 @@
     <property name="time" value="1000"/>
    </properties>
   </object>
-  <object id="60" x="2118" y="737" width="32" height="32">
+  <object id="60" name="Bat" x="2118" y="737" width="32" height="32">
    <properties>
     <property name="edef" value="0"/>
     <property name="num" value="1"/>
     <property name="time" value="1000"/>
    </properties>
   </object>
-  <object id="64" x="2075" y="447" width="32" height="64">
+  <object id="64" name="BlackKnight" x="2075" y="447" width="32" height="64">
    <properties>
     <property name="edef" value="1"/>
     <property name="endPos" value="2090"/>
@@ -10235,12 +10237,39 @@
     <property name="time" value="1000"/>
    </properties>
   </object>
-  <object id="68" x="2240" y="445" width="32" height="64">
+  <object id="68" name="BlackKnight" x="2240" y="445" width="32" height="64">
    <properties>
     <property name="edef" value="1"/>
     <property name="endPos" value="2340"/>
     <property name="num" value="1"/>
     <property name="startPos" value="2240"/>
+    <property name="time" value="1000"/>
+   </properties>
+  </object>
+  <object id="93" name="Ghost" x="1200.67" y="673.333" width="32" height="32">
+   <properties>
+    <property name="edef" value="2"/>
+    <property name="endPos" value="1200"/>
+    <property name="num" value="1"/>
+    <property name="startPos" value="840"/>
+    <property name="time" value="1000"/>
+   </properties>
+  </object>
+  <object id="96" name="Hunchback" x="849" y="574" width="32" height="32">
+   <properties>
+    <property name="edef" value="3"/>
+    <property name="endPos" value="1200"/>
+    <property name="num" value="1"/>
+    <property name="startPos" value="840"/>
+    <property name="time" value="1000"/>
+   </properties>
+  </object>
+  <object id="97" name="Hunchback" x="594" y="576" width="32" height="32">
+   <properties>
+    <property name="edef" value="3"/>
+    <property name="endPos" value="1200"/>
+    <property name="num" value="1"/>
+    <property name="startPos" value="840"/>
     <property name="time" value="1000"/>
    </properties>
   </object>

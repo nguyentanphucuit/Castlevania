@@ -13,7 +13,7 @@
 		<texture ID ="-500" name = "Map" path="GameContent\\Map\\Map\\Map_bank.png" red="255" green="255" blue ="255"/>
 		<texture ID ="6" name = "PLATFORM" path="GameContent\\Player\\Ground\\MovingPlatform.png" red="255" green="0" blue ="255"/>
 		<texture ID ="7" name = "BRICKWALL" path="GameContent\\Player\\Ground\\BrickWall.png" red="255" green="0" blue ="255"/>
-		<texture ID ="30" name="ENEMY" path="GameContent\\Enemy\\enemy_pack.png" red="255" green="0" blue="255"/>
+		<texture ID ="30" name="ENEMY" path="GameContent\\Enemy\\enemy_pack.png" red="255" green="255" blue="255"/>
 	</textures>
 	
 	<sprites>

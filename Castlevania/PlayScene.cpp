@@ -576,7 +576,7 @@ void PlayScene::KeyState(BYTE* states)
 	}
 	if (SIMON->GetState() == SIMONSTATE::UPWHIP) return;
 	if (SIMON->GetState() == SIMONSTATE::JUMP) return;
-
+	if (SIMON->GetState() == SIMONSTATE::DEFLECT) return;
 	if (SIMON->GetFightTime() != 0 && GetTickCount() - SIMON->GetFightTime() > SIMON_ATTACK_TIME)
 	{
 		SIMON->ResetAttack();

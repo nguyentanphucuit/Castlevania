@@ -2,10 +2,14 @@
 #include "Enemy.h"
 #include "Bat.h"
 #include "BlackKnight.h"
+#include "Ghost.h"
+#include "Hunchback.h"
 
 enum class CEnemy {
 	BAT = 0,
 	BLACKKNIGHT,
+	GHOST,
+	HUNCHBACK
 };
 class EnemyFactory
 {
@@ -23,6 +27,12 @@ inline T EnemyFactory::SpawnEnemy(CEnemy cEnemy)
 		break;
 	case CEnemy::BLACKKNIGHT:
 		return new BlackKnight();
+		break;
+	case CEnemy::GHOST:
+		return new Ghost();
+		break;
+	case CEnemy::HUNCHBACK:
+		return new Hunchback();
 		break;
 	}
 	return T();

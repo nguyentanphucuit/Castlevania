@@ -6,6 +6,7 @@
 #include "define.h"
 #include "Candle.h"
 #include "BrickWall.h"
+#include "Enemy.h"
 
 void Whip::Render()
 {
@@ -154,19 +155,34 @@ void Whip::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT>* colliable_objects
 			{
 
 				auto item = ItemFactory::SpawnItem<Item*>(brickWall->GetItem());
-				auto effect = EffectFactory::SpawnEffect<Effect*>(CEffect::FLAME);
 				if (dynamic_cast<PlayScene*>(scene)) // check scene cur
 				{
 					float tx, ty;
 					brickWall->GetPosition(tx, ty);
 					PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
 					item->SetPosition(tx, ty);
-					effect->SetPosition(tx, ty);
-
+				
+					for (size_t i = 0; i < 3; i++)
+					{
+						auto debris = EffectFactory::SpawnEffect<Effect*>(CEffect::DEBRIS);
+						float vx = (float)(-100 + rand() % 200) / 1000;
+						float vy = (float)(-100 + rand() % 200) / 1000;
+						debris->vx = vx;
+						debris->vy = vy;
+						debris->SetPosition(tx, ty);
+						pScene->SpawnObject(debris);
+					}
 					pScene->SpawnObject(item);
-					pScene->SpawnObject(effect);
+				
 				}
 				brickWall->SetDestroy();
+			}
+		}
+		else if (dynamic_cast<Enemy*>(colliable_objects->at(i))) {
+			Enemy* enemy = dynamic_cast<Enemy*>(colliable_objects->at(i));
+			if (this->isColliding(enemy) && !enemy->IsDestroyed()) // check CO
+			{
+				enemy->SetDestroy();
 			}
 		}
 	}

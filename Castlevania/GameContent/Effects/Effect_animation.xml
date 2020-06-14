@@ -5,4 +5,8 @@
 			<frame ID="FLAME_SPRITE_BURNING_02" />
 			<frame ID="FLAME_SPRITE_BURNING_03" />
 		</animation>
+		
+		<animation ID="DEBRIS_ANI" timeLoop="100">
+			<frame ID="DEBRIS" />
+		</animation>
 </gamedata>

@@ -9,4 +9,8 @@
 		<sprite ID="FLAME_SPRITE_BURNING_03">
 			<frame l="457" t="93" r="475" b="125" />
 		</sprite>
+		
+		<sprite ID="DEBRIS">
+			<frame l="1" t="1" r="15" b="17" />
+		</sprite>
 </gamedata>

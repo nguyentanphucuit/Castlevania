@@ -65,4 +65,8 @@
 		<sprite ID="SIMON_DOWNSTAIR_ATTACK_03" />
 	</animation>
 	
+	<animation ID="SIMON_ANI_DEFLECT" timeLoop="100">
+		<sprite ID="SIMON_SPRITE_DEFLECT" />
+	</animation>
+	
 </gamedata>
