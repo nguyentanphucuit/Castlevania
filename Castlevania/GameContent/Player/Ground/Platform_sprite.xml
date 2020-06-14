@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<gamedata>
+	<sprite ID="PLATFORM_SPRITE">
+			<frame l="0" t="0" r="64" b="16" />
+	</sprite>
+</gamedata>

@@ -11,7 +11,7 @@
 		<texture ID ="3" name = "CANDLE" path="GameContent\\Player\\Ground\\Candle.png" red="255" green="0" blue ="255"/>
 		<texture ID ="-100" name = "BBOX" path="textures\\bbox.png" red="255" green="255" blue ="255"/>
 		<texture ID ="-500" name = "Map" path="GameContent\\Map\\Map\\Map_bank.png" red="255" green="255" blue ="255"/>
-		
+		<texture ID ="6" name = "PLATFORM" path="GameContent\\Player\\Ground\\MovingPlatform.png" red="255" green="0" blue ="255"/>
 		
 		<texture ID ="30" name="ENEMY" path="GameContent\\Enemy\\enemy_pack.png" red="255" green="0" blue="255"/>
 	</textures>
@@ -24,6 +24,7 @@
 		<sprite ID="4" name="Item" path="GameContent\\Items\\Item_sprite.xml"/>
 		<sprite ID="5" name="Effect" path="GameContent\\Effects\\Effect_sprite.xml"/>
 		<sprite ID="30" name="Enemy" path="GameContent\\Enemy\\Enemy_sprite.xml" />
+		<sprite ID="6" name="Platform" path="GameContent\\Player\\Ground\\Platform_sprite.xml"/>
 	</sprites>
 	
 	<animations>
@@ -34,6 +35,7 @@
 		<animation name="item" path="GameContent\\Items\\Item_animation.xml"/>
 		<animation name="effect" path="GameContent\\Effects\\Effect_animation.xml"/>
 		<animation name="enemy" path="GameContent\\Enemy\\Enemy_animation.xml" />
+		<animation name="platform" path="GameContent\\Player\\Ground\\Platform_animation.xml"/>
 	</animations>
 	
 	<maps>

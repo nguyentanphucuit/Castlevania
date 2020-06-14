@@ -177,6 +177,9 @@
     <ClInclude Include="BlackKnight.h">
       <Filter>Source Files\Enemy</Filter>
     </ClInclude>
+    <ClInclude Include="Platform.h">
+      <Filter>Source Files\Objects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -307,6 +310,9 @@
     </ClCompile>
     <ClCompile Include="BlackKnight.cpp">
       <Filter>Source Files\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Platform.cpp">
+      <Filter>Source Files\Objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

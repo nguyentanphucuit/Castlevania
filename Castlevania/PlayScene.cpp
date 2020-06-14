@@ -16,6 +16,7 @@
 #include "Candle.h"
 #include "Bat.h"
 #include"Spawer.h"
+#include "Platform.h"
 
 void PlayScene::LoadSprite(const std::string& filePath, const int tex)
 {
@@ -344,6 +345,12 @@ void PlayScene::OnCreate()
 					objects.push_back(candle);
 				}
 				break;
+			case _Platform:
+				for (auto const& y : x.second->GetObjectGroup()) {
+					CPlatform* platform = new CPlatform();
+					platform->SetPosition(y.second->GetX(), y.second->GetY()-y.second->GetHeight());
+					objects.push_back(platform);
+				}
 			default:
 				break;
 			}
