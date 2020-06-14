@@ -9,14 +9,18 @@ private:
 	CEnemy enemyDef;
 	DWORD respawnTime;
 	int num;
+	int startPos;
+	int endPos;
 	bool isSpawned = false;
 
 public:
-	Spawner(CEnemy enemyDef, DWORD respawnTime, int num) :HiddenObject()
+	Spawner(CEnemy enemyDef, DWORD respawnTime, int num,int startPos,int endPos) :HiddenObject()
 	{
 		this->enemyDef = enemyDef;
 		this->respawnTime = respawnTime;
 		this->num = num;
+		this->startPos = startPos;
+		this->endPos = endPos;
 	}
 
 	virtual void Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* colliable_objects = NULL);

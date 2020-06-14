@@ -312,7 +312,7 @@ void PlayScene::OnCreate()
 				break;
 			case _Enemy:
 				for (auto const& y : x.second->GetObjectGroup()) {
-					Spawner* spawner = new Spawner(static_cast<CEnemy>(std::atoi(y.second->GetProperty("edef").c_str())), std::atoi(y.second->GetProperty("time").c_str()),std::atoi(y.second->GetProperty("num").c_str()));
+					Spawner* spawner = new Spawner(static_cast<CEnemy>(std::atoi(y.second->GetProperty("edef").c_str())), std::atoi(y.second->GetProperty("time").c_str()),std::atoi(y.second->GetProperty("num").c_str()), std::atoi(y.second->GetProperty("startPos").c_str()), std::atoi(y.second->GetProperty("endPos").c_str()));
 					spawner->SetSize(y.second->GetWidth(), y.second->GetHeight());
 					spawner->SetPosition(y.second->GetX(), y.second->GetY());
 					objects.push_back(spawner);

@@ -31,15 +31,24 @@ void BlackKnight::Update(DWORD dt, Scene* scene , vector<LPGAMEOBJECT>* coObject
 	if (nx == DIRECTION::RIGHT) vx = BLACKKNIGHT_WALKING_SPEED;
 	else if (nx == DIRECTION::LEFT) vx = -BLACKKNIGHT_WALKING_SPEED;
 
-	if (x > 2340) {
+	/*if (x > 2340) {
 		nx = DIRECTION::LEFT;
 	
 	}
 	if (x < 2170){
 		nx = DIRECTION::RIGHT;
 	
+	}*/
+	if (x > _endPos) {
+		nx = DIRECTION::LEFT;
+
+	}
+	if (x < _startPos) {
+		nx = DIRECTION::RIGHT;
+
 	}
 
+	
 	if (coEvents.size() == 0)
 	{
 		x += dx;
@@ -82,6 +91,12 @@ void BlackKnight::Render()
 
 	animations[0]->Render(nx, x, y);
 	//RenderBoundingBox();
+}
+
+void BlackKnight::Area(int startPos, int endPos)
+{
+	this->_endPos = endPos;
+	this->_startPos = startPos;
 }
 
 BlackKnight::BlackKnight() :Enemy()

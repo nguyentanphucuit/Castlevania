@@ -25,6 +25,10 @@ void Spawner::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* colliable_obj
 							auto bat = dynamic_cast<Bat*>(enemy);
 							bat->SetOy();
 						}
+						else if (dynamic_cast<BlackKnight*>(enemy)) {
+							auto blackKnight = dynamic_cast<BlackKnight*>(enemy);
+							blackKnight->Area(this->startPos, this->endPos);
+						}
 						pScene->SpawnObject(enemy);
 						this->isSpawned = true;
 
