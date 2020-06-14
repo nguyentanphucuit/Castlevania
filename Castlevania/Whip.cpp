@@ -5,6 +5,7 @@
 #include "EffectFactory.h"
 #include "define.h"
 #include "Candle.h"
+#include "BrickWall.h"
 
 void Whip::Render()
 {
@@ -145,6 +146,27 @@ void Whip::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT>* colliable_objects
 					pScene->SpawnObject(effect);
 				}
 				candle->SetDestroy();
+			}
+		}
+		else if (dynamic_cast<CBrickWall*>(colliable_objects->at(i))) {
+			CBrickWall* brickWall = dynamic_cast<CBrickWall*>(colliable_objects->at(i));
+			if (this->isColliding(brickWall) && !brickWall->IsDestroyed()) // check CO
+			{
+
+				auto item = ItemFactory::SpawnItem<Item*>(brickWall->GetItem());
+				auto effect = EffectFactory::SpawnEffect<Effect*>(CEffect::FLAME);
+				if (dynamic_cast<PlayScene*>(scene)) // check scene cur
+				{
+					float tx, ty;
+					brickWall->GetPosition(tx, ty);
+					PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
+					item->SetPosition(tx, ty);
+					effect->SetPosition(tx, ty);
+
+					pScene->SpawnObject(item);
+					pScene->SpawnObject(effect);
+				}
+				brickWall->SetDestroy();
 			}
 		}
 	}

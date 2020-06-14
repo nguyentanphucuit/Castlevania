@@ -180,6 +180,9 @@
     <ClInclude Include="Platform.h">
       <Filter>Source Files\Objects</Filter>
     </ClInclude>
+    <ClInclude Include="BrickWall.h">
+      <Filter>Source Files\Objects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -312,6 +315,9 @@
       <Filter>Source Files\Enemy</Filter>
     </ClCompile>
     <ClCompile Include="Platform.cpp">
+      <Filter>Source Files\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="BrickWall.cpp">
       <Filter>Source Files\Objects</Filter>
     </ClCompile>
   </ItemGroup>

@@ -12,7 +12,7 @@
 		<texture ID ="-100" name = "BBOX" path="textures\\bbox.png" red="255" green="255" blue ="255"/>
 		<texture ID ="-500" name = "Map" path="GameContent\\Map\\Map\\Map_bank.png" red="255" green="255" blue ="255"/>
 		<texture ID ="6" name = "PLATFORM" path="GameContent\\Player\\Ground\\MovingPlatform.png" red="255" green="0" blue ="255"/>
-		
+		<texture ID ="7" name = "BRICKWALL" path="GameContent\\Player\\Ground\\BrickWall.png" red="255" green="0" blue ="255"/>
 		<texture ID ="30" name="ENEMY" path="GameContent\\Enemy\\enemy_pack.png" red="255" green="0" blue="255"/>
 	</textures>
 	
@@ -25,6 +25,7 @@
 		<sprite ID="5" name="Effect" path="GameContent\\Effects\\Effect_sprite.xml"/>
 		<sprite ID="30" name="Enemy" path="GameContent\\Enemy\\Enemy_sprite.xml" />
 		<sprite ID="6" name="Platform" path="GameContent\\Player\\Ground\\Platform_sprite.xml"/>
+		<sprite ID="7" name="BrickWall" path="GameContent\\Player\\Ground\\BrickWall_sprite.xml"/>
 	</sprites>
 	
 	<animations>
@@ -36,6 +37,7 @@
 		<animation name="effect" path="GameContent\\Effects\\Effect_animation.xml"/>
 		<animation name="enemy" path="GameContent\\Enemy\\Enemy_animation.xml" />
 		<animation name="platform" path="GameContent\\Player\\Ground\\Platform_animation.xml"/>
+		<animation name="brickwall" path="GameContent\\Player\\Ground\\BrickWall_animation.xml"/>
 	</animations>
 	
 	<maps>

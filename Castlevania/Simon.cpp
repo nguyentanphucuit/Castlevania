@@ -342,10 +342,10 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 					if (GetState() == SIMONSTATE::JUMP && vy >= 0) {
 						SetState(SIMONSTATE::IDLE);
 					}
-					if (ny != 0) vy = 0;
+					//if (ny != 0) vy = 0;
 					
 				}
-				this->x += platform->dx*3;
+				this->x += platform->dx;
 			}
 			else
 			{
@@ -376,9 +376,6 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 						pScene->SpawnObject(hmoney->GetItem());
 					}
 				}
-
-
-
 
 				if (e->nx != 0)
 					x += dx;

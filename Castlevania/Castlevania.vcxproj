@@ -148,6 +148,7 @@
     <ClInclude Include="BHeart.h" />
     <ClInclude Include="BlackKnight.h" />
     <ClInclude Include="Brick.h" />
+    <ClInclude Include="BrickWall.h" />
     <ClInclude Include="Candle.h" />
     <ClInclude Include="Convert.h" />
     <ClInclude Include="debug.h" />
@@ -195,6 +196,7 @@
     <ClCompile Include="BHeart.cpp" />
     <ClCompile Include="BlackKnight.cpp" />
     <ClCompile Include="Brick.cpp" />
+    <ClCompile Include="BrickWall.cpp" />
     <ClCompile Include="Candle.cpp" />
     <ClCompile Include="Convert.cpp" />
     <ClCompile Include="debug.cpp" />

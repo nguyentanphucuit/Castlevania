@@ -1,9 +1,32 @@
-﻿  Simon.cpp
-C:\Users\16520\Desktop\Castlevania\Castlevania\SIMON.h(56,1): warning C4005: 'SIMON_ANI_DIE': macro redefinition
-C:\Users\16520\Desktop\Castlevania\Castlevania\SIMON.h(54): message : see previous definition of 'SIMON_ANI_DIE'
+﻿  BrickWall.cpp
+  PlayScene.cpp
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(56,1): warning C4005: 'SIMON_ANI_DIE': macro redefinition
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(54): message : see previous definition of 'SIMON_ANI_DIE'
 C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
 C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
-C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.cpp(462,68): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.cpp(462,32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.cpp(466,32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(140,65): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(140,46): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(267,34): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(268,33): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(269,38): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(270,39): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(391,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(396,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(406,26): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(410,57): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(435,86): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(435,54): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(437,71): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(437,52): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(450,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\Desktop\Castlevania\packages\rapidxml.1.13\build\native\include\rapidxml\rapidxml_utils.hpp(40,25): warning C4244: 'initializing': conversion from 'std::streamoff' to 'size_t', possible loss of data
+C:\Users\16520\Desktop\Castlevania\packages\rapidxml.1.13\build\native\include\rapidxml\rapidxml_utils.hpp(28): message : while compiling class template member function 'rapidxml::file<char>::file(const char *)'
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(42): message : see reference to function template instantiation 'rapidxml::file<char>::file(const char *)' being compiled
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(42): message : see reference to class template instantiation 'rapidxml::file<char>' being compiled
+  Whip.cpp
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(56,1): warning C4005: 'SIMON_ANI_DIE': macro redefinition
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(54): message : see previous definition of 'SIMON_ANI_DIE'
+C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
   Castlevania.vcxproj -> C:\Users\16520\Desktop\Castlevania\Debug\Castlevania.exe

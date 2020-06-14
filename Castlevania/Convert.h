@@ -25,7 +25,8 @@ const enum ObjectID
 	_BossTrigger,
 	_Water,
 	_CheckRetrograde,
-	_Platform
+	_Platform,
+	_BrickWall
 };
 
 const auto string2EntityType = std::unordered_map<std::string, ObjectID>
@@ -51,6 +52,7 @@ const auto string2EntityType = std::unordered_map<std::string, ObjectID>
 	{ "Candle", ObjectID::_Candle },
 	{ "Water", ObjectID::_Water },
 	{ "CheckRetrograde", ObjectID::_CheckRetrograde},
-	{ "Platform", ObjectID::_Platform}
+	{ "Platform", ObjectID::_Platform},
+	{ "BrickWall", ObjectID::_BrickWall},
 };
 

@@ -15,8 +15,9 @@
 #include "Stair.h"
 #include "Candle.h"
 #include "Bat.h"
-#include"Spawer.h"
+#include "Spawer.h"
 #include "Platform.h"
+#include "BrickWall.h"
 
 void PlayScene::LoadSprite(const std::string& filePath, const int tex)
 {
@@ -351,6 +352,14 @@ void PlayScene::OnCreate()
 					platform->SetPosition(y.second->GetX(), y.second->GetY()-y.second->GetHeight());
 					objects.push_back(platform);
 				}
+				break;
+			case _BrickWall:
+				for (auto const& y : x.second->GetObjectGroup()) {
+					CBrickWall* brickwall = new CBrickWall();
+					brickwall->SetPosition(y.second->GetX(), y.second->GetY() - y.second->GetHeight());
+					objects.push_back(brickwall);
+				}
+				break;     
 			default:
 				break;
 			}
