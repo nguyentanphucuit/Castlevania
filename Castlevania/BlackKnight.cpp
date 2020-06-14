@@ -28,17 +28,16 @@ void BlackKnight::Update(DWORD dt, Scene* scene , vector<LPGAMEOBJECT>* coObject
 	// 
 		// Simple fall down
 	vy += BLACKKNIGHT_GRAVITY * dt;
-	/*if (nx == DIRECTION::RIGHT) vx = BLACKKNIGHT_WALKING_SPEED;
-	else if (nx == DIRECTION::LEFT) vx = -BLACKKNIGHT_WALKING_SPEED;*/
-	if (left == false) vx = BLACKKNIGHT_WALKING_SPEED;
-	else if (left == true) vx = -BLACKKNIGHT_WALKING_SPEED;
-	if (x > 2270) {
-		nx == DIRECTION::LEFT;
-		left = true;
+	if (nx == DIRECTION::RIGHT) vx = BLACKKNIGHT_WALKING_SPEED;
+	else if (nx == DIRECTION::LEFT) vx = -BLACKKNIGHT_WALKING_SPEED;
+
+	if (x > 2340) {
+		nx = DIRECTION::LEFT;
+	
 	}
 	if (x < 2170){
-		nx == DIRECTION::RIGHT;
-		left = false;
+		nx = DIRECTION::RIGHT;
+	
 	}
 
 	if (coEvents.size() == 0)
@@ -88,5 +87,6 @@ void BlackKnight::Render()
 BlackKnight::BlackKnight() :Enemy()
 {
 	AddAnimation("BLACKKNIGHT_ANI_WALK");
+	
 }
 
