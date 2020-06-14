@@ -1,7 +1,7 @@
 #include "BlackKnight.h"
 #include "Debug.h"
 #include "Ground.h"
-
+#include "Simon.h"
 
 
 void BlackKnight::GetBoundingBox(float& left, float& top, float& right, float& bottom)
@@ -47,6 +47,13 @@ void BlackKnight::Update(DWORD dt, Scene* scene , vector<LPGAMEOBJECT>* coObject
 		nx = DIRECTION::RIGHT;
 
 	}
+	//if (vung)
+	//{
+	//	if (simon->x - this->x)
+	//	{
+	//		nx = 
+	//	}
+	//}
 
 	
 	if (coEvents.size() == 0)
