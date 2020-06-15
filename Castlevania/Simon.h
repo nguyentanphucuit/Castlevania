@@ -129,13 +129,14 @@ class CSIMON : public CGameObject
 	bool isOnStair = false;
 	STAIRDIRECTION onStairDirection = STAIRDIRECTION::DEFAULT;
 	D3DXVECTOR2 stairPos;
-	D3DXVECTOR2 LastStepOnStairPos;
+
 
 	void HandleFirstStepOnStair();
 	void HandlePerStepOnStair();
 public: 
 	CSIMON();
 	bool colGround = false;
+	D3DXVECTOR2 LastStepOnStairPos;
 	bool isOnGround = false;
 	bool isTouchRetroGrade = true;
 	bool ResetSpawnWeapon() { return this->isSpawnWeapon = false; };

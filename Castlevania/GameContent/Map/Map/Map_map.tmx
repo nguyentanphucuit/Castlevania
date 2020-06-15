@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.5" orientation="orthogonal" renderorder="right-down" width="96" height="35" tilewidth="32" tileheight="32" infinite="0" nextlayerid="21" nextobjectid="109">
+<map version="1.2" tiledversion="1.3.5" orientation="orthogonal" renderorder="right-down" width="96" height="35" tilewidth="32" tileheight="32" infinite="0" nextlayerid="23" nextobjectid="114">
  <tileset firstgid="1" name="Map_bank.png" tilewidth="32" tileheight="32" tilecount="945" columns="27">
   <image source="Map_bank.png" width="864" height="1120"/>
  </tileset>
@@ -10108,7 +10108,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="2" name="Camera" visible="0">
+ <objectgroup id="2" name="Camera">
   <object id="1" name="M1_C1" x="508" y="732" width="1540" height="318.667"/>
   <object id="2" name="M2_C1" x="2048" y="734" width="527.333" height="381.333"/>
   <object id="3" name="M2_C2" x="1536" y="350.333" width="1022" height="381"/>
@@ -10153,12 +10153,7 @@
   </object>
  </objectgroup>
  <objectgroup id="9" name="Stair">
-  <object id="25" name="StairBottom" x="2294.67" y="714" width="23.3333" height="16.6667">
-   <properties>
-    <property name="dir" type="int" value="0"/>
-   </properties>
-  </object>
-  <object id="26" name="StairTop" x="2434.67" y="492.667" width="26.6667" height="28.6667">
+  <object id="26" name="StairTop" x="2435.67" y="486.667" width="26.6667" height="28.6667">
    <properties>
     <property name="dir" type="int" value="3"/>
    </properties>
@@ -10182,10 +10177,11 @@
  <objectgroup id="4" name="Player">
   <object id="11" name="M1_E1" gid="949" x="526" y="1000" width="60" height="64"/>
   <object id="12" name="M2_E1" gid="949" x="2417" y="959.83" width="60" height="64"/>
-  <object id="13" name="M2_E2" gid="956" x="2294" y="718.5" width="60" height="64"/>
+  <object id="13" name="M2_E2" gid="956" x="2309.5" y="703.75" width="60" height="64"/>
   <object id="14" name="M3_E1" gid="2147484597" x="1396" y="658" width="60" height="64"/>
   <object id="15" name="M3_E2" gid="2147484604" x="65" y="311.333" width="60" height="64"/>
   <object id="16" name="M4_E1" gid="949" x="1611" y="131" width="60" height="64"/>
+  <object id="113" name="M2_E3" gid="2147484606" x="2240" y="830.667" width="60" height="64"/>
  </objectgroup>
  <objectgroup id="6" name="Ground">
   <object id="17" x="510" y="1022" width="1535" height="28"/>
@@ -10194,7 +10190,7 @@
   <object id="24" x="252.667" y="706" width="1086" height="18"/>
   <object id="32" x="2400.67" y="958.667" width="127.333" height="27.3333"/>
   <object id="33" x="2111.33" y="894" width="252" height="28.6667"/>
-  <object id="34" x="2464" y="577.333" width="31.3333" height="25.3333"/>
+  <object id="34" x="2464" y="577.958" width="31.3333" height="24.7083"/>
   <object id="35" x="2240.67" y="510.667" width="188" height="28"/>
   <object id="37" x="66" y="321" width="63" height="28"/>
   <object id="38" x="322" y="324" width="318" height="24"/>
@@ -10375,8 +10371,17 @@
  <objectgroup id="7" name="NextScene">
   <object id="20" x="2006.33" y="912" width="9" height="109">
    <properties>
-    <property name="border" value=""/>
     <property name="sceneID" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="110" x="2280.25" y="696.25" width="27.5" height="22.5">
+   <properties>
+    <property name="sceneID" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="111" x="2317.33" y="749.667" width="20" height="19.5">
+   <properties>
+    <property name="sceneID" type="int" value="2"/>
    </properties>
   </object>
  </objectgroup>

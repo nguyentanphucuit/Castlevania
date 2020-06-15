@@ -317,7 +317,7 @@ void PlayScene::OnCreate()
 				break;
 			case _NextScene:
 				for (auto const& y : x.second->GetObjectGroup()) {
-					auto pSwitch = new SwitchScene(std::atoi(y.second->GetProperty("sceneID").c_str()), y.second->GetProperty("border"));
+					auto pSwitch = new SwitchScene(std::atoi(y.second->GetProperty("sceneID").c_str()));
 					pSwitch->SetSize(y.second->GetWidth(), y.second->GetHeight());
 					pSwitch->SetPosition(y.second->GetX(), y.second->GetY());
 					objects.push_back(pSwitch);
@@ -422,9 +422,10 @@ void PlayScene::Update(DWORD dt)
 		this->cameraBorder = this->pSceneBorders.at(this->currentPScene->border);
 
 		switchScene = false;
-		SIMON->SetState(SIMONSTATE::IDLE);
+	
 		this->currentEntryPoints = this->entryPoints.at(this->currentPScene->entry);
 		this->SIMON->SetPosition(currentEntryPoints.x, currentEntryPoints.y);
+		this->SIMON->LastStepOnStairPos = { currentEntryPoints.x, currentEntryPoints.y };
 		if (this->currentPScene->isRight)
 		{
 			CGame::GetInstance()->SetCamPos(cameraBorder.right-SCREENSIZE::WIDTH, cameraBorder.top);
@@ -475,7 +476,8 @@ void PlayScene::OnKeyDown(int KeyCode)
 	case DIK_3:
 		this->switchScene = true;
 		this->currentPScene = this->pScenes.at(2);
-
+			SIMON->SetState(SIMONSTATE::UP_STAIR_RIGHT);
+			
 		break;
 	case DIK_4:
 		this->switchScene = true;

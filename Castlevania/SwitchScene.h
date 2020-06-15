@@ -7,6 +7,6 @@ class SwitchScene :public HiddenObject
 
 public:
 	int GetSceneID() { return this->sceneID; }
-	SwitchScene(int sceneID, std::string border) : sceneID(sceneID), border(border) {};
+	SwitchScene(int sceneID) : sceneID(sceneID) {};
 };
 

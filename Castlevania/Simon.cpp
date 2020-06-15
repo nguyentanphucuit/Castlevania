@@ -300,7 +300,7 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 			LPCOLLISIONEVENT e = coEventsResult[i];
 
 			if (dynamic_cast<Ground*>(e->obj)) {
-				isOnGround = true;
+			
 				if (this->isOnStair) {
 					x += dx;
 					y += dy;
@@ -392,10 +392,13 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 	// clean up collision events
 	for (UINT i = 0; i < coEvents.size(); i++) delete coEvents[i];
 
-
+	bool colGround=false;
 	// xử lý va chạm simon và các items
 	for (size_t i = 0; i < coObjects->size(); i++) {
 		if (dynamic_cast<Ground*>(coObjects->at(i))) {
+
+
+			
 			Ground* f = dynamic_cast<Ground*> (coObjects->at(i));
 
 			float l, t, r, b;
@@ -405,9 +408,10 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 			f->GetBoundingBox(gl, gt, gr, gb);
 
 			gt -= 10;
+			
+				if (CGameObject::AABB(l, t, r, b, gl, gt, gr, gb))
+					colGround = true;
 
-			if (CGameObject::AABB(l, t, r, b, gl, gt, gr, gb))
-				colGround = true;
 		}
 		if (dynamic_cast<Stair*>(coObjects->at(i))) {
 			Stair* f = dynamic_cast<Stair*> (coObjects->at(i));
@@ -518,6 +522,16 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 			this->isOnGround = true;
 		else
 			this->isOnGround = false;
+
+		if (colGround)
+		{
+			this->colGround = true;
+		}
+		else
+		{
+			this->colGround = false;
+		}
+
 	}
 }
 
