@@ -120,14 +120,8 @@ void PlayScene::LoadSceneContent(xml_node<>* root)
 		_pScene->id = _id;
 		_pScene->mapID = _mapID;
 		_pScene->border = _border;
-		if (_isRight)
-		{
-			_pScene->isRight = false;
-		}
-		else
-		{
-			_pScene->isRight = true;
-		}
+		_pScene->isRight = !_isRight;
+
 		
 		_pScene->entry = _entry;
 		this->pScenes.insert(std::make_pair(_id, _pScene));
@@ -137,8 +131,9 @@ void PlayScene::LoadSceneContent(xml_node<>* root)
 	this->currentMap = this->Maps.at(this->currentPScene->mapID);
 	this->cameraBorder = this->pSceneBorders.at(this->currentPScene->border);
 	this->currentEntryPoints = this->entryPoints.at(this->currentPScene->entry);
-	CGame::GetInstance()->SetCamPos(cameraBorder.left, cameraBorder.top);
+	
 	this->SIMON->SetPosition(currentEntryPoints.x, currentEntryPoints.y);
+	CGame::GetInstance()->SetCamPos(cameraBorder.left, cameraBorder.top);
 }
 
 D3DXVECTOR2 PlayScene::GetCamera()
@@ -480,6 +475,7 @@ void PlayScene::OnKeyDown(int KeyCode)
 	case DIK_3:
 		this->switchScene = true;
 		this->currentPScene = this->pScenes.at(2);
+
 		break;
 	case DIK_4:
 		this->switchScene = true;

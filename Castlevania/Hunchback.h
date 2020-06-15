@@ -17,7 +17,7 @@ public:
 	virtual void GetBoundingBox(float& left, float& top, float& right, float& bottom);
 	virtual void Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects);
 	virtual void Render();
-
+	void OnTouchingGround();
 	void Area(int startPos, int endPos);
 	Hunchback();
 };

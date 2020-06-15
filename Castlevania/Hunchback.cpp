@@ -28,14 +28,14 @@ void Hunchback::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 	// TO-DO: make sure Goomba can interact with the world and to each of them too!
 	// 
 		// Simple fall down
-
+	vy += HUNCHBACK_GRAVITY * dt;
 	if (nx == DIRECTION::RIGHT) {
 		vx = HUNCHBACK_WALKING_SPEED;
-		vy = -HUNCHBACK_WALKING_SPEED;
+		
 	}
 	else if (nx == DIRECTION::LEFT) {
 		vx = -HUNCHBACK_WALKING_SPEED;
-		vy = HUNCHBACK_WALKING_SPEED;
+		
 	}
 	DebugOut(L"y %d\n", y);
 	if (x > _endPos) {
@@ -67,7 +67,7 @@ void Hunchback::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 			if (dynamic_cast<Ground*>(e->obj)) {
 				if (nx != 0) vx = 0;
 				if (ny != 0) vy = 0;
-
+				OnTouchingGround();
 			}
 			else {
 				if (e->nx != 0)
@@ -89,6 +89,11 @@ void Hunchback::Render()
 
 	animations[0]->Render(nx, x, y);
 	//RenderBoundingBox();
+}
+
+void Hunchback::OnTouchingGround()
+{
+	vy -= .4;
 }
 
 void Hunchback::Area(int startPos, int endPos)

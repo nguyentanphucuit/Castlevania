@@ -10182,7 +10182,7 @@
  <objectgroup id="4" name="Player">
   <object id="11" name="M1_E1" gid="949" x="526" y="1000" width="60" height="64"/>
   <object id="12" name="M2_E1" gid="949" x="2417" y="959.83" width="60" height="64"/>
-  <object id="13" name="M2_E2" gid="956" x="1761" y="490.5" width="60" height="64"/>
+  <object id="13" name="M2_E2" gid="956" x="2294" y="718.5" width="60" height="64"/>
   <object id="14" name="M3_E1" gid="2147484597" x="1396" y="658" width="60" height="64"/>
   <object id="15" name="M3_E2" gid="2147484604" x="65" y="311.333" width="60" height="64"/>
   <object id="16" name="M4_E1" gid="949" x="1611" y="131" width="60" height="64"/>
@@ -10255,7 +10255,7 @@
     <property name="time" value="1000"/>
    </properties>
   </object>
-  <object id="96" name="Hunchback" x="1125" y="670" width="32" height="32">
+  <object id="96" name="Hunchback" x="1116" y="673" width="32" height="32">
    <properties>
     <property name="edef" value="3"/>
     <property name="endPos" value="1222"/>
