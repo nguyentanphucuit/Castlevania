@@ -2,6 +2,7 @@
 #include "Debug.h"
 #include "Ground.h"
 #include "Simon.h"
+#include "debug.h"
 
 
 void Hunchback::GetBoundingBox(float& left, float& top, float& right, float& bottom)
@@ -27,18 +28,24 @@ void Hunchback::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 	// TO-DO: make sure Goomba can interact with the world and to each of them too!
 	// 
 		// Simple fall down
-	vy += HUNCHBACK_GRAVITY * dt;
-	if (nx == DIRECTION::RIGHT) vx = HUNCHBACK_WALKING_SPEED;
-	else if (nx == DIRECTION::LEFT) vx = -HUNCHBACK_WALKING_SPEED;
 
+	if (nx == DIRECTION::RIGHT) {
+		vx = HUNCHBACK_WALKING_SPEED;
+		vy = -HUNCHBACK_WALKING_SPEED;
+	}
+	else if (nx == DIRECTION::LEFT) {
+		vx = -HUNCHBACK_WALKING_SPEED;
+		vy = HUNCHBACK_WALKING_SPEED;
+	}
+	DebugOut(L"y %d\n", y);
 	if (x > _endPos) {
 		nx = DIRECTION::LEFT;
-
 	}
 	if (x < _startPos) {
 		nx = DIRECTION::RIGHT;
+	} 
 
-	}
+	
 
 	if (coEvents.size() == 0)
 	{

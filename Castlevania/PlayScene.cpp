@@ -498,7 +498,8 @@ void PlayScene::OnKeyDown(int KeyCode)
 			&& SIMON->GetState() != SIMONSTATE::JUMP
 			&& SIMON->GetState() != SIMONSTATE::SIT
 			&& SIMON->isOnGround
-			&& !SIMON->CheckIsOnStair()) {
+			&& !SIMON->CheckIsOnStair()
+			&& SIMON->colGround) {
 			SIMON->SetState(SIMONSTATE::JUMP);
 		}
 		break;

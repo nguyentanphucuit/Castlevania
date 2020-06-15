@@ -27,10 +27,26 @@ void BlackKnight::Update(DWORD dt, Scene* scene , vector<LPGAMEOBJECT>* coObject
 	// TO-DO: make sure Goomba can interact with the world and to each of them too!
 	// 
 		// Simple fall down
+
 	vy += BLACKKNIGHT_GRAVITY * dt;
 	if (nx == DIRECTION::RIGHT) vx = BLACKKNIGHT_WALKING_SPEED;
 	else if (nx == DIRECTION::LEFT) vx = -BLACKKNIGHT_WALKING_SPEED;
 
+	if (dynamic_cast<PlayScene*>(scene))
+	{
+		PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
+		D3DXVECTOR2 cam = pScene->GetCamera();
+
+		if ((pScene->GetSimon()->x - x < BLACKKNIGHT_BBOX_WIDTH * 4) && (pScene->GetSimon()->y - y) <1 && x < _endPos- BLACKKNIGHT_BBOX_WIDTH) {
+			if (nx == DIRECTION::LEFT ) {
+				nx = DIRECTION::RIGHT;
+			}
+
+			vx = BLACKKNIGHT_WALKING_SPEED * 1.5;
+		}
+		
+
+	}
 	/*if (x > 2340) {
 		nx = DIRECTION::LEFT;
 	

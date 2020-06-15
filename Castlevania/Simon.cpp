@@ -392,7 +392,7 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 	// clean up collision events
 	for (UINT i = 0; i < coEvents.size(); i++) delete coEvents[i];
 
-	bool colGround = false;
+
 	// xử lý va chạm simon và các items
 	for (size_t i = 0; i < coObjects->size(); i++) {
 		if (dynamic_cast<Ground*>(coObjects->at(i))) {
@@ -474,8 +474,8 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 					if (!this->isOnStair)
 					{
 						this->SetState(SIMONSTATE::DEFLECT);
-						/*x += dx;
-						y += dy;*/
+						x += dx;
+						y += dy;
 					}
 					if (untouchable != 1) {
 						StartUntouchable();
@@ -592,7 +592,7 @@ void CSIMON::Render()
 
 	animations[ani]->Render(nx, x, y, alpha);
 
-	RenderBoundingBox();
+	//RenderBoundingBox();
 }
 
 void CSIMON::SetState(SIMONSTATE state)

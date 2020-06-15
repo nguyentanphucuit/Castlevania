@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.5" orientation="orthogonal" renderorder="right-down" width="96" height="35" tilewidth="32" tileheight="32" infinite="0" nextlayerid="21" nextobjectid="98">
+<map version="1.2" tiledversion="1.3.5" orientation="orthogonal" renderorder="right-down" width="96" height="35" tilewidth="32" tileheight="32" infinite="0" nextlayerid="21" nextobjectid="109">
  <tileset firstgid="1" name="Map_bank.png" tilewidth="32" tileheight="32" tilecount="945" columns="27">
   <image source="Map_bank.png" width="864" height="1120"/>
  </tileset>
@@ -10108,7 +10108,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="2" name="Camera">
+ <objectgroup id="2" name="Camera" visible="0">
   <object id="1" name="M1_C1" x="508" y="732" width="1540" height="318.667"/>
   <object id="2" name="M2_C1" x="2048" y="734" width="527.333" height="381.333"/>
   <object id="3" name="M2_C2" x="1536" y="350.333" width="1022" height="381"/>
@@ -10181,7 +10181,7 @@
  </objectgroup>
  <objectgroup id="4" name="Player">
   <object id="11" name="M1_E1" gid="949" x="526" y="1000" width="60" height="64"/>
-  <object id="12" name="M2_E1" gid="949" x="2086" y="1066.83" width="60" height="64"/>
+  <object id="12" name="M2_E1" gid="949" x="2417" y="959.83" width="60" height="64"/>
   <object id="13" name="M2_E2" gid="956" x="1761" y="490.5" width="60" height="64"/>
   <object id="14" name="M3_E1" gid="2147484597" x="1396" y="658" width="60" height="64"/>
   <object id="15" name="M3_E2" gid="2147484604" x="65" y="311.333" width="60" height="64"/>
@@ -10246,7 +10246,7 @@
     <property name="time" value="1000"/>
    </properties>
   </object>
-  <object id="93" name="Ghost" x="1200.67" y="673.333" width="32" height="32">
+  <object id="93" name="Ghost" x="848.67" y="572.333" width="32" height="32">
    <properties>
     <property name="edef" value="2"/>
     <property name="endPos" value="1200"/>
@@ -10255,18 +10255,99 @@
     <property name="time" value="1000"/>
    </properties>
   </object>
-  <object id="96" name="Hunchback" x="849" y="574" width="32" height="32">
+  <object id="96" name="Hunchback" x="1125" y="670" width="32" height="32">
    <properties>
     <property name="edef" value="3"/>
+    <property name="endPos" value="1222"/>
+    <property name="num" value="1"/>
+    <property name="startPos" value="1111"/>
+    <property name="time" value="1000"/>
+   </properties>
+  </object>
+  <object id="97" name="Hunchback" x="594" y="576" width="32" height="32">
+   <properties>
+    <property name="edef" value="999"/>
     <property name="endPos" value="1200"/>
     <property name="num" value="1"/>
     <property name="startPos" value="840"/>
     <property name="time" value="1000"/>
    </properties>
   </object>
-  <object id="97" name="Hunchback" x="594" y="576" width="32" height="32">
+  <object id="98" name="Skeleton" x="82" y="542" width="32" height="64">
    <properties>
-    <property name="edef" value="3"/>
+    <property name="edef" value="4"/>
+    <property name="endPos" value="2340"/>
+    <property name="num" value="1"/>
+    <property name="startPos" value="2240"/>
+    <property name="time" value="1000"/>
+   </properties>
+  </object>
+  <object id="99" name="Skeleton" x="724" y="256" width="32" height="64">
+   <properties>
+    <property name="edef" value="4"/>
+    <property name="endPos" value="2340"/>
+    <property name="num" value="1"/>
+    <property name="startPos" value="2240"/>
+    <property name="time" value="1000"/>
+   </properties>
+  </object>
+  <object id="101" name="Hunchback" x="336" y="510" width="32" height="32">
+   <properties>
+    <property name="edef" value="999"/>
+    <property name="endPos" value="1200"/>
+    <property name="num" value="1"/>
+    <property name="startPos" value="840"/>
+    <property name="time" value="1000"/>
+   </properties>
+  </object>
+  <object id="102" name="Raven" x="832" y="156" width="32" height="32">
+   <properties>
+    <property name="edef" value="5"/>
+    <property name="endPos" value="1200"/>
+    <property name="num" value="1"/>
+    <property name="startPos" value="840"/>
+    <property name="time" value="1000"/>
+   </properties>
+  </object>
+  <object id="104" name="Raven" x="542" y="62" width="32" height="32">
+   <properties>
+    <property name="edef" value="5"/>
+    <property name="endPos" value="1200"/>
+    <property name="num" value="1"/>
+    <property name="startPos" value="840"/>
+    <property name="time" value="1000"/>
+   </properties>
+  </object>
+  <object id="105" name="Raven" x="960" y="94" width="32" height="32">
+   <properties>
+    <property name="edef" value="5"/>
+    <property name="endPos" value="1200"/>
+    <property name="num" value="1"/>
+    <property name="startPos" value="840"/>
+    <property name="time" value="1000"/>
+   </properties>
+  </object>
+  <object id="106" name="Raven" x="1030" y="318" width="32" height="32">
+   <properties>
+    <property name="edef" value="5"/>
+    <property name="endPos" value="1200"/>
+    <property name="num" value="1"/>
+    <property name="startPos" value="840"/>
+    <property name="time" value="1000"/>
+   </properties>
+  </object>
+  <object id="107" name="Skeleton" x="1286" y="256" width="32" height="64">
+   <properties>
+    <property name="edef" value="4"/>
+    <property name="endPos" value="2340"/>
+    <property name="num" value="1"/>
+    <property name="startPos" value="2240"/>
+    <property name="time" value="1000"/>
+   </properties>
+  </object>
+  <object id="108" name="Ghost" x="162" y="86" width="32" height="32">
+   <properties>
+    <property name="edef" value="2"/>
     <property name="endPos" value="1200"/>
     <property name="num" value="1"/>
     <property name="startPos" value="840"/>

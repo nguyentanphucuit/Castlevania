@@ -13,6 +13,7 @@ private:
 	int left = false;
 	int _endPos;
 	int _startPos;
+
 public:
 	virtual void GetBoundingBox(float& left, float& top, float& right, float& bottom);
 	virtual void Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects);

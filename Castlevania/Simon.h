@@ -135,7 +135,7 @@ class CSIMON : public CGameObject
 	void HandlePerStepOnStair();
 public: 
 	CSIMON();
-	
+	bool colGround = false;
 	bool isOnGround = false;
 	bool isTouchRetroGrade = true;
 	bool ResetSpawnWeapon() { return this->isSpawnWeapon = false; };
