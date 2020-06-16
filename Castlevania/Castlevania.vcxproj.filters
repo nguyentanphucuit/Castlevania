@@ -192,6 +192,15 @@
     <ClInclude Include="Hunchback.h">
       <Filter>Source Files\Enemy</Filter>
     </ClInclude>
+    <ClInclude Include="Raven.h">
+      <Filter>Source Files\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Skeleton.h">
+      <Filter>Source Files\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Zombie.h">
+      <Filter>Source Files\Enemy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -336,6 +345,15 @@
       <Filter>Source Files\Enemy</Filter>
     </ClCompile>
     <ClCompile Include="Hunchback.cpp">
+      <Filter>Source Files\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Skeleton.cpp">
+      <Filter>Source Files\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Raven.cpp">
+      <Filter>Source Files\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Zombie.cpp">
       <Filter>Source Files\Enemy</Filter>
     </ClCompile>
   </ItemGroup>

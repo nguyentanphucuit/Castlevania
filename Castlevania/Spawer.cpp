@@ -49,7 +49,11 @@ void Spawner::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* colliable_obj
 					this->isSpawned = false;
 				}
 		}
-		else if (this->enemyDef == CEnemy::GHOST || this->enemyDef == CEnemy::HUNCHBACK) {
+		else if (this->enemyDef == CEnemy::GHOST
+			|| this->enemyDef == CEnemy::HUNCHBACK
+			|| this->enemyDef == CEnemy::SKELETON
+			|| this->enemyDef == CEnemy::RAVEN
+			|| this->enemyDef == CEnemy::ZOMBIE) {
 
 			if (this->AABB(l, t, r, b, cam.x, cam.y, cam.x + SCREENSIZE::WIDTH, cam.y + SCREENSIZE::HEIGHT))
 			{
@@ -73,6 +77,18 @@ void Spawner::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* colliable_obj
 					else if (dynamic_cast<Hunchback*>(enemy)) {
 						auto hunchback = dynamic_cast<Hunchback*>(enemy);
 						hunchback->Area(this->startPos, this->endPos);
+					}
+					else if (dynamic_cast<Skeleton*>(enemy)) {
+						auto skeleton = dynamic_cast<Skeleton*>(enemy);
+						skeleton->Area(this->startPos, this->endPos);
+					}
+					else if (dynamic_cast<Raven*>(enemy)) {
+						auto raven = dynamic_cast<Raven*>(enemy);
+						raven->Area(this->startPos, this->endPos);
+					}
+					else if (dynamic_cast<Zombie*>(enemy)) {
+						auto zombie = dynamic_cast<Zombie*>(enemy);
+						zombie->Area(this->startPos, this->endPos);
 					}
 					pScene->SpawnObject(enemy);
 					this->isSpawned = true;

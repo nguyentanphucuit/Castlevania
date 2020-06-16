@@ -335,7 +335,7 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 					auto pScene = dynamic_cast<PlayScene*>(scene);
 					int id = switchScene->GetSceneID();
 					pScene->SwitchPScene(id);
-					switchScene->SetDestroy();
+		
 				}
 			}
 			else if (dynamic_cast<CPlatform*>(e->obj)) {

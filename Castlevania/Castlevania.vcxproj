@@ -179,10 +179,12 @@
     <ClInclude Include="ObjectLayer.h" />
     <ClInclude Include="Platform.h" />
     <ClInclude Include="PlayScene.h" />
+    <ClInclude Include="Raven.h" />
     <ClInclude Include="RetroGrade.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneStateMachine.h" />
     <ClInclude Include="Simon.h" />
+    <ClInclude Include="Skeleton.h" />
     <ClInclude Include="Spawer.h" />
     <ClInclude Include="Sprites.h" />
     <ClInclude Include="Stair.h" />
@@ -193,6 +195,7 @@
     <ClInclude Include="Weapon.h" />
     <ClInclude Include="WeaponFactory.h" />
     <ClInclude Include="Whip.h" />
+    <ClInclude Include="Zombie.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Bat.cpp" />
@@ -230,9 +233,11 @@
     <ClCompile Include="ObjectLayer.cpp" />
     <ClCompile Include="Platform.cpp" />
     <ClCompile Include="PlayScene.cpp" />
+    <ClCompile Include="Raven.cpp" />
     <ClCompile Include="RetroGrade.cpp" />
     <ClCompile Include="SceneStateMachine.cpp" />
     <ClCompile Include="Simon.cpp" />
+    <ClCompile Include="Skeleton.cpp" />
     <ClCompile Include="Spawer.cpp" />
     <ClCompile Include="Sprites.cpp" />
     <ClCompile Include="Stair.cpp" />
@@ -243,6 +248,7 @@
     <ClCompile Include="Weapon.cpp" />
     <ClCompile Include="WeaponFactory.cpp" />
     <ClCompile Include="Whip.cpp" />
+    <ClCompile Include="Zombie.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
