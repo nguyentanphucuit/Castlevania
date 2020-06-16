@@ -12,9 +12,6 @@ void Bat::GetBoundingBox(float& left, float& top, float& right, float& bottom)
 
 void Bat::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 {
-	
-	if (nx == DIRECTION::RIGHT) vx = BAT_FLY_SPEED_X;
-	else if (nx == DIRECTION::LEFT) vx = -BAT_FLY_SPEED_X;
 
 	CGameObject::Update(dt, scene);
 	vector<LPCOLLISIONEVENT> coEvents;
@@ -23,14 +20,44 @@ void Bat::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 	coEvents.clear();
 	CalcPotentialCollisions(coObjects, coEvents);
 	
-	x += dx;
-	
+	if (dynamic_cast<PlayScene*>(scene))
+	{
+		PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
+		oy = pScene->GetSimon()->y;
+		if (pScene->GetSimon()->y - this->y < ACTIVE_BAT_X &&
+			pScene->GetSimon()->x - this->x < ACTIVE_BAT_Y)
+		{
+			this->SetState(BATSTATE::FLY);
+			
+		}
 
-	if (y < 830) 
-		y = BAT_OY_HEIGHT * sin(x * BAT_FLY_SPEED_Y) + oy;
-	else 
+	}	
+
+	if (coEvents.size() == 0)
+	{
 		x += dx;
-		
+		y += dy;
+	}
+	else {
+		float min_tx, min_ty, nx = 0, ny;
+
+		FilterCollision(coEvents, coEventsResult, min_tx, min_ty, nx, ny);
+
+		// block 
+		x += min_tx * dx + nx * 0.4f;		// nx*0.4f : need to push out a bit to avoid overlapping next frame
+		if (ny <= 0)
+			y += min_ty * dy + ny * 0.4f;
+		for (UINT i = 0; i < coEventsResult.size(); i++)
+		{
+			LPCOLLISIONEVENT e = coEventsResult[i];
+			if (e->nx != 0)
+				x += dx;
+			else if (e->ny < 0)
+				y += dy;
+		}
+
+
+	}
 
 	// clean up collision events
 	for (std::size_t i = 0; i < coEvents.size(); i++) delete coEvents[i];
@@ -38,11 +65,46 @@ void Bat::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 
 void Bat::Render()
 {
-	animations[0]->Render(nx, x, y);
+	int ani = 0;
+	switch (this->state)
+	{
+	case BATSTATE::IDLE:
+		ani = BAT_ANI_IDLE;
+		animations[ani]->Render(nx, x, y);
+		break;
+	case BATSTATE::FLY:
+		ani = BAT_ANI_FLY;
+		animations[ani]->Render(nx, x, y);
+		break;
+	default:
+		break;
+	};
+	
+}
+
+
+void Bat::SetState(BATSTATE state)
+{
+	switch (state) {
+	case BATSTATE::IDLE:
+		vx = 0;
+		vy = 0;
+		break;
+	case BATSTATE::FLY:
+		vx = BAT_FLY_SPEED_X;
+		if (y > oy) {
+			vy = 0;
+		}
+		else
+			vy = BAT_FLY_SPEED_Y;
+
+		break;
+	}
+	this->state = state;
 }
 
 Bat::Bat() :Enemy()
 {
-	AddAnimation("BAT_ANI_FLYING");
 	AddAnimation("BAT_ANI_IDLE");
+	AddAnimation("BAT_ANI_FLYING");
 }

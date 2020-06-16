@@ -35,3 +35,4 @@ enum class STAIRDIRECTION {
 	DOWNRIGHT,
 	DOWNLEFT,
 };
+

@@ -10201,7 +10201,7 @@
   <object id="15" name="M3_E2" gid="2147484604" x="126.667" y="351" width="60" height="64"/>
   <object id="16" name="M4_E1" gid="949" x="1611" y="131" width="60" height="64"/>
   <object id="113" name="M2_E3" gid="2147484606" x="2291.42" y="781.417" width="60" height="64"/>
-  <object id="155" name="M2_E1" gid="949" x="2130" y="1060" width="60" height="64"/>
+  <object id="155" name="M2_E1" gid="2147484597" x="2431" y="956" width="60" height="64"/>
   <object id="159" name="M3_E3" gid="958" x="178" y="429.333" width="60" height="64"/>
  </objectgroup>
  <objectgroup id="6" name="Ground">
@@ -10265,7 +10265,9 @@
   <object id="60" name="Bat" x="2118" y="737" width="32" height="32">
    <properties>
     <property name="edef" value="0"/>
+    <property name="endPos" value="150"/>
     <property name="num" value="1"/>
+    <property name="startPos" value="100"/>
     <property name="time" value="1000"/>
    </properties>
   </object>
