@@ -1,9 +1,11 @@
 #pragma once
 #include "WDagger.h"
+#include "Skeleton.h"
 
 enum class EWeapon {
 	NONE,
-	Dagger
+	DAGGER,
+	SKELETON
 };
 
 class WeaponFactory
@@ -17,8 +19,11 @@ inline T WeaponFactory::SpawnWeapon(EWeapon eWeapon)
 {
 	switch (eWeapon)
 	{
-	case EWeapon::Dagger:
+	case EWeapon::DAGGER:
 		return new WDagger();
+		break;
+	case EWeapon::SKELETON:
+		return new Skeleton();
 		break;
 	default:
 		break;

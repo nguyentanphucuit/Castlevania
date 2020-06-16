@@ -15,6 +15,8 @@ private:
 	int _startPos;
 	bool isSpawnWeapon = false;
 	int numWeapon = 0;
+	int numWeapon2 = 0;
+	DWORD timeSpawn = 0;
 public:
 	virtual void GetBoundingBox(float& left, float& top, float& right, float& bottom);
 	virtual void Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects);

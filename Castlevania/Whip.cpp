@@ -7,7 +7,7 @@
 #include "Candle.h"
 #include "BrickWall.h"
 #include "Enemy.h"
-
+#include "Simon.h"
 void Whip::Render()
 {
 	int ani;
@@ -26,6 +26,8 @@ void Whip::Render()
 	animations[ani]->Render(nx, x, y);
 	//RenderBoundingBox();// vẽ bbox
 }
+
+
 
 void Whip::Upgrade()
 {
@@ -104,6 +106,7 @@ void Whip::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT>* colliable_objects
 		break;
 	}
 	
+
 	for (size_t i = 0; i < colliable_objects->size(); i++)
 	{
 		if (dynamic_cast<CTorch*>(colliable_objects->at(i)))
@@ -180,14 +183,23 @@ void Whip::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT>* colliable_objects
 		}
 		else if (dynamic_cast<Enemy*>(colliable_objects->at(i))) {
 			Enemy* enemy = dynamic_cast<Enemy*>(colliable_objects->at(i));
-			if (this->isColliding(enemy) && !enemy->IsDestroyed()) // check CO
+			if (this->isColliding(enemy) && !enemy->IsDestroyed() ) // check CO
 			{
-				enemy->SetDestroy();
+				enemy->SubtractHP(this->damage);
+
+				if (enemy->GetHp() == 0)
+				{
+					enemy->SetDestroy();
+
+				}
+				DebugOut(L"okey \n");
+				
 			}
 		}
 	}
 
 }
+
 
 void Whip::SetState(WHIPSTATE state)
 {

@@ -10197,7 +10197,7 @@
  <objectgroup id="4" name="Player">
   <object id="11" name="M1_E1" gid="949" x="526" y="1000" width="60" height="64"/>
   <object id="13" name="M2_E2" gid="956" x="2309.5" y="700.167" width="60" height="64"/>
-  <object id="14" name="M3_E1" gid="2147484597" x="239.5" y="544.5" width="60" height="64"/>
+  <object id="14" name="M3_E1" gid="2147484597" x="226.583" y="533.583" width="60" height="64"/>
   <object id="15" name="M3_E2" gid="2147484604" x="126.667" y="351" width="60" height="64"/>
   <object id="16" name="M4_E1" gid="949" x="1611" y="131" width="60" height="64"/>
   <object id="113" name="M2_E3" gid="2147484606" x="2291.42" y="781.417" width="60" height="64"/>
@@ -10208,7 +10208,7 @@
   <object id="17" x="510" y="1022" width="1535" height="28"/>
   <object id="18" x="2047" y="1086" width="512" height="30"/>
   <object id="23" x="1344" y="672" width="190.667" height="58.6667"/>
-  <object id="24" x="252.667" y="706" width="1086" height="18"/>
+  <object id="24" x="252.667" y="705" width="1091" height="27"/>
   <object id="32" x="2384" y="958.667" width="144" height="27.3333"/>
   <object id="33" x="2111.33" y="894" width="252" height="28.6667"/>
   <object id="34" x="2447.42" y="576.625" width="47.9166" height="26.0416"/>
@@ -10298,7 +10298,7 @@
     <property name="time" value="1000"/>
    </properties>
   </object>
-  <object id="96" name="Hunchback" x="1116" y="673" width="32" height="32">
+  <object id="96" name="Hunchback" x="1118.5" y="672.25" width="32" height="32">
    <properties>
     <property name="edef" value="3"/>
     <property name="endPos" value="1222"/>

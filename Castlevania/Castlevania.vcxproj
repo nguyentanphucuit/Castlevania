@@ -184,6 +184,7 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneStateMachine.h" />
     <ClInclude Include="Simon.h" />
+    <ClInclude Include="Skeleton.h" />
     <ClInclude Include="White.h" />
     <ClInclude Include="Spawer.h" />
     <ClInclude Include="Sprites.h" />
@@ -237,6 +238,7 @@
     <ClCompile Include="RetroGrade.cpp" />
     <ClCompile Include="SceneStateMachine.cpp" />
     <ClCompile Include="Simon.cpp" />
+    <ClCompile Include="Skeleton.cpp" />
     <ClCompile Include="White.cpp" />
     <ClCompile Include="Spawer.cpp" />
     <ClCompile Include="Sprites.cpp" />

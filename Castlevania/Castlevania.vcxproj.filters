@@ -201,6 +201,9 @@
     <ClInclude Include="White.h">
       <Filter>Source Files\Enemy</Filter>
     </ClInclude>
+    <ClInclude Include="Skeleton.h">
+      <Filter>Source Files\SubWeapons</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -355,6 +358,9 @@
     </ClCompile>
     <ClCompile Include="White.cpp">
       <Filter>Source Files\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Skeleton.cpp">
+      <Filter>Source Files\SubWeapons</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -364,7 +364,7 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 						this->SetState(SIMONSTATE::UPWHIP);
 					}
 					if (dynamic_cast<IDagger*>(item)) {
-						this->currentWeapon = EWeapon::Dagger;
+						this->currentWeapon = EWeapon::DAGGER;
 					}
 				}
 				else if (dynamic_cast<Entrance*>(e->obj)) {
@@ -436,7 +436,7 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 						this->SetState(SIMONSTATE::UPWHIP);
 					}
 					if (dynamic_cast<IDagger*>(item)) {
-						this->currentWeapon = EWeapon::Dagger;
+						this->currentWeapon = EWeapon::DAGGER;
 					}
 					item->SetDestroy();
 				}

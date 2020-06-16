@@ -105,6 +105,6 @@ void Hunchback::Area(int startPos, int endPos)
 Hunchback::Hunchback() :Enemy()
 {
 	AddAnimation("HUNCHBACK_ANI_JUMP");
-
+	this->hp = 1;
 }
 

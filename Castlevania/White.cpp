@@ -30,10 +30,10 @@ void White::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 		// Simple fall down
 
 	vy += WHITE_GRAVITY * dt;
-	if (nx == DIRECTION::RIGHT) vx = WHITE_WALKING_SPEED;
-	else if (nx == DIRECTION::LEFT) vx = -WHITE_WALKING_SPEED;
+	/*if (nx == DIRECTION::RIGHT) vx = WHITE_WALKING_SPEED;
+	else if (nx == DIRECTION::LEFT) vx = -WHITE_WALKING_SPEED;*/
 
-	if (dynamic_cast<PlayScene*>(scene))
+	/*if (dynamic_cast<PlayScene*>(scene))
 	{
 		PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
 		D3DXVECTOR2 cam = pScene->GetCamera();
@@ -48,14 +48,7 @@ void White::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 
 
 	}
-	/*if (x > 2340) {
-		nx = DIRECTION::LEFT;
 
-	}
-	if (x < 2170){
-		nx = DIRECTION::RIGHT;
-
-	}*/
 	if (x > _endPos) {
 		nx = DIRECTION::LEFT;
 
@@ -63,18 +56,12 @@ void White::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 	if (x < _startPos) {
 		nx = DIRECTION::RIGHT;
 
-	}
-	//if (vung)
-	//{
-	//	if (simon->x - this->x)
-	//	{
-	//		nx = 
-	//	}
-	//}
-	auto weapon = WeaponFactory::SpawnWeapon<Weapon*>(EWeapon::Dagger);
+	}*/
+
+	auto weapon = WeaponFactory::SpawnWeapon<Weapon*>(EWeapon::SKELETON);
 	
-	if (numWeapon  < 1) {
-		
+	if (numWeapon  < 3 && GetTickCount() - timeSpawn > 450) {
+		timeSpawn = GetTickCount();
 		weapon->SetPosition(this->x, this->y + 10);
 		weapon->SetNx(this->nx);
 		if (dynamic_cast<PlayScene*>(scene)) {
@@ -112,7 +99,7 @@ void White::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 			if (dynamic_cast<Ground*>(e->obj)) {
 				if (nx != 0) vx = 0;
 				if (ny != 0) vy = 0;
-				vy -= .4;
+				//vy -= .4;
 			}
 			else {
 				if (e->nx != 0)

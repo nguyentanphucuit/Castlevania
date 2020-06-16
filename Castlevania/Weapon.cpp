@@ -33,6 +33,7 @@ void Weapon::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObject)
 	// no collision occured, proceed normally
 	if (coEvents.size() == 0) {
 		x += dx;
+		y += dy;
 	}
 	else {
 		float min_tx, min_ty, nx = 0, ny;

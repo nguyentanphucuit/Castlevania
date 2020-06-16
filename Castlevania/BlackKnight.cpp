@@ -38,7 +38,7 @@ void BlackKnight::Update(DWORD dt, Scene* scene , vector<LPGAMEOBJECT>* coObject
 		D3DXVECTOR2 cam = pScene->GetCamera();
 		auto sx = pScene->GetSimon()->x;
 
-		if ((pScene->GetSimon()->y - y) < 1 && ((sx-x > 16)  || (x-sx>16))) {
+		if ((pScene->GetSimon()->y - y) < 1 && ((sx-x > 16)  || (x-sx>16)) && !pScene->GetSimon()->Untouch()) {
 			if ((pScene->GetSimon()->x - x < BLACKKNIGHT_BBOX_WIDTH * 4) && x < _endPos - BLACKKNIGHT_BBOX_WIDTH && pScene->GetSimon()->x - x>0) {
 				if (nx == DIRECTION::LEFT) {
 					nx = DIRECTION::RIGHT;
@@ -138,6 +138,6 @@ void BlackKnight::Area(int startPos, int endPos)
 BlackKnight::BlackKnight() :Enemy()
 {
 	AddAnimation("BLACKKNIGHT_ANI_WALK");
-	
+	this->hp = 3;
 }
 

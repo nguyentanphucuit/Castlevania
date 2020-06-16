@@ -21,7 +21,9 @@ class Whip:public CGameObject
 {
 private:
 	WHIPSTATE state;
+	UINT  damage = 1;
 public:
+
 	Whip()
 	{
 
@@ -44,6 +46,5 @@ public:
 	virtual void Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* colliable_objects = NULL);
 	WHIPSTATE GetState() { return this->state; };
 	void SetState(WHIPSTATE state);
-
 };
 

@@ -38,10 +38,11 @@ class PlayScene:public Scene
     int subWeapon = 0;
     bool isEntrance = false;
     bool switchScene = false;
+    bool isAttack = false;
 public:
 
     D3DXVECTOR2 GetCamera();
-
+    bool IsAttack() { return isAttack; };
     int GetNumObj() { return this->objects.size(); };
     CSIMON* GetSimon() { return this->SIMON; };
     int GetCurrentSceneID() { return this->currentPScene->id; }

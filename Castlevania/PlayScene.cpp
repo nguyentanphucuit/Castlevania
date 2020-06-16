@@ -544,7 +544,6 @@ void PlayScene::OnKeyDown(int KeyCode)
 				else
 					SIMON->SetState(SIMONSTATE::FIGHT_SIT);
 			}
-			
 		}
 		break;
 	case DIK_A:
