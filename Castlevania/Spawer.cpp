@@ -30,14 +30,6 @@ void Spawner::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* colliable_obj
 							auto blackKnight = dynamic_cast<BlackKnight*>(enemy);
 							blackKnight->Area(this->startPos, this->endPos);
 						}
-						else if (dynamic_cast<Ghost*>(enemy)) {
-							auto ghost = dynamic_cast<Ghost*>(enemy);
-							ghost->Area(this->startPos, this->endPos);
-						}
-						else if (dynamic_cast<Ghost*>(enemy)) {
-							auto ghost = dynamic_cast<Ghost*>(enemy);
-							ghost->Area(this->startPos, this->endPos);
-						}
 						pScene->SpawnObject(enemy);
 						this->isSpawned = true;
 
@@ -61,18 +53,10 @@ void Spawner::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* colliable_obj
 				{
 					auto enemy = EnemyFactory::SpawnEnemy<Enemy*>(this->enemyDef);
 					enemy->SetPosition(x, y);
-					if (dynamic_cast<Bat*>(enemy))
-					{
-						auto bat = dynamic_cast<Bat*>(enemy);
-						bat->SetOy();
-					}
-					else if (dynamic_cast<BlackKnight*>(enemy)) {
-						auto blackKnight = dynamic_cast<BlackKnight*>(enemy);
-						blackKnight->Area(this->startPos, this->endPos);
-					}
-					else if (dynamic_cast<Ghost*>(enemy)) {
+					if (dynamic_cast<Ghost*>(enemy)) {
 						auto ghost = dynamic_cast<Ghost*>(enemy);
 						ghost->Area(this->startPos, this->endPos);
+						ghost->SetOy();
 					}
 					else if (dynamic_cast<Hunchback*>(enemy)) {
 						auto hunchback = dynamic_cast<Hunchback*>(enemy);
@@ -85,6 +69,7 @@ void Spawner::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* colliable_obj
 					else if (dynamic_cast<Raven*>(enemy)) {
 						auto raven = dynamic_cast<Raven*>(enemy);
 						raven->Area(this->startPos, this->endPos);
+						raven->SetOy();
 					}
 					else if (dynamic_cast<Zombie*>(enemy)) {
 						auto zombie = dynamic_cast<Zombie*>(enemy);

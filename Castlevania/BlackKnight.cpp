@@ -36,14 +36,27 @@ void BlackKnight::Update(DWORD dt, Scene* scene , vector<LPGAMEOBJECT>* coObject
 	{
 		PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
 		D3DXVECTOR2 cam = pScene->GetCamera();
+		auto sx = pScene->GetSimon()->x;
 
-		if ((pScene->GetSimon()->x - x < BLACKKNIGHT_BBOX_WIDTH * 4) && (pScene->GetSimon()->y - y) <1 && x < _endPos- BLACKKNIGHT_BBOX_WIDTH) {
-			if (nx == DIRECTION::LEFT ) {
-				nx = DIRECTION::RIGHT;
+		if ((pScene->GetSimon()->y - y) < 1 && ((sx-x > 16)  || (x-sx>16))) {
+			if ((pScene->GetSimon()->x - x < BLACKKNIGHT_BBOX_WIDTH * 4) && x < _endPos - BLACKKNIGHT_BBOX_WIDTH && pScene->GetSimon()->x - x>0) {
+				if (nx == DIRECTION::LEFT) {
+					nx = DIRECTION::RIGHT;
+				}
+					
+				vx = BLACKKNIGHT_WALKING_SPEED * 1.5;
 			}
+			if ((pScene->GetSimon()->x + BLACKKNIGHT_BBOX_WIDTH * 4 > x) && x > _startPos + BLACKKNIGHT_BBOX_WIDTH && pScene->GetSimon()->x - x < 0) {
+				if (nx == DIRECTION::RIGHT) {
+					nx = DIRECTION::LEFT;
+				}
 
-			vx = BLACKKNIGHT_WALKING_SPEED * 1.5;
+				vx = -BLACKKNIGHT_WALKING_SPEED * 1.5;
+			}
+			DebugOut(L"sx %f\n", sx);
+			DebugOut(L"x %f\n", x);
 		}
+		
 		
 
 	}

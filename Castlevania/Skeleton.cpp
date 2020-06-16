@@ -92,7 +92,7 @@ void Skeleton::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 			if (dynamic_cast<Ground*>(e->obj)) {
 				if (nx != 0) vx = 0;
 				if (ny != 0) vy = 0;
-
+				vy -= .4;
 			}
 			else {
 				if (e->nx != 0)

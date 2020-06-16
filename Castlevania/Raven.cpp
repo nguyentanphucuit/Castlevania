@@ -29,8 +29,8 @@ void Raven::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 		// Simple fall down
 
 	vy += RAVEN_GRAVITY * dt;
-	if (nx == DIRECTION::RIGHT) vx = RAVEN_WALKING_SPEED;
-	else if (nx == DIRECTION::LEFT) vx = -RAVEN_WALKING_SPEED;
+	if (nx == DIRECTION::RIGHT) vx = RAVEN_FLY_SPEED;
+	else if (nx == DIRECTION::LEFT) vx = -RAVEN_FLY_SPEED;
 
 	if (dynamic_cast<PlayScene*>(scene))
 	{
@@ -42,19 +42,11 @@ void Raven::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 				nx = DIRECTION::RIGHT;
 			}
 
-			vx = RAVEN_WALKING_SPEED * 1.5;
+			vx = RAVEN_FLY_SPEED * 1.5;
 		}
 
 
 	}
-	/*if (x > 2340) {
-		nx = DIRECTION::LEFT;
-
-	}
-	if (x < 2170){
-		nx = DIRECTION::RIGHT;
-
-	}*/
 	if (x > _endPos) {
 		nx = DIRECTION::LEFT;
 
@@ -63,48 +55,16 @@ void Raven::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 		nx = DIRECTION::RIGHT;
 
 	}
-	//if (vung)
-	//{
-	//	if (simon->x - this->x)
-	//	{
-	//		nx = 
-	//	}
-	//}
-
 
 	if (coEvents.size() == 0)
 	{
 		x += dx;
-		y += dy;
+		y = RAVEN_OY_HEIGHT * sin(x * RAVEN_FLY_SPEED_Y) + oy;
 	}
-	else {
-		float min_tx, min_ty, nx = 0, ny;
-
-		FilterCollision(coEvents, coEventsResult, min_tx, min_ty, nx, ny);
-
-		// block 
-		x += min_tx * dx + nx * 0.4f;		// nx*0.4f : need to push out a bit to avoid overlapping next frame
-		if (ny <= 0)
-			y += min_ty * dy + ny * 0.4f;
-		for (UINT i = 0; i < coEventsResult.size(); i++)
-		{
-			LPCOLLISIONEVENT e = coEventsResult[i];
-			if (dynamic_cast<Ground*>(e->obj)) {
-				if (nx != 0) vx = 0;
-				if (ny != 0) vy = 0;
-
-			}
-			else {
-				if (e->nx != 0)
-					x += dx;
-				else if (e->ny < 0) {
-					y += dy;
-				}
-
-			}
-		}
-
-
+	else
+	{
+		x += dx;
+		y = RAVEN_OY_HEIGHT * sin(x * RAVEN_FLY_SPEED_Y) + oy;
 	}
 	for (UINT i = 0; i < coEvents.size(); i++) delete coEvents[i];
 }
