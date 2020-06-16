@@ -24,10 +24,13 @@ void Bat::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 	CalcPotentialCollisions(coObjects, coEvents);
 	
 	x += dx;
-	y = BAT_OY_HEIGHT * sin(x * BAT_FLY_SPEED_Y) + oy;
-	if (x == 2205) {
+	
 
-	}
+	if (y < 830) 
+		y = BAT_OY_HEIGHT * sin(x * BAT_FLY_SPEED_Y) + oy;
+	else 
+		x += dx;
+		
 
 	// clean up collision events
 	for (std::size_t i = 0; i < coEvents.size(); i++) delete coEvents[i];

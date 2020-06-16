@@ -195,10 +195,10 @@
     <ClInclude Include="Raven.h">
       <Filter>Source Files\Enemy</Filter>
     </ClInclude>
-    <ClInclude Include="Skeleton.h">
+    <ClInclude Include="Zombie.h">
       <Filter>Source Files\Enemy</Filter>
     </ClInclude>
-    <ClInclude Include="Zombie.h">
+    <ClInclude Include="White.h">
       <Filter>Source Files\Enemy</Filter>
     </ClInclude>
   </ItemGroup>
@@ -347,13 +347,13 @@
     <ClCompile Include="Hunchback.cpp">
       <Filter>Source Files\Enemy</Filter>
     </ClCompile>
-    <ClCompile Include="Skeleton.cpp">
-      <Filter>Source Files\Enemy</Filter>
-    </ClCompile>
     <ClCompile Include="Raven.cpp">
       <Filter>Source Files\Enemy</Filter>
     </ClCompile>
     <ClCompile Include="Zombie.cpp">
+      <Filter>Source Files\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="White.cpp">
       <Filter>Source Files\Enemy</Filter>
     </ClCompile>
   </ItemGroup>

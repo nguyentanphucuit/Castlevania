@@ -38,8 +38,8 @@
 		<sprite ID="RAVEN_SPRITE_04" />
 	</animation>
 	
-	<animation ID="SKELETON_ANI_JUMP" timeLoop="100">
-		<sprite ID="SKELETON_SPRITE_01" />
-		<sprite ID="SKELETON_SPRITE_02" />
+	<animation ID="WHITE_ANI_JUMP" timeLoop="100">
+		<sprite ID="WHITE_SPRITE_01" />
+		<sprite ID="WHITE_SPRITE_02" />
 	</animation>
 </gamedata>

@@ -7,7 +7,7 @@
 #define BAT_FLY_SPEED_X  0.15f
 #define BAT_FLY_SPEED_Y  0.02f
 
-#define BAT_OY_HEIGHT 30 //độ cao sóng  sin khi bat di chuyen
+#define BAT_OY_HEIGHT 100 //độ cao sóng  sin khi bat di chuyen
 
 class Bat :public Enemy
 {

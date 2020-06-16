@@ -14,6 +14,7 @@
 #include "Stair.h"
 #include "Platform.h"
 #include "Enemy.h"
+#include "StairDual.h"
 
 CSIMON::CSIMON() : CGameObject() {
 	level = SIMON_LEVEL_BIG;
@@ -55,11 +56,11 @@ void CSIMON::HandleFirstStepOnStair()
 	{
 		int a = 2;
 	}
-	DebugOut(L"HandleFirstStepOnStair \n");
+	//DebugOut(L"HandleFirstStepOnStair \n");
 	//up right first step
 
 	if (onStairDirection == STAIRDIRECTION::UPRIGHT) {
-		DebugOut(L"Simon x=%f y=%f \n", this->x, this->y);
+		//DebugOut(L"Simon x=%f y=%f \n", this->x, this->y);
 
 		if (stairPos.x - this->x > SIMON_UPSTAIR_RIGHT_OFFSET) {
 			this->isAutoWalk = true;
@@ -80,12 +81,12 @@ void CSIMON::HandleFirstStepOnStair()
 			this->isOnStair = true;
 			this->isFirstStepOnStair = true;
 			this->LastStepOnStairPos = { floor(this->x),floor(this->y) };
-			DebugOut(L"Step x=%f y=%f \n", this->LastStepOnStairPos.x, this->LastStepOnStairPos.y);
+			//DebugOut(L"Step x=%f y=%f \n", this->LastStepOnStairPos.x, this->LastStepOnStairPos.y);
 			this->SetState(SIMONSTATE::UP_STAIR_RIGHT);
 		}
 	}
 	else if (onStairDirection == STAIRDIRECTION::UPLEFT) {
-		DebugOut(L"Simon x=%f y=%f \n", this->x, this->y);
+		//DebugOut(L"Simon x=%f y=%f \n", this->x, this->y);
 
 		if (stairPos.x - this->x < SIMON_UPSTAIR_LEFT_OFFSET) {
 			this->isAutoWalk = true;
@@ -106,7 +107,7 @@ void CSIMON::HandleFirstStepOnStair()
 			this->isOnStair = true;
 			this->isFirstStepOnStair = true;
 			this->LastStepOnStairPos = { floor(this->x),floor(this->y) };
-			DebugOut(L"Step x=%f y=%f \n", this->LastStepOnStairPos.x, this->LastStepOnStairPos.y);
+			//DebugOut(L"Step x=%f y=%f \n", this->LastStepOnStairPos.x, this->LastStepOnStairPos.y);
 			this->SetState(SIMONSTATE::UP_STAIR_RIGHT);
 		}
 	}
@@ -131,7 +132,7 @@ void CSIMON::HandleFirstStepOnStair()
 			this->isOnStair = true;
 			this->isFirstStepOnStair = true;
 			this->LastStepOnStairPos = { floor(this->x),floor(this->y) };
-			DebugOut(L"First Step x=%f y=%f \n", this->LastStepOnStairPos.x, this->LastStepOnStairPos.y);
+			//DebugOut(L"First Step x=%f y=%f \n", this->LastStepOnStairPos.x, this->LastStepOnStairPos.y);
 			this->SetState(SIMONSTATE::DOWN_STAIR_LEFT);
 		}
 	}
@@ -156,7 +157,7 @@ void CSIMON::HandleFirstStepOnStair()
 			this->isOnStair = true;
 			this->isFirstStepOnStair = true;
 			this->LastStepOnStairPos = { floor(this->x),floor(this->y) };
-			DebugOut(L"First Step x=%f y=%f \n", this->LastStepOnStairPos.x, this->LastStepOnStairPos.y);
+			//DebugOut(L"First Step x=%f y=%f \n", this->LastStepOnStairPos.x, this->LastStepOnStairPos.y);
 			this->SetState(SIMONSTATE::DOWN_STAIR_RIGHT);
 		}
 	}
@@ -172,7 +173,7 @@ void CSIMON::HandlePerStepOnStair()
 				this->x = LastStepOnStairPos.x + SIMON_ONSTAIR_DISTANCE_X;
 				SetState(SIMONSTATE::UP_STAIR_IDLE);
 				this->isOnStair = true;
-				DebugOut(L"Up right \n ");
+				//DebugOut(L"Up right \n ");
 			}
 
 		}
@@ -197,7 +198,7 @@ void CSIMON::HandlePerStepOnStair()
 				this->x = LastStepOnStairPos.x - SIMON_ONSTAIR_DISTANCE_X;
 				SetState(SIMONSTATE::DOWN_STAIR_IDLE);
 				this->isOnStair = true;
-				DebugOut(L" DOWN left x=%f y=%f \n", this->x, this->y);
+				//DebugOut(L" DOWN left x=%f y=%f \n", this->x, this->y);
 			}
 
 		}
@@ -208,9 +209,9 @@ void CSIMON::HandlePerStepOnStair()
 			if (LastStepOnStairPos.y - this->y < SIMON_ONSTAIR_DISTANCE_Y) {
 				this->y = LastStepOnStairPos.y + SIMON_ONSTAIR_DISTANCE_Y;
 				this->x = LastStepOnStairPos.x + SIMON_ONSTAIR_DISTANCE_X;
-				SetState(SIMONSTATE::DOWN_STAIR_LEFT);
+				SetState(SIMONSTATE::DOWN_STAIR_IDLE);
 				this->isOnStair = true;
-				DebugOut(L" DOWN Right x=%f y=%f \n", this->x, this->y);
+				//DebugOut(L" DOWN Right x=%f y=%f \n", this->x, this->y);
 			}
 
 		}
@@ -227,7 +228,7 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 
 	//DebugOut(L"This-> state=%d \n", this->state);
 
-	DebugOut(L"This-> stair dir =%d \n", this->onStairDirection);
+	//DebugOut(L"This-> stair dir =%d \n", this->onStairDirection);
 	if (this->startOnStair) {
 		if (!this->isFirstStepOnStair)
 			HandleFirstStepOnStair();
@@ -379,6 +380,8 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 						pScene->SpawnObject(hmoney->GetItem());
 					}
 				}
+				
+				
 
 				if (e->nx != 0)
 					x += dx;
@@ -393,27 +396,8 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 	// clean up collision events
 	for (UINT i = 0; i < coEvents.size(); i++) delete coEvents[i];
 
-	bool colGround=false;
 	// xử lý va chạm simon và các items
 	for (size_t i = 0; i < coObjects->size(); i++) {
-		if (dynamic_cast<Ground*>(coObjects->at(i))) {
-
-
-			
-			Ground* f = dynamic_cast<Ground*> (coObjects->at(i));
-
-			float l, t, r, b;
-			float gl, gt, gr, gb;
-
-			this->GetBoundingBox(l, t, r, b);
-			f->GetBoundingBox(gl, gt, gr, gb);
-
-			gt -= 10;
-			
-				if (CGameObject::AABB(l, t, r, b, gl, gt, gr, gb))
-					colGround = true;
-
-		}
 		if (dynamic_cast<Stair*>(coObjects->at(i))) {
 			Stair* f = dynamic_cast<Stair*> (coObjects->at(i));
 
@@ -457,6 +441,7 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 					item->SetDestroy();
 				}
 			}
+		
 			/*	else if (dynamic_cast<Stair*>(coObjects->at(i))) {
 					if (coStair == true) {
 							coStair = false;
@@ -517,20 +502,6 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 				}
 			}
 
-		}
-
-		if (colGround)
-			this->isOnGround = true;
-		else
-			this->isOnGround = false;
-
-		if (colGround)
-		{
-			this->colGround = true;
-		}
-		else
-		{
-			this->colGround = false;
 		}
 
 	}

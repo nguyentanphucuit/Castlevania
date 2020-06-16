@@ -43,7 +43,7 @@ void Spawner::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* colliable_obj
 		}
 		else if (this->enemyDef == CEnemy::GHOST
 			|| this->enemyDef == CEnemy::HUNCHBACK
-			|| this->enemyDef == CEnemy::SKELETON
+			|| this->enemyDef == CEnemy::WHITE
 			|| this->enemyDef == CEnemy::RAVEN
 			|| this->enemyDef == CEnemy::ZOMBIE) {
 
@@ -62,8 +62,8 @@ void Spawner::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* colliable_obj
 						auto hunchback = dynamic_cast<Hunchback*>(enemy);
 						hunchback->Area(this->startPos, this->endPos);
 					}
-					else if (dynamic_cast<Skeleton*>(enemy)) {
-						auto skeleton = dynamic_cast<Skeleton*>(enemy);
+					else if (dynamic_cast<White*>(enemy)) {
+						auto skeleton = dynamic_cast<White*>(enemy);
 						skeleton->Area(this->startPos, this->endPos);
 					}
 					else if (dynamic_cast<Raven*>(enemy)) {

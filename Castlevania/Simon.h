@@ -135,7 +135,6 @@ class CSIMON : public CGameObject
 	void HandlePerStepOnStair();
 public: 
 	CSIMON();
-	bool colGround = false;
 	D3DXVECTOR2 LastStepOnStairPos;
 	bool isOnGround = false;
 	bool isOnPlatform = false;

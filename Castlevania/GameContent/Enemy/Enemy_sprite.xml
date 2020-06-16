@@ -45,10 +45,10 @@
 		<frame l="258" t="256" r="290" b="288" />
 	</sprite>
 	
-	<sprite ID="SKELETON_SPRITE_01">
+	<sprite ID="WHITE_SPRITE_01">
 		<frame l="418" t="478" r="450" b="542" />
 	</sprite>
-	<sprite ID="SKELETON_SPRITE_02">
+	<sprite ID="WHITE_SPRITE_02">
 		<frame l="498" t="478" r="530" b="542" />
 	</sprite>
 	

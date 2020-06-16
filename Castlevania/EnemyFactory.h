@@ -4,7 +4,7 @@
 #include "BlackKnight.h"
 #include "Ghost.h"
 #include "Hunchback.h"
-#include "Skeleton.h"
+#include "White.h"
 #include "Raven.h"
 #include "Zombie.h"
 
@@ -13,7 +13,7 @@ enum class CEnemy {
 	BLACKKNIGHT,
 	GHOST,
 	HUNCHBACK,
-	SKELETON,
+	WHITE,
 	RAVEN,
 	ZOMBIE
 };
@@ -40,8 +40,8 @@ inline T EnemyFactory::SpawnEnemy(CEnemy cEnemy)
 	case CEnemy::HUNCHBACK:
 		return new Hunchback();
 		break;
-	case CEnemy::SKELETON:
-		return new Skeleton();
+	case CEnemy::WHITE:
+		return new White();
 		break;
 	case CEnemy::RAVEN:
 		return new Raven();

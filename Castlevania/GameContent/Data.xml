@@ -53,6 +53,7 @@
 			<pscenes id="4" mapID="0" entry="M3_E2" border="M3_C2" isRight="1" name="MainHall"/>
 			<pscenes id="5" mapID="0" entry="M4_E1" border="M4_C1" isRight="1" name="MainHall"/>
 			<pscenes id="6" mapID="0" entry="M2_E3" border="M2_C1" isRight="1" name="MainHall"/>
+			<pscenes id="7" mapID="0" entry="M3_E3" border="M3_C1" isRight="1" name="MainHall"/>
 		</pscene>
 	</scenes>
 </Data>

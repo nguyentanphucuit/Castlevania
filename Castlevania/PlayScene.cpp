@@ -18,6 +18,7 @@
 #include "Spawer.h"
 #include "Platform.h"
 #include "BrickWall.h"
+#include "StairDual.h"
 
 void PlayScene::LoadSprite(const std::string& filePath, const int tex)
 {

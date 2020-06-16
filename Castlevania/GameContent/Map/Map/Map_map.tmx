@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.5" orientation="orthogonal" renderorder="right-down" width="96" height="35" tilewidth="32" tileheight="32" infinite="0" nextlayerid="23" nextobjectid="155">
+<map version="1.2" tiledversion="1.3.5" orientation="orthogonal" renderorder="right-down" width="96" height="35" tilewidth="32" tileheight="32" infinite="0" nextlayerid="24" nextobjectid="167">
  <tileset firstgid="1" name="Map_bank.png" tilewidth="32" tileheight="32" tilecount="945" columns="27">
   <image source="Map_bank.png" width="864" height="1120"/>
  </tileset>
@@ -10112,7 +10112,7 @@
   <object id="1" name="M1_C1" x="508" y="732" width="1540" height="318.667"/>
   <object id="2" name="M2_C1" x="2048.19" y="734.031" width="527.333" height="381.333"/>
   <object id="3" name="M2_C2" x="1536" y="350.333" width="1039.33" height="381"/>
-  <object id="5" name="M3_C1" x="0.5" y="384" width="1535" height="347.5"/>
+  <object id="5" name="M3_C1" x="0.5" y="376" width="1535" height="355.5"/>
   <object id="6" name="M3_C2" x="1" y="32" width="1533.5" height="351.167"/>
   <object id="7" name="M4_C1" x="1535" y="0" width="1536.5" height="350"/>
  </objectgroup>
@@ -10183,16 +10183,28 @@
     <property name="dir" type="int" value="1"/>
    </properties>
   </object>
+  <object id="163" name="StairBottom" x="65.1061" y="227.083" width="31.1212" height="7.1667">
+   <properties>
+    <property name="dir" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="164" name="StairTop" x="98" y="247.667" width="32" height="10.3333">
+   <properties>
+    <property name="dir" type="int" value="3"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="4" name="Player">
   <object id="11" name="M1_E1" gid="949" x="526" y="1000" width="60" height="64"/>
   <object id="13" name="M2_E2" gid="956" x="2309.5" y="700.167" width="60" height="64"/>
-  <object id="14" name="M3_E1" gid="2147484597" x="237.5" y="545.833" width="60" height="64"/>
-  <object id="15" name="M3_E2" gid="2147484604" x="142" y="364" width="60" height="64"/>
+  <object id="14" name="M3_E1" gid="2147484597" x="239.5" y="544.5" width="60" height="64"/>
+  <object id="15" name="M3_E2" gid="2147484604" x="126.667" y="351" width="60" height="64"/>
   <object id="16" name="M4_E1" gid="949" x="1611" y="131" width="60" height="64"/>
   <object id="113" name="M2_E3" gid="2147484606" x="2291.42" y="781.417" width="60" height="64"/>
+  <object id="155" name="M2_E1" gid="949" x="2130" y="1060" width="60" height="64"/>
+  <object id="159" name="M3_E3" gid="958" x="178" y="429.333" width="60" height="64"/>
  </objectgroup>
- <objectgroup id="6" name="Ground" visible="0">
+ <objectgroup id="6" name="Ground">
   <object id="17" x="510" y="1022" width="1535" height="28"/>
   <object id="18" x="2047" y="1086" width="512" height="30"/>
   <object id="23" x="1344" y="672" width="190.667" height="58.6667"/>
@@ -10201,7 +10213,7 @@
   <object id="33" x="2111.33" y="894" width="252" height="28.6667"/>
   <object id="34" x="2447.42" y="576.625" width="47.9166" height="26.0416"/>
   <object id="35" x="2240.67" y="510.667" width="188" height="28"/>
-  <object id="37" x="66" y="321" width="63" height="28"/>
+  <object id="37" x="66" y="323.667" width="79" height="25.3333"/>
   <object id="38" x="322" y="324" width="318" height="24"/>
   <object id="39" x="1537" y="319" width="1535" height="31"/>
   <object id="65" x="1921" y="513" width="188" height="28"/>
@@ -10217,7 +10229,7 @@
   <object id="130" x="2495.33" y="352" width="62.6667" height="377.333"/>
   <object id="131" x="2176.67" y="638.667" width="62" height="28"/>
   <object id="132" x="192" y="544" width="190.667" height="29.3333"/>
-  <object id="133" x="163.333" y="323.333" width="28.6667" height="26.6667"/>
+  <object id="133" x="163.333" y="324" width="28.6667" height="26"/>
   <object id="134" x="256.667" y="194.667" width="64" height="60"/>
   <object id="135" x="451.333" y="193.333" width="60.6667" height="30"/>
   <object id="136" x="708.667" y="323.333" width="58" height="26"/>
@@ -10235,6 +10247,7 @@
   <object id="148" x="1536" y="129.333" width="222.667" height="29.3333"/>
   <object id="149" x="2878.67" y="256.667" width="64" height="28.6667"/>
   <object id="150" x="2974.67" y="195.333" width="96" height="26.6667"/>
+  <object id="156" x="1476" y="260" width="57.3333" height="120"/>
  </objectgroup>
  <objectgroup id="18" name="Platform">
   <object id="73" gid="1025" x="1598" y="537" width="64" height="16"/>
@@ -10310,13 +10323,13 @@
     <property name="time" value="1000"/>
    </properties>
   </object>
-  <object id="99" name="Skeleton" x="724" y="256" width="32" height="64">
+  <object id="99" name="Skeleton" x="706" y="640" width="32" height="64">
    <properties>
     <property name="edef" value="4"/>
-    <property name="endPos" value="2340"/>
+    <property name="endPos" value="800"/>
     <property name="num" value="1"/>
-    <property name="startPos" value="2240"/>
-    <property name="time" value="1000"/>
+    <property name="startPos" value="800"/>
+    <property name="time" value="700"/>
    </properties>
   </object>
   <object id="101" name="Hunchback" x="191.333" y="511.333" width="32" height="32">
@@ -10419,19 +10432,29 @@
   </object>
  </objectgroup>
  <objectgroup id="7" name="NextScene">
-  <object id="20" x="2006.33" y="912" width="9" height="109">
+  <object id="20" name="S1_S2" x="2006.33" y="912" width="9" height="109">
    <properties>
     <property name="sceneID" type="int" value="1"/>
    </properties>
   </object>
-  <object id="110" x="2304.5" y="697" width="9" height="12.25">
+  <object id="110" name="S22_S21" x="2304.5" y="697" width="9" height="12.25">
    <properties>
     <property name="sceneID" type="int" value="6"/>
    </properties>
   </object>
-  <object id="111" x="2341.25" y="735.584" width="5.66667" height="14.8333">
+  <object id="111" name="S21_S22" x="2341.25" y="735.584" width="5.66667" height="14.8333">
    <properties>
     <property name="sceneID" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="157" name="S32_S31" x="161.833" y="357.25" width="6.33334" height="6.16663">
+   <properties>
+    <property name="sceneID" type="int" value="7"/>
+   </properties>
+  </object>
+  <object id="158" name="S31_S32" x="168.167" y="392.917" width="8.3333" height="8.1666">
+   <properties>
+    <property name="sceneID" type="int" value="4"/>
    </properties>
   </object>
  </objectgroup>
