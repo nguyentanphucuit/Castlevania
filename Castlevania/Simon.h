@@ -138,6 +138,7 @@ public:
 	bool colGround = false;
 	D3DXVECTOR2 LastStepOnStairPos;
 	bool isOnGround = false;
+	bool isOnPlatform = false;
 	bool isTouchRetroGrade = true;
 	bool ResetSpawnWeapon() { return this->isSpawnWeapon = false; };
 	bool IsSpawnWeapon() { return spawnWeapon; };

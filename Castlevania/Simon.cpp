@@ -300,7 +300,8 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 			LPCOLLISIONEVENT e = coEventsResult[i];
 
 			if (dynamic_cast<Ground*>(e->obj)) {
-			
+				isOnGround = true;
+				isOnPlatform = false;
 				if (this->isOnStair) {
 					x += dx;
 					y += dy;
@@ -339,13 +340,13 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 				}
 			}
 			else if (dynamic_cast<CPlatform*>(e->obj)) {
+				isOnPlatform = true;
  				CPlatform* platform = dynamic_cast<CPlatform*>(e->obj);
 				if (e->ny != 0) {
 					if (GetState() == SIMONSTATE::JUMP && vy >= 0) {
 						SetState(SIMONSTATE::IDLE);
 					}
-					//if (ny != 0) vy = 0;
-					
+					if (ny != 0) vy = 0;
 				}
 				this->x += platform->dx;
 			}

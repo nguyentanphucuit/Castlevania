@@ -53,8 +53,8 @@ void BlackKnight::Update(DWORD dt, Scene* scene , vector<LPGAMEOBJECT>* coObject
 
 				vx = -BLACKKNIGHT_WALKING_SPEED * 1.5;
 			}
-			DebugOut(L"sx %f\n", sx);
-			DebugOut(L"x %f\n", x);
+			/*DebugOut(L"sx %f\n", sx);
+			DebugOut(L"x %f\n", x);*/
 		}
 		
 		

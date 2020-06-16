@@ -25,6 +25,9 @@ void Bat::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 	
 	x += dx;
 	y = BAT_OY_HEIGHT * sin(x * BAT_FLY_SPEED_Y) + oy;
+	if (x == 2205) {
+
+	}
 
 	// clean up collision events
 	for (std::size_t i = 0; i < coEvents.size(); i++) delete coEvents[i];

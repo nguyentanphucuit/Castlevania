@@ -66,9 +66,9 @@ void CPlatform::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 		{
 			LPCOLLISIONEVENT e = coEventsResult[i];
 			if (dynamic_cast<Ground*>(e->obj)) {
-				if(vx >0) vx = -PLATFORM_SPEED;
+				if(vx > 0) vx = -PLATFORM_SPEED;
 				else vx = PLATFORM_SPEED;
-
+				
 			}
 			else {
 				if (e->nx != 0)
