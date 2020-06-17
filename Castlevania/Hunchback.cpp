@@ -1,4 +1,4 @@
-#include "Hunchback.h"
+﻿#include "Hunchback.h"
 #include "Debug.h"
 #include "Ground.h"
 #include "Simon.h"
@@ -31,22 +31,24 @@ void Hunchback::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 	vy += HUNCHBACK_GRAVITY * dt;
 	
 	//DebugOut(L"y %d\n", y);
-	if (x > _endPos) {
-		nx = DIRECTION::LEFT;
-	}
-	if (x < _startPos) {
-		nx = DIRECTION::RIGHT;
-	} 
+	
 
 	if (dynamic_cast<PlayScene*>(scene))
 	{
 		PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
-		if (
-			pScene->GetSimon()->x - this->x < ACTIVE_HUNCHBACK_Y)
+		if (pScene->GetSimon()->x - this->x < ACTIVE_HUNCHBACK_X && !waitTimeActive)
 		{
-			this->SetState(HUNCHBACK::JUMP);
+			waitTimeActive = GetTickCount();
+			
 		}
-
+		if (x > pScene->GetSimon()->x + _endPos) {
+			nx = DIRECTION::LEFT;
+		}
+		if (x < pScene->GetSimon()->x - _startPos) {
+			nx = DIRECTION::RIGHT;
+		}
+		if (GetTickCount() - waitTimeActive > TIME_ACTIVE)
+			this->SetState(HUNCHBACK::JUMP);
 	}
 	
 
@@ -71,9 +73,22 @@ void Hunchback::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 				if (nx != 0) vx = 0;
 				if (ny != 0) vy = 0;
 				if (jump) {
-					OnTouchingGround();
-					DebugOut(L"jump \n");
+					int jumpRank = rand() % (2 - 1 + 1) + 1;
+					if (jumpRank == 1)
+					{
+						vy = 0;
+					}
+					else
+					{
+						float minvy = -0.40;
+						float maxvy = -0.60;
+						vy = minvy + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (maxvy - minvy)));
+					}
+					float minvx = -0.20;
+					float maxvx = 0.20;
+					vx = minvx + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (maxvx - minvx)));
 				}
+				
 			}
 			else {
 				if (e->nx != 0)
@@ -84,8 +99,6 @@ void Hunchback::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 
 			}
 		}
-
-
 	}
 	for (UINT i = 0; i < coEvents.size(); i++) delete coEvents[i];
 }

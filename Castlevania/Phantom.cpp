@@ -24,8 +24,7 @@ void Phantom::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 	{
 		PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
 		oy = pScene->GetSimon()->y;
-		if (pScene->GetSimon()->y - this->y < ACTIVE_PHANTOM_X &&
-			pScene->GetSimon()->x - this->x < ACTIVE_PHANTOM_Y)
+		if (this->x - pScene->GetSimon()->x < ACTIVE_PHANTOM_Y)
 		{
 			this->SetState(PHANTOMSTATE::FLY);
 
@@ -35,7 +34,7 @@ void Phantom::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 
 	if (coEvents.size() == 0)
 	{
-		x += dx;
+		x -= dx;
 		y += dy;
 	}
 	else {

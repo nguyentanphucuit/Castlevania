@@ -5,7 +5,6 @@
 
 
 #define ghost_fly_velocity 0.1f
-#define PI 3.14159265359
 class Ghost :public Enemy
 {
 private:

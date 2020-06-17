@@ -9,9 +9,9 @@
 #define HUNCHBACK_ANI_READY 0
 #define HUNCHBACK_ANI_JUMP 1
 
-#define ACTIVE_HUNCHBACK_X 100
-#define ACTIVE_HUNCHBACK_Y 150
+#define ACTIVE_HUNCHBACK_X 250
 
+#define TIME_ACTIVE 750
 enum class HUNCHBACK {
 	READY,
 	JUMP
@@ -25,6 +25,7 @@ private:
 	int _startPos;
 	HUNCHBACK state;
 	bool jump = false;
+	DWORD waitTimeActive;
 public:
 	virtual void GetBoundingBox(float& left, float& top, float& right, float& bottom);
 	virtual void Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects);

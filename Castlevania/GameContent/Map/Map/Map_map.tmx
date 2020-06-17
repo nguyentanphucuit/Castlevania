@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.3" orientation="orthogonal" renderorder="right-down" width="96" height="35" tilewidth="32" tileheight="32" infinite="0" nextlayerid="24" nextobjectid="181">
+<map version="1.2" tiledversion="1.3.5" orientation="orthogonal" renderorder="right-down" width="96" height="35" tilewidth="32" tileheight="32" infinite="0" nextlayerid="24" nextobjectid="194">
  <tileset firstgid="1" name="Map_bank.png" tilewidth="32" tileheight="32" tilecount="945" columns="27">
   <image source="Map_bank.png" width="864" height="1120"/>
  </tileset>
@@ -10113,8 +10113,8 @@
   <object id="2" name="M2_C1" x="2048.19" y="734.031" width="527.333" height="381.333"/>
   <object id="3" name="M2_C2" x="1536" y="350.333" width="1039.33" height="381"/>
   <object id="5" name="M3_C1" x="0.5" y="376" width="1535" height="355.5"/>
-  <object id="6" name="M3_C2" x="1" y="32" width="1533.5" height="351.167"/>
-  <object id="7" name="M4_C1" x="1535" y="-54.6667" width="1536.5" height="404.667"/>
+  <object id="6" name="M3_C2" x="1" y="14.6667" width="1533.5" height="368.5"/>
+  <object id="7" name="M4_C1" x="1535.96" y="-54.6667" width="1536.88" height="404.667"/>
  </objectgroup>
  <objectgroup id="11" name="HMoney">
   <object id="48" x="1929.5" y="1007.5" width="35" height="14"/>
@@ -10198,11 +10198,11 @@
   <object id="11" name="M1_E1" gid="949" x="1009" y="1020" width="60" height="64"/>
   <object id="13" name="M2_E222222" gid="956" x="2309.5" y="700.167" width="60" height="64"/>
   <object id="15" name="M3_E222222" gid="2147484604" x="126.667" y="351" width="60" height="64"/>
-  <object id="16" name="M4_E1" gid="949" x="1611" y="131" width="60" height="64"/>
+  <object id="16" name="M4_E1" gid="949" x="1608.64" y="119.182" width="60" height="64"/>
   <object id="113" name="M2_E3" gid="2147484606" x="2291.42" y="781.417" width="60" height="64"/>
   <object id="155" name="M2_E1" gid="2147484597" x="2431" y="956" width="60" height="64"/>
   <object id="159" name="M3_E3" gid="958" x="178" y="429.333" width="60" height="64"/>
-  <object id="169" name="M3_E1" gid="2147484597" x="342" y="680" width="60" height="64"/>
+  <object id="169" name="M3_E1" gid="2147484597" x="1179.67" y="677.667" width="60" height="64"/>
   <object id="177" name="M2_E2" gid="956" x="1759" y="504" width="60" height="64"/>
   <object id="178" name="M3_E2" gid="2147484604" x="265" y="183" width="60" height="64"/>
  </objectgroup>
@@ -10217,7 +10217,6 @@
   <object id="35" x="2240.67" y="510.667" width="188" height="28"/>
   <object id="37" x="66" y="323.667" width="79" height="25.3333"/>
   <object id="38" x="322" y="324" width="318" height="24"/>
-  <object id="39" x="1537" y="319" width="1535" height="31"/>
   <object id="65" x="1921" y="513" width="188" height="28"/>
   <object id="66" x="2112" y="573" width="60" height="28"/>
   <object id="70" x="1726" y="510" width="126" height="30"/>
@@ -10246,11 +10245,23 @@
   <object id="145" x="2078" y="864.667" width="29.3333" height="118"/>
   <object id="146" x="2049.33" y="738" width="26.6667" height="248"/>
   <object id="147" x="1792" y="194.667" width="349.333" height="27.3333"/>
-  <object id="148" x="1536" y="129.333" width="222.667" height="29.3333"/>
+  <object id="148" x="1540.36" y="130.424" width="218.303" height="28.2424"/>
   <object id="149" x="2878.67" y="256.667" width="64" height="28.6667"/>
   <object id="150" x="2974.67" y="195.333" width="96" height="26.6667"/>
   <object id="156" x="1476" y="260" width="57.3333" height="120"/>
   <object id="179" x="0" y="379" width="65" height="352"/>
+  <object id="181" x="2047" y="986" width="5.5" height="98"/>
+  <object id="182" x="2495" y="985" width="65.5" height="100"/>
+  <object id="183" x="2497.5" y="736.5" width="61" height="120.5"/>
+  <object id="184" x="2240" y="542" width="60.5" height="124.5"/>
+  <object id="185" x="1503" y="573.5" width="15.5" height="97.5"/>
+  <object id="187" x="2.5" y="33" width="60.5" height="342"/>
+  <object id="188" x="1475" y="34" width="59.5" height="122.5"/>
+  <object id="189" x="3055" y="224" width="16" height="96"/>
+  <object id="190" x="1535.5" y="-1" width="4.5" height="159.545"/>
+  <object id="191" x="1535.5" y="159" width="5" height="170.5"/>
+  <object id="192" x="1532.42" y="322.875" width="1541.71" height="27"/>
+  <object id="193" x="497" y="896.5" width="12" height="154.5"/>
  </objectgroup>
  <objectgroup id="18" name="Platform">
   <object id="73" gid="1025" x="1598" y="537" width="64" height="16"/>
@@ -10292,7 +10303,7 @@
     <property name="time" value="1000"/>
    </properties>
   </object>
-  <object id="93" name="Ghost" x="1168.67" y="502.333" width="32" height="32">
+  <object id="93" name="Ghost" x="1274" y="611.666" width="32" height="32">
    <properties>
     <property name="edef" value="2"/>
     <property name="endPos" value="1200"/>
@@ -10304,18 +10315,18 @@
   <object id="96" name="Hunchback" x="849.5" y="573.25" width="32" height="32">
    <properties>
     <property name="edef" value="3"/>
-    <property name="endPos" value="1222"/>
+    <property name="endPos" value="100"/>
     <property name="num" value="1"/>
     <property name="startPos" value="1111"/>
-    <property name="time" value="1000"/>
+    <property name="time" value="100"/>
    </properties>
   </object>
   <object id="97" name="Hunchback" x="595" y="576" width="32" height="32">
    <properties>
     <property name="edef" value="3"/>
-    <property name="endPos" value="1200"/>
+    <property name="endPos" value="100"/>
     <property name="num" value="1"/>
-    <property name="startPos" value="840"/>
+    <property name="startPos" value="100"/>
     <property name="time" value="1000"/>
    </properties>
   </object>
@@ -10331,10 +10342,10 @@
   <object id="101" name="Hunchback" x="191.333" y="511.333" width="32" height="32">
    <properties>
     <property name="edef" value="999"/>
-    <property name="endPos" value="1200"/>
+    <property name="endPos" value="100"/>
     <property name="num" value="1"/>
     <property name="startPos" value="840"/>
-    <property name="time" value="1000"/>
+    <property name="time" value="100"/>
    </properties>
   </object>
   <object id="102" name="Raven" x="832" y="156" width="32" height="32">
@@ -10384,14 +10395,14 @@
   </object>
   <object id="108" name="Ghost" x="162" y="86" width="32" height="32">
    <properties>
-    <property name="edef" value="2"/>
+    <property name="edef" value="222222"/>
     <property name="endPos" value="1200"/>
     <property name="num" value="1"/>
     <property name="startPos" value="840"/>
     <property name="time" value="1000"/>
    </properties>
   </object>
-  <object id="117" name="Zombie" x="1869.33" y="202" width="32" height="64">
+  <object id="117" name="Zombie" x="2109.33" y="130" width="32" height="64">
    <properties>
     <property name="edef" value="6"/>
     <property name="endPos" value="2340"/>
@@ -10400,7 +10411,7 @@
     <property name="time" value="1000"/>
    </properties>
   </object>
-  <object id="118" name="Zombie" x="1753.34" y="259.333" width="32" height="64">
+  <object id="118" name="Zombie" x="2181.34" y="251.333" width="32" height="64">
    <properties>
     <property name="edef" value="6"/>
     <property name="endPos" value="2340"/>

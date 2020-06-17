@@ -81,12 +81,12 @@ void White::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 				}
 				else
 				{
-					float minvy = -0.40;
-					float maxvy = -0.60;
+					float minvy = -0.60;
+					float maxvy = -0.80;
 					vy = minvy + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (maxvy - minvy)));
 				}
-				float minvx = -0.20;
-				float maxvx = 0.20;
+				float minvx = -0.40;
+				float maxvx = 0.40;
 				vx = minvx + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (maxvx - minvx)));
 			}
 			else {

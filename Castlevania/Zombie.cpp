@@ -32,45 +32,6 @@ void Zombie::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 	if (nx == DIRECTION::RIGHT) vx = ZOMBIE_WALKING_SPEED;
 	else if (nx == DIRECTION::LEFT) vx = -ZOMBIE_WALKING_SPEED;
 
-	if (dynamic_cast<PlayScene*>(scene))
-	{
-		PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
-		D3DXVECTOR2 cam = pScene->GetCamera();
-
-		if ((pScene->GetSimon()->x - x < ZOMBIE_BBOX_WIDTH * 4) && (pScene->GetSimon()->y - y) < 1 && x < _endPos - ZOMBIE_BBOX_WIDTH) {
-			if (nx == DIRECTION::LEFT) {
-				nx = DIRECTION::RIGHT;
-			}
-
-			vx = ZOMBIE_WALKING_SPEED * 1.5;
-		}
-
-
-	}
-	/*if (x > 2340) {
-		nx = DIRECTION::LEFT;
-
-	}
-	if (x < 2170){
-		nx = DIRECTION::RIGHT;
-
-	}*/
-	if (x > _endPos) {
-		nx = DIRECTION::LEFT;
-
-	}
-	if (x < _startPos) {
-		nx = DIRECTION::RIGHT;
-
-	}
-	//if (vung)
-	//{
-	//	if (simon->x - this->x)
-	//	{
-	//		nx = 
-	//	}
-	//}
-
 
 	if (coEvents.size() == 0)
 	{
@@ -112,7 +73,7 @@ void Zombie::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 void Zombie::Render()
 {
 
-	animations[0]->Render(nx, x, y);
+	animations[0]->Render(nx = DIRECTION::LEFT, x, y);
 	//RenderBoundingBox();
 }
 
