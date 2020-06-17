@@ -31,12 +31,16 @@
 		<sprite ID="HUNCHBACK_SPRITE_02" />
 	</animation>
 	
+	<animation ID="RAVEN_ANI_IDLE" timeLoop="100">
+		<sprite ID="RAVEN_SPRITE_IDLE" />
+	</animation>
 	<animation ID="RAVEN_ANI_FLY" timeLoop="100">
 		<sprite ID="RAVEN_SPRITE_01" />
 		<sprite ID="RAVEN_SPRITE_02" />
 		<sprite ID="RAVEN_SPRITE_03" />
-		<sprite ID="RAVEN_SPRITE_04" />
 	</animation>
+	
+	
 	
 	<animation ID="WHITE_ANI_JUMP" timeLoop="100">
 		<sprite ID="WHITE_SPRITE_01" />

@@ -52,16 +52,17 @@
 		<frame l="498" t="478" r="530" b="542" />
 	</sprite>
 	
-	<sprite ID="RAVEN_SPRITE_01">
+	<sprite ID="RAVEN_SPRITE_IDLE">
 		<frame l="338" t="656" r="370" b="688" />
 	</sprite>
-	<sprite ID="RAVEN_SPRITE_02">
+	
+	<sprite ID="RAVEN_SPRITE_01">
 		<frame l="418" t="656" r="450" b="688" />
 	</sprite>
-	<sprite ID="RAVEN_SPRITE_03">
+	<sprite ID="RAVEN_SPRITE_02">
 		<frame l="498" t="656" r="530" b="688" />
 	</sprite>
-	<sprite ID="RAVEN_SPRITE_04">
+	<sprite ID="RAVEN_SPRITE_03">
 		<frame l="578" t="656" r="610" b="688" />
 	</sprite>
 	

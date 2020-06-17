@@ -7,7 +7,16 @@
 #define RAVEN_FLY_SPEED			0.10f
 #define RAVEN_FLY_SPEED_Y		0.02f
 
+#define RAVEN_ANI_IDLE		0 
+#define RAVEN_ANI_FLY		1
+
+#define ACTIVE_RAVEN_X 280
 #define RAVEN_OY_HEIGHT 30
+
+enum class RAVENSTATE {
+	IDLE,
+	FLY
+};
 class Raven :public Enemy
 {
 private:
@@ -15,6 +24,8 @@ private:
 	int _endPos;
 	int _startPos;
 	float oy;
+	RAVENSTATE state;
+	bool fly = false;
 public:
 	virtual void GetBoundingBox(float& left, float& top, float& right, float& bottom);
 	virtual void Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects);
@@ -23,6 +34,7 @@ public:
 		this->oy = this->y;
 	}
 	void Area(int startPos, int endPos);
+	void SetState(RAVENSTATE state);
 	Raven();
 };
 
