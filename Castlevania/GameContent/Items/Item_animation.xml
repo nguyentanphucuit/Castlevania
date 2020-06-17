@@ -22,5 +22,15 @@
 			<sprite ID="MONEYBAG_SPRITE_BLUE" />
 			<sprite ID="MONEYBAG_SPRITE_WHITE" />
 		</animation>
+		
+		<animation ID="BONE_ANI_WHITE" timeLoop="100">
+			<sprite ID="BONE_SPRITE_WHITE_01" />
+			<sprite ID="BONE_SPRITE_WHITE_02" />
+			<sprite ID="BONE_SPRITE_WHITE_03" />
+		</animation>
+			
+		<animation ID="AXE_ANI" timeLoop="100">
+			<sprite ID="AXE_SPRITE" />
+		</animation>
 
 </gamedata>

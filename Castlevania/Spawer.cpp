@@ -63,8 +63,8 @@ void Spawner::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* colliable_obj
 						hunchback->Area(this->startPos, this->endPos);
 					}
 					else if (dynamic_cast<White*>(enemy)) {
-						auto skeleton = dynamic_cast<White*>(enemy);
-						skeleton->Area(this->startPos, this->endPos);
+						auto Bone = dynamic_cast<White*>(enemy);
+						Bone->Area(this->startPos, this->endPos);
 					}
 					else if (dynamic_cast<Raven*>(enemy)) {
 						auto raven = dynamic_cast<Raven*>(enemy);

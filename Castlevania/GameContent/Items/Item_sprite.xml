@@ -25,7 +25,20 @@
 		<sprite ID="MONEYBAG_SPRITE_WHITE">
 			<frame l="63" t="33" r="94" b="63" />
 		</sprite>
-
+		
+		<sprite ID="BONE_SPRITE_WHITE_01">
+			<frame l="295" t="0" r="310" b="16" />
+		</sprite>
+		<sprite ID="BONE_SPRITE_WHITE_02">
+			<frame l="310" t="0" r="325" b="16" />
+		</sprite>
+		<sprite ID="BONE_SPRITE_WHITE_03">
+			<frame l="325" t="0" r="340" b="16" />
+		</sprite>
+		
+		<sprite ID="AXE_SPRITE">
+			<frame l="129" t="0" r="162" b="30" />
+		</sprite>
 		
 
 </gamedata>

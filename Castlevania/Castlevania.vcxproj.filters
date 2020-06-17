@@ -201,10 +201,10 @@
     <ClInclude Include="White.h">
       <Filter>Source Files\Enemy</Filter>
     </ClInclude>
-    <ClInclude Include="Skeleton.h">
+    <ClInclude Include="WAxe.h">
       <Filter>Source Files\SubWeapons</Filter>
     </ClInclude>
-    <ClInclude Include="WAxe.h">
+    <ClInclude Include="Bone.h">
       <Filter>Source Files\SubWeapons</Filter>
     </ClInclude>
   </ItemGroup>
@@ -362,10 +362,10 @@
     <ClCompile Include="White.cpp">
       <Filter>Source Files\Enemy</Filter>
     </ClCompile>
-    <ClCompile Include="Skeleton.cpp">
+    <ClCompile Include="WAxe.cpp">
       <Filter>Source Files\SubWeapons</Filter>
     </ClCompile>
-    <ClCompile Include="WAxe.cpp">
+    <ClCompile Include="Bone.cpp">
       <Filter>Source Files\SubWeapons</Filter>
     </ClCompile>
   </ItemGroup>
