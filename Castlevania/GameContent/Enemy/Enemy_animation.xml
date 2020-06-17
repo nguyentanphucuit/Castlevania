@@ -42,4 +42,13 @@
 		<sprite ID="WHITE_SPRITE_01" />
 		<sprite ID="WHITE_SPRITE_02" />
 	</animation>
+	
+	<animation ID="PHANTOM_ANI_IDLE" timeLoop="100">
+		<sprite ID="PHANTOM_SPRITE_IDLE" />
+	</animation>
+	
+	<animation ID="PHANTOM_ANI_FLY" timeLoop="100">
+		<sprite ID="PHANTOM_SPRITE_01" />
+		<sprite ID="PHANTOM_SPRITE_02" />
+	</animation>
 </gamedata>

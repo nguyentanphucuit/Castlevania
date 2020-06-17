@@ -64,5 +64,16 @@
 	<sprite ID="RAVEN_SPRITE_04">
 		<frame l="578" t="656" r="610" b="688" />
 	</sprite>
+	
+	<sprite ID="PHANTOM_SPRITE_IDLE">
+		<frame l="257" t="735" r="290" b="768" />
+	</sprite>
+	
+	<sprite ID="PHANTOM_SPRITE_01">
+		<frame l="25" t="729" r="122" b="774" />
+	</sprite>
+	<sprite ID="PHANTOM_SPRITE_02">
+		<frame l="145" t="727" r="242" b="774" />
+	</sprite>
 
 </gamedata>

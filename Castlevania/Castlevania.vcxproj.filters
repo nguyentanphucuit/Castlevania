@@ -213,6 +213,9 @@
     <ClInclude Include="WBoomerang.h">
       <Filter>Source Files\SubWeapons</Filter>
     </ClInclude>
+    <ClInclude Include="Phantom.h">
+      <Filter>Source Files\Enemy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -379,6 +382,9 @@
     </ClCompile>
     <ClCompile Include="WBoomerang.cpp">
       <Filter>Source Files\SubWeapons</Filter>
+    </ClCompile>
+    <ClCompile Include="Phantom.cpp">
+      <Filter>Source Files\Enemy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

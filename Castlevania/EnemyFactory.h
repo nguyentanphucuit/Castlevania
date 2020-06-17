@@ -7,6 +7,7 @@
 #include "White.h"
 #include "Raven.h"
 #include "Zombie.h"
+#include "Phantom.h"
 
 enum class CEnemy {
 	BAT = 0,
@@ -15,7 +16,8 @@ enum class CEnemy {
 	HUNCHBACK,
 	WHITE,
 	RAVEN,
-	ZOMBIE
+	ZOMBIE,
+	PHANTOM
 };
 class EnemyFactory
 {
@@ -30,25 +32,20 @@ inline T EnemyFactory::SpawnEnemy(CEnemy cEnemy)
 	switch (cEnemy) {
 	case CEnemy::BAT:
 		return new Bat();
-		break;
 	case CEnemy::BLACKKNIGHT:
 		return new BlackKnight();
-		break;
 	case CEnemy::GHOST:
 		return new Ghost();
-		break;
 	case CEnemy::HUNCHBACK:
 		return new Hunchback();
-		break;
 	case CEnemy::WHITE:
 		return new White();
-		break;
 	case CEnemy::RAVEN:
 		return new Raven();
-		break;
 	case CEnemy::ZOMBIE:
 		return new Zombie();
-		break;
+	case CEnemy::PHANTOM:
+		return new Phantom();
 	}
 	return T();
 }
