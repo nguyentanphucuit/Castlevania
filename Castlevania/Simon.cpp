@@ -330,6 +330,8 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 				{
 					y += dy;
 				}
+				
+				if (e->nx != 0) y += dy;
 				if (state == SIMONSTATE::ENTERENTRANCE) { break; }
 
 
@@ -389,8 +391,14 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 
 				if (e->nx != 0)
 					x += dx;
-				if (e->ny != 0)
-					y += dy;
+				if (e->ny != 0) {
+					if (vy<0)
+					{
+						y += dy;
+					}
+					
+				}
+				
 
 			}
 
@@ -457,16 +465,12 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 					if (!this->isOnStair)
 					{
 						this->SetState(SIMONSTATE::DEFLECT);
-						x += dx;
-						y += dy;
 					}
 					if (untouchable != 1) {
 						StartUntouchable();
 					}
 				}
-				else if (this->nx == DIRECTION::DEFAULT) {
-					y += dy;
-				}
+				
 			}
 		}
 

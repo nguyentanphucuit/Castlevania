@@ -25,7 +25,8 @@ void White::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 
 	vy += WHITE_GRAVITY * dt;
 
-	auto weapon = WeaponFactory::SpawnWeapon<Weapon*>(EWeapon::BOOMERANG);
+	auto weapon = WeaponFactory::SpawnWeapon<Weapon*>(EWeapon::BONE);
+
 	
 	if (numWeapon  < 3 && GetTickCount() - timeSpawn > 450) {
 		timeSpawn = GetTickCount();
@@ -37,12 +38,21 @@ void White::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 		}
 		numWeapon++;
 	}
-	if (weapon->isDestroy)
+	if (numWeapon == 3) {
+		if (loadTimeSpawn ==0)
+		{
+			loadTimeSpawn = GetTickCount();
+		}
+		
+	}
+	if (loadTimeSpawn!=0 && GetTickCount()-loadTimeSpawn>1000)
 	{
-		this->isSpawnWeapon = false;
-		numWeapon--;
+		loadTimeSpawn = 0;
+		numWeapon = 0;
+
 	}
 
+	
 	if (coEvents.size() == 0)
 	{
 		x += dx;
@@ -63,7 +73,21 @@ void White::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 			if (dynamic_cast<Ground*>(e->obj)) {
 				if (nx != 0) vx = 0;
 				if (ny != 0) vy = 0;
-				//vy -= .4;
+				
+				int jumpRank = rand()%(2-1+1)+1;
+				if (jumpRank==1)
+				{
+					vy = 0;
+				}
+				else
+				{
+					float minvy = -0.40;
+					float maxvy = -0.60;
+					vy = minvy + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (maxvy - minvy)));
+				}
+				float minvx = -0.20;
+				float maxvx = 0.20;
+				vx = minvx + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (maxvx - minvx)));
 			}
 			else {
 				if (e->nx != 0)
