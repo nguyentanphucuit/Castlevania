@@ -204,6 +204,9 @@
     <ClInclude Include="Skeleton.h">
       <Filter>Source Files\SubWeapons</Filter>
     </ClInclude>
+    <ClInclude Include="WAxe.h">
+      <Filter>Source Files\SubWeapons</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -360,6 +363,9 @@
       <Filter>Source Files\Enemy</Filter>
     </ClCompile>
     <ClCompile Include="Skeleton.cpp">
+      <Filter>Source Files\SubWeapons</Filter>
+    </ClCompile>
+    <ClCompile Include="WAxe.cpp">
       <Filter>Source Files\SubWeapons</Filter>
     </ClCompile>
   </ItemGroup>

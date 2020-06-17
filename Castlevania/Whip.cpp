@@ -185,13 +185,18 @@ void Whip::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT>* colliable_objects
 			Enemy* enemy = dynamic_cast<Enemy*>(colliable_objects->at(i));
 			if (this->isColliding(enemy) && !enemy->IsDestroyed() ) // check CO
 			{
-				enemy->SubtractHP(this->damage);
-
-				if (enemy->GetHp() == 0)
+				if (ColOneTime)
 				{
-					enemy->SetDestroy();
+					enemy->SubtractHP(this->damage);
 
+					if (enemy->GetHp() == 0)
+					{
+						enemy->SetDestroy();
+					}
 				}
+			
+			
+				ColOneTime = false;
 				DebugOut(L"okey \n");
 				
 			}

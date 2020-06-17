@@ -23,7 +23,7 @@ private:
 	WHIPSTATE state;
 	UINT  damage = 1;
 public:
-
+	bool ColOneTime=false;
 	Whip()
 	{
 

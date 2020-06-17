@@ -291,7 +291,11 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 
 		// block 
 		x += min_tx * dx + nx * 0.4f;		// nx*0.4f : need to push out a bit to avoid overlapping next frame
-		y += min_ty * dy + ny * 0.4f;
+		if (ny<0)
+		{
+			y += min_ty * dy + ny * 0.4f;
+		}
+	
 
 
 
@@ -631,17 +635,21 @@ void CSIMON::SetState(SIMONSTATE state)
 		vx = 0;
 		break;
 	case SIMONSTATE::FIGHT_STAND:
+		whip->ColOneTime = true;
 		vx = this->state == SIMONSTATE::IDLE || this->state == SIMONSTATE::WALKING_LEFT
 			|| this->state == SIMONSTATE::WALKING_RIGHT ? 0 : vx;
 		this->fight_start = GetTickCount();
 		break;
 	case SIMONSTATE::FIGHT_SIT:
+		whip->ColOneTime = true;
 		this->fight_start = GetTickCount();
 		break;
 	case SIMONSTATE::DOWN_STAIR_FIGHT:
+		whip->ColOneTime = true;
 		this->fight_start = GetTickCount();
 		break;
 	case SIMONSTATE::UP_STAIR_FIGHT:
+		whip->ColOneTime = true;
 		this->fight_start = GetTickCount();
 		break;
 	case SIMONSTATE::UP_STAIR_RIGHT: {

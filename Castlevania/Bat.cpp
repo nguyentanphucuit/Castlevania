@@ -107,4 +107,5 @@ Bat::Bat() :Enemy()
 {
 	AddAnimation("BAT_ANI_IDLE");
 	AddAnimation("BAT_ANI_FLYING");
+	this->hp = 1;
 }
