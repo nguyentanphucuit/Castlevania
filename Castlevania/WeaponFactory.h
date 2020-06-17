@@ -2,12 +2,16 @@
 #include "WDagger.h"
 #include "Bone.h"
 #include "WAxe.h"
+#include "WFirebomb.h"
+#include "WBoomerang.h"
 
 enum class EWeapon {
 	NONE,
 	DAGGER,
 	BONE,
-	AXE
+	AXE,
+	FIREBOMB,
+	BOOMERANG
 };
 
 class WeaponFactory
@@ -29,6 +33,12 @@ inline T WeaponFactory::SpawnWeapon(EWeapon eWeapon)
 		break;
 	case EWeapon::AXE:
 		return new WAxe();
+		break;
+	case EWeapon::FIREBOMB:
+		return new WFireBomb();
+		break;
+	case EWeapon::BOOMERANG:
+		return new WBoomerang();
 		break;
 	default:
 		break;

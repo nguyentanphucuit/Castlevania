@@ -27,18 +27,25 @@
 		</sprite>
 		
 		<sprite ID="BONE_SPRITE_WHITE_01">
-			<frame l="295" t="0" r="310" b="16" />
+			<frame l="260" t="0" r="290" b="32" />
 		</sprite>
 		<sprite ID="BONE_SPRITE_WHITE_02">
-			<frame l="310" t="0" r="325" b="16" />
+			<frame l="290" t="0" r="320" b="32" />
 		</sprite>
 		<sprite ID="BONE_SPRITE_WHITE_03">
-			<frame l="325" t="0" r="340" b="16" />
+			<frame l="320" t="0" r="350" b="32" />
 		</sprite>
 		
 		<sprite ID="AXE_SPRITE">
 			<frame l="129" t="0" r="162" b="30" />
 		</sprite>
 		
+		<sprite ID="FIRE_BOMB_SPRITE">
+			<frame l="163" t="30" r="191" b="63" />
+		</sprite>
+		
+		<sprite ID="BOOMERANG_SPRITE">
+			<frame l="360" t="0" r="392" b="30" />
+		</sprite>
 
 </gamedata>

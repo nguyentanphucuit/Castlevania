@@ -147,6 +147,7 @@
     <ClInclude Include="Bat.h" />
     <ClInclude Include="BHeart.h" />
     <ClInclude Include="BlackKnight.h" />
+    <ClInclude Include="WBoomerang.h" />
     <ClInclude Include="Brick.h" />
     <ClInclude Include="BrickWall.h" />
     <ClInclude Include="Candle.h" />
@@ -159,6 +160,7 @@
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyFactory.h" />
     <ClInclude Include="Entrance.h" />
+    <ClInclude Include="WFireBomb.h" />
     <ClInclude Include="Flame.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
@@ -203,6 +205,7 @@
     <ClCompile Include="Bat.cpp" />
     <ClCompile Include="BHeart.cpp" />
     <ClCompile Include="BlackKnight.cpp" />
+    <ClCompile Include="WBoomerang.cpp" />
     <ClCompile Include="Brick.cpp" />
     <ClCompile Include="BrickWall.cpp" />
     <ClCompile Include="Candle.cpp" />
@@ -214,6 +217,7 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyFactory.cpp" />
     <ClCompile Include="Entrance.cpp" />
+    <ClCompile Include="WFireBomb.cpp" />
     <ClCompile Include="Flame.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />

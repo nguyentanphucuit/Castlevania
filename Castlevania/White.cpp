@@ -25,7 +25,7 @@ void White::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 
 	vy += WHITE_GRAVITY * dt;
 
-	auto weapon = WeaponFactory::SpawnWeapon<Weapon*>(EWeapon::BONE);
+	auto weapon = WeaponFactory::SpawnWeapon<Weapon*>(EWeapon::BOOMERANG);
 	
 	if (numWeapon  < 3 && GetTickCount() - timeSpawn > 450) {
 		timeSpawn = GetTickCount();
@@ -75,7 +75,6 @@ void White::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 			}
 		}
 
-
 	}
 	for (UINT i = 0; i < coEvents.size(); i++) delete coEvents[i];
 }
@@ -92,14 +91,6 @@ void White::Area(int startPos, int endPos)
 	this->_endPos = endPos;
 	this->_startPos = startPos;
 }
-
-//void White::SetisSpawnWeapon()
-//{
-//	if (GetTickCount() - this->timespawnWeapon > TIME_SPAWN_WEAPON && this->timespawnWeapon != 0)
-//	{
-//		this->spawnweapon = false;
-//	}
-//}
 
 White::White() :Enemy()
 {

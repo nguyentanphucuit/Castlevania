@@ -32,5 +32,13 @@
 		<animation ID="AXE_ANI" timeLoop="100">
 			<sprite ID="AXE_SPRITE" />
 		</animation>
+		
+		<animation ID="BOOMERANG_ANI" timeLoop="100">
+			<sprite ID="BOOMERANG_SPRITE" />
+		</animation>
+		
+		<animation ID="FIREBOMB_ANI" timeLoop="100">
+			<sprite ID="FIRE_BOMB_SPRITE" />
+		</animation>
 
 </gamedata>

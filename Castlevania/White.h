@@ -23,7 +23,6 @@ public:
 	virtual void Render();
 
 	void Area(int startPos, int endPos);
-	void SetisSpawnWeapon();
 	White();
 };
 
