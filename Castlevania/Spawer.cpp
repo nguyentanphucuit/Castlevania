@@ -55,8 +55,6 @@ void Spawner::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* colliable_obj
 					enemy->SetPosition(x, y);
 					if (dynamic_cast<Ghost*>(enemy)) {
 						auto ghost = dynamic_cast<Ghost*>(enemy);
-						ghost->Area(this->startPos, this->endPos);
-						ghost->SetOy();
 					}
 					else if (dynamic_cast<Hunchback*>(enemy)) {
 						auto hunchback = dynamic_cast<Hunchback*>(enemy);

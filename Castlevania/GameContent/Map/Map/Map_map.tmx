@@ -10291,7 +10291,7 @@
     <property name="time" value="1000"/>
    </properties>
   </object>
-  <object id="93" name="Ghost" x="1116.67" y="672.333" width="32" height="32">
+  <object id="93" name="Ghost" x="773.67" y="991.333" width="32" height="32">
    <properties>
     <property name="edef" value="2"/>
     <property name="endPos" value="1200"/>
@@ -10309,7 +10309,7 @@
     <property name="time" value="1000"/>
    </properties>
   </object>
-  <object id="97" name="Hunchback" x="685" y="988" width="32" height="32">
+  <object id="97" name="Hunchback" x="595" y="576" width="32" height="32">
    <properties>
     <property name="edef" value="3"/>
     <property name="endPos" value="1200"/>
