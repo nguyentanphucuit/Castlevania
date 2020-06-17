@@ -29,15 +29,8 @@ void Hunchback::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 	// 
 		// Simple fall down
 	vy += HUNCHBACK_GRAVITY * dt;
-	if (nx == DIRECTION::RIGHT) {
-		vx = HUNCHBACK_WALKING_SPEED;
-		
-	}
-	else if (nx == DIRECTION::LEFT) {
-		vx = -HUNCHBACK_WALKING_SPEED;
-		
-	}
-	DebugOut(L"y %d\n", y);
+	
+	//DebugOut(L"y %d\n", y);
 	if (x > _endPos) {
 		nx = DIRECTION::LEFT;
 	}
@@ -45,6 +38,16 @@ void Hunchback::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 		nx = DIRECTION::RIGHT;
 	} 
 
+	if (dynamic_cast<PlayScene*>(scene))
+	{
+		PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
+		if (
+			pScene->GetSimon()->x - this->x < ACTIVE_HUNCHBACK_Y)
+		{
+			this->SetState(HUNCHBACK::JUMP);
+		}
+
+	}
 	
 
 	if (coEvents.size() == 0)
@@ -67,7 +70,10 @@ void Hunchback::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 			if (dynamic_cast<Ground*>(e->obj)) {
 				if (nx != 0) vx = 0;
 				if (ny != 0) vy = 0;
-				OnTouchingGround();
+				if (jump) {
+					OnTouchingGround();
+					DebugOut(L"jump \n");
+				}
 			}
 			else {
 				if (e->nx != 0)
@@ -87,8 +93,21 @@ void Hunchback::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 void Hunchback::Render()
 {
 
-	animations[0]->Render(nx, x, y);
-	//RenderBoundingBox();
+	int ani = 0;
+	switch (this->state)
+	{
+	case HUNCHBACK::READY:
+		ani = HUNCHBACK_ANI_READY;
+		animations[ani]->Render(nx, x, y);
+		break;
+	case HUNCHBACK::JUMP:
+		ani = HUNCHBACK_ANI_JUMP;
+		animations[ani]->Render(nx, x, y);
+		break;
+	default:
+		break;
+	};
+
 }
 
 void Hunchback::OnTouchingGround()
@@ -102,8 +121,29 @@ void Hunchback::Area(int startPos, int endPos)
 	this->_startPos = startPos;
 }
 
+void Hunchback::SetState(HUNCHBACK state)
+{
+	switch (state) {
+	case HUNCHBACK::READY:
+		vx = 0;
+		break;
+	case HUNCHBACK::JUMP:
+		if (nx == DIRECTION::RIGHT) {
+			vx = HUNCHBACK_WALKING_SPEED;
+		}
+		else if (nx == DIRECTION::LEFT) {
+			vx = -HUNCHBACK_WALKING_SPEED;
+		}
+		jump = true;
+		break;
+		
+	}
+	this->state = state;
+}
+
 Hunchback::Hunchback() :Enemy()
 {
+	AddAnimation("HUNCHBACK_ANI_JUMP");
 	AddAnimation("HUNCHBACK_ANI_JUMP");
 	this->hp = 1;
 }

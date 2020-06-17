@@ -445,17 +445,6 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 					item->SetDestroy();
 				}
 			}
-		
-			/*	else if (dynamic_cast<Stair*>(coObjects->at(i))) {
-					if (coStair == true) {
-							coStair = false;
-						}
-						else {
-							coStair = true;
-						}
-					auto stair = dynamic_cast<Stair*>(coObjects->at(i));
-					stair->SetDestroy();
-				}*/
 		} 
 		if (dynamic_cast<Enemy*>(coObjects->at(i))) {
 			Enemy* enemy = dynamic_cast<Enemy*> (coObjects->at(i));
