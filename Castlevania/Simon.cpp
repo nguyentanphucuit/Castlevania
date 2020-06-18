@@ -312,6 +312,9 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 					y += dy;
 					continue;
 				}
+				if (e->nx == -1) {
+					
+				}
 				if (e->ny != 1) {
 
 					if (GetState() == SIMONSTATE::JUMP) {
@@ -326,12 +329,14 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 						if (nx != 0) vx = 0;
 					}
 				}
-				else if (e->ny!=-1)
+				else if (e->ny!=-1 )
 				{
 					y += dy;
 				}
 				
-				if (e->nx != 0) y += dy;
+				if (e->nx != 0 && ny!= -1) {
+					y += dy;
+				}
 				if (state == SIMONSTATE::ENTERENTRANCE) { break; }
 
 
@@ -489,7 +494,7 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 				whip->Update(dt, scene, coObjects);
 			}
 			else if (!isSpawnWeapon) {
-				auto weapon = WeaponFactory::SpawnWeapon<Weapon*>(this->currentWeapon);
+				auto weapon = WeaponFactory::SpawnWeapon<Weapon*>(EWeapon::BOOMERANG);
 				weapon->SetPosition(this->x, this->y + 10);
 				weapon->SetNx(this->nx);
 				if (dynamic_cast<PlayScene*>(scene)) {

@@ -19,15 +19,16 @@ void WBoomerang::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 	{
 		return;
 	}
-	/*if (nx == DIRECTION::RIGHT)
+	D3DXVECTOR2 cam;
+	if (dynamic_cast<PlayScene*>(scene))
 	{
-		this->vx = BOOMERANG_SPEED_VX;
+		auto pScene = dynamic_cast<PlayScene*>(scene);
+		cam=pScene->GetCamera();
+
 	}
-	else if (nx == DIRECTION::LEFT) {
-		this->vx = -BOOMERANG_SPEED_VX;
-	}*/
+	
 	//vx = BOOMERANG_SPEED_VX;
-	if (this->x <700) {
+	if (this->x > cam.x+SCREENSIZE::WIDTH ||this->x<cam.x) {
 		this->isDestroy = true;
 	}
 	x += dx*2;
@@ -52,5 +53,6 @@ WBoomerang::WBoomerang() :Weapon()
 {
 	AddAnimation("BOOMERANG_ANI");
 	this->vx = BOOMERANG_SPEED_VX;
+
 	//this->vy = -BOOMERANG_SPEED_VY;
 }

@@ -409,7 +409,7 @@ void PlayScene::Update(DWORD dt)
 	for (vector<LPGAMEOBJECT>::iterator it = objects.begin(); it != objects.end(); ) {
 
 		if ((*it)->IsDestroy()) {
-			if (dynamic_cast<WDagger*>(*it))
+			if (dynamic_cast<Weapon*>(*it))
 			{
 				subWeapon--;
 			}
