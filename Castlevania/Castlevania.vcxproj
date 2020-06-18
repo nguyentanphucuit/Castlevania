@@ -147,6 +147,7 @@
     <ClInclude Include="Bat.h" />
     <ClInclude Include="BHeart.h" />
     <ClInclude Include="BlackKnight.h" />
+    <ClInclude Include="Grid.h" />
     <ClInclude Include="Phantom.h" />
     <ClInclude Include="WBoomerang.h" />
     <ClInclude Include="Brick.h" />
@@ -206,6 +207,7 @@
     <ClCompile Include="Bat.cpp" />
     <ClCompile Include="BHeart.cpp" />
     <ClCompile Include="BlackKnight.cpp" />
+    <ClCompile Include="Grid.cpp" />
     <ClCompile Include="Phantom.cpp" />
     <ClCompile Include="WBoomerang.cpp" />
     <ClCompile Include="Brick.cpp" />

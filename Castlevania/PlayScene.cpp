@@ -137,10 +137,29 @@ void PlayScene::LoadSceneContent(xml_node<>* root)
 	CGame::GetInstance()->SetCamPos(cameraBorder.left, cameraBorder.top);
 }
 
+void PlayScene::GetListobjectFromGrid()
+{
+}
+
+void PlayScene::UpdateGrid()
+{
+	for (size_t i = 0; i < objects.size(); i++)
+	{
+		LPGAMEOBJECT obj = objects[i];
+		float x_, y_;
+		obj->GetPosition(x_, y_);
+		grid->Update(obj);
+	}
+}
+
 D3DXVECTOR2 PlayScene::GetCamera()
 {
 
 	return CGame::GetInstance()->GetCamera();
+}
+void PlayScene::AddToGrid(LPGAMEOBJECT object, bool isAlwayUpdate)
+{
+	grid->Add(object, isAlwayUpdate);
 }
 void PlayScene::OnCreate()
 {
@@ -223,11 +242,11 @@ void PlayScene::OnCreate()
 
 
 	SIMON = new CSIMON();
-	objects.push_back(SIMON);
+	
 
 	for (auto const& m : Maps) {
 		auto objectLayer = m.second->GetObjectLayer();
-
+		 grid = new Grid(m.second->GetWidth(), m.second->GetHeight());
 
 		for (auto const& x : objectLayer)
 		{
@@ -252,7 +271,7 @@ void PlayScene::OnCreate()
 					CTorch* torch = new CTorch();
 					torch->SetPosition(y.second->GetX(), y.second->GetY() - y.second->GetHeight());
 					torch->SetItem(static_cast<EItem>(std::atoi(y.second->GetProperty("item").c_str())));
-					objects.push_back(torch);
+					AddToGrid(torch);
 				}
 				break;
 
@@ -275,7 +294,7 @@ void PlayScene::OnCreate()
 					HiddenObject* ground = new Ground();
 					ground->SetPosition(y.second->GetX(), y.second->GetY());
 					ground->SetSize(y.second->GetWidth(), y.second->GetHeight());
-					objects.push_back(ground);
+					AddToGrid(ground,true);
 				}
 				break;
 			case _HMoney:
@@ -289,7 +308,7 @@ void PlayScene::OnCreate()
 						moneyItem->SetPosition(child.second->GetX(), child.second->GetY() - child.second->GetHeight());
 						hMoney->SetItem(moneyItem);
 					}
-					objects.push_back(hMoney);
+					AddToGrid(hMoney);
 				}
 				break;
 			case _Entrance:
@@ -297,7 +316,7 @@ void PlayScene::OnCreate()
 					Entrance* entrance = new Entrance();
 					entrance->SetSize(y.second->GetWidth(), y.second->GetHeight());
 					entrance->SetPosition(y.second->GetX(), y.second->GetY());
-					objects.push_back(entrance);
+					AddToGrid(entrance);
 				}
 				break;
 			case _CheckRetrograde:
@@ -305,7 +324,7 @@ void PlayScene::OnCreate()
 					RetroGrade* retroGrade = new RetroGrade();
 					retroGrade->SetSize(y.second->GetWidth(), y.second->GetHeight());
 					retroGrade->SetPosition(y.second->GetX(), y.second->GetY());
-					objects.push_back(retroGrade);
+					AddToGrid(retroGrade);
 				}
 				break;
 			case _Enemy:
@@ -313,7 +332,7 @@ void PlayScene::OnCreate()
 					Spawner* spawner = new Spawner(static_cast<CEnemy>(std::atoi(y.second->GetProperty("edef").c_str())), std::atoi(y.second->GetProperty("time").c_str()),std::atoi(y.second->GetProperty("num").c_str()), std::atoi(y.second->GetProperty("startPos").c_str()), std::atoi(y.second->GetProperty("endPos").c_str()));
 					spawner->SetSize(y.second->GetWidth(), y.second->GetHeight());
 					spawner->SetPosition(y.second->GetX(), y.second->GetY());
-					objects.push_back(spawner);
+					AddToGrid(spawner,true);
 				}
 				break;
 			case _NextScene:
@@ -321,7 +340,7 @@ void PlayScene::OnCreate()
 					auto pSwitch = new SwitchScene(std::atoi(y.second->GetProperty("sceneID").c_str()));
 					pSwitch->SetSize(y.second->GetWidth(), y.second->GetHeight());
 					pSwitch->SetPosition(y.second->GetX(), y.second->GetY());
-					objects.push_back(pSwitch);
+					AddToGrid(pSwitch);
 				}
 				break;
 			case _Stair:
@@ -330,7 +349,7 @@ void PlayScene::OnCreate()
 					stair->SetSize(y.second->GetWidth(), y.second->GetHeight());
 					stair->SetPosition(y.second->GetX(), y.second->GetY());
 					stair->SetDirection(std::atoi(y.second->GetProperty("dir").c_str()));
-					objects.push_back(stair);
+					AddToGrid(stair);
 				}
 				break;
 			case _Candle:
@@ -339,21 +358,21 @@ void PlayScene::OnCreate()
 					CCandle* candle = new CCandle();
 					candle->SetPosition(y.second->GetX(), y.second->GetY() - y.second->GetHeight());
 					candle->SetItem(static_cast<EItem>(std::atoi(y.second->GetProperty("item").c_str())));
-					objects.push_back(candle);
+					AddToGrid(candle);
 				}
 				break;
 			case _Platform:
 				for (auto const& y : x.second->GetObjectGroup()) {
 					CPlatform* platform = new CPlatform();
 					platform->SetPosition(y.second->GetX(), y.second->GetY()-y.second->GetHeight());
-					objects.push_back(platform);
+					AddToGrid(platform);
 				}
 				break;
 			case _BrickWall:
 				for (auto const& y : x.second->GetObjectGroup()) {
 					CBrickWall* brickwall = new CBrickWall();
 					brickwall->SetPosition(y.second->GetX(), y.second->GetY() - y.second->GetHeight());
-					objects.push_back(brickwall);
+					AddToGrid(brickwall);
 				}
 				break;     
 			default:
@@ -376,19 +395,24 @@ void PlayScene::OnDestroy()
 
 void PlayScene::Update(DWORD dt)
 {
+	objects.clear();
 	// We know that SIMON is the first object in the list hence we won't add him into the colliable object list
 	// TO-DO: This is a "dirty" way, need a more organized way 
 	while (!qObjects.empty()) {
 		this->objects.push_back(qObjects.front());
+
+		AddToGrid(qObjects.front());
 		qObjects.pop();
 	}
-
+	grid->GetListobjectFromGrid(objects);
 	vector<LPGAMEOBJECT> coObjects;
-	for (int i = 1; i < objects.size(); i++)
+	coObjects.push_back(SIMON);
+	for (int i = 0; i < objects.size(); i++)
 	{
 		coObjects.push_back(objects[i]);
 	}
 
+	SIMON-> Update(dt,this,&coObjects);
 	for (int i = 0; i < objects.size(); i++)
 	{
 		objects[i]->Update(dt, this, &coObjects);
@@ -406,17 +430,7 @@ void PlayScene::Update(DWORD dt)
 		CGame::GetInstance()->SetCamPos(cx, this->cameraBorder.top /*cy*/);
 	}
 
-	for (vector<LPGAMEOBJECT>::iterator it = objects.begin(); it != objects.end(); ) {
 
-		if ((*it)->IsDestroy()) {
-			if (dynamic_cast<Weapon*>(*it))
-			{
-				subWeapon--;
-			}
-			it = objects.erase(it);
-		}
-		else ++it;
-	}
 
 	if (switchScene) {
 		this->currentMap = this->Maps.at(this->currentPScene->mapID);
@@ -432,6 +446,20 @@ void PlayScene::Update(DWORD dt)
 			CGame::GetInstance()->SetCamPos(cameraBorder.right-SCREENSIZE::WIDTH, cameraBorder.top);
 		}
 		else	CGame::GetInstance()->SetCamPos(cameraBorder.left, cameraBorder.top);
+	}
+
+	UpdateGrid();
+	for (vector<LPGAMEOBJECT>::iterator it = objects.begin(); it != objects.end(); ) {
+
+		if ((*it)->IsDestroy()) {
+			if (dynamic_cast<Weapon*>(*it))
+			{
+				subWeapon--;
+			}
+			it = objects.erase(it);
+			//delete* it;
+		}
+		else ++it;
 	}
 
 

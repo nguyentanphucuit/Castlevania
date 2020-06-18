@@ -29,6 +29,11 @@ struct CCollisionEvent
 	}
 };
 
+struct CellIndex {
+	int x;
+	int y;
+	CellIndex(int x, int y) :x(x), y(y) {};
+};
 
 
 class CGameObject
@@ -47,10 +52,20 @@ public:
 	DIRECTION nx;	 
 
 	DWORD dt; 
-
+	bool isActive; // check object in grid
 	vector<LPANIMATION> animations;
 	bool isDestroy = false;
+	CellIndex cellIndex = { -1,-1 };
 public: 
+	void SetCellIndex(int cellX, int cellY) {
+		CellIndex cellIndex = { cellX,cellY };
+		this->cellIndex = cellIndex;
+	}
+	CellIndex GetCellIndex() {
+		return cellIndex;
+	}
+	void SetActive() { isActive = true; };
+	bool CheckActive() { return isActive; }
 	void SetDestroy() { this->isDestroy = true; }
 	bool IsDestroy() { return isDestroy; }
 	void SetPosition(float x, float y) { this->x = x, this->y = y; }

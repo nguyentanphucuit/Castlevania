@@ -43,6 +43,9 @@
     <Filter Include="Source Files\Enemy">
       <UniqueIdentifier>{6f607096-1aaa-4955-b409-882338ad84c2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Grid">
+      <UniqueIdentifier>{f9bc3137-8773-4d64-9bfc-e6b2d0563804}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sprites.h">
@@ -216,6 +219,9 @@
     <ClInclude Include="Phantom.h">
       <Filter>Source Files\Enemy</Filter>
     </ClInclude>
+    <ClInclude Include="Grid.h">
+      <Filter>Source Files\Grid</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -385,6 +391,9 @@
     </ClCompile>
     <ClCompile Include="Phantom.cpp">
       <Filter>Source Files\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Grid.cpp">
+      <Filter>Source Files\Grid</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -3,7 +3,7 @@
 #include "Simon.h"
 #include "Map.h"
 #include <queue>
-
+#include"Grid.h"
 struct pScene {
     int id;
     int mapID;
@@ -15,7 +15,7 @@ class PlayScene:public Scene
 {
     RECT cameraBorder;
     CSIMON* SIMON;
-
+    Grid* grid;
     
     vector<LPGAMEOBJECT> objects;
 
@@ -39,6 +39,8 @@ class PlayScene:public Scene
     bool isEntrance = false;
     bool switchScene = false;
     bool isAttack = false;
+    void GetListobjectFromGrid();
+    void UpdateGrid();
 public:
 
     D3DXVECTOR2 GetCamera();
@@ -50,7 +52,7 @@ public:
         this->currentPScene = this->pScenes.at(sceneID);
         this->switchScene = true;
     }
-
+    void AddToGrid(LPGAMEOBJECT object,bool isAlwayUpdate=false);
 
     void SpawnObject(LPGAMEOBJECT obj) { this->qObjects.push(obj); }
 
