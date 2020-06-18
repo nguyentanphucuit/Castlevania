@@ -33,17 +33,34 @@ void Raven::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 	if (dynamic_cast<PlayScene*>(scene))
 	{
 		PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
-		if (this->x - pScene->GetSimon()->x < ACTIVE_RAVEN_X && GetTickCount() - waitTimeFly > 500)
+		if ((this->x - pScene->GetSimon()->x < ACTIVE_RAVEN_X)
+			&& GetTickCount() - waitTimeFly > 500)
 		{
 			this->SetState(RAVENSTATE::FLY);
 			waitTimeFly = 0;
 		}
-		if (x > pScene->GetSimon()->x + _endPos) {
+
+
+
+		if (x > pScene->GetSimon()->x + 150) {
 			nx = DIRECTION::LEFT;
+			this->SetState(RAVENSTATE::IDLE);
+			if (waitTimeFly == 0)
+				waitTimeFly = GetTickCount();
 		}
-		if (x < pScene->GetSimon()->x - _startPos) {
+
+		if (x < pScene->GetSimon()->x - 150) {
 			nx = DIRECTION::RIGHT;
+			this->SetState(RAVENSTATE::IDLE);
+			if (waitTimeFly == 0)
+				waitTimeFly = GetTickCount();
 		}
+
+		if (y > pScene->GetSimon()->y) {
+			fly_straight = true;
+		}
+		else
+			fly_straight = false;
 			
 	}
 	if (!fly) {
@@ -51,7 +68,12 @@ void Raven::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 	}
 	
 	if (fly && y - _y < MAX_DISTANCE_Y) {
-		vy = RAVEN_FLY_SPEED;
+		if (!fly_straight)
+			vy = RAVEN_FLY_SPEED;
+		else {
+			vy = 0;
+			x += dx;
+		}
 	}
 	else {
 		this->SetState(RAVENSTATE::IDLE);
@@ -71,11 +93,11 @@ void Raven::Render()
 	{
 	case RAVENSTATE::IDLE:
 		ani = RAVEN_ANI_IDLE;
-		animations[ani]->Render(nx = DIRECTION::LEFT, x, y);
+		animations[ani]->Render(nx, x, y);
 		break;
 	case RAVENSTATE::FLY:
 		ani = RAVEN_ANI_FLY;
-		animations[ani]->Render(nx = DIRECTION::LEFT, x, y);
+		animations[ani]->Render(nx, x, y);
 		break;
 	default:
 		break;

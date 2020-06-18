@@ -1,12 +1,6 @@
-﻿  Grid.cpp
+﻿  Raven.cpp
 C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(61,1): warning C4005: 'SIMON_ANI_DIE': macro redefinition
 C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(58): message : see previous definition of 'SIMON_ANI_DIE'
 C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
 C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
-C:\Users\16520\Desktop\Castlevania\Castlevania\Grid.cpp(15,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\16520\Desktop\Castlevania\Castlevania\Grid.cpp(16,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\16520\Desktop\Castlevania\Castlevania\Grid.cpp(24,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\16520\Desktop\Castlevania\Castlevania\Grid.cpp(26,24): warning C4018: '<': signed/unsigned mismatch
-C:\Users\16520\Desktop\Castlevania\Castlevania\Grid.cpp(179,15): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\16520\Desktop\Castlevania\Castlevania\Grid.cpp(181,13): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
   Castlevania.vcxproj -> C:\Users\16520\Desktop\Castlevania\Debug\Castlevania.exe

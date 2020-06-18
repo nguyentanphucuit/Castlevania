@@ -8,11 +8,11 @@
 #include"Enemy.h"
 #include "Torch.h"
 Grid::Grid(int mapWidth, int mapHeight) :
-	map_width(mapWidth*32),
+	map_width(mapWidth * 32),
 	map_height(mapHeight * 32 + 80)// + 80: la cai hub
 {
 	this->cell_size = CELL_SIZE;
-	this->grid_col = ceil((float)this->map_width/ this->cell_size);
+	this->grid_col = ceil((float)this->map_width / this->cell_size)+1;
 	this->grid_row = ceil((float)this->map_height / this->cell_size);
 	// clear grid
 
@@ -50,6 +50,9 @@ void Grid::Add(LPGAMEOBJECT object, bool isAlwayUpdateObject)
 	{
 		return;
 	}
+	//đánh dấu object thuộc cell nào
+	// để có thể truy vấn nhanh vị trị của object trong grid
+
 	object->SetCellIndex(cellX, cellY);
 	if (!isAlwayUpdateObject)
 	{
@@ -59,7 +62,7 @@ void Grid::Add(LPGAMEOBJECT object, bool isAlwayUpdateObject)
 	{
 		alwaysUpdateList.push_back(object);
 	}
-	
+
 
 	/*if (dynamic_cast<Candle*> (object)
 		|| dynamic_cast<Torch*> (object)
@@ -70,7 +73,7 @@ void Grid::Add(LPGAMEOBJECT object, bool isAlwayUpdateObject)
 	}*/
 }
 
- void Grid::Update(LPGAMEOBJECT object)
+void Grid::Update(LPGAMEOBJECT object)
 {
 	float cx_, cy_;
 
@@ -101,7 +104,7 @@ void Grid::Add(LPGAMEOBJECT object, bool isAlwayUpdateObject)
 			{
 				if (!dynamic_cast<Phantom*>(object))
 				{
-					object->isDestroy=true;
+					object->isDestroy = true;
 				}
 
 			}
@@ -119,23 +122,22 @@ void Grid::Add(LPGAMEOBJECT object, bool isAlwayUpdateObject)
 	int cellY = (int)(y / this->cell_size);
 
 
-	if (true)
-	{
-		if (object->IsDestroy())
-		{
 
-			// loại bỏ cell cũ
-			for (vector<LPGAMEOBJECT>::iterator it = grid[oldCell.y][oldCell.x].begin(); it != grid[oldCell.y][oldCell.x].end(); ) {
-				if ((*it) == object) {
-					it = grid[oldCell.y][oldCell.x].erase(it);
-				}
-				else ++it;
+	if (object->IsDestroy())
+	{
+
+		// loại bỏ cell cũ
+		for (vector<LPGAMEOBJECT>::iterator it = grid[oldCell.y][oldCell.x].begin(); it != grid[oldCell.y][oldCell.x].end(); ) {
+			if ((*it) == object) {
+				it = grid[oldCell.y][oldCell.x].erase(it);
 			}
-			// xóa luôn
-			
-			return;
+			else ++it;
 		}
+		// xóa luôn
+
+		return;
 	}
+
 
 	// nếu k ra khỏi cell 
 	if (oldCell.x == cellX && oldCell.y == cellY)
@@ -150,7 +152,6 @@ void Grid::Add(LPGAMEOBJECT object, bool isAlwayUpdateObject)
 			}
 			else ++it;
 		}
-
 	}
 
 	//thêm lại vào cell mới
@@ -173,7 +174,7 @@ void Grid::GetListobjectFromGrid(vector<LPGAMEOBJECT>& listobjects)
 
 
 	float camx, camy;
-	D3DXVECTOR2 cam= CGame::GetInstance()->GetCamera();
+	D3DXVECTOR2 cam = CGame::GetInstance()->GetCamera();
 	camx = cam.x;
 	camy = cam.y;
 	int startCol = floor(camx / this->cell_size);
@@ -191,8 +192,8 @@ void Grid::GetListobjectFromGrid(vector<LPGAMEOBJECT>& listobjects)
 				{
 					if (dynamic_cast<Enemy*>(obj))
 					{
-
 						enemiesobject.push_back(obj);
+
 					}
 					else if (dynamic_cast<Item*>(obj))
 					{

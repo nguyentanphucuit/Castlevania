@@ -10114,7 +10114,7 @@
   <object id="3" name="M2_C2" x="1536" y="350.333" width="1039.33" height="381"/>
   <object id="5" name="M3_C1" x="0.5" y="376" width="1535" height="355.5"/>
   <object id="6" name="M3_C2" x="1" y="14.6667" width="1533.5" height="368.5"/>
-  <object id="7" name="M4_C1" x="1535.96" y="-54.6667" width="1536.88" height="404.667"/>
+  <object id="7" name="M4_C1" x="1535.96" y="-0.1667" width="1536.88" height="348.667"/>
  </objectgroup>
  <objectgroup id="11" name="HMoney">
   <object id="48" x="1929.5" y="1007.5" width="35" height="14"/>
