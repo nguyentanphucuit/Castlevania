@@ -37,8 +37,12 @@
 			<sprite ID="BOOMERANG_SPRITE" />
 		</animation>
 		
-		<animation ID="FIREBOMB_ANI" timeLoop="100">
+		<animation ID="FIREBOMB_ANI_NORMAL" timeLoop="100">
 			<sprite ID="FIRE_BOMB_SPRITE" />
+		</animation>
+		
+		<animation ID="FIREBOMB_ANI_BURN" timeLoop="100">
+			<sprite ID="FIRE_BOMB_SPRITE_BURN" />
 		</animation>
 
 </gamedata>

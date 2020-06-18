@@ -494,7 +494,7 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 				whip->Update(dt, scene, coObjects);
 			}
 			else if (!isSpawnWeapon) {
-				auto weapon = WeaponFactory::SpawnWeapon<Weapon*>(EWeapon::BOOMERANG);
+				auto weapon = WeaponFactory::SpawnWeapon<Weapon*>(EWeapon::FIREBOMB);
 				weapon->SetPosition(this->x, this->y + 10);
 				weapon->SetNx(this->nx);
 				if (dynamic_cast<PlayScene*>(scene)) {

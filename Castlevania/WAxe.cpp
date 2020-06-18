@@ -28,7 +28,14 @@ void WAxe::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 			this->isDestroy = true;
 		}
 	}
-	vx = AXE_SPEED_VX;
+	if (nx == DIRECTION::RIGHT)
+	{
+		this->vx = AXE_SPEED_VX;
+	}
+	else if (nx == DIRECTION::LEFT) {
+		this->vx = -AXE_SPEED_VX;
+	}
+
 	x += dx;
 	y += dy;
 	vy += AXE_GRAVITY * dt;

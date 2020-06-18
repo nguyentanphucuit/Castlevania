@@ -47,5 +47,9 @@
 		<sprite ID="BOOMERANG_SPRITE">
 			<frame l="360" t="0" r="392" b="30" />
 		</sprite>
+		
+		<sprite ID="FIRE_BOMB_SPRITE_BURN">
+			<frame l="163" t="30" r="191" b="63" />
+		</sprite>
 
 </gamedata>

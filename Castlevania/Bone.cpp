@@ -18,14 +18,13 @@ void Bone::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 	{
 		return;
 	}
-	/*if (nx == DIRECTION::RIGHT)
+	if (nx == DIRECTION::RIGHT)
 	{
 		this->vx = AXE_SPEED_VX;
 	}
 	else if (nx == DIRECTION::LEFT) {
 		this->vx = -AXE_SPEED_VX;
-	}*/
-	vx = AXE_SPEED_VX;
+	}
 	x += dx;
 	y += dy;
 	vy += AXE_GRAVITY * dt;

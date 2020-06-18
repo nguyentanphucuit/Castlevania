@@ -27,7 +27,10 @@ void White::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 
 	auto weapon = WeaponFactory::SpawnWeapon<Weapon*>(EWeapon::BONE);
 
-	
+	if (vx < 0) nx = DIRECTION::LEFT;
+	else nx = DIRECTION::RIGHT;
+
+
 	if (numWeapon  < 3 && GetTickCount() - timeSpawn > 450) {
 		timeSpawn = GetTickCount();
 		weapon->SetPosition(this->x, this->y + 10);
