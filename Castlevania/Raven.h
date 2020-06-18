@@ -13,6 +13,7 @@
 #define ACTIVE_RAVEN_X 280
 #define RAVEN_OY_HEIGHT 30
 
+#define MAX_DISTANCE_Y 50
 enum class RAVENSTATE {
 	IDLE,
 	FLY
@@ -23,16 +24,14 @@ private:
 	int left = false;
 	int _endPos;
 	int _startPos;
-	float oy;
 	RAVENSTATE state;
 	bool fly = false;
+	float _y;
+	DWORD waitTimeFly;
 public:
 	virtual void GetBoundingBox(float& left, float& top, float& right, float& bottom);
 	virtual void Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects);
 	virtual void Render();
-	void SetOy() {
-		this->oy = this->y;
-	}
 	void Area(int startPos, int endPos);
 	void SetState(RAVENSTATE state);
 	Raven();

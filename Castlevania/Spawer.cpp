@@ -67,7 +67,6 @@ void Spawner::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* colliable_obj
 					else if (dynamic_cast<Raven*>(enemy)) {
 						auto raven = dynamic_cast<Raven*>(enemy);
 						raven->Area(this->startPos, this->endPos);
-						raven->SetOy();
 					}
 					else if (dynamic_cast<Zombie*>(enemy)) {
 						auto zombie = dynamic_cast<Zombie*>(enemy);

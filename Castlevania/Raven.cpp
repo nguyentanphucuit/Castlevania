@@ -33,9 +33,10 @@ void Raven::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 	if (dynamic_cast<PlayScene*>(scene))
 	{
 		PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
-		if (this->x - pScene->GetSimon()->x < ACTIVE_RAVEN_X)
+		if (this->x - pScene->GetSimon()->x < ACTIVE_RAVEN_X && GetTickCount() - waitTimeFly > 500)
 		{
 			this->SetState(RAVENSTATE::FLY);
+			waitTimeFly = 0;
 		}
 		if (x > pScene->GetSimon()->x + _endPos) {
 			nx = DIRECTION::LEFT;
@@ -45,25 +46,21 @@ void Raven::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 		}
 			
 	}
-
-	if (fly) {
-		int jumpRank = rand() % (2 - 1 + 1) + 1;
-		if (jumpRank == 1)
-		{
-			vy = 0;
-		}
-		else
-		{
-			float minvy = -0.40;
-			float maxvy = -0.60;
-			vy = minvy + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (maxvy - minvy)));
-		}
-		float minvx = -0.20;
-		float maxvx = 0.20;
-		vx = minvx + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (maxvx - minvx)));
+	if (!fly) {
+		_y = y;
 	}
-
 	
+	if (fly && y - _y < MAX_DISTANCE_Y) {
+		vy = RAVEN_FLY_SPEED;
+	}
+	else {
+		this->SetState(RAVENSTATE::IDLE);
+		if(waitTimeFly == 0)
+			waitTimeFly = GetTickCount();
+	}
+		
+	x += dx;
+	y += dy;
 	for (UINT i = 0; i < coEvents.size(); i++) delete coEvents[i];
 }
 
@@ -96,6 +93,8 @@ void Raven::SetState(RAVENSTATE state)
 	switch (state) {
 	case RAVENSTATE::IDLE:
 		vx = 0;
+		vy = 0;
+		fly = false;
 		break;
 	case RAVENSTATE::FLY:
 		if (nx == DIRECTION::RIGHT) {
