@@ -10128,7 +10128,7 @@
  <objectgroup id="8" name="Torch">
   <object id="36" gid="1018" x="681.5" y="1022" width="32" height="64">
    <properties>
-    <property name="item" value="1"/>
+    <property name="item" value="3"/>
    </properties>
   </object>
   <object id="49" gid="1018" x="951.25" y="1023.75" width="32" height="64">

@@ -24,14 +24,26 @@ void WBoomerang::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 	{
 		auto pScene = dynamic_cast<PlayScene*>(scene);
 		cam=pScene->GetCamera();
+		if (this->x > cam.x + SCREENSIZE::WIDTH || this->x < cam.x 
+			|| isReturn) {
+			this->isDestroy = true;
+		}
+		
+		if (this->x > pScene->GetSimon()->x + 64) {
+			isFly = true;
+			
+		}
+		if (this->x <= pScene->GetSimon()->x + 32 && this->y - pScene->GetSimon()->y > 0 && isFly) {
+			isReturn = true;
+			DebugOut(L"y %f\n", this->y);
+			DebugOut(L"simon y %f\n", pScene->GetSimon()->y);
 
+		}
 	}
 	
 	//vx = BOOMERANG_SPEED_VX;
-	if (this->x > cam.x+SCREENSIZE::WIDTH ||this->x<cam.x) {
-		this->isDestroy = true;
-	}
-	x += dx*2;
+	
+	x += dx;
 	//y += dy;
 	vx -= BOOMERANG_GRAVITY*dt;
 	CGameObject::Update(dt, scene);
