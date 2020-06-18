@@ -14,6 +14,7 @@ class WBoomerang :public Weapon
 private:
 	bool isFly = false;
 	bool isReturn = false;
+	bool setVelocyet=false;
 public:
 	virtual void Render();
 	virtual void Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects);

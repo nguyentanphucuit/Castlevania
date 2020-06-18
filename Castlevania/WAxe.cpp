@@ -19,13 +19,15 @@ void WAxe::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 	{
 		return;
 	}
-	/*if (nx == DIRECTION::RIGHT)
+	D3DXVECTOR2 cam;
+	if (dynamic_cast<PlayScene*>(scene))
 	{
-		this->vx = AXE_SPEED_VX;
+		auto pScene = dynamic_cast<PlayScene*>(scene);
+		cam = pScene->GetCamera();
+		if (this->x > cam.x + SCREENSIZE::WIDTH || this->x < cam.x) {
+			this->isDestroy = true;
+		}
 	}
-	else if (nx == DIRECTION::LEFT) {
-		this->vx = -AXE_SPEED_VX;
-	}*/
 	vx = AXE_SPEED_VX;
 	x += dx;
 	y += dy;
@@ -48,6 +50,7 @@ void WAxe::GetBoundingBox(float& l, float& t, float& r, float& b)
 WAxe::WAxe() :Weapon()
 {
 	AddAnimation("AXE_ANI");
+	this->nx = DIRECTION::RIGHT;
 	this->vx = AXE_SPEED_VX;
 	this->vy = -AXE_SPEED_VY;
 }

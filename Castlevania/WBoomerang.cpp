@@ -19,6 +19,27 @@ void WBoomerang::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 	{
 		return;
 	}
+	if (!setVelocyet)
+	{
+		if (nx==DIRECTION::LEFT)
+		{
+			vx = -BOOMERANG_SPEED_VX;
+		}
+		else
+		{
+			vx = BOOMERANG_SPEED_VX;
+		}
+		setVelocyet = true;
+	}
+	if (nx== DIRECTION::LEFT)
+	{
+		vx += 0.0012*dt;
+	}
+	else
+	{
+		vx += -0.0009 * dt;
+	}
+
 	D3DXVECTOR2 cam;
 	if (dynamic_cast<PlayScene*>(scene))
 	{
@@ -27,25 +48,24 @@ void WBoomerang::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 		if (this->x > cam.x + SCREENSIZE::WIDTH || this->x < cam.x 
 			|| isReturn) {
 			this->isDestroy = true;
+			isReturn = false;
 		}
 		
-		if (this->x > pScene->GetSimon()->x + 64) {
+		if ((this->x > pScene->GetSimon()->x + 64 && nx == DIRECTION::RIGHT)
+			|| (this->x < pScene->GetSimon()->x - 128 && nx == DIRECTION::LEFT)) {
 			isFly = true;
-			
 		}
-		if (this->x <= pScene->GetSimon()->x + 32 && this->y - pScene->GetSimon()->y > 0 && isFly) {
+		if (((this->x <= pScene->GetSimon()->x + 32 && nx == DIRECTION::RIGHT)
+			|| (this->x >= pScene->GetSimon()->x && nx == DIRECTION::LEFT)) 
+			&& this->y - pScene->GetSimon()->y > 0 && isFly) {
 			isReturn = true;
-			DebugOut(L"y %f\n", this->y);
-			DebugOut(L"simon y %f\n", pScene->GetSimon()->y);
-
+			//DebugOut(L"y %f\n", this->y);
+			//DebugOut(L"simon y %f\n", pScene->GetSimon()->y);
+			isFly = false;
 		}
 	}
 	
-	//vx = BOOMERANG_SPEED_VX;
-	
 	x += dx;
-	//y += dy;
-	vx -= BOOMERANG_GRAVITY*dt;
 	CGameObject::Update(dt, scene);
 
 	vector<LPCOLLISIONEVENT> coEvents;
