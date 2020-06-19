@@ -255,7 +255,7 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 		&& !this->isOnStair
 		&& state != SIMONSTATE::UP_STAIR_IDLE
 		&& state != SIMONSTATE::DOWN_STAIR_IDLE
-	
+
 		)
 	{
 		vy += SIMON_GRAVITY * dt;
@@ -291,11 +291,11 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 
 		// block 
 		x += min_tx * dx + nx * 0.4f;		// nx*0.4f : need to push out a bit to avoid overlapping next frame
-		if (ny<0)
+		if (ny < 0)
 		{
 			y += min_ty * dy + ny * 0.4f;
 		}
-	
+
 
 
 
@@ -313,7 +313,7 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 					continue;
 				}
 				if (e->nx == -1) {
-					
+
 				}
 				if (e->ny != 1) {
 
@@ -329,12 +329,12 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 						if (nx != 0) vx = 0;
 					}
 				}
-				else if (e->ny!=-1 )
+				else if (e->ny != -1)
 				{
 					y += dy;
 				}
-				
-				if (e->nx != 0 && ny!= -1) {
+
+				if (e->nx != 0 && ny != -1) {
 					y += dy;
 				}
 				if (state == SIMONSTATE::ENTERENTRANCE) { break; }
@@ -348,12 +348,12 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 					auto pScene = dynamic_cast<PlayScene*>(scene);
 					int id = switchScene->GetSceneID();
 					pScene->SwitchPScene(id);
-		
+
 				}
 			}
 			else if (dynamic_cast<CPlatform*>(e->obj)) {
 				isOnPlatform = true;
- 				CPlatform* platform = dynamic_cast<CPlatform*>(e->obj);
+				CPlatform* platform = dynamic_cast<CPlatform*>(e->obj);
 				if (e->ny != 0) {
 					if (GetState() == SIMONSTATE::JUMP && vy >= 0) {
 						SetState(SIMONSTATE::IDLE);
@@ -402,19 +402,18 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 						pScene->SpawnObject(hmoney->GetItem());
 					}
 				}
-				
-				
+
+
 
 				if (e->nx != 0)
 					x += dx;
 				if (e->ny != 0) {
-					if (vy<0)
-					{
-						y += dy;
-					}
-					
+
+					y += dy;
+
+
 				}
-				
+
 
 			}
 
@@ -480,7 +479,7 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 					item->SetDestroy();
 				}
 			}
-		} 
+		}
 		if (dynamic_cast<Enemy*>(coObjects->at(i))) {
 			Enemy* enemy = dynamic_cast<Enemy*> (coObjects->at(i));
 
@@ -497,7 +496,7 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 						StartUntouchable();
 					}
 				}
-				
+
 			}
 		}
 
@@ -515,7 +514,7 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 				whip->SetNxDirection(this->nx);
 				whip->Update(dt, scene, coObjects);
 			}
-			else if (!isSpawnWeapon) {		
+			else if (!isSpawnWeapon) {
 				auto weapon = WeaponFactory::SpawnWeapon<Weapon*>(currentWeapon);
 				weapon->SetPosition(this->x, this->y + 10);
 				weapon->SetNx(this->nx);
@@ -567,7 +566,7 @@ void CSIMON::Render()
 		break;
 	case SIMONSTATE::UP_STAIR_IDLE:
 		ani = SIMON_ANI_IDLE_UPSTAIR;
-		break; 
+		break;
 	case SIMONSTATE::DOWN_STAIR_IDLE:
 		ani = SIMON_ANI_IDLE_DOWNSTAIR;
 		break;
@@ -746,7 +745,7 @@ void CSIMON::SetState(SIMONSTATE state)
 		vx = 0;
 		vy = 0;
 		break;
-	case SIMONSTATE::DEFLECT:	
+	case SIMONSTATE::DEFLECT:
 		vy = -SIMON_DEFLECT_SPEED_Y;
 		if (nx == DIRECTION::LEFT)
 		{

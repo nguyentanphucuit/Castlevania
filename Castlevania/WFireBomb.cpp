@@ -45,14 +45,12 @@ void WFireBomb::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 		}
 		else if (nx == DIRECTION::LEFT) {
 			vx = -FIREBOMB_SPEED_VX;
-			DebugOut(L"Okey");
 		}
 	}
 	
 	if (this->state == FIREBOMBSTATE::NORMAL) {
 		vy += FIREBOMB_GRAVITY * dt;
 	}
-	CGameObject::Update(dt, scene);
 
 	vector<LPCOLLISIONEVENT> coEvents;
 	vector<LPCOLLISIONEVENT> coEventsResult;
@@ -96,6 +94,24 @@ void WFireBomb::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 	}
 	for (UINT i = 0; i < coEvents.size(); i++) delete coEvents[i];
 
+	for (size_t i = 0; i < coObjects->size(); i++) {
+		if (dynamic_cast<Ground*>(coObjects->at(i)))
+		{
+			auto ground = dynamic_cast<Ground*>(coObjects->at(i));
+			if (this->isColliding(ground))
+			{
+				vx = 0;
+				vy = 0;
+				this->SetState(FIREBOMBSTATE::BURN);
+				if (time_exist == 0) {
+					time_exist = GetTickCount();
+				}
+			}
+
+		}
+
+	}
+	Weapon::Update(dt, scene, coObjects);
 }
 
 void WFireBomb::GetBoundingBox(float& l, float& t, float& r, float& b)

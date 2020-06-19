@@ -10133,17 +10133,17 @@
   </object>
   <object id="49" gid="1018" x="951.25" y="1023.75" width="32" height="64">
    <properties>
-    <property name="item" value="2"/>
+    <property name="item" value="6"/>
    </properties>
   </object>
   <object id="50" gid="1018" x="1199.75" y="1024.25" width="32" height="64">
    <properties>
-    <property name="item" value="2"/>
+    <property name="item" value="7"/>
    </properties>
   </object>
   <object id="51" gid="1018" x="1457.75" y="1022.75" width="32" height="64">
    <properties>
-    <property name="item" value="1"/>
+    <property name="item" value="8"/>
    </properties>
   </object>
   <object id="52" gid="1018" x="1710.75" y="1023.25" width="32" height="64">

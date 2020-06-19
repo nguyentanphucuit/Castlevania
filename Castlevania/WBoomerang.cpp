@@ -65,11 +65,9 @@ void WBoomerang::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 		}
 	}
 	
-	x += dx;
-	CGameObject::Update(dt, scene);
-
 	vector<LPCOLLISIONEVENT> coEvents;
 	vector<LPCOLLISIONEVENT> coEventsResult;
+	Weapon::Update(dt, scene, coObjects);
 
 }
 
