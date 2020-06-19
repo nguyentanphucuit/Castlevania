@@ -105,7 +105,7 @@ void Bat::SetState(BATSTATE state)
 
 Bat::Bat() :Enemy()
 {
-	AddAnimation("PHANTOM_ANI_IDLE");
-	AddAnimation("PHANTOM_ANI_FLY");
+	AddAnimation("BAT_ANI_IDLE");
+	AddAnimation("BAT_ANI_FLY");
 	this->hp = 1;
 }

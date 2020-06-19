@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.5" orientation="orthogonal" renderorder="right-down" width="96" height="35" tilewidth="32" tileheight="32" infinite="0" nextlayerid="24" nextobjectid="194">
+<map version="1.2" tiledversion="1.3.5" orientation="orthogonal" renderorder="right-down" width="96" height="35" tilewidth="32" tileheight="32" infinite="0" nextlayerid="24" nextobjectid="247">
  <tileset firstgid="1" name="Map_bank.png" tilewidth="32" tileheight="32" tilecount="945" columns="27">
   <image source="Map_bank.png" width="864" height="1120"/>
  </tileset>
@@ -10108,13 +10108,93 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="2" name="Camera" visible="0">
+ <objectgroup id="2" name="Camera">
   <object id="1" name="M1_C1" x="508" y="732" width="1540" height="318.667"/>
   <object id="2" name="M2_C1" x="2048.19" y="734.031" width="527.333" height="381.333"/>
   <object id="3" name="M2_C2" x="1536" y="350.333" width="1039.33" height="381"/>
   <object id="5" name="M3_C1" x="0.5" y="376" width="1535" height="355.5"/>
   <object id="6" name="M3_C2" x="1" y="14.6667" width="1533.5" height="368.5"/>
   <object id="7" name="M4_C1" x="1535.96" y="29.8333" width="1536.88" height="318.667"/>
+  <object id="212" gid="1023" x="1205" y="669" width="16" height="32">
+   <properties>
+    <property name="item" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="221" gid="1023" x="310" y="153" width="16" height="32">
+   <properties>
+    <property name="item" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="222" gid="1023" x="440" y="285" width="16" height="32">
+   <properties>
+    <property name="item" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="223" gid="1023" x="570" y="285" width="16" height="32">
+   <properties>
+    <property name="item" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="224" gid="1023" x="696" y="287" width="16" height="32">
+   <properties>
+    <property name="item" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="225" gid="1023" x="840" y="224" width="16" height="32">
+   <properties>
+    <property name="item" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="226" gid="1023" x="948" y="322" width="16" height="32">
+   <properties>
+    <property name="item" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="227" gid="1023" x="1078" y="321" width="16" height="32">
+   <properties>
+    <property name="item" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="228" gid="1023" x="1207" y="292" width="16" height="32">
+   <properties>
+    <property name="item" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="240" gid="1023" x="2359" y="289" width="16" height="32">
+   <properties>
+    <property name="item" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="241" gid="1023" x="2488" y="288" width="16" height="32">
+   <properties>
+    <property name="item" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="242" gid="1023" x="2615" y="221" width="16" height="32">
+   <properties>
+    <property name="item" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="243" gid="1023" x="2744" y="289" width="16" height="32">
+   <properties>
+    <property name="item" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="244" gid="1023" x="2871" y="221" width="16" height="32">
+   <properties>
+    <property name="item" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="245" gid="1023" x="3000" y="235" width="16" height="32">
+   <properties>
+    <property name="item" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="246" gid="1023" x="1582" y="237" width="16" height="32">
+   <properties>
+    <property name="item" type="int" value="1"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="11" name="HMoney">
   <object id="48" x="1929.5" y="1007.5" width="35" height="14"/>
@@ -10193,18 +10273,58 @@
     <property name="dir" type="int" value="2"/>
    </properties>
   </object>
+  <object id="194" name="StairBottom" x="753.689" y="315.917" width="31.1212" height="7.1667">
+   <properties>
+    <property name="dir" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="195" name="StairBottom" x="1265.44" y="303.083" width="31.1212" height="19.1667">
+   <properties>
+    <property name="dir" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="196" name="StairTop" x="1134" y="101.333" width="32" height="32">
+   <properties>
+    <property name="dir" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="197" name="StairTop" x="820.333" y="182.667" width="32" height="12">
+   <properties>
+    <property name="dir" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="198" name="StairBottom" x="1806.66" y="183.292" width="31.1212" height="9.83337">
+   <properties>
+    <property name="dir" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="199" name="StairTop" x="1737.72" y="36.7083" width="32" height="32">
+   <properties>
+    <property name="dir" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="200" name="StairBottom" x="2253.58" y="309.708" width="31.1212" height="9.83337">
+   <properties>
+    <property name="dir" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="201" name="StairTop" x="2118.64" y="100.458" width="32" height="32">
+   <properties>
+    <property name="dir" type="int" value="2"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="4" name="Player">
   <object id="11" name="M1_E1" gid="949" x="600" y="1018" width="60" height="64"/>
   <object id="13" name="M2_E222222" gid="956" x="2309.5" y="700.167" width="60" height="64"/>
   <object id="15" name="M3_E22" gid="2147484604" x="126.667" y="351" width="60" height="64"/>
-  <object id="16" name="M4_E1" gid="949" x="2592.64" y="246.182" width="60" height="64"/>
+  <object id="16" name="M4_E1" gid="949" x="1639.47" y="100.015" width="60" height="64"/>
   <object id="113" name="M2_E3" gid="2147484606" x="2291.42" y="781.417" width="60" height="64"/>
   <object id="155" name="M2_E1" gid="2147484597" x="2431" y="956" width="60" height="64"/>
   <object id="159" name="M3_E3" gid="958" x="178" y="429.333" width="60" height="64"/>
-  <object id="169" name="M3_E1" gid="2147484597" x="1179.67" y="677.667" width="60" height="64"/>
-  <object id="177" name="M2_E2" gid="956" x="1759" y="504" width="60" height="64"/>
-  <object id="178" name="M3_E2" gid="956" x="264.5" y="195.5" width="60" height="64"/>
+  <object id="169" name="M3_E1" gid="2147484597" x="1385.67" y="653.667" width="60" height="64"/>
+  <object id="177" name="M2_E2" gid="956" x="2441.67" y="540" width="60" height="64"/>
+  <object id="178" name="M3_E2" gid="956" x="1079.17" y="180.833" width="60" height="64"/>
  </objectgroup>
  <objectgroup id="6" name="Ground">
   <object id="17" x="510" y="1022" width="1535" height="28"/>
@@ -10233,12 +10353,12 @@
   <object id="133" x="163.333" y="324" width="28.6667" height="26"/>
   <object id="134" x="256.667" y="194.667" width="64" height="60"/>
   <object id="135" x="451.333" y="193.333" width="60.6667" height="30"/>
-  <object id="136" x="708.667" y="323.333" width="58" height="26"/>
+  <object id="136" x="707.031" y="323.878" width="62.1818" height="27.0909"/>
   <object id="137" x="834" y="256" width="64" height="32.6667"/>
   <object id="138" x="899.333" y="320.667" width="61.3333" height="28.6667"/>
   <object id="139" x="962" y="226" width="62.6667" height="28.6667"/>
-  <object id="140" x="1090.67" y="194" width="62" height="30.6667"/>
-  <object id="141" x="1220" y="323.333" width="124.667" height="26.6667"/>
+  <object id="140" x="1090.67" y="195" width="62" height="29.6667"/>
+  <object id="141" x="1218.38" y="324.541" width="124.667" height="26.3334"/>
   <object id="142" x="963.333" y="356" width="124.667" height="24.6667"/>
   <object id="143" x="1344" y="290" width="65.3333" height="28.6667"/>
   <object id="144" x="1410" y="226" width="62.6667" height="28.6667"/>
@@ -10285,21 +10405,21 @@
     <property name="time" value="1000"/>
    </properties>
   </object>
-  <object id="64" name="BlackKnight" x="2075" y="447" width="32" height="64">
+  <object id="64" name="BlackKnight" x="2173.67" y="543.667" width="32" height="64">
    <properties>
     <property name="edef" value="1"/>
-    <property name="endPos" value="2090"/>
+    <property name="endPos" value="2207"/>
     <property name="num" value="1"/>
-    <property name="startPos" value="1990"/>
+    <property name="startPos" value="2176"/>
     <property name="time" value="1000"/>
    </properties>
   </object>
-  <object id="68" name="BlackKnight" x="2240" y="445" width="32" height="64">
+  <object id="68" name="BlackKnight" x="1981.33" y="445.667" width="32" height="64">
    <properties>
     <property name="edef" value="1"/>
-    <property name="endPos" value="2340"/>
+    <property name="endPos" value="2100"/>
     <property name="num" value="1"/>
-    <property name="startPos" value="2240"/>
+    <property name="startPos" value="1920"/>
     <property name="time" value="1000"/>
    </properties>
   </object>
@@ -10411,7 +10531,7 @@
     <property name="time" value="1000"/>
    </properties>
   </object>
-  <object id="118" name="Zombie" x="2181.34" y="251.333" width="32" height="64">
+  <object id="118" name="Zombie" x="1985.34" y="256.333" width="32" height="64">
    <properties>
     <property name="edef" value="6"/>
     <property name="endPos" value="2340"/>
@@ -10423,6 +10543,33 @@
   <object id="180" name="Phantom" x="2762" y="31" width="32" height="64">
    <properties>
     <property name="edef" value="7"/>
+    <property name="endPos" value="2340"/>
+    <property name="num" value="1"/>
+    <property name="startPos" value="2240"/>
+    <property name="time" value="1000"/>
+   </properties>
+  </object>
+  <object id="202" name="Bat" x="2128" y="384.667" width="32" height="32">
+   <properties>
+    <property name="edef" value="0"/>
+    <property name="endPos" value="150"/>
+    <property name="num" value="1"/>
+    <property name="startPos" value="100"/>
+    <property name="time" value="1000"/>
+   </properties>
+  </object>
+  <object id="232" name="Raven" x="832" y="162" width="32" height="32">
+   <properties>
+    <property name="edef" value="5"/>
+    <property name="endPos" value="1200"/>
+    <property name="num" value="1"/>
+    <property name="startPos" value="840"/>
+    <property name="time" value="1000"/>
+   </properties>
+  </object>
+  <object id="233" name="Skeleton" x="720" y="258" width="32" height="64">
+   <properties>
+    <property name="edef" value="4"/>
     <property name="endPos" value="2340"/>
     <property name="num" value="1"/>
     <property name="startPos" value="2240"/>
@@ -10442,6 +10589,91 @@
    </properties>
   </object>
   <object id="58" gid="1023" x="2357.67" y="775.333" width="16" height="32">
+   <properties>
+    <property name="item" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="203" gid="1023" x="2454.67" y="413.333" width="16" height="32">
+   <properties>
+    <property name="item" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="204" gid="1023" x="2198.67" y="420.667" width="16" height="32">
+   <properties>
+    <property name="item" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="205" gid="1023" x="1941.33" y="418" width="16" height="32">
+   <properties>
+    <property name="item" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="206" gid="1023" x="2064" y="420" width="16" height="32">
+   <properties>
+    <property name="item" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="207" gid="1023" x="2327.33" y="422.667" width="16" height="32">
+   <properties>
+    <property name="item" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="208" gid="1023" x="1816" y="427.333" width="16" height="32">
+   <properties>
+    <property name="item" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="209" gid="1023" x="1686" y="415.333" width="16" height="32">
+   <properties>
+    <property name="item" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="210" gid="1023" x="1464" y="625" width="16" height="32">
+   <properties>
+    <property name="item" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="211" gid="1023" x="1336" y="669" width="16" height="32">
+   <properties>
+    <property name="item" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="213" gid="1023" x="946.5" y="672" width="16" height="32">
+   <properties>
+    <property name="item" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="214" gid="1023" x="1077.5" y="672" width="16" height="32">
+   <properties>
+    <property name="item" type="int" value="7"/>
+   </properties>
+  </object>
+  <object id="215" gid="1023" x="695.75" y="673.5" width="16" height="32">
+   <properties>
+    <property name="item" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="216" gid="1023" x="826.75" y="673.5" width="16" height="32">
+   <properties>
+    <property name="item" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="217" gid="1023" x="437.25" y="676.5" width="16" height="32">
+   <properties>
+    <property name="item" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="218" gid="1023" x="568.25" y="676.5" width="16" height="32">
+   <properties>
+    <property name="item" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="219" gid="1023" x="183" y="641" width="16" height="32">
+   <properties>
+    <property name="item" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="220" gid="1023" x="295" y="498" width="16" height="32">
    <properties>
     <property name="item" type="int" value="4"/>
    </properties>
@@ -10481,6 +10713,41 @@
   <object id="174" name="S3_S4" x="1506.58" y="162.916" width="13.3333" height="94.167">
    <properties>
     <property name="sceneID" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="230" gid="1023" x="1339" y="286" width="16" height="32">
+   <properties>
+    <property name="item" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="231" gid="1023" x="1465" y="193" width="16" height="32">
+   <properties>
+    <property name="item" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="235" gid="1023" x="1715" y="95" width="16" height="32">
+   <properties>
+    <property name="item" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="236" gid="1023" x="1847" y="161" width="16" height="32">
+   <properties>
+    <property name="item" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="237" gid="1023" x="1974" y="95" width="16" height="32">
+   <properties>
+    <property name="item" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="238" gid="1023" x="2102" y="285" width="16" height="32">
+   <properties>
+    <property name="item" type="int" value="9"/>
+   </properties>
+  </object>
+  <object id="239" gid="1023" x="2232" y="212" width="16" height="32">
+   <properties>
+    <property name="item" type="int" value="6"/>
    </properties>
   </object>
  </objectgroup>

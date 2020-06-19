@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <gamedata>
-	<animation ID="BAT_ANI_FLYING" timeLoop="100">
+	<animation ID="BAT_ANI_FLY" timeLoop="100">
 		<sprite ID="BAT_SPITE_FLYING_01" />
 		<sprite ID="BAT_SPITE_FLYING_02" />
 		<sprite ID="BAT_SPITE_FLYING_03" />
