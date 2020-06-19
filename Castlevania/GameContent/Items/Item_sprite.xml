@@ -83,5 +83,9 @@
 			<frame l="360" t="0" r="392" b="30" />
 		</sprite>
 		
+		<sprite ID="ITEM_SPRITE_INVISIBLE">
+			<frame l="97" t="24" r="127" b="61" />
+		</sprite>
+		
 
 </gamedata>

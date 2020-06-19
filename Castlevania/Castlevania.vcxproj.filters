@@ -231,6 +231,9 @@
     <ClInclude Include="IAXE.h">
       <Filter>Source Files\Item</Filter>
     </ClInclude>
+    <ClInclude Include="IInvisible.h">
+      <Filter>Source Files\Item</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -411,6 +414,9 @@
       <Filter>Source Files\Item</Filter>
     </ClCompile>
     <ClCompile Include="IAXE.cpp">
+      <Filter>Source Files\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="IInvisible.cpp">
       <Filter>Source Files\Item</Filter>
     </ClCompile>
   </ItemGroup>

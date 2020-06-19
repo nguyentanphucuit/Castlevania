@@ -388,6 +388,9 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 					if (dynamic_cast<IBoomerang*>(item)) {
 						this->currentWeapon = EWeapon::BOOMERANG;
 					}
+					if (dynamic_cast<IInvisible*>(item)) {
+						StartUntouchable();
+					}
 				}
 				else if (dynamic_cast<Entrance*>(e->obj)) {
 					auto entrance = dynamic_cast<Entrance*> (e->obj);
@@ -475,6 +478,9 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 					}
 					if (dynamic_cast<IBoomerang*>(item)) {
 						this->currentWeapon = EWeapon::BOOMERANG;
+					}
+					if (dynamic_cast<IInvisible*>(item)) {
+						StartUntouchable();
 					}
 					item->SetDestroy();
 				}

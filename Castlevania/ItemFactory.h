@@ -8,6 +8,7 @@
 #include "IAXE.h"
 #include "IFireBomb.h"
 #include "IBoomerang.h"
+#include "IInvisible.h"
 
 // declarate Item
 enum class EItem
@@ -19,7 +20,8 @@ enum class EItem
     MONEY,
     AXE,
     FIREBOMB,
-    BOOMERANG
+    BOOMERANG,
+    INVISIBLE
 
 };
 
@@ -62,6 +64,8 @@ inline T ItemFactory::SpawnItem(EItem eitem)
     case EItem::BOOMERANG:
         return new IBoomerang();
         break;
+    case EItem::INVISIBLE:
+        return new IInvisible();
     default:
         break;
     }

@@ -53,6 +53,11 @@ void Phantom::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 		if (this->x - pScene->GetSimon()->x < ACTIVE_PHANTOM_Y) {
 			this->SetState(PHANTOMSTATE::FLY);
 		}
+		D3DXVECTOR2 cam = pScene->GetCamera();
+		box_attive.left = cam.x;
+		box_attive.top = cam.y;
+		box_attive.right = cam.x + SCREENSIZE::WIDTH - 80;
+		box_attive.bottom = cam.y + SCREENSIZE::HEIGHT - 220;
 	}
 
 	if (this->state == PHANTOMSTATE::FLY) {
@@ -92,7 +97,7 @@ void Phantom::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 					start_attack = GetTickCount();
 					target.x = simon_center.x;
 					target.y = simon_center.y;
-					FlyTo(target, FLY_FAST);
+					FlyTo(target, FLY_SLOW);
 				}
 			}
 			else if (CGameObject::AABB(ml, mt, mr, mb, this->box_fast_attack.left,
@@ -119,7 +124,7 @@ void Phantom::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 			if (maxTime != 0 && GetTickCount() - start_attack > maxTime) {
 				start_attack = 0;
 				fly_ramdom_start = GetTickCount();
-				//target.x = rand() % (box_attive.right - box_attive.left + 1) + box_attive.left;
+				target.x = rand() % (box_attive.right - box_attive.left + 1) + box_attive.left;
 				target.y = rand() % (box_attive.bottom - box_attive.top + 1) + box_attive.top;
 				FlyTo(target, FLY_SLOW);
 			}
@@ -190,8 +195,5 @@ Phantom::Phantom() :Enemy()
 	AddAnimation("PHANTOM_ANI_IDLE");
 	AddAnimation("PHANTOM_ANI_FLY");
 	this->hp = 1;
-	box_attive.left = 2600;
-	box_attive.top = 5;
-	box_attive.right = 3000;
-	box_attive.bottom = 250;
+	
 }

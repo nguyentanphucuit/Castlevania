@@ -10108,13 +10108,13 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="2" name="Camera">
+ <objectgroup id="2" name="Camera" visible="0">
   <object id="1" name="M1_C1" x="508" y="732" width="1540" height="318.667"/>
   <object id="2" name="M2_C1" x="2048.19" y="734.031" width="527.333" height="381.333"/>
   <object id="3" name="M2_C2" x="1536" y="350.333" width="1039.33" height="381"/>
   <object id="5" name="M3_C1" x="0.5" y="376" width="1535" height="355.5"/>
   <object id="6" name="M3_C2" x="1" y="14.6667" width="1533.5" height="368.5"/>
-  <object id="7" name="M4_C1" x="1535.96" y="-0.1667" width="1536.88" height="348.667"/>
+  <object id="7" name="M4_C1" x="1535.96" y="29.8333" width="1536.88" height="318.667"/>
  </objectgroup>
  <objectgroup id="11" name="HMoney">
   <object id="48" x="1929.5" y="1007.5" width="35" height="14"/>
@@ -10128,7 +10128,7 @@
  <objectgroup id="8" name="Torch">
   <object id="36" gid="1018" x="681.5" y="1022" width="32" height="64">
    <properties>
-    <property name="item" value="3"/>
+    <property name="item" value="9"/>
    </properties>
   </object>
   <object id="49" gid="1018" x="951.25" y="1023.75" width="32" height="64">
@@ -10173,7 +10173,7 @@
     <property name="dir" type="int" value="0"/>
    </properties>
   </object>
-  <object id="153" name="StairTop" x="238.168" y="105.498" width="32" height="32">
+  <object id="153" name="StairTop" x="245.668" y="101.498" width="32" height="32">
    <properties>
     <property name="dir" type="int" value="3"/>
    </properties>
@@ -10183,28 +10183,28 @@
     <property name="dir" type="int" value="1"/>
    </properties>
   </object>
-  <object id="163" name="StairBottom" x="65.1061" y="227.083" width="31.1212" height="7.1667">
+  <object id="163" name="StairBottom" x="108.106" y="255.083" width="31.1212" height="7.1667">
    <properties>
     <property name="dir" type="int" value="0"/>
    </properties>
   </object>
-  <object id="164" name="StairTop" x="98" y="247.667" width="32" height="10.3333">
+  <object id="164" name="StairTop" x="69" y="312.167" width="32" height="10.3333">
    <properties>
-    <property name="dir" type="int" value="3"/>
+    <property name="dir" type="int" value="2"/>
    </properties>
   </object>
  </objectgroup>
  <objectgroup id="4" name="Player">
   <object id="11" name="M1_E1" gid="949" x="600" y="1018" width="60" height="64"/>
   <object id="13" name="M2_E222222" gid="956" x="2309.5" y="700.167" width="60" height="64"/>
-  <object id="15" name="M3_E222222" gid="2147484604" x="126.667" y="351" width="60" height="64"/>
-  <object id="16" name="M4_E1" gid="949" x="2564.64" y="246.182" width="60" height="64"/>
+  <object id="15" name="M3_E22" gid="2147484604" x="126.667" y="351" width="60" height="64"/>
+  <object id="16" name="M4_E1" gid="949" x="2592.64" y="246.182" width="60" height="64"/>
   <object id="113" name="M2_E3" gid="2147484606" x="2291.42" y="781.417" width="60" height="64"/>
   <object id="155" name="M2_E1" gid="2147484597" x="2431" y="956" width="60" height="64"/>
   <object id="159" name="M3_E3" gid="958" x="178" y="429.333" width="60" height="64"/>
   <object id="169" name="M3_E1" gid="2147484597" x="1179.67" y="677.667" width="60" height="64"/>
   <object id="177" name="M2_E2" gid="956" x="1759" y="504" width="60" height="64"/>
-  <object id="178" name="M3_E2" gid="2147484604" x="265" y="183" width="60" height="64"/>
+  <object id="178" name="M3_E2" gid="956" x="264.5" y="195.5" width="60" height="64"/>
  </objectgroup>
  <objectgroup id="6" name="Ground">
   <object id="17" x="510" y="1022" width="1535" height="28"/>
@@ -10420,7 +10420,7 @@
     <property name="time" value="1000"/>
    </properties>
   </object>
-  <object id="180" name="Phantom" x="2765" y="3" width="32" height="64">
+  <object id="180" name="Phantom" x="2762" y="31" width="32" height="64">
    <properties>
     <property name="edef" value="7"/>
     <property name="endPos" value="2340"/>

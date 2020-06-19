@@ -151,6 +151,7 @@
     <ClInclude Include="IAXE.h" />
     <ClInclude Include="IBoomerang.h" />
     <ClInclude Include="IFireBomb.h" />
+    <ClInclude Include="IInvisible.h" />
     <ClInclude Include="Phantom.h" />
     <ClInclude Include="WBoomerang.h" />
     <ClInclude Include="Brick.h" />
@@ -214,6 +215,7 @@
     <ClCompile Include="IAXE.cpp" />
     <ClCompile Include="IBoomerang.cpp" />
     <ClCompile Include="IFireBomb.cpp" />
+    <ClCompile Include="IInvisible.cpp" />
     <ClCompile Include="Phantom.cpp" />
     <ClCompile Include="WBoomerang.cpp" />
     <ClCompile Include="Brick.cpp" />

@@ -63,5 +63,9 @@
 			<sprite ID="ITEM_SPRITE_AXE" />
 		</animation>
 		
+		<animation ID="ITEM_ANI_INVISIBLE" timeLoop="100">
+			<sprite ID="ITEM_SPRITE_INVISIBLE" />
+		</animation>
+		
 
 </gamedata>
