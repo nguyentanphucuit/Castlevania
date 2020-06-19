@@ -39,9 +39,10 @@ void Raven::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 			this->SetState(RAVENSTATE::FLY);
 			waitTimeFly = 0;
 		}
-
-
-
+		float left, top,right, bottom;
+		pScene->GetSimon()->GetBoundingBox(left, top, right, bottom);
+		if (CGameObject::AABB(left, top, right, bottom, this->x, this->y, this->x + RAVEN_BBOX_WIDTH, this->y + RAVEN_BBOX_HEIGHT))
+			this->isDestroy = true;
 		if (x > pScene->GetSimon()->x + 150) {
 			nx = DIRECTION::LEFT;
 			this->SetState(RAVENSTATE::IDLE);
@@ -80,7 +81,9 @@ void Raven::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 		if(waitTimeFly == 0)
 			waitTimeFly = GetTickCount();
 	}
-		
+	
+	
+
 	x += dx;
 	y += dy;
 	for (UINT i = 0; i < coEvents.size(); i++) delete coEvents[i];

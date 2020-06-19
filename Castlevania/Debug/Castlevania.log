@@ -1,9 +1,36 @@
-﻿  Simon.cpp
-C:\Users\16520\Desktop\Castlevania\Castlevania\SIMON.h(61,1): warning C4005: 'SIMON_ANI_DIE': macro redefinition
-C:\Users\16520\Desktop\Castlevania\Castlevania\SIMON.h(58): message : see previous definition of 'SIMON_ANI_DIE'
+﻿  Phantom.cpp
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(61,1): warning C4005: 'SIMON_ANI_DIE': macro redefinition
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(58): message : see previous definition of 'SIMON_ANI_DIE'
 C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
 C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
-C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.cpp(508,68): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.cpp(508,32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.cpp(512,32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(41,27): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(84,46): warning C4244: '=': conversion from 'FLOAT' to 'LONG', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(85,45): warning C4244: '=': conversion from 'FLOAT' to 'LONG', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(86,47): warning C4244: '=': conversion from 'FLOAT' to 'LONG', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(87,48): warning C4244: '=': conversion from 'FLOAT' to 'LONG', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(89,46): warning C4244: '=': conversion from 'FLOAT' to 'LONG', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(90,45): warning C4244: '=': conversion from 'FLOAT' to 'LONG', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(91,47): warning C4244: '=': conversion from 'FLOAT' to 'LONG', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(92,48): warning C4244: '=': conversion from 'FLOAT' to 'LONG', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(98,26): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(97,26): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(96,26): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(95,63): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(109,26): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(108,26): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(107,26): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(106,68): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(118,66): warning C4244: '=': conversion from 'LONG' to 'FLOAT', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(119,66): warning C4244: '=': conversion from 'LONG' to 'FLOAT', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(131,66): warning C4244: '=': conversion from 'LONG' to 'FLOAT', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(144,66): warning C4244: '=': conversion from 'LONG' to 'FLOAT', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(145,66): warning C4244: '=': conversion from 'LONG' to 'FLOAT', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(156,35): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(157,35): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+  Raven.cpp
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(61,1): warning C4005: 'SIMON_ANI_DIE': macro redefinition
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(58): message : see previous definition of 'SIMON_ANI_DIE'
+C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
   Castlevania.vcxproj -> C:\Users\16520\Desktop\Castlevania\Debug\Castlevania.exe
