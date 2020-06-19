@@ -12,7 +12,7 @@ void IMoney::Render()
 void IMoney::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObject)
 {
 	CGameObject::Update(dt, scene);
-	vy = -0.1f;
+	vy = -VELOCITY_Y;
 
 	bool isCoGround = false;
 	for (std::size_t i = 0; i < coObject->size(); i++) {

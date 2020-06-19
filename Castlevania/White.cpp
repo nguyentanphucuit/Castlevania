@@ -31,9 +31,9 @@ void White::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 	else nx = DIRECTION::RIGHT;
 
 
-	if (numWeapon  < 3 && GetTickCount() - timeSpawn > 450) {
+	if (numWeapon  < 3 && GetTickCount() - timeSpawn > TIME_WAIT) {
 		timeSpawn = GetTickCount();
-		weapon->SetPosition(this->x, this->y + 10);
+		weapon->SetPosition(this->x, this->y + NEARLY_WEAPON);
 		weapon->SetNx(this->nx);
 		if (dynamic_cast<PlayScene*>(scene)) {
 			PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
@@ -48,7 +48,7 @@ void White::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 		}
 		
 	}
-	if (loadTimeSpawn!=0 && GetTickCount()-loadTimeSpawn>1000)
+	if (loadTimeSpawn!=0 && GetTickCount()-loadTimeSpawn> TIME_WAIT_BONE)
 	{
 		loadTimeSpawn = 0;
 		numWeapon = 0;
@@ -84,8 +84,8 @@ void White::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 				}
 				else
 				{
-					float minvy = -0.60;
-					float maxvy = -0.80;
+					float minvy = -0.40;
+					float maxvy = -0.65;
 					vy = minvy + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (maxvy - minvy)));
 				}
 				float minvx = -0.40;

@@ -14,6 +14,7 @@
 #define RAVEN_OY_HEIGHT 30
 
 #define MAX_DISTANCE_Y 50
+#define WAIT_TIME		500
 enum class RAVENSTATE {
 	IDLE,
 	FLY

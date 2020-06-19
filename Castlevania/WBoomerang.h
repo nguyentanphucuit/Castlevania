@@ -8,7 +8,9 @@
 #define BOOMERANG_BBOX_WIDTH 30
 #define BOOMERANG_BBOX_HEIGHT 28
 
-
+#define DISTANCE		32
+#define VX_LEFT			0.0012f
+#define VX_RIGHT		0.0009f
 class WBoomerang :public Weapon
 {
 private:

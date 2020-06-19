@@ -7,6 +7,9 @@
 #define WHITE_WALKING_SPEED			0.10f
 
 #define TIME_SPAWN_WEAPON 1500
+#define TIME_WAIT		450
+#define NEARLY_WEAPON	10
+#define TIME_WAIT_BONE	  3000
 class White :public Enemy
 {
 private:

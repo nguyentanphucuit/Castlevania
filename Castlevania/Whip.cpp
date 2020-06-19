@@ -50,11 +50,11 @@ void Whip::GetBoundingBox(float& l, float& t, float& r, float& b)
 	
 	if (nx == DIRECTION::LEFT)
 	{
-		l = x + 50;
+		l = x + WHIP_BBOX_NORMAL_HEIGHT;
 		t = y;
 		if (state == MORINGSTAR) {
-			l = x + 20;
-			r = l + WHIP_BBOX_NORMAL_WIDTH + 30;
+			l = x + NEARLY_WIDTH_01;
+			r = l + WHIP_BBOX_NORMAL_WIDTH + NEARLY_WIDTH_02;
 		}
 		else {
 			r = l + WHIP_BBOX_NORMAL_WIDTH;
@@ -65,11 +65,11 @@ void Whip::GetBoundingBox(float& l, float& t, float& r, float& b)
 	else if(nx == DIRECTION::RIGHT)
 	{
 		
-		l = x + 150;
+		l = x + WHIP_BBOX_NORMAL_HEIGHT*3;
 		t = y;	
 		if (state == MORINGSTAR) {
 
-			r = l + WHIP_BBOX_NORMAL_WIDTH + 30;
+			r = l + WHIP_BBOX_NORMAL_WIDTH + NEARLY_WIDTH_02;
 		}
 		else {
 			r = l + WHIP_BBOX_NORMAL_WIDTH;

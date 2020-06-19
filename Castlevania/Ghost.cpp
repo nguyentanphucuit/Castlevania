@@ -15,11 +15,10 @@ void Ghost::GetBoundingBox(float& left, float& top, float& right, float& bottom)
 void Ghost::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 {
 
-	float velocity = ghost_fly_velocity;
 	CGameObject::Update(dt, scene);
-	if (dynamic_cast<PlayScene*>(scene)){
+	if (dynamic_cast<PlayScene*>(scene)) {
 
-		if (!start_attack){
+		if (!start_attack) {
 
 			auto pScene = dynamic_cast<PlayScene*>(scene);
 			float l, t, r, b;
@@ -35,38 +34,38 @@ void Ghost::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 			gPos.x = ml + (mr - ml) / 2;
 			gPos.y = mt + (mb - mt) / 2;
 
-			if (gPos.x > simonPos.x){
+			if (gPos.x > simonPos.x) {
 				nx = DIRECTION::LEFT;
-				int min = l - 60;
+				int min = l - GHOST_BBOX_WIDTH * 2;
 				int max = l;
-				vx = -velocity;
+				vx = -GHOST_VELOCITY;
 				targer.x = rand() % (max + 1 - min) + min;
 			}
-			else{
+			else {
 				nx = DIRECTION::RIGHT;
 				int min = r;
-				int max = r + 60;
+				int max = r + GHOST_BBOX_WIDTH * 2;
 				targer.x = rand() % (max + 1 - min) + min;
-				vx = velocity;
+				vx = GHOST_VELOCITY;
 			}
 
 
-			if (gPos.y > simonPos.y){
+			if (gPos.y > simonPos.y) {
 				int min = t;
-				int max = t + 60;
-				vy = -velocity;
+				int max = t + GHOST_BBOX_HEIGHT * 2;
+				vy = -GHOST_VELOCITY;
 				targer.x = rand() % (max + 1 - min) + min;
 			}
-			else{
+			else {
 				int min = b;
-				int max = b + 60;
+				int max = b + GHOST_BBOX_HEIGHT * 2;
 				targer.y = rand() % (max + 1 - min) + min;
-				vy = velocity;
+				vy = GHOST_VELOCITY;
 			}
 
 
-			auto tx = abs(targer.x - gPos.x) / velocity;
-			auto ty = abs(targer.y - gPos.y) / velocity;
+			auto tx = abs(targer.x - gPos.x) / GHOST_VELOCITY;
+			auto ty = abs(targer.y - gPos.y) / GHOST_VELOCITY;
 
 			minTime = tx < ty ? tx : ty;
 
@@ -75,10 +74,10 @@ void Ghost::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 			{
 				sinValue = 1;
 			}
-			// tính góc trả về đơn vị radian
+
 			auto angle = asin(sinValue);
-			// đổi ra độ
-			this->angle = angle / PI * 180;
+
+			this->angle = angle;
 			start_attack = GetTickCount();
 
 		}
@@ -88,8 +87,8 @@ void Ghost::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 				this->start_attack = 0;
 			else
 			{
-				x += dx * cos(this->angle * PI / 180);
-				y += dy * sin(this->angle * PI / 180);
+				x += dx * cos(this->angle);
+				y += dy * sin(this->angle);
 			}
 
 		}

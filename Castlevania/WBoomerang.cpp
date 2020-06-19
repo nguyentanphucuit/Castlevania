@@ -33,11 +33,11 @@ void WBoomerang::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 	}
 	if (nx== DIRECTION::LEFT)
 	{
-		vx += 0.0012*dt;
+		vx += VX_LEFT *dt;
 	}
 	else
 	{
-		vx += -0.0009 * dt;
+		vx += -VX_RIGHT * dt;
 	}
 
 	D3DXVECTOR2 cam;
@@ -51,11 +51,11 @@ void WBoomerang::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 			isReturn = false;
 		}
 		
-		if ((this->x > pScene->GetSimon()->x + 64 && nx == DIRECTION::RIGHT)
-			|| (this->x < pScene->GetSimon()->x - 128 && nx == DIRECTION::LEFT)) {
+		if ((this->x > pScene->GetSimon()->x + DISTANCE*2 && nx == DIRECTION::RIGHT)
+			|| (this->x < pScene->GetSimon()->x - DISTANCE*4 && nx == DIRECTION::LEFT)) {
 			isFly = true;
 		}
-		if (((this->x <= pScene->GetSimon()->x + 32 && nx == DIRECTION::RIGHT)
+		if (((this->x <= pScene->GetSimon()->x + DISTANCE && nx == DIRECTION::RIGHT)
 			|| (this->x >= pScene->GetSimon()->x && nx == DIRECTION::LEFT)) 
 			&& this->y - pScene->GetSimon()->y > 0 && isFly) {
 			isReturn = true;

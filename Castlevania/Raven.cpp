@@ -34,7 +34,7 @@ void Raven::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 	{
 		PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
 		if ((this->x - pScene->GetSimon()->x < ACTIVE_RAVEN_X)
-			&& GetTickCount() - waitTimeFly > 500)
+			&& GetTickCount() - waitTimeFly > WAIT_TIME)
 		{
 			this->SetState(RAVENSTATE::FLY);
 			waitTimeFly = 0;
@@ -43,14 +43,14 @@ void Raven::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 		pScene->GetSimon()->GetBoundingBox(left, top, right, bottom);
 		if (CGameObject::AABB(left, top, right, bottom, this->x, this->y, this->x + RAVEN_BBOX_WIDTH, this->y + RAVEN_BBOX_HEIGHT))
 			this->isDestroy = true;
-		if (x > pScene->GetSimon()->x + 150) {
+		if (x > pScene->GetSimon()->x + _startPos) {
 			nx = DIRECTION::LEFT;
 			this->SetState(RAVENSTATE::IDLE);
 			if (waitTimeFly == 0)
 				waitTimeFly = GetTickCount();
 		}
 
-		if (x < pScene->GetSimon()->x - 150) {
+		if (x < pScene->GetSimon()->x - _endPos) {
 			nx = DIRECTION::RIGHT;
 			this->SetState(RAVENSTATE::IDLE);
 			if (waitTimeFly == 0)

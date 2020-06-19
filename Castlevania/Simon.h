@@ -79,6 +79,8 @@
 #define SIMON_DOWNSTAIR_LEFT_OFFSET 12
 #define SIMON_DOWNSTAIR_RIGHT_OFFET 18
 
+#define STEP_STAIR		5
+
  enum class SIMONSTATE 
 {
 	IDLE,
@@ -171,9 +173,6 @@ public:
 		if (this->onStairDirection == STAIRDIRECTION::UPLEFT || this->onStairDirection == STAIRDIRECTION::UPRIGHT)
 			return true;
 		return false;
-	}
-	void SetAutoWalk(bool flag) {
-		this->isAutoWalk = flag;
 	}
 	bool CheckCanStepDown() {
 		if (this->onStairDirection == STAIRDIRECTION::DOWNLEFT || this->onStairDirection == STAIRDIRECTION::DOWNRIGHT)

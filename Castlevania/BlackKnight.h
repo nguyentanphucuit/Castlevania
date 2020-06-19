@@ -6,6 +6,7 @@
 #define BLACKKNIGHT_GRAVITY			0.002f
 #define BLACKKNIGHT_WALKING_SPEED			0.10f
 
+#define DISTANCE 16
 
 class BlackKnight :public Enemy
 {

@@ -7,9 +7,9 @@
 void BlackKnight::GetBoundingBox(float& left, float& top, float& right, float& bottom)
 {
 	left = x;
-	top = y + 2;
+	top = y;
 	right = left + BLACKKNIGHT_BBOX_WIDTH;
-	bottom = top + BLACKKNIGHT_BBOX_HEIGHT - 2;
+	bottom = top + BLACKKNIGHT_BBOX_HEIGHT;
 }
 
 void BlackKnight::Update(DWORD dt, Scene* scene , vector<LPGAMEOBJECT>* coObjects)
@@ -38,7 +38,7 @@ void BlackKnight::Update(DWORD dt, Scene* scene , vector<LPGAMEOBJECT>* coObject
 		D3DXVECTOR2 cam = pScene->GetCamera();
 		auto sx = pScene->GetSimon()->x;
 
-		if ((pScene->GetSimon()->y - y) < 1 && ((sx-x > 16)  || (x-sx>16)) && !pScene->GetSimon()->Untouch()) {
+		if (pScene->GetSimon()->y <= y && ((sx-x > DISTANCE)  || (x-sx> DISTANCE)) && !pScene->GetSimon()->Untouch()) {
 			if ((pScene->GetSimon()->x - x < BLACKKNIGHT_BBOX_WIDTH * 4) && x < _endPos - BLACKKNIGHT_BBOX_WIDTH && pScene->GetSimon()->x - x>0) {
 				if (nx == DIRECTION::LEFT) {
 					nx = DIRECTION::RIGHT;
@@ -60,14 +60,6 @@ void BlackKnight::Update(DWORD dt, Scene* scene , vector<LPGAMEOBJECT>* coObject
 		
 
 	}
-	/*if (x > 2340) {
-		nx = DIRECTION::LEFT;
-	
-	}
-	if (x < 2170){
-		nx = DIRECTION::RIGHT;
-	
-	}*/
 	if (x > _endPos) {
 		nx = DIRECTION::LEFT;
 
@@ -76,14 +68,6 @@ void BlackKnight::Update(DWORD dt, Scene* scene , vector<LPGAMEOBJECT>* coObject
 		nx = DIRECTION::RIGHT;
 
 	}
-	//if (vung)
-	//{
-	//	if (simon->x - this->x)
-	//	{
-	//		nx = 
-	//	}
-	//}
-
 	
 	if (coEvents.size() == 0)
 	{
