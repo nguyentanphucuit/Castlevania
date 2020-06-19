@@ -373,9 +373,20 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 
 					if (dynamic_cast<IWhip*>(item)) {
 						this->SetState(SIMONSTATE::UPWHIP);
+						this->currentWeapon = EWeapon::NONE;
 					}
 					if (dynamic_cast<IDagger*>(item)) {
 						this->currentWeapon = EWeapon::DAGGER;
+
+					}
+					if (dynamic_cast<IAXE*>(item)) {
+						this->currentWeapon = EWeapon::AXE;
+					}
+					if (dynamic_cast<IFireBomb*>(item)) {
+						this->currentWeapon = EWeapon::FIREBOMB;
+					}
+					if (dynamic_cast<IBoomerang*>(item)) {
+						this->currentWeapon = EWeapon::BOOMERANG;
 					}
 				}
 				else if (dynamic_cast<Entrance*>(e->obj)) {
@@ -451,9 +462,20 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 				if (!item->IsDestroy()) {
 					if (dynamic_cast<IWhip*>(item)) {
 						this->SetState(SIMONSTATE::UPWHIP);
+						this->currentWeapon = EWeapon::NONE;
 					}
 					if (dynamic_cast<IDagger*>(item)) {
 						this->currentWeapon = EWeapon::DAGGER;
+
+					}
+					if (dynamic_cast<IAXE*>(item)) {
+						this->currentWeapon = EWeapon::AXE;
+					}
+					if (dynamic_cast<IFireBomb*>(item)) {
+						this->currentWeapon = EWeapon::FIREBOMB;
+					}
+					if (dynamic_cast<IBoomerang*>(item)) {
+						this->currentWeapon = EWeapon::BOOMERANG;
 					}
 					item->SetDestroy();
 				}
@@ -493,8 +515,8 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 				whip->SetNxDirection(this->nx);
 				whip->Update(dt, scene, coObjects);
 			}
-			else if (!isSpawnWeapon) {
-				auto weapon = WeaponFactory::SpawnWeapon<Weapon*>(EWeapon::FIREBOMB);
+			else if (!isSpawnWeapon) {		
+				auto weapon = WeaponFactory::SpawnWeapon<Weapon*>(currentWeapon);
 				weapon->SetPosition(this->x, this->y + 10);
 				weapon->SetNx(this->nx);
 				if (dynamic_cast<PlayScene*>(scene)) {

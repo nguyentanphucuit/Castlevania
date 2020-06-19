@@ -222,6 +222,15 @@
     <ClInclude Include="Grid.h">
       <Filter>Source Files\Grid</Filter>
     </ClInclude>
+    <ClInclude Include="IBoomerang.h">
+      <Filter>Source Files\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="IFireBomb.h">
+      <Filter>Source Files\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="IAXE.h">
+      <Filter>Source Files\Item</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -394,6 +403,15 @@
     </ClCompile>
     <ClCompile Include="Grid.cpp">
       <Filter>Source Files\Grid</Filter>
+    </ClCompile>
+    <ClCompile Include="IFireBomb.cpp">
+      <Filter>Source Files\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="IBoomerang.cpp">
+      <Filter>Source Files\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="IAXE.cpp">
+      <Filter>Source Files\Item</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

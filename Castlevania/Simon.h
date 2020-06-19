@@ -130,7 +130,6 @@ class CSIMON : public CGameObject
 	STAIRDIRECTION onStairDirection = STAIRDIRECTION::DEFAULT;
 	D3DXVECTOR2 stairPos;
 
-
 	void HandleFirstStepOnStair();
 	void HandlePerStepOnStair();
 public: 

@@ -30,21 +30,38 @@
 		</animation>
 			
 		<animation ID="AXE_ANI" timeLoop="100">
-			<sprite ID="AXE_SPRITE" />
+			<sprite ID="AXE_SPRITE_01" />
+			<sprite ID="AXE_SPRITE_02" />
+			<sprite ID="AXE_SPRITE_03" />
+			<sprite ID="AXE_SPRITE_04" />
 		</animation>
 		
 		<animation ID="BOOMERANG_ANI" timeLoop="100">
-			<sprite ID="BOOMERANG_SPRITE" />
+			<sprite ID="BOOMERANG_SPRITE_01" />
+			<sprite ID="BOOMERANG_SPRITE_02" />
 		</animation>
 		
 		<animation ID="FIREBOMB_ANI_NORMAL" timeLoop="100">
-			<sprite ID="FIRE_BOMB_SPRITE" />
+			<sprite ID="FIREBOMB_SPRITE" />
 		</animation>
 		
 		<animation ID="FIREBOMB_ANI_BURN" timeLoop="100">
-			<sprite ID="FIRE_BOMB_SPRITE_BURN_01" />
-			<sprite ID="FIRE_BOMB_SPRITE_BURN_02" />
-			<sprite ID="FIRE_BOMB_SPRITE_BURN_03" />
+			<sprite ID="FIREBOMB_SPRITE_BURN_01" />
+			<sprite ID="FIREBOMB_SPRITE_BURN_02" />
+			<sprite ID="FIREBOMB_SPRITE_BURN_03" />
 		</animation>
+		
+		<animation ID="ITEM_ANI_BOOMERANG" timeLoop="100">
+			<sprite ID="ITEM_SPRITE_BOOMERANG" />
+		</animation>
+		
+		<animation ID="ITEM_ANI_FIREBOMB" timeLoop="100">
+			<sprite ID="ITEM_SPRITE_FIREBOMB" />
+		</animation>
+		
+		<animation ID="ITEM_ANI_AXE" timeLoop="100">
+			<sprite ID="ITEM_SPRITE_AXE" />
+		</animation>
+		
 
 </gamedata>

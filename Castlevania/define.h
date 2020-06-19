@@ -36,3 +36,10 @@ enum class STAIRDIRECTION {
 	DOWNLEFT,
 };
 
+const enum SWEAPONDEF {
+	SWDDAGGER,
+	SWAXE,
+	SWFIREBOMB,
+	SWBOOMERANG,
+	
+};

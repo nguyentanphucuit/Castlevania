@@ -5,6 +5,9 @@
 #include "IDagger.h"
 #include "IWhip.h"
 #include "IMoney.h"
+#include "IAXE.h"
+#include "IFireBomb.h"
+#include "IBoomerang.h"
 
 // declarate Item
 enum class EItem
@@ -14,6 +17,9 @@ enum class EItem
 	DAGGER,
 	HEART,
     MONEY,
+    AXE,
+    FIREBOMB,
+    BOOMERANG
 
 };
 
@@ -46,6 +52,15 @@ inline T ItemFactory::SpawnItem(EItem eitem)
         break;
     case EItem::MONEY:
         return new IMoney();
+        break;
+    case EItem::AXE:
+        return new IAXE();
+        break;
+    case EItem::FIREBOMB:
+        return new IFireBomb();
+        break;
+    case EItem::BOOMERANG:
+        return new IBoomerang();
         break;
     default:
         break;
