@@ -2,7 +2,7 @@
 #include"Weapon.h"
 
 #define BOOMERANG_GRAVITY 0.001f
-#define BOOMERANG_SPEED_VX 0.67f
+#define BOOMERANG_SPEED_VX 0.6f
 #define BOOMERANG_SPEED_VY 0.45f
 
 #define BOOMERANG_BBOX_WIDTH 30

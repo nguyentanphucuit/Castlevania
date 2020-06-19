@@ -1,7 +1,7 @@
 ﻿#include "Game.h"
 #include "debug.h"
 #include "MenuScene.h"
-
+#define FONT_PATH L"GameContent\\prstart.ttf"
 CGame * CGame::__instance = NULL;
 
 /*
@@ -50,6 +50,22 @@ void CGame::Init(HWND hWnd)
 	// Initialize sprite helper from Direct3DX helper library
 	D3DXCreateSprite(d3ddv, &spriteHandler);
 
+	this->font = NULL;
+	HRESULT h = AddFontResourceEx(FONT_PATH, FR_PRIVATE, NULL);
+	HRESULT hr = D3DXCreateFont(
+		GetDirect3DDevice(), 16, 0, FW_NORMAL, 1, false,
+		DEFAULT_CHARSET, OUT_DEFAULT_PRECIS,
+		ANTIALIASED_QUALITY, FF_DONTCARE, L"Press Start", &font);
+
+	if (hr != DI_OK)
+	{
+		DebugOut(L"[ERROR] Load font failed\n");
+		return;
+	}
+	else
+	{
+		DebugOut(L"[INFO] Load font done\n");
+	}
 	OutputDebugString(L"[INFO] InitGame done;\n");
 }
 
@@ -59,8 +75,8 @@ void CGame::Init(HWND hWnd)
 void CGame::Draw(DIRECTION nx,float x, float y, LPDIRECT3DTEXTURE9 texture, int left, int top, int right, int bottom, int alpha)
 {
 
-//D3DXVECTOR3 p(floor(x), floor(y), 0); // https://docs.microsoft.com/vi-vn/windows/desktop/direct3d9/directly-mapping-texels-to-pixels
-// Try removing floor() to see blurry SIMON
+    //D3DXVECTOR3 p(floor(x), floor(y), 0); // https://docs.microsoft.com/vi-vn/windows/desktop/direct3d9/directly-mapping-texels-to-pixels
+   // Try removing floor() to see blurry SIMON
 	D3DXVECTOR3 p(floor(x - cam_x), floor(y - cam_y)+95, 0);
 	RECT r; 
 	r.left = left;
@@ -96,11 +112,53 @@ void CGame::Draw(DIRECTION nx,float x, float y, LPDIRECT3DTEXTURE9 texture, int 
 
 }
 
+void CGame::Draw(float x, float y, LPDIRECT3DTEXTURE9 texture, int left, int top, int right, int bottom )
+{
+	//D3DXVECTOR3 p(floor(x), floor(y), 0); // https://docs.microsoft.com/vi-vn/windows/desktop/direct3d9/directly-mapping-texels-to-pixels
+ // Try removing floor() to see blurry SIMON
+	D3DXVECTOR3 p(x, y, 0);
+	RECT r;
+	r.left = left;
+	r.top = top;
+	r.right = right;
+	r.bottom = bottom;
+
+
+
+
+	D3DXMATRIX oldTransform;
+	D3DXMATRIX newTransform;
+
+	spriteHandler->GetTransform(&oldTransform);
+
+
+
+	D3DXVECTOR2 center = D3DXVECTOR2(p.x + (right - left) / 2, p.y + (bottom - top) / 2);
+	D3DXVECTOR2 rotate = D3DXVECTOR2( 1, 1);
+
+	// Xây dựng một ma trận 2D lưu thông tin biến đổi (scale, rotate)
+	D3DXMatrixTransformation2D(&newTransform, &center, 0.0f, &rotate, NULL, 0.0f, NULL);
+
+	// Cần nhân với ma trận cũ để tính ma trận biến đổi cuối cùng
+	D3DXMATRIX finalTransform = newTransform * oldTransform;
+	spriteHandler->SetTransform(&finalTransform);
+
+	spriteHandler->Draw(texture, &r, NULL, &p, D3DCOLOR_ARGB(255, 255, 255, 255));
+
+	spriteHandler->SetTransform(&oldTransform);
+
+}
+
 int CGame::IsKeyDown(int KeyCode)
 {
 	return (keyStates[KeyCode] & 0x80) > 0;
 }
 
+void CGame::DrawUIText(std::string text, RECT bound, bool followCam)
+{
+	if (this->font != NULL)
+		this->font->DrawTextA(NULL, text.c_str(), -1, &bound, DT_LEFT, D3DCOLOR_XRGB(255, 255, 255));
+}
 void CGame::InitKeyboard(LPKEYEVENTHANDLER handler)
 {
 	this->keyHandler = handler;

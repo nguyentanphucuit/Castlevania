@@ -44,16 +44,18 @@ class CGame
 	float cam_x = 0.0f;
 	float cam_y = 0.0f;
 	SceneStateMachine sceneStateMachine;
+	// font 
+	ID3DXFont* font;
 public:
 	void InitKeyboard(LPKEYEVENTHANDLER handler);
 	void Init(HWND hWnd);
 	void Draw(DIRECTION nx, float x, float y, LPDIRECT3DTEXTURE9 texture, int left, int top, int right, int bottom, int alpha = 255);
-
+	void Draw(float x, float y, LPDIRECT3DTEXTURE9 texture, int left, int top, int right, int bottom);
 	//lấy ra toạ độ cam
 	D3DXVECTOR2 GetCamera() { return D3DXVECTOR2(cam_x, cam_y); }
 	int IsKeyDown(int KeyCode);
 	void ProcessKeyboard();
-
+	void DrawUIText(std::string text, RECT bound, bool followCam = false);
 
 	/// ta thao tác update loadresouce, render thông qua lớp game
 

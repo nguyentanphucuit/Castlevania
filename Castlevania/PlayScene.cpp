@@ -19,6 +19,8 @@
 #include "Platform.h"
 #include "BrickWall.h"
 #include "StairDual.h"
+#include "HCrown.h"
+#include "BrickWallScene3.h"
 
 void PlayScene::LoadSprite(const std::string& filePath, const int tex)
 {
@@ -163,6 +165,7 @@ void PlayScene::AddToGrid(LPGAMEOBJECT object, bool isAlwayUpdate)
 }
 void PlayScene::OnCreate()
 {
+	hud = new Hud(this);
 	CTextures* textures = CTextures::GetInstance();
 
 	CSprites* sprites = CSprites::GetInstance();
@@ -375,6 +378,27 @@ void PlayScene::OnCreate()
 					AddToGrid(brickwall);
 				}
 				break;     
+			case _HCrown:
+				for (auto const& y : x.second->GetObjectGroup()) {
+					HCrown* hCrown = new HCrown();
+					hCrown->SetPosition(y.second->GetX(), y.second->GetY());
+					hCrown->SetSize(y.second->GetWidth(), y.second->GetHeight());
+					auto crownLayer = objectLayer.at("ICrown");
+					for (auto const& child : crownLayer->GetObjectGroup()) {
+						auto crownItem = ItemFactory::SpawnItem<Item*>(EItem::CROWN);
+						crownItem->SetPosition(child.second->GetX(), child.second->GetY() - child.second->GetHeight());
+						hCrown->SetItem(crownItem);
+					}
+					AddToGrid(hCrown);
+				}
+				break;
+			case _BrickWallS3:
+				for (auto const& y : x.second->GetObjectGroup()) {
+					CBrickWallS3* brickwallS3 = new CBrickWallS3();
+					brickwallS3->SetPosition(y.second->GetX(), y.second->GetY() - y.second->GetHeight());
+					AddToGrid(brickwallS3);
+				}
+				break;
 			default:
 				break;
 			}
@@ -396,6 +420,7 @@ void PlayScene::OnDestroy()
 void PlayScene::Update(DWORD dt)
 {
 	objects.clear();
+	hud->Update();
 	// We know that SIMON is the first object in the list hence we won't add him into the colliable object list
 	// TO-DO: This is a "dirty" way, need a more organized way 
 	while (!qObjects.empty()) {
@@ -474,7 +499,7 @@ void PlayScene::Render()
 
 	for (int i = 0; i < objects.size(); i++)
 		objects[i]->Render();
-
+	hud->Render();
 	SIMON->Render();
 	if (SIMON->GetState() == SIMONSTATE::ENTERENTRANCE)
 	{
@@ -524,7 +549,7 @@ void PlayScene::OnKeyDown(int KeyCode)
 		if (SIMON->GetFightTime() == 0
 			&& SIMON->GetState() != SIMONSTATE::JUMP
 			&& SIMON->GetState() != SIMONSTATE::SIT
-			&& (SIMON->isOnGround || SIMON->isOnPlatform)
+			&& (SIMON->isOnGround)
 			&& !SIMON->CheckIsOnStair()) {
 			SIMON->SetState(SIMONSTATE::JUMP);
 		}

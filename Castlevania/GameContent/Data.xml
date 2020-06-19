@@ -13,7 +13,9 @@
 		<texture ID ="-500" name = "Map" path="GameContent\\Map\\Map\\Map_bank.png" red="255" green="255" blue ="255"/>
 		<texture ID ="6" name = "PLATFORM" path="GameContent\\Player\\Ground\\MovingPlatform.png" red="255" green="0" blue ="255"/>
 		<texture ID ="7" name = "BRICKWALL" path="GameContent\\Player\\Ground\\BrickWall.png" red="255" green="0" blue ="255"/>
+		<texture ID ="8" name = "BRICKWALLS3" path="GameContent\\Player\\Ground\\BrickWallS3.png" red="255" green="0" blue ="255"/>
 		<texture ID ="30" name="ENEMY" path="GameContent\\Enemy\\enemy_pack.png" red="255" green="255" blue="255"/>
+		<texture ID ="20" name="UI" path="GameContent\\UI\\UIpack.png" red="255" green="255" blue="255"/>
 	</textures>
 	
 	<sprites>
@@ -26,6 +28,8 @@
 		<sprite ID="30" name="Enemy" path="GameContent\\Enemy\\Enemy_sprite.xml" />
 		<sprite ID="6" name="Platform" path="GameContent\\Player\\Ground\\Platform_sprite.xml"/>
 		<sprite ID="7" name="BrickWall" path="GameContent\\Player\\Ground\\BrickWall_sprite.xml"/>
+		<sprite ID="8" name="BrickWallS3" path="GameContent\\Player\\Ground\\BrickWallS3_sprite.xml"/>
+		<sprite ID="20" name="UI" path="GameContent\\UI\\UI_sprite.xml"/>
 	</sprites>
 	
 	<animations>
@@ -38,6 +42,7 @@
 		<animation name="enemy" path="GameContent\\Enemy\\Enemy_animation.xml" />
 		<animation name="platform" path="GameContent\\Player\\Ground\\Platform_animation.xml"/>
 		<animation name="brickwall" path="GameContent\\Player\\Ground\\BrickWall_animation.xml"/>
+		<animation name="brickwallS3" path="GameContent\\Player\\Ground\\BrickWallS3_animation.xml"/>
 	</animations>
 	
 	<maps>
@@ -56,4 +61,5 @@
 			<pscenes id="7" mapID="0" entry="M3_E3" border="M3_C1" isRight="1" name="MainHall"/>
 		</pscene>
 	</scenes>
+	
 </Data>

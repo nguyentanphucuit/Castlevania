@@ -147,6 +147,11 @@
     <ClInclude Include="Bat.h" />
     <ClInclude Include="BHeart.h" />
     <ClInclude Include="BlackKnight.h" />
+    <ClInclude Include="BrickWallScene3.h" />
+    <ClInclude Include="HCrown.h" />
+    <ClInclude Include="Hud.h" />
+    <ClInclude Include="IChicken.h" />
+    <ClInclude Include="ICrown.h" />
     <ClInclude Include="Grid.h" />
     <ClInclude Include="IAXE.h" />
     <ClInclude Include="IBoomerang.h" />
@@ -211,6 +216,11 @@
     <ClCompile Include="Bat.cpp" />
     <ClCompile Include="BHeart.cpp" />
     <ClCompile Include="BlackKnight.cpp" />
+    <ClCompile Include="BrickWallScene3.cpp" />
+    <ClCompile Include="HCrown.cpp" />
+    <ClCompile Include="Hud.cpp" />
+    <ClCompile Include="IChicken.cpp" />
+    <ClCompile Include="ICrown.cpp" />
     <ClCompile Include="Grid.cpp" />
     <ClCompile Include="IAXE.cpp" />
     <ClCompile Include="IBoomerang.cpp" />

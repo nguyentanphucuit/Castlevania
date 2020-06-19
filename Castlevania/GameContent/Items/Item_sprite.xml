@@ -87,5 +87,23 @@
 			<frame l="97" t="24" r="127" b="61" />
 		</sprite>
 		
+		<sprite ID="ITEM_SPRITE_CROWN_01">
+			<frame l="430" t="32" r="460" b="64" />
+		</sprite>
+		<sprite ID="ITEM_SPRITE_CROWN_02">
+			<frame l="460" t="32" r="490" b="64" />
+		</sprite>
+		<sprite ID="ITEM_SPRITE_CROWN_03">
+			<frame l="490" t="32" r="520" b="64" />
+		</sprite>
+		<sprite ID="ITEM_SPRITE_CROWN_04">
+			<frame l="520" t="32" r="550" b="64" />
+		</sprite>
+		
+		<sprite ID="ITEM_SPRITE_CHICKEN">
+			<frame l="222" t="2" r="256" b="30" />
+		</sprite>
+		
+		
 
 </gamedata>

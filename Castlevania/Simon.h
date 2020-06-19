@@ -33,11 +33,6 @@
 #define SIMON_STATE_FALL_DOWN 1800
 #define SIMON_STATE_DEFLECT 1900
 
-#define SIMON_UPSTAIR_RIGHT_DISTANCE 12
-#define SIMON_UPSTAIR_LEFT_DISTANCE 16
-#define SIMON_DOWNSTAIR_RIGHT_DISTANCE 10
-#define SIMON_DOWNSTAIR_LEFT_DISTANCE 18
-
 
 
 #define SIMON_ANI_IDLE 0 
@@ -106,34 +101,40 @@
 
  enum class EWeapon;
 
-class CSIMON : public CGameObject
-{
-	int level;
-	int untouchable;
-	DWORD untouchable_start;
-	DWORD fight_start; // biến đếm thời gian đánh khi bắt đầu đánh sẽ đếm, khi đủ 350ms reset
-	DWORD upgrade_start;
-	
-	SIMONSTATE state;
-	Whip* whip;
-	EWeapon currentWeapon;
-	bool spawnWeapon = false;
-	bool isSpawnWeapon = false; 
-	//Stair
-	bool isAutoWalk = false;
-	
-	
-	bool startOnStair = false;
-	bool isColliceWithStair = false;
-	bool isFirstStepOnStair = false;
-	bool isOnStair = false;
-	STAIRDIRECTION onStairDirection = STAIRDIRECTION::DEFAULT;
-	D3DXVECTOR2 stairPos;
+ class CSIMON : public CGameObject
+ {
 
-	void HandleFirstStepOnStair();
-	void HandlePerStepOnStair();
-public: 
-	CSIMON();
+	 int hp;
+	 int enery;
+
+	 int level;
+	 int untouchable;
+	 DWORD untouchable_start;
+	 DWORD fight_start; // biến đếm thời gian đánh khi bắt đầu đánh sẽ đếm, khi đủ 350ms reset
+	 DWORD upgrade_start;
+
+	 SIMONSTATE state;
+	 Whip* whip;
+	 EWeapon currentWeapon;
+	 bool spawnWeapon = false;
+	 bool isSpawnWeapon = false;
+	 //Stair
+	 bool isAutoWalk = false;
+
+
+	 bool startOnStair = false;
+	 bool isColliceWithStair = false;
+	 bool isFirstStepOnStair = false;
+	 bool isOnStair = false;
+	 STAIRDIRECTION onStairDirection = STAIRDIRECTION::DEFAULT;
+	 D3DXVECTOR2 stairPos;
+
+	 void HandleFirstStepOnStair();
+	 void HandlePerStepOnStair();
+ public:
+	 CSIMON();
+	 int GetHp() { return this->hp; }
+	 int GetEnergy() { return this->enery; }
 	D3DXVECTOR2 LastStepOnStairPos;
 	bool isOnGround = false;
 	bool isOnPlatform = false;

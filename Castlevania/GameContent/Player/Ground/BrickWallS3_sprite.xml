@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<gamedata>
+	<sprite ID="BRICKWALL_SPRITE_S3">
+			<frame l="0" t="0" r="28" b="30" />
+	</sprite>
+</gamedata>

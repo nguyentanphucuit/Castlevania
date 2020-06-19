@@ -8,6 +8,7 @@
 #include "BrickWall.h"
 #include "Enemy.h"
 #include "Simon.h"
+#include "BrickWallScene3.h"
 void Whip::Render()
 {
 	int ani;
@@ -179,6 +180,35 @@ void Whip::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT>* colliable_objects
 				
 				}
 				brickWall->SetDestroy();
+			}
+		}
+		else if (dynamic_cast<CBrickWallS3*>(colliable_objects->at(i))) {
+			CBrickWallS3* brickWallS3 = dynamic_cast<CBrickWallS3*>(colliable_objects->at(i));
+			if (this->isColliding(brickWallS3) && !brickWallS3->IsDestroyed()) // check CO
+			{
+
+				auto item = ItemFactory::SpawnItem<Item*>(brickWallS3->GetItem());
+				if (dynamic_cast<PlayScene*>(scene)) // check scene cur
+				{
+					float tx, ty;
+					brickWallS3->GetPosition(tx, ty);
+					PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
+					item->SetPosition(tx, ty);
+
+					for (size_t i = 0; i < 3; i++)
+					{
+						auto debris = EffectFactory::SpawnEffect<Effect*>(CEffect::DEBRIS);
+						float vx = (float)(-100 + rand() % 200) / 1000;
+						float vy = (float)(-100 + rand() % 200) / 1000;
+						debris->vx = vx;
+						debris->vy = vy;
+						debris->SetPosition(tx, ty);
+						pScene->SpawnObject(debris);
+					}
+					pScene->SpawnObject(item);
+
+				}
+				brickWallS3->SetDestroy();
 			}
 		}
 		else if (dynamic_cast<Enemy*>(colliable_objects->at(i))) {

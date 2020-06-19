@@ -2,8 +2,8 @@
 #include "HiddenObject.h"
 class Stair : public HiddenObject
 {
-	int direction; // hướng của cầu thang
-	bool isActive = false; // dùng để đánh dấu simon đang va chạm trigger nào
+	int direction; 
+	bool isActive = false; // co with somthing trigger
 
 public:
 	void SetActive(bool flag) {

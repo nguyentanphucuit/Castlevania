@@ -4,6 +4,7 @@
 #include "Map.h"
 #include <queue>
 #include"Grid.h"
+#include"Hud.h"
 struct pScene {
     int id;
     int mapID;
@@ -18,7 +19,7 @@ class PlayScene:public Scene
     Grid* grid;
     
     vector<LPGAMEOBJECT> objects;
-
+    Hud* hud;
     void LoadSprite(const std::string& filePath, const int tex);
     void LoadAnimation(const string& filePath);
     void LoadSceneContent(xml_node<>* root);

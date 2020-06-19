@@ -67,5 +67,15 @@
 			<sprite ID="ITEM_SPRITE_INVISIBLE" />
 		</animation>
 		
+		<animation ID="ITEM_ANI_CROWN" timeLoop="100">
+			<sprite ID="ITEM_SPRITE_CROWN_01" />
+			<sprite ID="ITEM_SPRITE_CROWN_02" />
+			<sprite ID="ITEM_SPRITE_CROWN_03" />
+			<sprite ID="ITEM_SPRITE_CROWN_04" />
+		</animation>
+		
+		<animation ID="ITEM_ANI_CHICKEN" timeLoop="100">
+			<sprite ID="ITEM_SPRITE_CHICKEN" />
+		</animation>
 
 </gamedata>

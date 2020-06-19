@@ -122,6 +122,6 @@ void BlackKnight::Area(int startPos, int endPos)
 BlackKnight::BlackKnight() :Enemy()
 {
 	AddAnimation("BLACKKNIGHT_ANI_WALK");
-	this->hp = 1;
+	this->hp = 2;
 }
 

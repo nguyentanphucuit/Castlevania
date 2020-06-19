@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<gamedata>
+		<sprite ID="PLAYER_HP_SPRITE">
+			<frame l="98" t="97" r="104" b="107" />
+		</sprite>
+		<sprite ID="BOSS_HP_SPRITE">
+			<frame l="108" t="97" r="114" b="107" />
+		</sprite>
+		
+		<sprite ID="BLACKBOARD_UI_SPRITE">
+			<frame l="1" t="85" r="96" b="125" />
+		</sprite>
+		
+		<sprite ID="DOUBLE_SHOOT_UI_SPRITE">
+			<frame l="1" t="41" r="43" b="83" />
+		</sprite>
+		
+		<sprite ID="TRIPLE_SHOOT_UI_SPRITE">
+			<frame l="45" t="41" r="87" b="83" />
+		</sprite>
+		
+		<sprite ID="HOLY_WATER_UI_SPRITE">
+			<frame l="89" t="51" r="121" b="83" />
+		</sprite>
+		
+		<sprite ID="KNIFE_UI_SPRITE">
+			<frame l="89" t="31" r="121" b="39" />
+		</sprite>
+		
+		<sprite ID="STOP_WATCH_UI_SPRITE">
+			<frame l="1" t="7" r="31" b="39" />
+		</sprite>
+		
+		<sprite ID="NOHP_UI_SPRITE">
+			<frame l="98" t="85" r="103" b="95" />
+		</sprite>
+		
+		<sprite ID="AXE_UI_SPRITE">
+			<frame l="65" t="1" r="30" b="28" />
+		</sprite>
+
+</gamedata>

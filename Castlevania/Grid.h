@@ -10,7 +10,6 @@ class Grid
 	int grid_row;
 	int cell_size= CELL_SIZE;
 
-
 	std::vector<std::vector<cellObjects>> grid;
 	std::vector<LPGAMEOBJECT> alwaysUpdateList;
 public:

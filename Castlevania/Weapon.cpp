@@ -5,6 +5,7 @@
 #include "ItemFactory.h"
 #include "EffectFactory.h"
 #include "Candle.h"
+#include "Enemy.h"
 
 void Weapon::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObject)
 {
@@ -78,6 +79,13 @@ void Weapon::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObject)
 						pScene->SpawnObject(effect);
 					}
 					candle->SetDestroy();
+				}
+				this->SetDestroy();
+			}
+			else if (dynamic_cast<Enemy*>(e->obj)) {
+				Enemy* enemy = dynamic_cast<Enemy*>(e->obj);
+				if (!enemy->IsDestroy()) {				
+					enemy->SetDestroy();
 				}
 				this->SetDestroy();
 			}

@@ -8,7 +8,7 @@
 #include "WeaponFactory.h"
 #include "HMoney.h"
 #include "Entrance.h"
-#include "HMoney.h"
+#include "HCrown.h"
 #include "RetroGrade.h"
 #include "SwitchScene.h"
 #include "Stair.h"
@@ -19,6 +19,8 @@
 CSIMON::CSIMON() : CGameObject() {
 	level = SIMON_LEVEL_BIG;
 	untouchable = 0;
+	hp = 16;
+	enery = 16;
 	this->fight_start = 0;
 	upgrade_start = 0;
 	state = SIMONSTATE::IDLE;
@@ -296,18 +298,20 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 			LPCOLLISIONEVENT e = coEventsResult[i];
 
 			if (dynamic_cast<Ground*>(e->obj)) {
-				isOnGround = true;
-				isOnPlatform = false;
+			
+			
 				if (this->isOnStair) {
 					x += dx;
 					y += dy;
 					continue;
 				}
 				if (e->nx == -1) {
-
+					
 				}
-				if (e->ny != 1) {
+				if (e->ny == -1) {
+					isOnGround = true;
 
+					isOnPlatform = false;
 					if (GetState() == SIMONSTATE::JUMP) {
 						SetState(SIMONSTATE::IDLE);
 					}
@@ -316,11 +320,12 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 						vx = 0;
 					}
 					if (ny != 0) vy = 0;
+					DebugOut(L" SAASDAS \n", e->nx);
 					if (state != SIMONSTATE::ENTERENTRANCE) {
 						if (nx != 0) vx = 0;
 					}
 				}
-				else if (e->ny != -1)
+				else if (e->ny == 1)
 				{
 					y += dy;
 				}
@@ -329,7 +334,6 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 					y += dy;
 				}
 				if (state == SIMONSTATE::ENTERENTRANCE) { break; }
-
 
 
 			}
@@ -396,7 +400,14 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 						pScene->SpawnObject(hmoney->GetItem());
 					}
 				}
-
+				else if (dynamic_cast<HCrown*>(e->obj)) {
+					auto hcrown = dynamic_cast<HCrown*>(e->obj);
+					hcrown->SetDestroy();
+					if (dynamic_cast<PlayScene*>(scene)) {
+						auto pScene = dynamic_cast<PlayScene*>(scene);
+						pScene->SpawnObject(hcrown->GetItem());
+					}
+				}
 
 
 				if (e->nx != 0)
@@ -416,7 +427,6 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 
 	// clean up collision events
 	for (UINT i = 0; i < coEvents.size(); i++) delete coEvents[i];
-
 	// xử lý va chạm simon và các items
 	for (size_t i = 0; i < coObjects->size(); i++) {
 		if (dynamic_cast<Stair*>(coObjects->at(i))) {
@@ -496,7 +506,6 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 
 			}
 		}
-
 		if (this->fight_start != 0) // có đánh mới cần set
 		{
 			if (!this->spawnWeapon) {
