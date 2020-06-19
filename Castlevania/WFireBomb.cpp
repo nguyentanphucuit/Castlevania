@@ -33,6 +33,21 @@ void WFireBomb::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 		return;
 	}
 	
+	if (GetTickCount() - time_exist > TIME_FIREBOMB && time_exist !=0) {
+		this->isDestroy = true;
+		time_exist = 0;
+		SetState(FIREBOMBSTATE::NORMAL);
+	}
+	if (this->state == FIREBOMBSTATE::NORMAL) {
+		if (nx == DIRECTION::RIGHT)
+		{
+			vx = FIREBOMB_SPEED_VX;
+		}
+		else if (nx == DIRECTION::LEFT) {
+			vx = -FIREBOMB_SPEED_VX;
+			DebugOut(L"Okey");
+		}
+	}
 	
 	if (this->state == FIREBOMBSTATE::NORMAL) {
 		vy += FIREBOMB_GRAVITY * dt;
@@ -63,6 +78,10 @@ void WFireBomb::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 				if (nx != 0) vx = 0;
 				if (ny != 0) vy = 0;
 				this->SetState(FIREBOMBSTATE::BURN);
+				if (time_exist == 0) {
+					time_exist = GetTickCount();
+				}
+				
 			}
 			else {
 				if (e->nx != 0)
@@ -91,15 +110,7 @@ void WFireBomb::SetState(FIREBOMBSTATE state)
 {
 	switch (state) {
 	case FIREBOMBSTATE::NORMAL:
-		if (nx == DIRECTION::RIGHT)
-		{
-			vx = FIREBOMB_SPEED_VX;
-		}
-		else if (nx == DIRECTION::LEFT) {
-			vx = -FIREBOMB_SPEED_VX;
-		}
-		vx = 0;
-		vy = 0;
+		
 		break;
 	case FIREBOMBSTATE::BURN:
 		vy = 0;

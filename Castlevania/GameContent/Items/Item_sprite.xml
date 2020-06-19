@@ -48,8 +48,15 @@
 			<frame l="360" t="0" r="392" b="30" />
 		</sprite>
 		
-		<sprite ID="FIRE_BOMB_SPRITE_BURN">
-			<frame l="163" t="30" r="191" b="63" />
+		<sprite ID="FIRE_BOMB_SPRITE_BURN_01">
+			<frame l="361" t="32" r="377" b="62" />
 		</sprite>
+		<sprite ID="FIRE_BOMB_SPRITE_BURN_02">
+			<frame l="377" t="32" r="393" b="62" />
+		</sprite>
+		<sprite ID="FIRE_BOMB_SPRITE_BURN_03">
+			<frame l="393" t="32" r="409" b="62" />
+		</sprite>
+		
 
 </gamedata>

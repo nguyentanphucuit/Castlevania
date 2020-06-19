@@ -2,14 +2,16 @@
 #include"Weapon.h"
 
 #define FIREBOMB_GRAVITY 0.001f
-#define FIREBOMB_SPEED_VX 0.2f
-#define FIREBOMB_SPEED_VY 0.45f
+#define FIREBOMB_SPEED_VX 0.15f
+#define FIREBOMB_SPEED_VY 0.3f
 
 #define FIREBOMB_BBOX_WIDTH 30
 #define FIREBOMB_BBOX_HEIGHT 28
 
 #define FIREBOMB_ANI_NORMAL 0
 #define FIREBOMB_ANI_BURN	1
+
+#define TIME_FIREBOMB 1000
 
 enum class FIREBOMBSTATE {
 	NORMAL,
@@ -20,6 +22,7 @@ class WFireBomb :public Weapon
 {
 private:
 	FIREBOMBSTATE state;
+	DWORD time_exist = 0;
 public:
 	virtual void Render();
 	virtual void Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects);
