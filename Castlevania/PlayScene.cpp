@@ -506,8 +506,6 @@ void PlayScene::Render()
 		currentMap->GetLayer("font")->Render(cam, cameraBorder);
 		isEntrance = true;
 	}
-
-
 }
 
 void PlayScene::OnKeyDown(int KeyCode)

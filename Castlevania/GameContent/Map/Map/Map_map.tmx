@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.5" orientation="orthogonal" renderorder="right-down" width="96" height="42" tilewidth="32" tileheight="32" infinite="0" nextlayerid="5" nextobjectid="93">
+<map version="1.2" tiledversion="1.3.5" orientation="orthogonal" renderorder="right-down" width="96" height="42" tilewidth="32" tileheight="32" infinite="0" nextlayerid="5" nextobjectid="96">
  <tileset firstgid="1" name="Map_bank.png" tilewidth="32" tileheight="32" tilecount="882" columns="21">
   <image source="Map_bank.png" width="672" height="1344"/>
  </tileset>
@@ -4178,12 +4178,22 @@
     <property name="dir" type="int" value="3"/>
    </properties>
   </object>
+  <object id="94" name="StairBottom" x="2896.62" y="339.992" width="31.1212" height="9.83337">
+   <properties>
+    <property name="dir" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="95" name="StairTop" x="2964" y="197" width="32" height="32">
+   <properties>
+    <property name="dir" type="int" value="3"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="4" name="Player">
   <object id="75" name="M1_E1" gid="894" x="771.333" y="1278.67" width="60" height="64"/>
   <object id="76" name="M2_E1" gid="894" x="2095.33" y="1289.33" width="60" height="64"/>
   <object id="77" name="M3_E1" gid="2147484542" x="1403.33" y="804" width="60" height="64"/>
-  <object id="78" name="M4_E1" gid="894" x="1570" y="222.667" width="60" height="64"/>
+  <object id="78" name="M4_E1" gid="894" x="2794" y="360.667" width="60" height="64"/>
   <object id="81" name="M2_E2" gid="901" x="2308.53" y="859.015" width="60" height="64"/>
   <object id="82" name="M2_E3" gid="2147484551" x="2270.67" y="1017.33" width="60" height="64"/>
   <object id="83" name="M3_E3" gid="903" x="176.667" y="587" width="60" height="64"/>
@@ -4220,8 +4230,8 @@
   <object id="146" x="2047.33" y="959" width="26.6667" height="248"/>
   <object id="147" x="1790" y="288.667" width="349.333" height="27.3333"/>
   <object id="148" x="1538.36" y="224.424" width="218.303" height="28.2424"/>
-  <object id="149" x="2876.67" y="350.667" width="64" height="28.6667"/>
-  <object id="150" x="2972.67" y="289.333" width="96" height="26.6667"/>
+  <object id="149" x="2876.67" y="350.667" width="59.8182" height="28.6667"/>
+  <object id="150" x="2972.67" y="290.515" width="96" height="16.7349"/>
   <object id="156" x="1474.67" y="228" width="57.3333" height="120"/>
   <object id="179" x="1.33333" y="536.333" width="65" height="352"/>
   <object id="181" x="2065" y="1208.5" width="5.5" height="98"/>

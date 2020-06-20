@@ -136,7 +136,6 @@ void Whip::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT>* colliable_objects
 			CCandle* candle = dynamic_cast<CCandle*>(colliable_objects->at(i));
 			if (this->isColliding(candle) && !candle->IsDestroyed()) // check CO
 			{
-
 				auto item = ItemFactory::SpawnItem<Item*>(candle->GetItem());
 				auto effect = EffectFactory::SpawnEffect<Effect*>(CEffect::FLAME);
 				if (dynamic_cast<PlayScene*>(scene)) // check scene cur
@@ -220,7 +219,16 @@ void Whip::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT>* colliable_objects
 					enemy->SubtractHP(this->damage);
 
 					if (enemy->GetHp() == 0)
-					{
+					{						
+						auto effect = EffectFactory::SpawnEffect<Effect*>(CEffect::FLAME);
+						if (dynamic_cast<PlayScene*>(scene)) // check scene cur
+						{
+							float tx, ty;
+							enemy->GetPosition(tx, ty);
+							PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
+							effect->SetPosition(tx, ty);		
+							pScene->SpawnObject(effect);
+						}
 						enemy->SetDestroy();
 					}
 				}
