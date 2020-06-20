@@ -306,11 +306,10 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 					continue;
 				}
 				if (e->nx == -1) {
-					
+					isOnPlatform = false;
 				}
 				if (e->ny == -1) {
 					isOnGround = true;
-
 					isOnPlatform = false;
 					if (GetState() == SIMONSTATE::JUMP) {
 						SetState(SIMONSTATE::IDLE);
@@ -320,7 +319,6 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 						vx = 0;
 					}
 					if (ny != 0) vy = 0;
-					DebugOut(L" SAASDAS \n", e->nx);
 					if (state != SIMONSTATE::ENTERENTRANCE) {
 						if (nx != 0) vx = 0;
 					}
@@ -343,19 +341,20 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 					auto pScene = dynamic_cast<PlayScene*>(scene);
 					int id = switchScene->GetSceneID();
 					pScene->SwitchPScene(id);
-
 				}
 			}
 			else if (dynamic_cast<CPlatform*>(e->obj)) {
 				isOnPlatform = true;
 				CPlatform* platform = dynamic_cast<CPlatform*>(e->obj);
 				if (e->ny != 0) {
-					if (GetState() == SIMONSTATE::JUMP && vy >= 0) {
+					if (GetState() == SIMONSTATE::JUMP && !isOnGround) {
 						SetState(SIMONSTATE::IDLE);
 					}
 					if (ny != 0) vy = 0;
 				}
-				this->x += platform->dx;
+				this->x += platform->vx*dt*3.f;
+				
+				DebugOut(L"x SIMON = %f\n", x);
 			}
 			else
 			{

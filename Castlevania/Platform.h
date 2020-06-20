@@ -4,7 +4,7 @@
 #define PLATFORM_BBOX_WIDTH  64
 #define PLATFORM_BBOX_HEIGHT 16
 
-#define PLATFORM_SPEED  0.1f
+#define PLATFORM_SPEED  0.025f
 
 class CPlatform : public CGameObject
 {

@@ -547,7 +547,7 @@ void PlayScene::OnKeyDown(int KeyCode)
 		if (SIMON->GetFightTime() == 0
 			&& SIMON->GetState() != SIMONSTATE::JUMP
 			&& SIMON->GetState() != SIMONSTATE::SIT
-			&& (SIMON->isOnGround)
+			&& (SIMON->isOnGround || SIMON->isOnPlatform)
 			&& !SIMON->CheckIsOnStair()) {
 			SIMON->SetState(SIMONSTATE::JUMP);
 		}

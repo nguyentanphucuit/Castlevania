@@ -1,6 +1,6 @@
 #include "Platform.h"
 #include "Ground.h"
-
+#include "debug.h"
 void CPlatform::Render()
 {
 	animations[0]->Render(nx, x, y);
@@ -30,24 +30,6 @@ void CPlatform::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 	//if (nx == DIRECTION::RIGHT) vx = PLATFORM_SPEED;
 	//else if (nx == DIRECTION::LEFT) vx = -PLATFORM_SPEED;
 
-	/*if (x > 2340) {
-		nx = DIRECTION::LEFT;
-
-	}
-	if (x < 2170){
-		nx = DIRECTION::RIGHT;
-
-	}*/
-	//if (x > _endPos) {
-	//	nx = DIRECTION::LEFT;
-
-	//}
-	//if (x < _startPos) {
-	//	nx = DIRECTION::RIGHT;
-
-	//}
-
-
 	if (coEvents.size() == 0)
 	{
 		x += dx;
@@ -67,20 +49,18 @@ void CPlatform::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 			LPCOLLISIONEVENT e = coEventsResult[i];
 			if (dynamic_cast<Ground*>(e->obj)) {
 				if(vx > 0) vx = -PLATFORM_SPEED;
-				else vx = PLATFORM_SPEED;
-				
+				else vx = PLATFORM_SPEED;	
 			}
 			else {
 				if (e->nx != 0)
-					x += dx;
-				else if (e->ny < 0) {
-					y += dy;
-				}
-
+					x += dx;		
+					y += dy;				
 			}
 		}
 
 
 	}
 	for (UINT i = 0; i < coEvents.size(); i++) delete coEvents[i];
+	DebugOut(L"vx = %f\n", vx);
+
 }
