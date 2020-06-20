@@ -50,7 +50,7 @@
 		</sprite>
 		
 		<sprite ID="FIREBOMB_SPRITE">
-			<frame l="163" t="30" r="191" b="63" />
+			<frame l="568" t="3" r="584" b="20" />
 		</sprite>
 		
 		<sprite ID="BOOMERANG_SPRITE_01">
@@ -62,14 +62,12 @@
 		
 		
 		<sprite ID="FIREBOMB_SPRITE_BURN_01">
-			<frame l="361" t="32" r="377" b="62" />
+			<frame l="592" t="0" r="624" b="26" />
 		</sprite>
 		<sprite ID="FIREBOMB_SPRITE_BURN_02">
-			<frame l="377" t="32" r="393" b="62" />
+			<frame l="624" t="0" r="656" b="26" />
 		</sprite>
-		<sprite ID="FIREBOMB_SPRITE_BURN_03">
-			<frame l="393" t="32" r="409" b="62" />
-		</sprite>
+		
 		
 		<sprite ID="ITEM_SPRITE_AXE">
 			<frame l="430" t="0" r="462" b="30" />
@@ -78,6 +76,7 @@
 		<sprite ID="ITEM_SPRITE_FIREBOMB">
 			<frame l="163" t="30" r="191" b="63" />
 		</sprite>
+		
 		
 		<sprite ID="ITEM_SPRITE_BOOMERANG">
 			<frame l="360" t="0" r="392" b="30" />

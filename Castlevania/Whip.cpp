@@ -212,17 +212,12 @@ void Whip::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT>* colliable_objects
 		}
 		else if (dynamic_cast<Enemy*>(colliable_objects->at(i))) {
 			Enemy* enemy = dynamic_cast<Enemy*>(colliable_objects->at(i));
-			if (this->isColliding(enemy) && !enemy->IsDestroyed() ) // check CO
-			{
-				if (ColOneTime)
-				{
+			if (this->isColliding(enemy) && !enemy->IsDestroyed() ) {// check CO
+				if (ColOneTime){
 					enemy->SubtractHP(this->damage);
-
-					if (enemy->GetHp() == 0)
-					{						
-						auto effect = EffectFactory::SpawnEffect<Effect*>(CEffect::FLAME);
-						if (dynamic_cast<PlayScene*>(scene)) // check scene cur
-						{
+					if (enemy->GetHp() == 0){						
+						auto effect = EffectFactory::SpawnEffect<Effect*>(CEffect::STAR);
+						if (dynamic_cast<PlayScene*>(scene)){
 							float tx, ty;
 							enemy->GetPosition(tx, ty);
 							PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
@@ -230,6 +225,16 @@ void Whip::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT>* colliable_objects
 							pScene->SpawnObject(effect);
 						}
 						enemy->SetDestroy();
+					}
+					else {
+						auto effect = EffectFactory::SpawnEffect<Effect*>(CEffect::FLAME);
+						if (dynamic_cast<PlayScene*>(scene)) {
+							float tx, ty;
+							enemy->GetPosition(tx, ty);
+							PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
+							effect->SetPosition(tx, ty);
+							pScene->SpawnObject(effect);
+						}
 					}
 				}
 			

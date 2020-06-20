@@ -9,4 +9,11 @@
 		<animation ID="DEBRIS_ANI" timeLoop="100">
 			<frame ID="DEBRIS" />
 		</animation>
+		
+		<animation ID="START_ANI" timeLoop="100">
+			<frame ID="STAR_01" />
+			<frame ID="STAR_02" />
+			<frame ID="STAR_03" />
+		</animation>
+		
 </gamedata>

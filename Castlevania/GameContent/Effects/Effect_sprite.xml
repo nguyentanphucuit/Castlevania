@@ -13,4 +13,14 @@
 		<sprite ID="DEBRIS">
 			<frame l="1" t="1" r="15" b="17" />
 		</sprite>
+		
+		<sprite ID="STAR_01">
+			<frame l="419" t="69" r="438" b="124" />
+		</sprite>
+		<sprite ID="STAR_02">
+			<frame l="437" t="99" r="456" b="124" />
+		</sprite>
+		<sprite ID="STAR_03">
+			<frame l="454" t="93" r="477" b="124" />
+		</sprite>
 </gamedata>

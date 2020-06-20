@@ -252,6 +252,9 @@
     <ClInclude Include="Hud.h">
       <Filter>Source Files\Hud</Filter>
     </ClInclude>
+    <ClInclude Include="Star.h">
+      <Filter>Source Files\Effect</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -451,6 +454,9 @@
     </ClCompile>
     <ClCompile Include="Hud.cpp">
       <Filter>Source Files\Hud</Filter>
+    </ClCompile>
+    <ClCompile Include="Star.cpp">
+      <Filter>Source Files\Effect</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -48,7 +48,6 @@
 		<animation ID="FIREBOMB_ANI_BURN" timeLoop="100">
 			<sprite ID="FIREBOMB_SPRITE_BURN_01" />
 			<sprite ID="FIREBOMB_SPRITE_BURN_02" />
-			<sprite ID="FIREBOMB_SPRITE_BURN_03" />
 		</animation>
 		
 		<animation ID="ITEM_ANI_BOOMERANG" timeLoop="100">

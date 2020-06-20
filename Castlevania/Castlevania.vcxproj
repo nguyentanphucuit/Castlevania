@@ -158,6 +158,7 @@
     <ClInclude Include="IFireBomb.h" />
     <ClInclude Include="IInvisible.h" />
     <ClInclude Include="Phantom.h" />
+    <ClInclude Include="Star.h" />
     <ClInclude Include="WBoomerang.h" />
     <ClInclude Include="Brick.h" />
     <ClInclude Include="BrickWall.h" />
@@ -227,6 +228,7 @@
     <ClCompile Include="IFireBomb.cpp" />
     <ClCompile Include="IInvisible.cpp" />
     <ClCompile Include="Phantom.cpp" />
+    <ClCompile Include="Star.cpp" />
     <ClCompile Include="WBoomerang.cpp" />
     <ClCompile Include="Brick.cpp" />
     <ClCompile Include="BrickWall.cpp" />

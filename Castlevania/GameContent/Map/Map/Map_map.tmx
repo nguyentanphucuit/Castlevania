@@ -4191,7 +4191,7 @@
  </objectgroup>
  <objectgroup id="4" name="Player">
   <object id="75" name="M1_E1" gid="894" x="771.333" y="1278.67" width="60" height="64"/>
-  <object id="76" name="M2_E1" gid="894" x="2095.33" y="1289.33" width="60" height="64"/>
+  <object id="76" name="M2_E1" gid="894" x="2303.33" y="1113.33" width="60" height="64"/>
   <object id="77" name="M3_E1" gid="2147484542" x="1403.33" y="804" width="60" height="64"/>
   <object id="78" name="M4_E1" gid="894" x="2794" y="360.667" width="60" height="64"/>
   <object id="81" name="M2_E2" gid="901" x="2308.53" y="859.015" width="60" height="64"/>
@@ -4270,7 +4270,7 @@
   <object id="59" name="BlackKnight" x="2155" y="1050" width="32" height="64">
    <properties>
     <property name="edef" value="1"/>
-    <property name="endPos" value="2323"/>
+    <property name="endPos" value="2113"/>
     <property name="num" value="1"/>
     <property name="startPos" value="2111"/>
     <property name="time" value="1000"/>
