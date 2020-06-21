@@ -2,6 +2,7 @@
 #include "Debug.h"
 #include "Ground.h"
 #include "Simon.h"
+#include "EffectFactory.h"
 
 
 void Raven::GetBoundingBox(float& left, float& top, float& right, float& bottom)
@@ -42,7 +43,16 @@ void Raven::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 		float left, top,right, bottom;
 		pScene->GetSimon()->GetBoundingBox(left, top, right, bottom);
 		if (CGameObject::AABB(left, top, right, bottom, this->x, this->y, this->x + RAVEN_BBOX_WIDTH, this->y + RAVEN_BBOX_HEIGHT))
+		{
+			auto effect = EffectFactory::SpawnEffect<Effect*>(CEffect::STAR);
+			if (dynamic_cast<PlayScene*>(scene)) {
+				PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
+				effect->SetPosition(x + DISTANCE_DIE, y);
+				pScene->SpawnObject(effect);
+			}
 			this->isDestroy = true;
+		}
+			
 		if (x > pScene->GetSimon()->x + _startPos) {
 			nx = DIRECTION::LEFT;
 			this->SetState(RAVENSTATE::IDLE);
