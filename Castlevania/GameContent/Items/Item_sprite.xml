@@ -103,6 +103,10 @@
 			<frame l="222" t="2" r="256" b="30" />
 		</sprite>
 		
+		<sprite ID="ITEM_SPRITE_STOPWATCH">
+			<frame l="232" t="32" r="263" b="64" />
+		</sprite>
+		
 		
 
 </gamedata>

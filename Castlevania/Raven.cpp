@@ -19,6 +19,10 @@ void Raven::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 	//	if (reSpawn) return;
 		//DebugOut(L"update \n");
 	CGameObject::Update(dt, scene);
+	if (this->isMotionless)
+	{
+		return;
+	}
 	vector<LPCOLLISIONEVENT> coEvents;
 	vector<LPCOLLISIONEVENT> coEventsResult;
 
@@ -149,5 +153,6 @@ Raven::Raven() :Enemy()
 {
 	AddAnimation("RAVEN_ANI_IDLE");
 	AddAnimation("RAVEN_ANI_FLY");
+
 }
 

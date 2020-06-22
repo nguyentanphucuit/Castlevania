@@ -28,6 +28,11 @@ void BlackKnight::Update(DWORD dt, Scene* scene , vector<LPGAMEOBJECT>* coObject
 	// 
 		// Simple fall down
 
+	if (this->isMotionless)
+	{
+		return;
+	}
+
 	vy += BLACKKNIGHT_GRAVITY * dt;
 	if (nx == DIRECTION::RIGHT) vx = BLACKKNIGHT_WALKING_SPEED;
 	else if (nx == DIRECTION::LEFT) vx = -BLACKKNIGHT_WALKING_SPEED;
@@ -120,5 +125,6 @@ BlackKnight::BlackKnight() :Enemy()
 {
 	AddAnimation("BLACKKNIGHT_ANI_WALK");
 	this->hp = 2;
+
 }
 

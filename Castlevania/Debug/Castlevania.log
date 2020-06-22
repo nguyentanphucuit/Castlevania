@@ -1,4 +1,17 @@
-﻿  Hud.cpp
+﻿  Bat.cpp
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(55,1): warning C4005: 'SIMON_ANI_DIE': macro redefinition
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(53): message : see previous definition of 'SIMON_ANI_DIE'
+C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
+  BlackKnight.cpp
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(55,1): warning C4005: 'SIMON_ANI_DIE': macro redefinition
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(53): message : see previous definition of 'SIMON_ANI_DIE'
+C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\Desktop\Castlevania\Castlevania\BlackKnight.cpp(52,41): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\16520\Desktop\Castlevania\Castlevania\BlackKnight.cpp(59,42): warning C4305: '=': truncation from 'double' to 'float'
+  BrickWallScene3.cpp
+  Hud.cpp
 C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(55,1): warning C4005: 'SIMON_ANI_DIE': macro redefinition
 C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(53): message : see previous definition of 'SIMON_ANI_DIE'
 C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
@@ -9,6 +22,102 @@ C:\Users\16520\Desktop\Castlevania\Castlevania\Hud.cpp(75,23): warning C4018: '<
 C:\Users\16520\Desktop\Castlevania\Castlevania\Hud.cpp(77,63): warning C4244: 'argument': conversion from 'size_t' to 'float', possible loss of data
 C:\Users\16520\Desktop\Castlevania\Castlevania\Hud.cpp(81,63): warning C4244: 'argument': conversion from 'size_t' to 'float', possible loss of data
 C:\Users\16520\Desktop\Castlevania\Castlevania\Hud.cpp(85,63): warning C4244: 'argument': conversion from 'size_t' to 'float', possible loss of data
+  Grid.cpp
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(55,1): warning C4005: 'SIMON_ANI_DIE': macro redefinition
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(53): message : see previous definition of 'SIMON_ANI_DIE'
+C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\Desktop\Castlevania\Castlevania\Grid.cpp(15,65): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Grid.cpp(16,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Grid.cpp(24,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\Desktop\Castlevania\Castlevania\Grid.cpp(25,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\Desktop\Castlevania\Castlevania\Grid.cpp(123,15): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Grid.cpp(125,13): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  Phantom.cpp
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(55,1): warning C4005: 'SIMON_ANI_DIE': macro redefinition
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(53): message : see previous definition of 'SIMON_ANI_DIE'
+C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(57,24): warning C4244: '=': conversion from 'FLOAT' to 'LONG', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(58,23): warning C4244: '=': conversion from 'FLOAT' to 'LONG', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(59,48): warning C4244: '=': conversion from 'FLOAT' to 'LONG', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(60,50): warning C4244: '=': conversion from 'FLOAT' to 'LONG', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(81,46): warning C4244: '=': conversion from 'FLOAT' to 'LONG', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(82,45): warning C4244: '=': conversion from 'FLOAT' to 'LONG', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(83,47): warning C4244: '=': conversion from 'FLOAT' to 'LONG', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(84,48): warning C4244: '=': conversion from 'FLOAT' to 'LONG', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(86,46): warning C4244: '=': conversion from 'FLOAT' to 'LONG', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(87,45): warning C4244: '=': conversion from 'FLOAT' to 'LONG', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(88,47): warning C4244: '=': conversion from 'FLOAT' to 'LONG', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(89,48): warning C4244: '=': conversion from 'FLOAT' to 'LONG', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(95,26): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(94,26): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(93,26): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(92,63): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(106,26): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(105,26): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(104,26): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(103,68): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(115,66): warning C4244: '=': conversion from 'LONG' to 'FLOAT', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(116,66): warning C4244: '=': conversion from 'LONG' to 'FLOAT', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(127,66): warning C4244: '=': conversion from 'LONG' to 'FLOAT', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(128,66): warning C4244: '=': conversion from 'LONG' to 'FLOAT', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(141,66): warning C4244: '=': conversion from 'LONG' to 'FLOAT', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.cpp(142,66): warning C4244: '=': conversion from 'LONG' to 'FLOAT', possible loss of data
+  WBoomerang.cpp
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(55,1): warning C4005: 'SIMON_ANI_DIE': macro redefinition
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(53): message : see previous definition of 'SIMON_ANI_DIE'
+C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
+  BrickWall.cpp
+  Candle.cpp
+  Enemy.cpp
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(55,1): warning C4005: 'SIMON_ANI_DIE': macro redefinition
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(53): message : see previous definition of 'SIMON_ANI_DIE'
+C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
+  EnemyFactory.cpp
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(55,1): warning C4005: 'SIMON_ANI_DIE': macro redefinition
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(53): message : see previous definition of 'SIMON_ANI_DIE'
+C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\Desktop\Castlevania\Castlevania\Ghost.h(14,18): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.h(18,1): warning C4005: 'WAIT_TIME': macro redefinition
+C:\Users\16520\Desktop\Castlevania\Castlevania\Raven.h(17): message : see previous definition of 'WAIT_TIME'
+  WFireBomb.cpp
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(55,1): warning C4005: 'SIMON_ANI_DIE': macro redefinition
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(53): message : see previous definition of 'SIMON_ANI_DIE'
+C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
+  Ghost.cpp
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(55,1): warning C4005: 'SIMON_ANI_DIE': macro redefinition
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(53): message : see previous definition of 'SIMON_ANI_DIE'
+C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\Desktop\Castlevania\Castlevania\Ghost.h(14,18): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\16520\Desktop\Castlevania\Castlevania\Ghost.cpp(43,13): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Ghost.cpp(44,13): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Ghost.cpp(46,41): warning C4244: '=': conversion from 'int' to 'FLOAT', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Ghost.cpp(50,13): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Ghost.cpp(51,13): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Ghost.cpp(52,41): warning C4244: '=': conversion from 'int' to 'FLOAT', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Ghost.cpp(58,13): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Ghost.cpp(59,13): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Ghost.cpp(61,41): warning C4244: '=': conversion from 'int' to 'FLOAT', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Ghost.cpp(64,13): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Ghost.cpp(65,13): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Ghost.cpp(66,41): warning C4244: '=': conversion from 'int' to 'FLOAT', possible loss of data
+  Hunchback.cpp
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(55,1): warning C4005: 'SIMON_ANI_DIE': macro redefinition
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(53): message : see previous definition of 'SIMON_ANI_DIE'
+C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\Desktop\Castlevania\Castlevania\Hunchback.cpp(84,26): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\16520\Desktop\Castlevania\Castlevania\Hunchback.cpp(85,26): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\16520\Desktop\Castlevania\Castlevania\Hunchback.cpp(88,25): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\16520\Desktop\Castlevania\Castlevania\Hunchback.cpp(89,24): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\16520\Desktop\Castlevania\Castlevania\Hunchback.cpp(129,10): warning C4305: '-=': truncation from 'double' to 'float'
+  ItemFactory.cpp
   PlayScene.cpp
 C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(55,1): warning C4005: 'SIMON_ANI_DIE': macro redefinition
 C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(53): message : see previous definition of 'SIMON_ANI_DIE'
@@ -25,46 +134,77 @@ C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(285,34): warning C4
 C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(286,33): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
 C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(287,38): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
 C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(288,39): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
-C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(435,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(441,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(451,26): warning C4305: '-=': truncation from 'double' to 'float'
-C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(455,57): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
-C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(471,86): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
-C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(471,54): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
-C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(473,71): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
-C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(473,52): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
-C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(500,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(422,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(448,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(454,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(464,26): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(468,57): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(484,86): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(484,54): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(486,71): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(486,52): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(513,20): warning C4018: '<': signed/unsigned mismatch
 C:\Users\16520\Desktop\Castlevania\packages\rapidxml.1.13\build\native\include\rapidxml\rapidxml_utils.hpp(40,25): warning C4244: 'initializing': conversion from 'std::streamoff' to 'size_t', possible loss of data
 C:\Users\16520\Desktop\Castlevania\packages\rapidxml.1.13\build\native\include\rapidxml\rapidxml_utils.hpp(28): message : while compiling class template member function 'rapidxml::file<char>::file(const char *)'
 C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(45): message : see reference to function template instantiation 'rapidxml::file<char>::file(const char *)' being compiled
 C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(45): message : see reference to class template instantiation 'rapidxml::file<char>' being compiled
+  Raven.cpp
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(55,1): warning C4005: 'SIMON_ANI_DIE': macro redefinition
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(53): message : see previous definition of 'SIMON_ANI_DIE'
+C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
   Simon.cpp
 C:\Users\16520\Desktop\Castlevania\Castlevania\SIMON.h(55,1): warning C4005: 'SIMON_ANI_DIE': macro redefinition
 C:\Users\16520\Desktop\Castlevania\Castlevania\SIMON.h(53): message : see previous definition of 'SIMON_ANI_DIE'
 C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
 C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
-C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.cpp(513,68): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.cpp(513,32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.cpp(517,32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  WFireBomb.cpp
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.cpp(519,68): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.cpp(519,32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.cpp(523,32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  WAxe.cpp
 C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(55,1): warning C4005: 'SIMON_ANI_DIE': macro redefinition
 C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(53): message : see previous definition of 'SIMON_ANI_DIE'
 C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
 C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
+  White.cpp
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(55,1): warning C4005: 'SIMON_ANI_DIE': macro redefinition
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(53): message : see previous definition of 'SIMON_ANI_DIE'
+C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\Desktop\Castlevania\Castlevania\White.cpp(91,25): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\16520\Desktop\Castlevania\Castlevania\White.cpp(92,25): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\16520\Desktop\Castlevania\Castlevania\White.cpp(95,24): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\16520\Desktop\Castlevania\Castlevania\White.cpp(96,23): warning C4305: 'initializing': truncation from 'double' to 'float'
+  Generating Code...
+  Compiling...
+  Torch.cpp
   Weapon.cpp
 C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(55,1): warning C4005: 'SIMON_ANI_DIE': macro redefinition
 C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(53): message : see previous definition of 'SIMON_ANI_DIE'
 C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
 C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
   WeaponFactory.cpp
-  White.cpp
 C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(55,1): warning C4005: 'SIMON_ANI_DIE': macro redefinition
 C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(53): message : see previous definition of 'SIMON_ANI_DIE'
 C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
 C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
-C:\Users\16520\Desktop\Castlevania\Castlevania\White.cpp(87,25): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\16520\Desktop\Castlevania\Castlevania\White.cpp(88,25): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\16520\Desktop\Castlevania\Castlevania\White.cpp(91,24): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\16520\Desktop\Castlevania\Castlevania\White.cpp(92,23): warning C4305: 'initializing': truncation from 'double' to 'float'
+  Whip.cpp
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(55,1): warning C4005: 'SIMON_ANI_DIE': macro redefinition
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(53): message : see previous definition of 'SIMON_ANI_DIE'
+C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
+  WStopWatch.cpp
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(55,1): warning C4005: 'SIMON_ANI_DIE': macro redefinition
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(53): message : see previous definition of 'SIMON_ANI_DIE'
+C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\Desktop\Castlevania\Castlevania\Ghost.h(14,18): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.h(18,1): warning C4005: 'WAIT_TIME': macro redefinition
+C:\Users\16520\Desktop\Castlevania\Castlevania\Raven.h(17): message : see previous definition of 'WAIT_TIME'
+  Zombie.cpp
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(55,1): warning C4005: 'SIMON_ANI_DIE': macro redefinition
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(53): message : see previous definition of 'SIMON_ANI_DIE'
+C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
   Generating Code...
   Castlevania.vcxproj -> C:\Users\16520\Desktop\Castlevania\Debug\Castlevania.exe

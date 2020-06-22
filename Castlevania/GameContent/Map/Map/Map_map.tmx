@@ -4073,7 +4073,7 @@
  <objectgroup id="8" name="Torch">
   <object id="24" gid="883" x="695.333" y="1306" width="32" height="64">
    <properties>
-    <property name="item" value="6"/>
+    <property name="item" value="12"/>
    </properties>
   </object>
   <object id="25" gid="883" x="969.333" y="1307.33" width="32" height="64">

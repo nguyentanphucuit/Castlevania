@@ -76,5 +76,9 @@
 		<animation ID="ITEM_ANI_CHICKEN" timeLoop="100">
 			<sprite ID="ITEM_SPRITE_CHICKEN" />
 		</animation>
+		
+		<animation ID="ITEM_ANI_STOPWATCH" timeLoop="100">
+			<sprite ID="ITEM_SPRITE_STOPWATCH" />
+		</animation>
 
 </gamedata>

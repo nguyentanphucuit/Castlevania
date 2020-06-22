@@ -417,6 +417,19 @@ void PlayScene::OnDestroy()
 	}
 }
 
+void PlayScene::MotionlessEnemy(bool flag)
+{
+	for (int i = 0; i < objects.size(); i++)
+	{
+		if (objects[i]->CheckActive())
+		{
+			Enemy* enemy = dynamic_cast<Enemy*> (objects.at(i));
+			enemy->SetMotionless(flag);
+		}
+
+	}
+}
+
 void PlayScene::Update(DWORD dt)
 {
 	objects.clear();

@@ -11,6 +11,7 @@
 #include "IInvisible.h"
 #include "ICrown.h"
 #include "IChicken.h"
+#include "IStopWatch.h"
 // declarate Item
 enum class EItem
 {
@@ -24,7 +25,8 @@ enum class EItem
     BOOMERANG,
     INVISIBLE,
     CROWN,
-    CHICKEN
+    CHICKEN,
+    STOPWATCH
 
 };
 
@@ -73,6 +75,8 @@ inline T ItemFactory::SpawnItem(EItem eitem)
         return new ICrown();
     case EItem::CHICKEN:
         return new IChicken();
+    case EItem::STOPWATCH:
+        return new IStopWatch();
     default:
         break;
     }

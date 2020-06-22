@@ -157,6 +157,7 @@
     <ClInclude Include="IBoomerang.h" />
     <ClInclude Include="IFireBomb.h" />
     <ClInclude Include="IInvisible.h" />
+    <ClInclude Include="IStopWatch.h" />
     <ClInclude Include="Phantom.h" />
     <ClInclude Include="Star.h" />
     <ClInclude Include="WBoomerang.h" />
@@ -211,6 +212,7 @@
     <ClInclude Include="Weapon.h" />
     <ClInclude Include="WeaponFactory.h" />
     <ClInclude Include="Whip.h" />
+    <ClInclude Include="WStopWatch.h" />
     <ClInclude Include="Zombie.h" />
   </ItemGroup>
   <ItemGroup>
@@ -227,6 +229,7 @@
     <ClCompile Include="IBoomerang.cpp" />
     <ClCompile Include="IFireBomb.cpp" />
     <ClCompile Include="IInvisible.cpp" />
+    <ClCompile Include="IStopWatch.cpp" />
     <ClCompile Include="Phantom.cpp" />
     <ClCompile Include="Star.cpp" />
     <ClCompile Include="WBoomerang.cpp" />
@@ -280,6 +283,7 @@
     <ClCompile Include="Weapon.cpp" />
     <ClCompile Include="WeaponFactory.cpp" />
     <ClCompile Include="Whip.cpp" />
+    <ClCompile Include="WStopWatch.cpp" />
     <ClCompile Include="Zombie.cpp" />
   </ItemGroup>
   <ItemGroup>

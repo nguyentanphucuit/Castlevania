@@ -4,6 +4,7 @@
 #include "WAxe.h"
 #include "WFirebomb.h"
 #include "WBoomerang.h"
+#include "WStopWatch.h"
 
 enum class EWeapon {
 	NONE,
@@ -12,6 +13,7 @@ enum class EWeapon {
 	FIREBOMB,
 	BOOMERANG,
 	BONE,
+	STOPWATCH,
 
 };
 
@@ -41,6 +43,9 @@ inline T WeaponFactory::SpawnWeapon(EWeapon eWeapon)
 		break;
 	case EWeapon::BONE:
 		return new Bone();
+		break;
+	case EWeapon::STOPWATCH:
+		return new WStopWatch();
 		break;
 	default:
 		break;

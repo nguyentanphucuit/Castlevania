@@ -17,6 +17,10 @@ void White::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 {
 
 	CGameObject::Update(dt, scene);
+	if (this->isMotionless)
+	{
+		return;
+	}
 	vector<LPCOLLISIONEVENT> coEvents;
 	vector<LPCOLLISIONEVENT> coEventsResult;
 

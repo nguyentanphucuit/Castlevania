@@ -16,6 +16,10 @@ void Ghost::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 {
 
 	CGameObject::Update(dt, scene);
+	if (this->isMotionless)
+	{
+		return;
+	}
 	if (dynamic_cast<PlayScene*>(scene)) {
 
 		if (!start_attack) {
@@ -106,5 +110,6 @@ void Ghost::Render()
 Ghost::Ghost() :Enemy()
 {
 	AddAnimation("GHOST_ANI_FLY");
+
 }
 

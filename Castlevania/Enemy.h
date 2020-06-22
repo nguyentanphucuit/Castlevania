@@ -7,6 +7,7 @@ class Enemy :public CGameObject
 {
 protected:
 	int hp = 0;
+	bool isMotionless= false;
 public:
 	bool IsDestroyed() { return isDestroy; }
 	void SetNx(DIRECTION nx) {
@@ -15,6 +16,9 @@ public:
 	void UpdateEnemy();
 	int GetHp() {
 		return this->hp;
+	}
+	void SetMotionless(bool flag) {
+		this->isMotionless = flag;
 	}
 	void SubtractHP(unsigned int dame)
 	{

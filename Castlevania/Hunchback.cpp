@@ -19,15 +19,16 @@ void Hunchback::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 	//	if (reSpawn) return;
 		//DebugOut(L"update \n");
 	CGameObject::Update(dt, scene);
+	if (this->isMotionless)
+	{
+		return;
+	}
 	vector<LPCOLLISIONEVENT> coEvents;
 	vector<LPCOLLISIONEVENT> coEventsResult;
 
 	coEvents.clear();
 	CalcPotentialCollisions(coObjects, coEvents);
-	//
-	// TO-DO: make sure Goomba can interact with the world and to each of them too!
-	// 
-		// Simple fall down
+
 	vy += HUNCHBACK_GRAVITY * dt;
 	
 	//DebugOut(L"y %d\n", y);
@@ -159,5 +160,6 @@ Hunchback::Hunchback() :Enemy()
 	AddAnimation("HUNCHBACK_ANI_JUMP");
 	AddAnimation("HUNCHBACK_ANI_JUMP");
 	this->hp = 1;
+
 }
 

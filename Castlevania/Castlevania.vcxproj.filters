@@ -255,6 +255,12 @@
     <ClInclude Include="Star.h">
       <Filter>Source Files\Effect</Filter>
     </ClInclude>
+    <ClInclude Include="WStopWatch.h">
+      <Filter>Source Files\SubWeapons</Filter>
+    </ClInclude>
+    <ClInclude Include="IStopWatch.h">
+      <Filter>Source Files\Item</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -457,6 +463,12 @@
     </ClCompile>
     <ClCompile Include="Star.cpp">
       <Filter>Source Files\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="WStopWatch.cpp">
+      <Filter>Source Files\SubWeapons</Filter>
+    </ClCompile>
+    <ClCompile Include="IStopWatch.cpp">
+      <Filter>Source Files\Item</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

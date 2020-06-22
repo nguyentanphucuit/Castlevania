@@ -60,7 +60,8 @@ public:
 
     void OnCreate() override;
     void OnDestroy() override;
-    
+
+    void MotionlessEnemy(bool flag);
     
     void Update(DWORD deltaTime) override;
     void Render() override;

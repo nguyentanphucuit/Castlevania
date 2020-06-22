@@ -20,6 +20,11 @@ void Bat::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 	coEvents.clear();
 	CalcPotentialCollisions(coObjects, coEvents);
 	
+	if (this->isMotionless)
+	{
+		return;
+	}
+
 	if (dynamic_cast<PlayScene*>(scene))
 	{
 		PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
@@ -108,4 +113,5 @@ Bat::Bat() :Enemy()
 	AddAnimation("BAT_ANI_IDLE");
 	AddAnimation("BAT_ANI_FLY");
 	this->hp = 1;
+
 }

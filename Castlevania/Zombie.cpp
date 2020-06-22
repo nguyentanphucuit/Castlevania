@@ -18,6 +18,10 @@ void Zombie::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 	//	if (reSpawn) return;
 		//DebugOut(L"update \n");
 	CGameObject::Update(dt, scene);
+	if (this->isMotionless)
+	{
+		return;
+	}
 	vector<LPCOLLISIONEVENT> coEvents;
 	vector<LPCOLLISIONEVENT> coEventsResult;
 
