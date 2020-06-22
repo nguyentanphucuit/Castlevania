@@ -82,6 +82,7 @@ void Weapon::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObject)
 						effect->SetPosition(tx, ty);
 						pScene->SpawnObject(item);
 						pScene->SpawnObject(effect);
+						_eWeapon = pScene->GetSimon()->GetCurrentWeapon();
 					}
 					candle->SetDestroy();
 				}
@@ -115,6 +116,7 @@ void Weapon::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObject)
 						PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
 						effect->SetPosition(tx, ty);
 						pScene->SpawnObject(effect);
+						_eWeapon = pScene->GetSimon()->GetCurrentWeapon();
 					}
 					enemy->SetDestroy();
 				}

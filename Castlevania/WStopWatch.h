@@ -16,7 +16,6 @@ public:
 	DWORD CheckFreezeTime() {
 		return this->motionless;
 	}
-
 	WStopWatch();
 };
 
