@@ -88,18 +88,21 @@ void Whip::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT>* colliable_objects
 	case NORMAL:
 		if (animations[WHIP_ANI_NORMAL]->GetCurrentFrame() < 2)
 		{
+			this->damage = 1;
 			return;
 		}
 		break;
 	case CHAIN:
 		if (animations[WHIP_ANI_CHAIN]->GetCurrentFrame() < 2)
 		{
+			this-> damage = 2;
 			return;
 		}
 		break;
 	case MORINGSTAR:
 		if (animations[WHIP_ANI_MORNINGSTAR]->GetCurrentFrame() < 8)
 		{
+			this->damage = 2;
 			return;
 		}
 		break;

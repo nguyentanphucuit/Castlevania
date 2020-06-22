@@ -36,14 +36,14 @@ void BlackKnight::Update(DWORD dt, Scene* scene , vector<LPGAMEOBJECT>* coObject
 	{
 		PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
 		D3DXVECTOR2 cam = pScene->GetCamera();
-		auto sx = pScene->GetSimon()->x;
+		auto xSimon = pScene->GetSimon()->x;
 
-		if (pScene->GetSimon()->y <= y && ((sx-x > DISTANCE)  || (x-sx> DISTANCE)) && !pScene->GetSimon()->Untouch()) {
+		if (pScene->GetSimon()->y <= y && ((xSimon - x > DISTANCE) || (x - xSimon > DISTANCE)) && !pScene->GetSimon()->Untouch()) {
 			if ((pScene->GetSimon()->x - x < BLACKKNIGHT_BBOX_WIDTH * 4) && x < _endPos - BLACKKNIGHT_BBOX_WIDTH && pScene->GetSimon()->x - x>0) {
 				if (nx == DIRECTION::LEFT) {
 					nx = DIRECTION::RIGHT;
 				}
-					
+
 				vx = BLACKKNIGHT_WALKING_SPEED * 1.5;
 			}
 			if ((pScene->GetSimon()->x + BLACKKNIGHT_BBOX_WIDTH * 4 > x) && x > _startPos + BLACKKNIGHT_BBOX_WIDTH && pScene->GetSimon()->x - x < 0) {
@@ -53,11 +53,9 @@ void BlackKnight::Update(DWORD dt, Scene* scene , vector<LPGAMEOBJECT>* coObject
 
 				vx = -BLACKKNIGHT_WALKING_SPEED * 1.5;
 			}
-			/*DebugOut(L"sx %f\n", sx);
+			/*DebugOut(L"xSimon %f\n", xSimon);
 			DebugOut(L"x %f\n", x);*/
 		}
-		
-		
 
 	}
 	if (x > _endPos) {
@@ -97,7 +95,6 @@ void BlackKnight::Update(DWORD dt, Scene* scene , vector<LPGAMEOBJECT>* coObject
 				else if (e->ny < 0) {
 					y += dy;
 				}
-
 			}
 		}
 
@@ -122,6 +119,6 @@ void BlackKnight::Area(int startPos, int endPos)
 BlackKnight::BlackKnight() :Enemy()
 {
 	AddAnimation("BLACKKNIGHT_ANI_WALK");
-	this->hp = 10;
+	this->hp = 2;
 }
 

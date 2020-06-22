@@ -4073,7 +4073,7 @@
  <objectgroup id="8" name="Torch">
   <object id="24" gid="883" x="695.333" y="1306" width="32" height="64">
    <properties>
-    <property name="item" value="8"/>
+    <property name="item" value="2"/>
    </properties>
   </object>
   <object id="25" gid="883" x="969.333" y="1307.33" width="32" height="64">
@@ -4271,7 +4271,7 @@
   <object id="59" name="BlackKnight" x="2155" y="1050" width="32" height="64">
    <properties>
     <property name="edef" value="1"/>
-    <property name="endPos" value="2113"/>
+    <property name="endPos" value="2300"/>
     <property name="num" value="1"/>
     <property name="startPos" value="2111"/>
     <property name="time" value="1000"/>

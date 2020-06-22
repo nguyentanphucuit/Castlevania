@@ -28,6 +28,7 @@ public:
 	virtual void Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects);
 	virtual void GetBoundingBox(float& l, float& t, float& r, float& b);
 	void SetState(FIREBOMBSTATE state);
+	FIREBOMBSTATE GetState() { return this->state; }
 	WFireBomb();
 };
 

@@ -78,7 +78,6 @@ void Weapon::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObject)
 						PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
 						item->SetPosition(tx, ty);
 						effect->SetPosition(tx, ty);
-
 						pScene->SpawnObject(item);
 						pScene->SpawnObject(effect);
 					}
@@ -88,12 +87,42 @@ void Weapon::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObject)
 					this->SetDestroy();
 			}
 			else if (dynamic_cast<Enemy*>(e->obj)) {
+				if (timeCo == 0) {
+					timeCo = GetTickCount();
+					isCoEnemy = true;
+				}
 				Enemy* enemy = dynamic_cast<Enemy*>(e->obj);
-				if (!enemy->IsDestroy()) {				
+				
+				if (!enemy->IsDestroy() && isCoEnemy) {				
+					enemy->SubtractHP(this->damage);
+					
+					if (dynamic_cast<PlayScene*>(scene)) 
+					{
+						auto effect = EffectFactory::SpawnEffect<Effect*>(CEffect::FLAME);
+						float tx, ty;
+						enemy->GetPosition(tx, ty);
+						PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
+						effect->SetPosition(tx, ty);
+						pScene->SpawnObject(effect);						
+					}	
+				}
+				if (enemy->GetHp() == 0) {
+					if (dynamic_cast<PlayScene*>(scene)) {
+						auto effect = EffectFactory::SpawnEffect<Effect*>(CEffect::STAR);
+						float tx, ty;
+						enemy->GetPosition(tx, ty);
+						PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
+						effect->SetPosition(tx, ty);
+						pScene->SpawnObject(effect);
+					}
 					enemy->SetDestroy();
 				}
 				if (_eWeapon == EWeapon::DAGGER)
 					this->SetDestroy();
+				if (timeCo != 0 && GetTickCount() - timeCo > TIME_CO)
+					timeCo = 0;
+				else 
+					isCoEnemy = false;
 			}
 			else {
 				if (nx != 0)
