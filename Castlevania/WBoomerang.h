@@ -11,6 +11,7 @@
 #define DISTANCE		32
 #define VX_LEFT			0.0012f
 #define VX_RIGHT		0.0009f
+
 class WBoomerang :public Weapon
 {
 private:

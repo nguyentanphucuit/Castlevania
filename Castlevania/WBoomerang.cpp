@@ -50,14 +50,15 @@ void WBoomerang::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 			this->isDestroy = true;
 			isReturn = false;
 		}
-		
-		if ((this->x > pScene->GetSimon()->x + DISTANCE*2 && nx == DIRECTION::RIGHT)
-			|| (this->x < pScene->GetSimon()->x - DISTANCE*4 && nx == DIRECTION::LEFT)) {
+		auto xSimon = pScene->GetSimon()->x;
+		auto ySimon = pScene->GetSimon()->y;
+		if ((this->x > xSimon + DISTANCE * 2 && nx == DIRECTION::RIGHT)
+			|| (this->x < xSimon - DISTANCE * 4 && nx == DIRECTION::LEFT)) {
 			isFly = true;
 		}
-		if (((this->x <= pScene->GetSimon()->x + DISTANCE && nx == DIRECTION::RIGHT)
-			|| (this->x >= pScene->GetSimon()->x && nx == DIRECTION::LEFT)) 
-			&& this->y - pScene->GetSimon()->y > 0 && isFly) {
+		if (((this->x <= xSimon + DISTANCE && nx == DIRECTION::RIGHT)
+			|| (this->x >= xSimon && nx == DIRECTION::LEFT))
+			&& (this->y > ySimon && this->y < ySimon + DISTANCE*2) && isFly) {
 			isReturn = true;
 			//DebugOut(L"y %f\n", this->y);
 			//DebugOut(L"simon y %f\n", pScene->GetSimon()->y);

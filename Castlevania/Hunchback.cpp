@@ -8,9 +8,9 @@
 void Hunchback::GetBoundingBox(float& left, float& top, float& right, float& bottom)
 {
 	left = x;
-	top = y + 2;
+	top = y;
 	right = left + HUNCHBACK_BBOX_WIDTH;
-	bottom = top + HUNCHBACK_BBOX_HEIGHT - 2;
+	bottom = top + HUNCHBACK_BBOX_HEIGHT;
 }
 
 void Hunchback::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
@@ -80,7 +80,7 @@ void Hunchback::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 					}
 					else
 					{
-						float minvy = -0.40;
+						float minvy = -0.20;
 						float maxvy = -0.60;
 						vy = minvy + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (maxvy - minvy)));
 					}

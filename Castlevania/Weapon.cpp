@@ -6,6 +6,7 @@
 #include "EffectFactory.h"
 #include "Candle.h"
 #include "Enemy.h"
+#include "WeaponFactory.h"
 
 void Weapon::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObject)
 {
@@ -54,13 +55,16 @@ void Weapon::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObject)
 						PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
 						item->SetPosition(tx, ty);
 						effect->SetPosition(tx, ty);
-						
 						pScene->SpawnObject(item);
 						pScene->SpawnObject(effect);
+						_eWeapon = pScene->GetSimon()->GetCurrentWeapon();
 					}
 					torch->SetDestroy();
 				}
-				this->SetDestroy();
+				if (_eWeapon == EWeapon::DAGGER)
+					this->SetDestroy();
+					
+				
 			}
 			else if (dynamic_cast<CCandle*>(e->obj)) {
 				CCandle* candle = dynamic_cast<CCandle*>(e->obj);
@@ -80,14 +84,16 @@ void Weapon::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObject)
 					}
 					candle->SetDestroy();
 				}
-				this->SetDestroy();
+				if (_eWeapon == EWeapon::DAGGER)
+					this->SetDestroy();
 			}
 			else if (dynamic_cast<Enemy*>(e->obj)) {
 				Enemy* enemy = dynamic_cast<Enemy*>(e->obj);
 				if (!enemy->IsDestroy()) {				
 					enemy->SetDestroy();
 				}
-				this->SetDestroy();
+				if (_eWeapon == EWeapon::DAGGER)
+					this->SetDestroy();
 			}
 			else {
 				if (nx != 0)
