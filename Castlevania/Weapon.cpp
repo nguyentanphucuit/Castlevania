@@ -23,6 +23,8 @@ void Weapon::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObject)
 		}
 	}
 
+	WFireBomb* firebomb = new WFireBomb();
+
 	vector<LPCOLLISIONEVENT> coEvents;
 	vector<LPCOLLISIONEVENT> coEventsResult;
 
@@ -95,7 +97,6 @@ void Weapon::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObject)
 				
 				if (!enemy->IsDestroy() && isCoEnemy) {				
 					enemy->SubtractHP(this->damage);
-					
 					if (dynamic_cast<PlayScene*>(scene)) 
 					{
 						auto effect = EffectFactory::SpawnEffect<Effect*>(CEffect::FLAME);

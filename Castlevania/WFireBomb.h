@@ -11,7 +11,7 @@
 #define FIREBOMB_ANI_NORMAL 0
 #define FIREBOMB_ANI_BURN	1
 
-#define TIME_FIREBOMB 1000
+#define TIME_FIREBOMB 5000
 
 enum class FIREBOMBSTATE {
 	NORMAL,
@@ -23,6 +23,7 @@ class WFireBomb :public Weapon
 private:
 	FIREBOMBSTATE state;
 	DWORD time_exist = 0;
+	WFireBomb* wFirebomb;
 public:
 	virtual void Render();
 	virtual void Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects);

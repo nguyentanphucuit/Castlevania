@@ -5,6 +5,7 @@
 #include "Candle.h"
 #include "EffectFactory.h"
 #include "Simon.h"
+#include "Weapon.h"
 
 void WAxe::Render()
 {
@@ -51,4 +52,5 @@ WAxe::WAxe() :Weapon()
 	this->nx = DIRECTION::RIGHT;
 	this->vx = AXE_SPEED_VX;
 	this->vy = -AXE_SPEED_VY;
+	this->damage = 2;
 }
