@@ -43,7 +43,7 @@ void Bone::GetBoundingBox(float& l, float& t, float& r, float& b)
 	b = y + AXE_BBOX_HEIGHT;
 }
 
-Bone::Bone() :Weapon()
+Bone::Bone() :Enemy()
 {
 	AddAnimation("BONE_ANI_WHITE");
 	this->vx = AXE_SPEED_VX;

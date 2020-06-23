@@ -3,6 +3,7 @@
 #include "Ground.h"
 #include "Simon.h"
 #include "WeaponFactory.h"
+#include "EnemyFactory.h"
 
 
 void White::GetBoundingBox(float& left, float& top, float& right, float& bottom)
@@ -29,7 +30,7 @@ void White::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 
 	vy += WHITE_GRAVITY * dt;
 
-	auto weapon = WeaponFactory::SpawnWeapon<Weapon*>(EWeapon::BONE);
+	auto enemy = EnemyFactory::SpawnEnemy<Enemy*>(CEnemy::BONE);
 
 	if (vx < 0) nx = DIRECTION::LEFT;
 	else nx = DIRECTION::RIGHT;
@@ -37,11 +38,11 @@ void White::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 
 	if (numWeapon  < 3 && GetTickCount() - timeSpawn > TIME_WAIT) {
 		timeSpawn = GetTickCount();
-		weapon->SetPosition(this->x, this->y + NEARLY_WEAPON);
-		weapon->SetNx(this->nx);
+		enemy->SetPosition(this->x, this->y + NEARLY_WEAPON);
+		enemy->SetNx(this->nx);
 		if (dynamic_cast<PlayScene*>(scene)) {
 			PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
-			pScene->SpawnObject(weapon);
+			pScene->SpawnObject(enemy);
 		}
 		numWeapon++;
 	}

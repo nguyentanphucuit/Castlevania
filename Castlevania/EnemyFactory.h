@@ -8,6 +8,7 @@
 #include "Raven.h"
 #include "Zombie.h"
 #include "Phantom.h"
+#include "Bone.h"
 
 enum class CEnemy {
 	BAT = 0,
@@ -17,7 +18,8 @@ enum class CEnemy {
 	WHITE,
 	RAVEN,
 	ZOMBIE,
-	PHANTOM
+	PHANTOM,
+	BONE
 };
 class EnemyFactory
 {
@@ -46,6 +48,8 @@ inline T EnemyFactory::SpawnEnemy(CEnemy cEnemy)
 		return new Zombie();
 	case CEnemy::PHANTOM:
 		return new Phantom();
+	case CEnemy::BONE:
+		return new Bone();
 	}
 	return T();
 }

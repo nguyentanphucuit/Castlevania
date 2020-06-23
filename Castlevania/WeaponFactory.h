@@ -41,9 +41,6 @@ inline T WeaponFactory::SpawnWeapon(EWeapon eWeapon)
 	case EWeapon::BOOMERANG:
 		return new WBoomerang();
 		break;
-	case EWeapon::BONE:
-		return new Bone();
-		break;
 	case EWeapon::STOPWATCH:
 		return new WStopWatch();
 		break;

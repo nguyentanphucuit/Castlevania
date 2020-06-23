@@ -210,9 +210,6 @@
     <ClInclude Include="WAxe.h">
       <Filter>Source Files\SubWeapons</Filter>
     </ClInclude>
-    <ClInclude Include="Bone.h">
-      <Filter>Source Files\SubWeapons</Filter>
-    </ClInclude>
     <ClInclude Include="WFireBomb.h">
       <Filter>Source Files\SubWeapons</Filter>
     </ClInclude>
@@ -260,6 +257,9 @@
     </ClInclude>
     <ClInclude Include="IStopWatch.h">
       <Filter>Source Files\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Bone.h">
+      <Filter>Source Files\Enemy</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -419,9 +419,6 @@
     <ClCompile Include="WAxe.cpp">
       <Filter>Source Files\SubWeapons</Filter>
     </ClCompile>
-    <ClCompile Include="Bone.cpp">
-      <Filter>Source Files\SubWeapons</Filter>
-    </ClCompile>
     <ClCompile Include="WFireBomb.cpp">
       <Filter>Source Files\SubWeapons</Filter>
     </ClCompile>
@@ -469,6 +466,9 @@
     </ClCompile>
     <ClCompile Include="IStopWatch.cpp">
       <Filter>Source Files\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Bone.cpp">
+      <Filter>Source Files\Enemy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

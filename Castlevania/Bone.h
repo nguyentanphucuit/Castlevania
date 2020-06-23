@@ -1,5 +1,5 @@
 #pragma once
-#include"Weapon.h"
+#include"Enemy.h"
 
 #define AXE_GRAVITY 0.001f
 #define AXE_SPEED_VX 0.2f
@@ -9,7 +9,7 @@
 #define AXE_BBOX_HEIGHT 28
 
 
-class Bone :public Weapon
+class Bone :public Enemy
 {
 public:
 	virtual void Render();
