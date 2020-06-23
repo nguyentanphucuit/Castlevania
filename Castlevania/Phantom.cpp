@@ -195,5 +195,5 @@ Phantom::Phantom() :Enemy()
 	AddAnimation("PHANTOM_ANI_IDLE");
 	AddAnimation("PHANTOM_ANI_FLY");
 	this->hp = 10;
-	
+	this->isMotionless = false;
 }

@@ -49,6 +49,7 @@ void Spawner::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* colliable_obj
 
 			if (this->AABB(l, t, r, b, cam.x, cam.y, cam.x + SCREENSIZE::WIDTH, cam.y + SCREENSIZE::HEIGHT))
 			{
+				
 				if (!this->isSpawned)
 				{
 					auto enemy = EnemyFactory::SpawnEnemy<Enemy*>(this->enemyDef);
@@ -59,8 +60,9 @@ void Spawner::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* colliable_obj
 					else if (dynamic_cast<Hunchback*>(enemy)) {
 						auto hunchback = dynamic_cast<Hunchback*>(enemy);
 						hunchback->Area(this->startPos, this->endPos);
+					
 					}
-					else if (dynamic_cast<White*>(enemy)) {
+					else if (dynamic_cast<White*>(enemy))  {
 						auto Bone = dynamic_cast<White*>(enemy);
 						Bone->Area(this->startPos, this->endPos);
 					}
@@ -74,7 +76,6 @@ void Spawner::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* colliable_obj
 					}
 					pScene->SpawnObject(enemy);
 					this->isSpawned = true;
-
 				}
 
 			}
@@ -95,9 +96,7 @@ void Spawner::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* colliable_obj
 					}
 					pScene->SpawnObject(enemy);
 					this->isSpawned = true;
-
 				}
-
 			}
 			else
 			{

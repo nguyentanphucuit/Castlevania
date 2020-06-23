@@ -17,7 +17,6 @@ class Item :public CGameObject
 {
 protected:
 	DWORD time_wait;
-
 public:
 
 	Item() : CGameObject() {

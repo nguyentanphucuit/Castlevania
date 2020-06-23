@@ -110,6 +110,6 @@ void Ghost::Render()
 Ghost::Ghost() :Enemy()
 {
 	AddAnimation("GHOST_ANI_FLY");
-
+	this->isMotionless = false;
 }
 

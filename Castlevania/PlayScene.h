@@ -44,6 +44,7 @@ class PlayScene:public Scene
     void UpdateGrid();
 public:
 
+    void FreezeEnemy(bool flag);
     D3DXVECTOR2 GetCamera();
     bool IsAttack() { return isAttack; };
     int GetNumObj() { return this->objects.size(); };

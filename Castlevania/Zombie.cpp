@@ -90,6 +90,6 @@ void Zombie::Area(int startPos, int endPos)
 Zombie::Zombie() :Enemy()
 {
 	AddAnimation("ZOMBIE_ANI_WALK");
-
+	this->isMotionless = false;
 }
 

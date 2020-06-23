@@ -12,7 +12,7 @@ private:
 	int startPos;
 	int endPos;
 	bool isSpawned = false;
-
+	int numEnemy;
 public:
 	Spawner(CEnemy enemyDef, DWORD respawnTime, int num,int startPos,int endPos) :HiddenObject()
 	{

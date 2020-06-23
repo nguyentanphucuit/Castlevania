@@ -23,6 +23,7 @@ private:
 	int left = false;
 	int _endPos;
 	int _startPos;
+	int _num;
 	HUNCHBACK state;
 	bool jump = false;
 	DWORD waitTimeActive;
@@ -32,6 +33,7 @@ public:
 	virtual void Render();
 	void OnTouchingGround();
 	void Area(int startPos, int endPos);
+	void Num(int num);
 	void SetState(HUNCHBACK state);
 	Hunchback();
 };

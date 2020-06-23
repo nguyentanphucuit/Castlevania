@@ -125,6 +125,7 @@ BlackKnight::BlackKnight() :Enemy()
 {
 	AddAnimation("BLACKKNIGHT_ANI_WALK");
 	this->hp = 2;
+	this->isMotionless = false;
 
 }
 

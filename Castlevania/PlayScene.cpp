@@ -154,6 +154,20 @@ void PlayScene::UpdateGrid()
 	}
 }
 
+void PlayScene::FreezeEnemy(bool flag)
+{
+	for (size_t i = 0; i < objects.size(); i++)
+	{
+		if (dynamic_cast<Enemy*>(objects.at(i)))
+		{
+			auto e = dynamic_cast<Enemy*>(objects.at(i));
+			e->SetMotionless(flag);
+		}
+	}
+
+
+}
+
 D3DXVECTOR2 PlayScene::GetCamera()
 {
 

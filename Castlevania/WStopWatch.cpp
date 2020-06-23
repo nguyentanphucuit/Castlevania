@@ -2,25 +2,41 @@
 #include "EnemyFactory.h"
 
 
-void WStopWatch::Update(DWORD dt, Scene *scene,vector<LPGAMEOBJECT>* coObjects)
+void WStopWatch::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 {
 
 	if (this->isDestroy)
 	{
 		return;
 	}
+
+
 	if (this->motionless != 0)
 	{
-		//enemy->SetMotionless(true);
+
+		if (dynamic_cast<PlayScene*>(scene))
+		{
+			auto pScene = dynamic_cast<PlayScene*>(scene);
+			pScene->FreezeEnemy(true);
+		}
 	}
-	if (GetTickCount() - this->motionless > STOPWATCH_FREEZE_TIME)
+	if (this->motionless != 0 && GetTickCount() - this->motionless > STOPWATCH_FREEZE_TIME)
 	{
-		//enemy->SetMotionless(false);
+	
 		this->motionless = 0;
+		auto pScene = dynamic_cast<PlayScene*>(scene);
+		pScene->FreezeEnemy(false);
+		isDestroy = true;
 	}
 
 }
 
+
+void WStopWatch::CountMotionless()
+{
+	if (motionless == 0)
+		motionless = GetTickCount();
+}
 
 WStopWatch::WStopWatch() :Weapon()
 {

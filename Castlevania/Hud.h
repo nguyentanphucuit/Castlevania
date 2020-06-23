@@ -22,6 +22,7 @@ public:
 		this->state = state;
 	}
 	void Update();
+	
 	void Render();
 	Hud(PlayScene* scene);
 	~Hud();

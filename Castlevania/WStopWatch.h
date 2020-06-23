@@ -6,8 +6,8 @@
 
 class WStopWatch :public Weapon
 {
-	Enemy* enemy;
-	DWORD motionless;
+
+	DWORD motionless = 0;
 public:
 	virtual void Render() {};
 	virtual void Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects);
@@ -16,6 +16,7 @@ public:
 	DWORD CheckFreezeTime() {
 		return this->motionless;
 	}
+	void CountMotionless();
 	WStopWatch();
 };
 

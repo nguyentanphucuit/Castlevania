@@ -471,7 +471,6 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 					}
 					if (dynamic_cast<IDagger*>(item)) {
 						this->currentWeapon = EWeapon::DAGGER;
-
 					}
 					if (dynamic_cast<IAXE*>(item)) {
 						this->currentWeapon = EWeapon::AXE;
@@ -529,6 +528,11 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 				auto weapon = WeaponFactory::SpawnWeapon<Weapon*>(currentWeapon);
 				weapon->SetPosition(this->x, this->y + 10);
 				weapon->SetNx(this->nx);
+				if (dynamic_cast<WStopWatch*>(weapon)){
+					auto sw = dynamic_cast<WStopWatch*>(weapon);
+					sw->CountMotionless();
+					this->fight_start = GetTickCount();
+				}
 				if (dynamic_cast<PlayScene*>(scene)) {
 					PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
 					pScene->SpawnObject(weapon);

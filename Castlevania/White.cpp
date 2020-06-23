@@ -126,6 +126,6 @@ void White::Area(int startPos, int endPos)
 White::White() :Enemy()
 {
 	AddAnimation("WHITE_ANI_JUMP");
-
+	this->isMotionless = false;
 }
 

@@ -153,6 +153,6 @@ Raven::Raven() :Enemy()
 {
 	AddAnimation("RAVEN_ANI_IDLE");
 	AddAnimation("RAVEN_ANI_FLY");
-
+	this->isMotionless = false;
 }
 

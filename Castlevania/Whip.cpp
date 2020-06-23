@@ -127,6 +127,11 @@ void Whip::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT>* colliable_objects
 					torch->GetPosition(tx, ty);
 					PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
 					item->SetPosition(tx,ty);
+					if (dynamic_cast<CHeart*>(item))
+					{
+						auto heart = dynamic_cast<CHeart*>(item);
+						heart->ox = tx;
+					}
 					effect->SetPosition(tx, ty);
 
 					pScene->SpawnObject(item);

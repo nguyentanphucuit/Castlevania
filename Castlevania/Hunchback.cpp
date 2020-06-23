@@ -135,6 +135,11 @@ void Hunchback::Area(int startPos, int endPos)
 	this->_startPos = startPos;
 }
 
+void Hunchback::Num(int num)
+{
+	this->_num = num;
+}
+
 void Hunchback::SetState(HUNCHBACK state)
 {
 	switch (state) {
@@ -160,6 +165,6 @@ Hunchback::Hunchback() :Enemy()
 	AddAnimation("HUNCHBACK_ANI_JUMP");
 	AddAnimation("HUNCHBACK_ANI_JUMP");
 	this->hp = 1;
-
+	this->isMotionless = false;
 }
 

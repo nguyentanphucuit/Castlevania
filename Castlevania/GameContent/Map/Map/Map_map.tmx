@@ -4073,7 +4073,7 @@
  <objectgroup id="8" name="Torch">
   <object id="24" gid="883" x="695.333" y="1306" width="32" height="64">
    <properties>
-    <property name="item" value="3"/>
+    <property name="item" value="12"/>
    </properties>
   </object>
   <object id="25" gid="883" x="969.333" y="1307.33" width="32" height="64">
@@ -4192,7 +4192,7 @@
  <objectgroup id="4" name="Player">
   <object id="75" name="M1_E1" gid="894" x="571.333" y="1288.67" width="60" height="64"/>
   <object id="76" name="M2_E1" gid="894" x="2303.33" y="1113.33" width="60" height="64"/>
-  <object id="77" name="M3_E1" gid="2147484542" x="1403.33" y="804" width="60" height="64"/>
+  <object id="77" name="M3_E1" gid="2147484542" x="1399.33" y="786" width="60" height="64"/>
   <object id="78" name="M4_E1" gid="894" x="2794" y="360.667" width="60" height="64"/>
   <object id="81" name="M2_E2222" gid="901" x="2308.53" y="859.015" width="60" height="64"/>
   <object id="82" name="M2_E3" gid="2147484551" x="2270.67" y="1017.33" width="60" height="64"/>
@@ -4316,9 +4316,9 @@
   <object id="98" name="Skeleton" x="82" y="696.666" width="32" height="64">
    <properties>
     <property name="edef" value="4"/>
-    <property name="endPos" value="2340"/>
+    <property name="endPos" value="374"/>
     <property name="num" value="1"/>
-    <property name="startPos" value="2240"/>
+    <property name="startPos" value="85"/>
     <property name="time" value="1000"/>
    </properties>
   </object>
