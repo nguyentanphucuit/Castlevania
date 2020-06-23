@@ -25,7 +25,6 @@ enum class PHANTOMSTATE {
 class Phantom :public Enemy
 {
 private:
-	float oy; // tọa độ oy bat sẽ di chuyển quanh trục này ( =y)
 	PHANTOMSTATE state;
 	
 	DWORD waiting_start = 0;
@@ -46,9 +45,6 @@ public:
 	virtual void GetBoundingBox(float& left, float& top, float& right, float& bottom);
 	virtual void Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects);
 	virtual void Render();
-	void SetOy() {
-		this->oy = this->y;
-	}
 	void SetState(PHANTOMSTATE state);
 	Phantom();
 };

@@ -49,7 +49,6 @@ void Phantom::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 	if (dynamic_cast<PlayScene*>(scene))
 	{
 		PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
-		oy = pScene->GetSimon()->y;
 		if (this->x - pScene->GetSimon()->x < ACTIVE_PHANTOM_Y) {
 			this->SetState(PHANTOMSTATE::FLY);
 		}

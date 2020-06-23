@@ -98,10 +98,7 @@ void PlayScene::LoadAnimation(const string& filePath)
 			ani->Add(spriteID);
 			//	DebugOut(L"ANI ID=%d sprite =%d \n", ID, spriteID);
 		}
-
 		animations->Add(ID, ani);
-
-
 	}
 
 
@@ -154,7 +151,7 @@ void PlayScene::UpdateGrid()
 	}
 }
 
-void PlayScene::FreezeEnemy(bool flag)
+void PlayScene::Motionless(bool flag)
 {
 	for (size_t i = 0; i < objects.size(); i++)
 	{
@@ -259,7 +256,7 @@ void PlayScene::OnCreate()
 
 
 	SIMON = new CSIMON();
-	
+	boss = new Phantom();
 
 	for (auto const& m : Maps) {
 		auto objectLayer = m.second->GetObjectLayer();
@@ -413,6 +410,12 @@ void PlayScene::OnCreate()
 					AddToGrid(brickwallS3);
 				}
 				break;
+			case _Boss:
+				for (auto const& y : x.second->GetObjectGroup()) {
+					boss->SetPosition(y.second->GetX(), y.second->GetY() - y.second->GetHeight());
+					AddToGrid(boss);
+				}
+				break;
 			default:
 				break;
 			}
@@ -474,6 +477,7 @@ void PlayScene::Update(DWORD dt)
 	// Update camera to follow SIMON
 	float cx, cy;
 	SIMON->GetPosition(cx, cy);
+
 
 	cx -= SCREEN_WIDTH / 1.5;
 	cy -= SCREEN_HEIGHT / 1.5;

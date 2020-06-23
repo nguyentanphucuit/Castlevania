@@ -3,8 +3,10 @@
 #include "Simon.h"
 #include "Map.h"
 #include <queue>
-#include"Grid.h"
-#include"Hud.h"
+#include "Grid.h"
+#include "Hud.h"
+
+class Phantom;
 struct pScene {
     int id;
     int mapID;
@@ -23,6 +25,8 @@ class PlayScene:public Scene
     void LoadSprite(const std::string& filePath, const int tex);
     void LoadAnimation(const string& filePath);
     void LoadSceneContent(xml_node<>* root);
+
+    Phantom* boss;
 
     std::queue<LPGAMEOBJECT> qObjects;
 
@@ -44,7 +48,7 @@ class PlayScene:public Scene
     void UpdateGrid();
 public:
 
-    void FreezeEnemy(bool flag);
+    void Motionless(bool flag);
     D3DXVECTOR2 GetCamera();
     bool IsAttack() { return isAttack; };
     int GetNumObj() { return this->objects.size(); };

@@ -17,7 +17,7 @@ void WStopWatch::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 		if (dynamic_cast<PlayScene*>(scene))
 		{
 			auto pScene = dynamic_cast<PlayScene*>(scene);
-			pScene->FreezeEnemy(true);
+			pScene->Motionless(true);
 		}
 	}
 	if (this->motionless != 0 && GetTickCount() - this->motionless > STOPWATCH_FREEZE_TIME)
@@ -25,7 +25,7 @@ void WStopWatch::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 	
 		this->motionless = 0;
 		auto pScene = dynamic_cast<PlayScene*>(scene);
-		pScene->FreezeEnemy(false);
+		pScene->Motionless(false);
 		isDestroy = true;
 	}
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.5" orientation="orthogonal" renderorder="right-down" width="96" height="42" tilewidth="32" tileheight="32" infinite="0" nextlayerid="5" nextobjectid="98">
+<map version="1.2" tiledversion="1.3.5" orientation="orthogonal" renderorder="right-down" width="96" height="42" tilewidth="32" tileheight="32" infinite="0" nextlayerid="6" nextobjectid="99">
  <tileset firstgid="1" name="Map_bank.png" tilewidth="32" tileheight="32" tilecount="882" columns="21">
   <image source="Map_bank.png" width="672" height="1344"/>
  </tileset>
@@ -4194,11 +4194,14 @@
   <object id="76" name="M2_E1" gid="894" x="2303.33" y="1113.33" width="60" height="64"/>
   <object id="77" name="M3_E1" gid="2147484542" x="1399.33" y="786" width="60" height="64"/>
   <object id="78" name="M4_E1" gid="894" x="2794" y="360.667" width="60" height="64"/>
-  <object id="81" name="M2_E2222" gid="901" x="2308.53" y="859.015" width="60" height="64"/>
+  <object id="81" name="M2_E2" gid="901" x="2308.53" y="859.015" width="60" height="64"/>
   <object id="82" name="M2_E3" gid="2147484551" x="2270.67" y="1017.33" width="60" height="64"/>
   <object id="83" name="M3_E3" gid="903" x="176.667" y="587" width="60" height="64"/>
   <object id="85" name="M3_E2" gid="2147484549" x="110.417" y="302.333" width="60" height="64"/>
-  <object id="97" name="M2_E2" gid="901" x="1761" y="661" width="60" height="64"/>
+  <object id="97" name="222" gid="901" x="1761" y="661" width="60" height="64"/>
+ </objectgroup>
+ <objectgroup id="5" name="Boss">
+  <object id="98" name="Phantom" x="2774" y="142" width="32" height="64"/>
  </objectgroup>
  <objectgroup id="6" name="Ground">
   <object id="17" x="505.833" y="1310.42" width="1535" height="25.25"/>
@@ -4397,15 +4400,6 @@
   <object id="118" name="Zombie" x="1983.34" y="350.333" width="32" height="64">
    <properties>
     <property name="edef" value="6"/>
-    <property name="endPos" value="2340"/>
-    <property name="num" value="1"/>
-    <property name="startPos" value="2240"/>
-    <property name="time" value="1000"/>
-   </properties>
-  </object>
-  <object id="180" name="Phantom" x="2760" y="125" width="32" height="64">
-   <properties>
-    <property name="edef" value="7"/>
     <property name="endPos" value="2340"/>
     <property name="num" value="1"/>
     <property name="startPos" value="2240"/>

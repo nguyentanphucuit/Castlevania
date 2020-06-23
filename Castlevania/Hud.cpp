@@ -48,7 +48,7 @@ void Hud::Render()
 	{
 	case EWeapon::AXE:{
 
-		CSprites::GetInstance()->Get("AXE_UI_SPRITE")->DrawUI(300, 40, 255);
+		CSprites::GetInstance()->Get("AXE_UI_SPRITE")->DrawUI(340, 40, 255);
 		break;
 	}
 	case  EWeapon::DAGGER: {

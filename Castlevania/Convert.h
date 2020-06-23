@@ -48,7 +48,7 @@ const auto string2EntityType = std::unordered_map<std::string, ObjectID>
 	{ "Castle", ObjectID::_Castle },
 	{ "BossTrigger", ObjectID::_BossTrigger },
 	{ "BossBorder", ObjectID::_BossBorder },
-	{ "BOSS", ObjectID::_Boss },
+	{ "Boss", ObjectID::_Boss },
 	{ "Door", ObjectID::_Door },
 	{ "Brick", ObjectID::_Birck },
 	{ "Enemy", ObjectID::_Enemy },

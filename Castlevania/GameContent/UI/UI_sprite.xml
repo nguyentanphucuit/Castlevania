@@ -24,7 +24,7 @@
 		</sprite>
 		
 		<sprite ID="KNIFE_UI_SPRITE">
-			<frame l="89" t="31" r="121" b="39" />
+			<frame l="89" t="29" r="121" b="50" />
 		</sprite>
 		
 		<sprite ID="STOP_WATCH_UI_SPRITE">

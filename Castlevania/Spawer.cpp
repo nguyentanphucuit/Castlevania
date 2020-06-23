@@ -77,26 +77,6 @@ void Spawner::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* colliable_obj
 					pScene->SpawnObject(enemy);
 					this->isSpawned = true;
 				}
-
-			}
-			else
-			{
-				this->isSpawned = false;
-			}
-		}
-		else if (this->enemyDef == CEnemy::PHANTOM) {
-			if (this->AABB(l, t, r, b, cam.x, cam.y, cam.x + SCREENSIZE::WIDTH, cam.y + SCREENSIZE::HEIGHT))
-			{
-				if (!this->isSpawned)
-				{
-					auto enemy = EnemyFactory::SpawnEnemy<Enemy*>(this->enemyDef);
-					enemy->SetPosition(x, y);
-					if (dynamic_cast<Phantom*>(enemy)) {
-						auto ghost = dynamic_cast<Phantom*>(enemy);
-					}
-					pScene->SpawnObject(enemy);
-					this->isSpawned = true;
-				}
 			}
 			else
 			{
