@@ -24,7 +24,7 @@
 		</sprite>
 		
 		<sprite ID="KNIFE_UI_SPRITE">
-			<frame l="89" t="29" r="121" b="50" />
+			<frame l="88" t="30" r="122" b="49" />
 		</sprite>
 		
 		<sprite ID="STOP_WATCH_UI_SPRITE">
@@ -36,7 +36,11 @@
 		</sprite>
 		
 		<sprite ID="AXE_UI_SPRITE">
-			<frame l="65" t="1" r="30" b="28" />
+			<frame l="63" t="0" r="94" b="30" />
+		</sprite>
+		
+		<sprite ID="BOOMERANG_UI_SPRITE">
+			<frame l="96" t="0" r="128" b="30" />
 		</sprite>
 
 </gamedata>

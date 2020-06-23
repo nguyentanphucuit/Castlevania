@@ -48,7 +48,7 @@ void Hud::Render()
 	{
 	case EWeapon::AXE:{
 
-		CSprites::GetInstance()->Get("AXE_UI_SPRITE")->DrawUI(340, 40, 255);
+		CSprites::GetInstance()->Get("AXE_UI_SPRITE")->DrawUI(305, 39, 255);
 		break;
 	}
 	case  EWeapon::DAGGER: {
@@ -59,11 +59,15 @@ void Hud::Render()
 		CSprites::GetInstance()->Get("HOLY_WATER_UI_SPRITE")->DrawUI( 305, 35, 255);
 		break;
 	}
-
-
+	case  EWeapon::STOPWATCH: {
+		CSprites::GetInstance()->Get("STOP_WATCH_UI_SPRITE")->DrawUI(305, 35, 255);
+		break;
 	}
-
-	
+	case  EWeapon::BOOMERANG: {
+		CSprites::GetInstance()->Get("BOOMERANG_UI_SPRITE")->DrawUI(305, 35, 255);
+		break;
+	}
+	}
 
 
 	CGame::GetInstance()->DrawUIText(this->_UIinfor, bound);
