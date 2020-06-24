@@ -5,10 +5,9 @@
 int Hud::bossHP = 0;
 void Hud::Update()
 {
-	this->playerEnery = scene->GetSimon()->GetEnergy();
-	string enery_ = playerEnery < 10 ? "0" + std::to_string(playerEnery) : std::to_string(playerEnery);
+	this->playerEnergy = scene->GetSimon()->GetEnergy();
+	string energy = playerEnergy < 10 ? "0" + std::to_string(playerEnergy) : std::to_string(playerEnergy);
 	this->playerHP = scene->GetSimon()->GetHp();
-
 
 	unsigned int score_ =00000;
 	string score;
@@ -37,7 +36,7 @@ void Hud::Update()
 
 
 	_UIinfor = "SCORE-" + score + " TIME 0" +  + " STAGE 0" + std::to_string(this->state) + "\n";
-	_UIinfor = _UIinfor + "PLAYER                  -" + enery_ + "\n";
+	_UIinfor = _UIinfor + "PLAYER                  -" + energy + "\n";
 	_UIinfor += "ENEMY                   -02\n";
 }
 
@@ -97,7 +96,7 @@ void Hud::Render()
 Hud::Hud(PlayScene* scene)
 {
 	this->scene = scene;
-	SetRect(&bound, 0, 15, SCREEN_WIDTH, 80);
+	SetRect(&bound, 0, 15, SCREENSIZE::WIDTH, 80);
 	this->bossHP = 16;
 	this->state = 1;
 

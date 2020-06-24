@@ -74,6 +74,7 @@
 #define STEP_STAIR		5
 
 #define SIMON_HP	2
+#define SIMON_ENERY 1000
 
  enum class SIMONSTATE 
 {
@@ -104,7 +105,7 @@
  {
 
 	 int hp;
-	 int enery;
+	 int energy;
 
 	 int level;
 	 int untouchable;
@@ -200,22 +201,29 @@
 	virtual void GetBoundingBox(float &left, float &top, float &right, float &bottom);
 
 	int GetHp() { return this->hp; }
-	int GetEnergy() { return this->enery; }
-
 	void SetHP(float hp) {
 		this->hp = hp;
 		if (this->hp > SIMON_HP)
-		{
 			this->hp = SIMON_HP;
-		}
 		else if (this->hp < 0)
-		{
 			this->hp = 0;
-		}
 	}
-
 	void AddHP(int point) {
 		this->hp += point;
 		SetHP(hp);
 	}
+
+	int GetEnergy() { return this->energy;}
+	void SetEnery(int energy) {
+		this->energy = energy;
+		if (this->energy > SIMON_ENERY)
+			this->energy = SIMON_ENERY;
+		else if (this->energy < 0)
+			this->energy = 0;
+	}
+	void AddEnery(int point) {
+		this->energy += point;
+		SetEnery(energy);
+	}
+	
 };

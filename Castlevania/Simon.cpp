@@ -20,7 +20,7 @@ CSIMON::CSIMON() : CGameObject() {
 	level = SIMON_LEVEL_BIG;
 	untouchable = 0;
 	hp = 2;
-	enery = 16;
+	this->energy = 5;
 	this->fight_start = 0;
 	upgrade_start = 0;
 	state = SIMONSTATE::IDLE;
@@ -567,6 +567,14 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 					PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
 					pScene->SpawnObject(weapon);
 					isSpawnWeapon = true;
+				}
+				if (this->currentWeapon == EWeapon::STOPWATCH)
+				{
+					this->AddEnery(-5);
+				}
+				else
+				{
+					this->AddEnery(-1);
 				}
 			}
 

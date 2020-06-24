@@ -9,7 +9,7 @@ class Hud
 	PlayScene* scene;
 	int score;
 	int playerHP;
-	int playerEnery;
+	int playerEnergy;
 	static int bossHP;
 	int gameTime;
 	int currentWeapon;
