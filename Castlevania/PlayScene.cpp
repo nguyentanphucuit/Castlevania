@@ -745,7 +745,8 @@ void PlayScene::KeyState(BYTE* states)
 	}
 	else
 	{
-		SIMON->SetState(SIMONSTATE::IDLE);
+		if(SIMON->GetState() != SIMONSTATE::DIE)
+			SIMON->SetState(SIMONSTATE::IDLE);
 	}
 
 

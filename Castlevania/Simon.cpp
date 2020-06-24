@@ -19,7 +19,7 @@
 CSIMON::CSIMON() : CGameObject() {
 	level = SIMON_LEVEL_BIG;
 	untouchable = 0;
-	hp = 16;
+	hp = 2;
 	enery = 16;
 	this->fight_start = 0;
 	upgrade_start = 0;
@@ -41,7 +41,7 @@ CSIMON::CSIMON() : CGameObject() {
 	AddAnimation("SIMON_ANI_UPSTAIR_ATTACK", false);
 	AddAnimation("SIMON_ANI_DOWNSTAIR_ATTACK", false);
 	AddAnimation("SIMON_ANI_DEFLECT");
-	//AddAnimation("SIMON_ANI_DIE", false); 
+	AddAnimation("SIMON_ANI_DIE", false); 
 }
 
 void CSIMON::HandleFirstStepOnStair()
@@ -222,9 +222,12 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 	CGameObject::Update(dt, scene);
 
 
-	//DebugOut(L"This-> state=%d \n", this->state);
-
+	DebugOut(L"This-> state=%d \n", this->state);
 	//DebugOut(L"This-> stair dir =%d \n", this->onStairDirection);
+	if (this->state == SIMONSTATE::DIE)
+	{
+		return;
+	}
 	if (this->startOnStair) {
 		if (!this->isFirstStepOnStair)
 			HandleFirstStepOnStair();
@@ -322,6 +325,12 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 					if (state != SIMONSTATE::ENTERENTRANCE) {
 						if (nx != 0) vx = 0;
 					}
+					if (this->hp == 0)
+					{
+						this->SetState(SIMONSTATE::DIE);
+						this->isOnStair = false;
+						break;
+					}
 				}
 				else if (e->ny == 1)
 				{
@@ -334,6 +343,26 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 				if (state == SIMONSTATE::ENTERENTRANCE) { break; }
 
 
+			}
+			else if (dynamic_cast<Enemy*>(e->obj)) {
+				Enemy* enemy = dynamic_cast<Enemy*> (e->obj);
+
+				if (this->isColliding(enemy))
+				{
+					if (untouchable_start == 0) {
+
+						DebugOut(L"Collice with enemy \n", this->vy, this->vx);
+						if (!this->isOnStair)
+						{
+							this->SetState(SIMONSTATE::DEFLECT);
+						}
+						if (untouchable != 1) {
+							this->AddHP(-2);
+							StartUntouchable();
+						}
+					}
+
+				}
 			}
 			else if (dynamic_cast<SwitchScene*>(e->obj)) {
 				auto switchScene = dynamic_cast<SwitchScene*>(e->obj);
@@ -504,6 +533,7 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 						this->SetState(SIMONSTATE::DEFLECT);
 					}
 					if (untouchable != 1) {
+						this->AddHP(-2);
 						StartUntouchable();
 					}
 				}
@@ -571,8 +601,6 @@ void CSIMON::Render()
 	case SIMONSTATE::UPWHIP:
 		ani = SIMON_ANI_UP_WHIP;
 		break;
-	case SIMONSTATE::DIE:
-		break;
 	case SIMONSTATE::FIGHT_STAND:
 		ani = SIMON_ANI_STAND_ATTACK;
 		break;
@@ -601,6 +629,9 @@ void CSIMON::Render()
 		break;
 	case SIMONSTATE::DEFLECT:
 		ani = SIMON_ANI_DEFLECT;
+		break;
+	case SIMONSTATE::DIE:
+		ani = SIMON_ANI_DIE;
 		break;
 	default:
 		break;
@@ -634,22 +665,13 @@ void CSIMON::SetState(SIMONSTATE state)
 		isTouchRetroGrade = false;
 		vx = SIMON_WALKING_SPEED;
 		nx = DIRECTION::RIGHT;
-		//if (isStair) {
-		//	vy = -SIMON_WALKING_SPEED;
-		//	// x = 50, dis x = 10 => x = 60,
-		//	//x +=  vx ()
-		//	// y+= vy
-		//	//Autoxcalk(left, disx, disy);
-		//
-		//}
-
 		break;
 	case SIMONSTATE::WALKING_LEFT:
 		vx = -SIMON_WALKING_SPEED;
 
 		nx = DIRECTION::LEFT;
 		break;
-	case SIMONSTATE::JUMP: // nhảy rồi thì chắc ăn k chạm đất
+	case SIMONSTATE::JUMP:
 		isOnGround = false;
 		vy = -SIMON_JUMP_SPEED_Y;
 		break;
@@ -657,7 +679,8 @@ void CSIMON::SetState(SIMONSTATE state)
 		vx = 0;
 		break;
 	case SIMONSTATE::DIE:
-		vy = -SIMON_DIE_DEFLECT_SPEED;
+		this->vx = 0;
+		this->vy = 0;
 		break;
 	case SIMONSTATE::UPWHIP:
 		whip->Upgrade();

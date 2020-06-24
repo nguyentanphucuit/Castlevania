@@ -69,4 +69,9 @@
 		<sprite ID="SIMON_SPRITE_DEFLECT" />
 	</animation>
 	
+	<animation ID="SIMON_ANI_DIE" timeLoop="100">
+		<sprite ID="SIMON_SPRITE_DIE_01" />
+		<sprite ID="SIMON_SPRITE_DIE_02" />
+	</animation>
+	
 </gamedata>

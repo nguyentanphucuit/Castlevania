@@ -93,4 +93,11 @@
 			<frame l="0" t="132" r="60" b="198" />
 		</sprite>
 		
+		<sprite ID="SIMON_SPRITE_DIE_01">
+			<frame l="0" t="198" r="60" b="264" />
+		</sprite>
+		<sprite ID="SIMON_SPRITE_DIE_02">
+			<frame l="60" t="198" r="124" b="264" />
+		</sprite>
+		
 </gamedata>

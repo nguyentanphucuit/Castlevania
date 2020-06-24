@@ -40,11 +40,9 @@
 #define SIMON_ANI_SIT 2 
 #define SIMON_ANI_STAND_ATTACK 3 
 #define SIMON_ANI_SIT_ATTACK 4 
-//#define SIMON_ANI_DEFLECT               5
 #define SIMON_ANI_UP_WHIP              5
 #define SIMON_ANI_STEP_UPSTAIR            6
 #define SIMON_ANI_IDLE_UPSTAIR          7
-
 #define SIMON_ANI_IDLE_DOWNSTAIR         8
 #define SIMON_ANI_STEP_DOWNSTAIR            9
 #define SIMON_ANI_UPSTAIR_ATTACK            10
@@ -52,13 +50,12 @@
 #define SIMON_ANI_DEFLECT					12
 #define SIMON_ANI_DIE						13
 
-#define SIMON_ANI_DIE	8
 
 #define	SIMON_LEVEL_SMALL	1
 #define	SIMON_LEVEL_BIG		2
 
-#define SIMON_BBOX_WIDTH  32
-#define SIMON_BBOX_HEIGHT 62
+#define SIMON_BBOX_WIDTH  60
+#define SIMON_BBOX_HEIGHT 64
 
 
 #define SIMON_SPRITE_WIDTH  60
@@ -75,6 +72,8 @@
 #define SIMON_DOWNSTAIR_RIGHT_OFFET 18
 
 #define STEP_STAIR		5
+
+#define SIMON_HP	2
 
  enum class SIMONSTATE 
 {
@@ -133,8 +132,7 @@
 	 void HandlePerStepOnStair();
  public:
 	 CSIMON();
-	 int GetHp() { return this->hp; }
-	 int GetEnergy() { return this->enery; }
+
 	D3DXVECTOR2 LastStepOnStairPos;
 	bool isOnGround = false;
 	bool isOnPlatform = false;
@@ -201,4 +199,23 @@
 	void StartUntouchable() { untouchable = 1; untouchable_start = GetTickCount(); }
 	virtual void GetBoundingBox(float &left, float &top, float &right, float &bottom);
 
+	int GetHp() { return this->hp; }
+	int GetEnergy() { return this->enery; }
+
+	void SetHP(float hp) {
+		this->hp = hp;
+		if (this->hp > SIMON_HP)
+		{
+			this->hp = SIMON_HP;
+		}
+		else if (this->hp < 0)
+		{
+			this->hp = 0;
+		}
+	}
+
+	void AddHP(int point) {
+		this->hp += point;
+		SetHP(hp);
+	}
 };
