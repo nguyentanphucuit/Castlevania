@@ -4190,7 +4190,7 @@
   </object>
  </objectgroup>
  <objectgroup id="4" name="Player">
-  <object id="75" name="M1_E1" gid="894" x="571.333" y="1288.67" width="60" height="64"/>
+  <object id="75" name="M1_E1" gid="894" x="1061.33" y="1248.67" width="60" height="64"/>
   <object id="76" name="M2_E1" gid="894" x="2303.33" y="1113.33" width="60" height="64"/>
   <object id="77" name="M3_E1" gid="2147484542" x="1399.33" y="786" width="60" height="64"/>
   <object id="78" name="M4_E1" gid="894" x="2794" y="360.667" width="60" height="64"/>
@@ -4316,7 +4316,7 @@
     <property name="time" value="1000"/>
    </properties>
   </object>
-  <object id="98" name="Skeleton" x="82" y="696.666" width="32" height="64">
+  <object id="98" name="Skeleton" x="872" y="1240.67" width="32" height="64">
    <properties>
     <property name="edef" value="4"/>
     <property name="endPos" value="374"/>

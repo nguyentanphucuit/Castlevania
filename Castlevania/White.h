@@ -10,6 +10,13 @@
 #define TIME_WAIT		450
 #define NEARLY_WEAPON	10
 #define TIME_WAIT_BONE	  3000
+
+
+enum class WHITESTATE {
+	WALKING,
+	JUPM,
+};
+
 class White :public Enemy
 {
 private:
@@ -20,10 +27,13 @@ private:
 	int numWeapon = 0;
 	DWORD timeSpawn = 0;
 	DWORD loadTimeSpawn = 0;
+	WHITESTATE state;
 public:
 	virtual void GetBoundingBox(float& left, float& top, float& right, float& bottom);
 	virtual void Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects);
 	virtual void Render();
+
+	void SetState(WHITESTATE state);
 
 	void Area(int startPos, int endPos);
 	White();
