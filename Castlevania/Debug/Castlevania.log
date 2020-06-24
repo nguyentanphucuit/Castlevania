@@ -8,4 +8,5 @@ C:\Users\16520\Desktop\Castlevania\Castlevania\WBoomerang.h(11): message : see p
 C:\Users\16520\Desktop\Castlevania\Castlevania\Ghost.h(14,18): warning C4305: 'initializing': truncation from 'double' to 'float'
 C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.h(18,1): warning C4005: 'WAIT_TIME': macro redefinition
 C:\Users\16520\Desktop\Castlevania\Castlevania\Raven.h(17): message : see previous definition of 'WAIT_TIME'
+C:\Users\16520\Desktop\Castlevania\Castlevania\White.cpp(144,11): warning C4305: '=': truncation from 'double' to 'float'
   Castlevania.vcxproj -> C:\Users\16520\Desktop\Castlevania\Debug\Castlevania.exe

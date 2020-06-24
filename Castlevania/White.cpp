@@ -54,7 +54,9 @@ void White::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 		numWeapon = 0;
 	}
 
-	if (dynamic_cast<PlayScene*>(scene)) {
+
+
+	if (dynamic_cast<PlayScene*>(scene) && !this->isJump) {
 		PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
 		if (x > pScene->GetSimon()->x) {
 			if (x > pScene->GetSimon()->x + 192) {
@@ -77,7 +79,10 @@ void White::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 			}
 		}
 		
-		
+		if (x > 120 && x < 200 ) {
+			if(x>123 && x < 125) this->SetState(WHITESTATE::JUPM);
+			if(x>193 && x < 200) this->SetState(WHITESTATE::JUPMBACK);
+		}
 	}
 
 
@@ -101,7 +106,7 @@ void White::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 			if (dynamic_cast<Ground*>(e->obj)) {
 				if (nx != 0) vx = 0;
 				if (ny != 0) vy = 0;
-				
+				this->isJump = false;
 			}
 			else {
 				if (e->nx != 0)
@@ -127,9 +132,17 @@ void White::SetState(WHITESTATE state)
 {
 	switch (state) {
 	case WHITESTATE::WALKING:
-		vy = 0;
+		
 		break;
 	case WHITESTATE::JUPM:
+		vx = WHITE_WALKING_SPEED;
+		vy = -.5;
+		this->isJump = true;
+		break;
+	case WHITESTATE::JUPMBACK:
+		vx = -WHITE_WALKING_SPEED*2;
+		vy = -.4;
+		this->isJump = true;
 		break;
 	}
 	this->state = state;
