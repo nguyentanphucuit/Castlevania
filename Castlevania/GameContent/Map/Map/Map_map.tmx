@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.5" orientation="orthogonal" renderorder="right-down" width="96" height="42" tilewidth="32" tileheight="32" infinite="0" nextlayerid="6" nextobjectid="99">
+<map version="1.2" tiledversion="1.3.5" orientation="orthogonal" renderorder="right-down" width="96" height="42" tilewidth="32" tileheight="32" infinite="0" nextlayerid="7" nextobjectid="104">
  <tileset firstgid="1" name="Map_bank.png" tilewidth="32" tileheight="32" tilecount="882" columns="21">
   <image source="Map_bank.png" width="672" height="1344"/>
  </tileset>
@@ -4123,16 +4123,6 @@
     <property name="dir" type="int" value="1"/>
    </properties>
   </object>
-  <object id="163" name="StairBottom" x="106.773" y="223.083" width="31.1212" height="7.1667">
-   <properties>
-    <property name="dir" type="int" value="0"/>
-   </properties>
-  </object>
-  <object id="164" name="StairTop" x="74.1667" y="278.5" width="32" height="10.3333">
-   <properties>
-    <property name="dir" type="int" value="2"/>
-   </properties>
-  </object>
   <object id="194" name="StairBottom" x="752.356" y="283.917" width="31.1212" height="7.1667">
    <properties>
     <property name="dir" type="int" value="0"/>
@@ -4189,6 +4179,9 @@
    </properties>
   </object>
  </objectgroup>
+ <objectgroup id="6" name="StairDual">
+  <object id="103" x="110.667" y="216.333" width="23" height="17.3333"/>
+ </objectgroup>
  <objectgroup id="4" name="Player">
   <object id="75" name="M1_E1" gid="894" x="1102.33" y="1309.67" width="60" height="64"/>
   <object id="76" name="M2_E1" gid="894" x="2375" y="1179.33" width="60" height="64"/>
@@ -4197,8 +4190,9 @@
   <object id="81" name="M2_E2" gid="901" x="2308.53" y="859.015" width="60" height="64"/>
   <object id="82" name="M2_E3" gid="2147484551" x="2270.67" y="1017.33" width="60" height="64"/>
   <object id="83" name="M3_E3" gid="903" x="176.667" y="587" width="60" height="64"/>
-  <object id="85" name="M3_E2" gid="2147484549" x="110.417" y="302.333" width="60" height="64"/>
+  <object id="85" name="M3_E22" gid="2147484549" x="114.417" y="312" width="60" height="64"/>
   <object id="97" name="222" gid="901" x="1761" y="661" width="60" height="64"/>
+  <object id="101" name="M3_E2" gid="894" x="55" y="290.333" width="60" height="64"/>
  </objectgroup>
  <objectgroup id="5" name="Boss">
   <object id="98" name="Phantom" x="2774" y="142" width="32" height="64"/>

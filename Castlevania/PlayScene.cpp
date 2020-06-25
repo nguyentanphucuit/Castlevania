@@ -21,6 +21,7 @@
 #include "StairDual.h"
 #include "HCrown.h"
 #include "BrickWallScene3.h"
+#include "Dual.h"
 
 void PlayScene::LoadSprite(const std::string& filePath, const int tex)
 {
@@ -420,6 +421,12 @@ void PlayScene::OnCreate()
 					AddToGrid(boss);
 				}
 				break;
+			case _Dual:
+				for (auto const& y : x.second->GetObjectGroup()) {
+					Dual* dual = new Dual();
+					dual->SetPosition(y.second->GetX(), y.second->GetY() - y.second->GetHeight());
+					AddToGrid(dual);
+				}
 			default:
 				break;
 			}

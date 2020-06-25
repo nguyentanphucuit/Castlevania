@@ -14,7 +14,7 @@
 #include "Stair.h"
 #include "Platform.h"
 #include "Enemy.h"
-#include "StairDual.h"
+#include "Dual.h"
 
 CSIMON::CSIMON() : CGameObject() {
 	level = SIMON_LEVEL_BIG;
@@ -538,6 +538,36 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 					}
 				}
 
+			}
+		}
+		if (dynamic_cast<Dual*>(coObjects->at(i))) {
+			Dual* dual = dynamic_cast<Dual*> (coObjects->at(i));
+
+			if (this->isColliding(dual))
+			{
+				if (!this->isColliceWithStair) {
+					if (this->isOnStair) {
+
+						SetState(SIMONSTATE::IDLE);
+						this->isOnStair = false;
+						this->startOnStair = false;
+						this->isFirstStepOnStair = false;
+						return;
+					}
+					this->isColliceWithStair = true;
+					this->onStairDirection = static_cast<STAIRDIRECTION>(dual->GetDirection());
+					this->stairPos = {dual->x,dual->y };
+					dual->SetActive(true);
+					return;
+				}
+			}
+			else if (dual->CheckActive())
+			{
+				dual->SetActive(false);
+				this->isColliceWithStair = false;
+				if (!this->isOnStair)
+
+					this->onStairDirection = STAIRDIRECTION::DEFAULT; //reset
 			}
 		}
 		if (this->fight_start != 0) // có đánh mới cần set

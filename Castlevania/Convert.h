@@ -31,6 +31,7 @@ const enum ObjectID
 	_HCrown,
 	_ICrown,
 	_BrickWallS3,
+	_Dual
 };
 
 const auto string2EntityType = std::unordered_map<std::string, ObjectID>
@@ -62,5 +63,6 @@ const auto string2EntityType = std::unordered_map<std::string, ObjectID>
 	{ "HCrown", ObjectID::_HCrown},
 	{ "ICrown", ObjectID::_ICrown},
 	{ "BrickWallScene3", ObjectID::_BrickWallS3},
+	{ "Dual", ObjectID::_Dual},
 };
 

@@ -261,6 +261,9 @@
     <ClInclude Include="Bone.h">
       <Filter>Source Files\Enemy</Filter>
     </ClInclude>
+    <ClInclude Include="Dual.h">
+      <Filter>Source Files\Objects\Hide</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -469,6 +472,9 @@
     </ClCompile>
     <ClCompile Include="Bone.cpp">
       <Filter>Source Files\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Dual.cpp">
+      <Filter>Source Files\Objects\Hide</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

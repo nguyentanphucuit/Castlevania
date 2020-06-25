@@ -148,6 +148,7 @@
     <ClInclude Include="BHeart.h" />
     <ClInclude Include="BlackKnight.h" />
     <ClInclude Include="BrickWallScene3.h" />
+    <ClInclude Include="Dual.h" />
     <ClInclude Include="HCrown.h" />
     <ClInclude Include="Hud.h" />
     <ClInclude Include="IChicken.h" />
@@ -220,6 +221,7 @@
     <ClCompile Include="BHeart.cpp" />
     <ClCompile Include="BlackKnight.cpp" />
     <ClCompile Include="BrickWallScene3.cpp" />
+    <ClCompile Include="Dual.cpp" />
     <ClCompile Include="HCrown.cpp" />
     <ClCompile Include="Hud.cpp" />
     <ClCompile Include="IChicken.cpp" />
