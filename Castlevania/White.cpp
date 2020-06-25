@@ -147,20 +147,6 @@ void White::SetState(WHITESTATE state)
 	}
 	this->state = state;
 }
-//int jumpRank = rand() % (2 - 1 + 1) + 1;
-//if (jumpRank == 1)
-//{
-//	vy = 0;
-//}
-//else
-//{
-//	float minvy = -0.40;
-//	float maxvy = -0.65;
-//	vy = minvy + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (maxvy - minvy)));
-//}
-//float minvx = -0.40;
-//float maxvx = 0.40;
-//vx = minvx + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (maxvx - minvx)));
 void White::Area(int startPos, int endPos)
 {
 	this->_endPos = endPos;

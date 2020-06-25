@@ -136,6 +136,10 @@ void PlayScene::LoadSceneContent(xml_node<>* root)
 	CGame::GetInstance()->SetCamPos(cameraBorder.left, cameraBorder.top);
 }
 
+void PlayScene::LoadGrid(const std::string& filePath)
+{
+
+}
 void PlayScene::GetListobjectFromGrid()
 {
 }

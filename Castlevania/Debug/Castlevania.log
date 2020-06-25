@@ -1,12 +1,52 @@
-﻿  Hud.cpp
+﻿  Bat.cpp
 C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(205,14): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(213,9): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
 C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
-C:\Users\16520\Desktop\Castlevania\Castlevania\Hud.cpp(73,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\16520\Desktop\Castlevania\Castlevania\Hud.cpp(75,65): warning C4244: 'argument': conversion from 'size_t' to 'float', possible loss of data
-C:\Users\16520\Desktop\Castlevania\Castlevania\Hud.cpp(78,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\16520\Desktop\Castlevania\Castlevania\Hud.cpp(80,63): warning C4244: 'argument': conversion from 'size_t' to 'float', possible loss of data
-C:\Users\16520\Desktop\Castlevania\Castlevania\Hud.cpp(84,63): warning C4244: 'argument': conversion from 'size_t' to 'float', possible loss of data
-C:\Users\16520\Desktop\Castlevania\Castlevania\Hud.cpp(88,63): warning C4244: 'argument': conversion from 'size_t' to 'float', possible loss of data
+  main.cpp
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(205,14): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(213,9): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
+  PlayScene.cpp
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(205,14): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(213,9): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\Desktop\Castlevania\Castlevania\BlackKnight.h(9,1): warning C4005: 'DISTANCE': macro redefinition
+C:\Users\16520\Desktop\Castlevania\Castlevania\WBoomerang.h(11): message : see previous definition of 'DISTANCE'
+C:\Users\16520\Desktop\Castlevania\Castlevania\Ghost.h(14,18): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\16520\Desktop\Castlevania\Castlevania\Phantom.h(18,1): warning C4005: 'WAIT_TIME': macro redefinition
+C:\Users\16520\Desktop\Castlevania\Castlevania\Raven.h(17): message : see previous definition of 'WAIT_TIME'
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(136,65): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(136,46): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(341,34): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(342,33): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(343,38): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(344,39): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(484,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(510,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(516,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(527,26): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(531,57): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(547,86): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(547,54): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(549,71): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(549,52): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(576,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\Desktop\Castlevania\packages\rapidxml.1.13\build\native\include\rapidxml\rapidxml_utils.hpp(40,25): warning C4244: 'initializing': conversion from 'std::streamoff' to 'size_t', possible loss of data
+C:\Users\16520\Desktop\Castlevania\packages\rapidxml.1.13\build\native\include\rapidxml\rapidxml_utils.hpp(28): message : while compiling class template member function 'rapidxml::file<char>::file(const char *)'
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(45): message : see reference to function template instantiation 'rapidxml::file<char>::file(const char *)' being compiled
+C:\Users\16520\Desktop\Castlevania\Castlevania\PlayScene.cpp(45): message : see reference to class template instantiation 'rapidxml::file<char>' being compiled
+  Raven.cpp
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(205,14): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(213,9): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
+  WAxe.cpp
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(205,14): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(213,9): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
   Castlevania.vcxproj -> C:\Users\16520\Desktop\Castlevania\Debug\Castlevania.exe

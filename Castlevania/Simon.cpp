@@ -325,12 +325,12 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 					if (state != SIMONSTATE::ENTERENTRANCE) {
 						if (nx != 0) vx = 0;
 					}
-					if (this->hp == 0)
+					/*if (this->hp == 0)
 					{
 						this->SetState(SIMONSTATE::DIE);
 						this->isOnStair = false;
 						break;
-					}
+					}*/
 				}
 				else if (e->ny == 1)
 				{

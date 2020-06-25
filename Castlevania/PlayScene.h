@@ -25,6 +25,7 @@ class PlayScene:public Scene
     void LoadSprite(const std::string& filePath, const int tex);
     void LoadAnimation(const string& filePath);
     void LoadSceneContent(xml_node<>* root);
+    void LoadGrid(const string& filePath);
 
     Phantom* boss;
 
