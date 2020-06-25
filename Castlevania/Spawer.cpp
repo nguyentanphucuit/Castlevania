@@ -3,6 +3,10 @@
 
 void Spawner::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* colliable_objects)
 {
+
+
+	
+
 	if (dynamic_cast<PlayScene*>(scene))
 	{
 		auto pScene = dynamic_cast<PlayScene*>(scene);
@@ -10,7 +14,6 @@ void Spawner::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* colliable_obj
 
 		float l, t, r, b;
 		this->GetBoundingBox(l, t, r, b);
-
 
 		if (this->enemyDef==CEnemy::BAT || this->enemyDef == CEnemy::BLACKKNIGHT)
 		{

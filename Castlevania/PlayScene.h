@@ -5,6 +5,9 @@
 #include <queue>
 #include "Grid.h"
 #include "Hud.h"
+#include"rapidxml/rapidxml_print.hpp"
+#include"rapidxml/rapidxml.hpp"
+#include"rapidxml/rapidxml_utils.hpp"
 
 class Phantom;
 struct pScene {
@@ -25,7 +28,7 @@ class PlayScene:public Scene
     void LoadSprite(const std::string& filePath, const int tex);
     void LoadAnimation(const string& filePath);
     void LoadSceneContent(xml_node<>* root);
-    void LoadGrid(const string& filePath);
+    void LoadGrid();
 
     Phantom* boss;
 

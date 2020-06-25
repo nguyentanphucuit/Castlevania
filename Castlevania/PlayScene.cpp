@@ -107,6 +107,7 @@ void PlayScene::LoadAnimation(const string& filePath)
 
 void PlayScene::LoadSceneContent(xml_node<>* root)
 {
+
 	xml_node<>* sceneNode = root->first_node("scenes");
 	xml_node<>* playSceneNode = sceneNode->first_node("pscene");
 	const int activeID = std::atoi(playSceneNode->first_attribute("activeID")->value());
@@ -123,7 +124,7 @@ void PlayScene::LoadSceneContent(xml_node<>* root)
 		_pScene->border = _border;
 		_pScene->isRight = !_isRight;
 
-		
+
 		_pScene->entry = _entry;
 		this->pScenes.insert(std::make_pair(_id, _pScene));
 	}
@@ -132,14 +133,35 @@ void PlayScene::LoadSceneContent(xml_node<>* root)
 	this->currentMap = this->Maps.at(this->currentPScene->mapID);
 	this->cameraBorder = this->pSceneBorders.at(this->currentPScene->border);
 	this->currentEntryPoints = this->entryPoints.at(this->currentPScene->entry);
-	
+
 	this->SIMON->SetPosition(currentEntryPoints.x, currentEntryPoints.y);
 	CGame::GetInstance()->SetCamPos(cameraBorder.left, cameraBorder.top);
 }
 
-void PlayScene::LoadGrid(const std::string& filePath)
+void PlayScene::LoadGrid()
 {
+	rapidxml::xml_document<> doc;
 
+	xml_attribute<>* cellX = doc.allocate_attribute("cellcol", "256");
+	xml_node<>* decl = doc.allocate_node(node_declaration);
+	decl->append_attribute(doc.allocate_attribute("version", "1.0"));
+	decl->append_attribute(doc.allocate_attribute("encoding", "utf-8"));
+	doc.append_node(decl);
+
+
+	xml_node<>* root = doc.allocate_node(node_element, "rootnode");
+	root->append_attribute(doc.allocate_attribute("version", "1.0"));
+	root->append_attribute(doc.allocate_attribute("type", "example"));
+	doc.append_node(root);
+
+
+
+
+
+
+	std::ofstream theFile("abc.xml");
+	theFile << doc;
+	theFile.close();
 }
 void PlayScene::GetListobjectFromGrid()
 {
@@ -181,6 +203,7 @@ void PlayScene::AddToGrid(LPGAMEOBJECT object, bool isAlwayUpdate)
 }
 void PlayScene::OnCreate()
 {
+	
 	hud = new Hud(this);
 	CTextures* textures = CTextures::GetInstance();
 
@@ -188,6 +211,8 @@ void PlayScene::OnCreate()
 	CAnimations* animations = CAnimations::GetInstance();
 
 	const std::string filePath = "GameContent\\Data.xml";
+
+
 
 	char* fileLoc = new char[filePath.size() + 1];
 #
@@ -263,9 +288,28 @@ void PlayScene::OnCreate()
 	SIMON = new CSIMON();
 	boss = new Phantom();
 
+
+
+	rapidxml::xml_document<> doc2;
+
+	xml_node<>* decl = doc2.allocate_node(node_declaration);
+	decl->append_attribute(doc2.allocate_attribute("version", "1.0"));
+	decl->append_attribute(doc2.allocate_attribute("encoding", "UTF-8"));
+	doc2.append_node(decl);
+
+
+	xml_node<>* root = doc2.allocate_node(node_element, "rootnode");
+	doc2.append_node(root);
+	
+	
+
+
+
+
+	
 	for (auto const& m : Maps) {
 		auto objectLayer = m.second->GetObjectLayer();
-		 grid = new Grid(m.second->GetWidth(), m.second->GetHeight());
+		grid = new Grid(m.second->GetWidth(), m.second->GetHeight());
 
 		for (auto const& x : objectLayer)
 		{
@@ -291,6 +335,24 @@ void PlayScene::OnCreate()
 					torch->SetPosition(y.second->GetX(), y.second->GetY() - y.second->GetHeight());
 					torch->SetItem(static_cast<EItem>(std::atoi(y.second->GetProperty("item").c_str())));
 					AddToGrid(torch);
+
+					int posX = y.second->GetX();
+					int posY = y.second->GetY() - y.second->GetHeight();
+					int width = y.second->GetWidth();
+					int height = y.second->GetHeight();
+					int cellX = posX / 256;
+					int cellY = posY / 256;
+
+					xml_node<>* entity = doc2.allocate_node(node_element, "torch");
+				
+					entity->append_attribute(doc2.allocate_attribute("x", std::to_string(posX).c_str()));
+					entity->append_attribute(doc2.allocate_attribute("y", std::to_string(posY).c_str()));
+					entity->append_attribute(doc2.allocate_attribute("width", std::to_string(width).c_str()));
+					entity->append_attribute(doc2.allocate_attribute("height", std::to_string(height).c_str()));
+					entity->append_attribute(doc2.allocate_attribute("cellx", std::to_string(cellX).c_str()));
+					entity->append_attribute(doc2.allocate_attribute("celly", std::to_string(cellY).c_str()));
+
+					doc2.append_node(entity);
 				}
 				break;
 
@@ -313,7 +375,7 @@ void PlayScene::OnCreate()
 					HiddenObject* ground = new Ground();
 					ground->SetPosition(y.second->GetX(), y.second->GetY());
 					ground->SetSize(y.second->GetWidth(), y.second->GetHeight());
-					AddToGrid(ground,true);
+					AddToGrid(ground, true);
 				}
 				break;
 			case _HMoney:
@@ -348,10 +410,10 @@ void PlayScene::OnCreate()
 				break;
 			case _Enemy:
 				for (auto const& y : x.second->GetObjectGroup()) {
-					Spawner* spawner = new Spawner(static_cast<CEnemy>(std::atoi(y.second->GetProperty("edef").c_str())), std::atoi(y.second->GetProperty("time").c_str()),std::atoi(y.second->GetProperty("num").c_str()), std::atoi(y.second->GetProperty("startPos").c_str()), std::atoi(y.second->GetProperty("endPos").c_str()));
+					Spawner* spawner = new Spawner(static_cast<CEnemy>(std::atoi(y.second->GetProperty("edef").c_str())), std::atoi(y.second->GetProperty("time").c_str()), std::atoi(y.second->GetProperty("num").c_str()), std::atoi(y.second->GetProperty("startPos").c_str()), std::atoi(y.second->GetProperty("endPos").c_str()));
 					spawner->SetSize(y.second->GetWidth(), y.second->GetHeight());
 					spawner->SetPosition(y.second->GetX(), y.second->GetY());
-					AddToGrid(spawner,true);
+					AddToGrid(spawner, true);
 				}
 				break;
 			case _NextScene:
@@ -383,7 +445,7 @@ void PlayScene::OnCreate()
 			case _Platform:
 				for (auto const& y : x.second->GetObjectGroup()) {
 					CPlatform* platform = new CPlatform();
-					platform->SetPosition(y.second->GetX(), y.second->GetY()-y.second->GetHeight());
+					platform->SetPosition(y.second->GetX(), y.second->GetY() - y.second->GetHeight());
 					AddToGrid(platform);
 				}
 				break;
@@ -393,7 +455,7 @@ void PlayScene::OnCreate()
 					brickwall->SetPosition(y.second->GetX(), y.second->GetY() - y.second->GetHeight());
 					AddToGrid(brickwall);
 				}
-				break;     
+				break;
 			case _HCrown:
 				for (auto const& y : x.second->GetObjectGroup()) {
 					HCrown* hCrown = new HCrown();
@@ -432,8 +494,20 @@ void PlayScene::OnCreate()
 			}
 		}
 
-		LoadSceneContent(rootNode);
+
+	
+
+
 	}
+
+
+	std::ofstream theFile("abc.xml");
+	theFile << doc2;
+	theFile.close();
+
+	LoadSceneContent(rootNode);
+
+
 }
 
 
@@ -478,7 +552,7 @@ void PlayScene::Update(DWORD dt)
 		coObjects.push_back(objects[i]);
 	}
 
-	SIMON-> Update(dt,this,&coObjects);
+	SIMON->Update(dt, this, &coObjects);
 	for (int i = 0; i < objects.size(); i++)
 	{
 		objects[i]->Update(dt, this, &coObjects);
@@ -504,13 +578,13 @@ void PlayScene::Update(DWORD dt)
 		this->cameraBorder = this->pSceneBorders.at(this->currentPScene->border);
 
 		switchScene = false;
-	
+
 		this->currentEntryPoints = this->entryPoints.at(this->currentPScene->entry);
 		this->SIMON->SetPosition(currentEntryPoints.x, currentEntryPoints.y);
 		this->SIMON->LastStepOnStairPos = { currentEntryPoints.x, currentEntryPoints.y };
 		if (this->currentPScene->isRight)
 		{
-			CGame::GetInstance()->SetCamPos(cameraBorder.right-SCREENSIZE::WIDTH, cameraBorder.top);
+			CGame::GetInstance()->SetCamPos(cameraBorder.right - SCREENSIZE::WIDTH, cameraBorder.top);
 		}
 		else	CGame::GetInstance()->SetCamPos(cameraBorder.left, cameraBorder.top);
 	}
@@ -570,8 +644,8 @@ void PlayScene::OnKeyDown(int KeyCode)
 	case DIK_3:
 		this->switchScene = true;
 		this->currentPScene = this->pScenes.at(2);
-			SIMON->SetState(SIMONSTATE::UP_STAIR_RIGHT);
-			
+		SIMON->SetState(SIMONSTATE::UP_STAIR_RIGHT);
+
 		break;
 	case DIK_4:
 		this->switchScene = true;
@@ -604,17 +678,17 @@ void PlayScene::OnKeyDown(int KeyCode)
 		}
 		if (SIMON->GetFightTime() == 0)
 		{
-			if (game->IsKeyDown(DIK_UP)){
+			if (game->IsKeyDown(DIK_UP)) {
 				if (SIMON->GetCurrentWeapon() != EWeapon::NONE && subWeapon < 1) {
 
 					subWeapon++;
 					SIMON->ResetSpawnWeapon();
 					SIMON->SpawnWeapon(true);
 				}
-				else 
+				else
 					SIMON->SpawnWeapon(false);
 			}
-			else 
+			else
 				SIMON->SpawnWeapon(false);
 			if (SIMON->CheckIsOnStair())
 			{
@@ -644,7 +718,7 @@ void PlayScene::OnKeyDown(int KeyCode)
 		SIMON->SetPosition(50.0f, 0.0f);
 		SIMON->SetSpeed(0, 0);
 		break;
-		
+
 
 	}
 }
@@ -659,7 +733,7 @@ void PlayScene::KeyState(BYTE* states)
 	CGame* game = CGame::GetInstance();
 
 	if (SIMON->GetState() == SIMONSTATE::ENTERENTRANCE) return;
-	
+
 
 	if (SIMON->GetUpgradeTime() != 0 && GetTickCount() - SIMON->GetUpgradeTime() > SIMON_UPGRADE_WHIP_TIME) {
 		SIMON->ResetUpgradeTime();
@@ -671,7 +745,7 @@ void PlayScene::KeyState(BYTE* states)
 	if (SIMON->GetFightTime() != 0 && GetTickCount() - SIMON->GetFightTime() > SIMON_ATTACK_TIME)
 	{
 		SIMON->ResetAttack();
-		if (SIMON->GetState()==SIMONSTATE::UP_STAIR_FIGHT )
+		if (SIMON->GetState() == SIMONSTATE::UP_STAIR_FIGHT)
 		{
 			SIMON->SetState(SIMONSTATE::UP_STAIR_IDLE);
 		}
@@ -689,7 +763,7 @@ void PlayScene::KeyState(BYTE* states)
 
 	if (game->IsKeyDown(DIK_UP))
 	{
-			
+
 		if (SIMON->GetState() == SIMONSTATE::DOWN_STAIR_IDLE) {
 
 
@@ -756,7 +830,7 @@ void PlayScene::KeyState(BYTE* states)
 	}
 	else
 	{
-		if(SIMON->GetState() != SIMONSTATE::DIE)
+		if (SIMON->GetState() != SIMONSTATE::DIE)
 			SIMON->SetState(SIMONSTATE::IDLE);
 	}
 
