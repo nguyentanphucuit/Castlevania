@@ -67,6 +67,7 @@ CHeart::CHeart(float ox)
 {
 	AddAnimation("SMALL_ANI_HEART");
 	this->ox = ox;
+	
 }
 
 

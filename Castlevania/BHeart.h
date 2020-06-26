@@ -11,6 +11,7 @@ class BHeart : public Item
 public:
 	BHeart() {
 		AddAnimation("BIG_ANI_HEART");
+		this->heart = 5;
 	}
 	
 	virtual void Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObject = NULL);

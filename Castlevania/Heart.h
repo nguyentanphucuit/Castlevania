@@ -17,6 +17,7 @@ class CHeart : public Item
 public:
 	CHeart() {
 		AddAnimation("SMALL_ANI_HEART");
+		this->heart = 1;
 	}
 	float ox;// tọa độ trục ox
 	virtual void Render();

@@ -392,6 +392,7 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 					// kiểm tra loại Item đã bị huỷ chưa
 					if (!item->IsDestroy()) {
 						item->SetDestroy();
+						this->AddEnery(item->GetHeartPoint());
 					}
 
 					if (dynamic_cast<IWhip*>(item)) {
@@ -516,6 +517,7 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 					if (dynamic_cast<IInvisible*>(item)) {
 						StartUntouchable();
 					}
+					this->AddEnery(item->GetHeartPoint());
 					item->SetDestroy();
 				}
 			}

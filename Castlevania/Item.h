@@ -16,16 +16,21 @@ enum class ITEMSTATE
 class Item :public CGameObject
 {
 protected:
+	unsigned int heart;
 	DWORD time_wait;
 public:
 
 	Item() : CGameObject() {
 		time_wait = GetTickCount();
+		this->heart = 0;
+		
 	}
 
 	virtual void Render();
 	virtual void GetBoundingBox(float& l, float& t, float& r, float& b) {};
 	virtual void Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT>* colliable_objects = NULL);
-
+	int GetHeartPoint() {
+		return this->heart;
+	}
 };
 

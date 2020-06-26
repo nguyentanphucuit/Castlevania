@@ -4076,24 +4076,24 @@
     <property name="item" value="1"/>
    </properties>
   </object>
-  <object id="25" gid="883" x="969.333" y="1307.33" width="32" height="64">
+  <object id="25" gid="883" x="789.333" y="1307.33" width="32" height="64">
    <properties>
-    <property name="item" value="6"/>
+    <property name="item" value="4"/>
    </properties>
   </object>
-  <object id="26" gid="883" x="1244" y="1306.67" width="32" height="64">
+  <object id="26" gid="883" x="938" y="1306.67" width="32" height="64">
    <properties>
-    <property name="item" value="7"/>
+    <property name="item" value="1"/>
    </properties>
   </object>
-  <object id="27" gid="883" x="1462" y="1307.33" width="32" height="64">
+  <object id="27" gid="883" x="858" y="1307.33" width="32" height="64">
    <properties>
-    <property name="item" value="8"/>
+    <property name="item" value="4"/>
    </properties>
   </object>
-  <object id="28" gid="883" x="1682" y="1308.67" width="32" height="64">
+  <object id="28" gid="883" x="1004" y="1308.67" width="32" height="64">
    <properties>
-    <property name="item" value="12"/>
+    <property name="item" value="1"/>
    </properties>
   </object>
  </objectgroup>
@@ -4364,7 +4364,7 @@
     <property name="time" value="1000"/>
    </properties>
   </object>
-  <object id="107" name="Skeleton" x="1284.67" y="224" width="32" height="64">
+  <object id="107" name="Skeleton" x="1224.67" y="227.5" width="32" height="64">
    <properties>
     <property name="edef" value="4"/>
     <property name="endPos" value="2340"/>
@@ -4418,7 +4418,7 @@
     <property name="time" value="1000"/>
    </properties>
   </object>
-  <object id="233" name="Skeleton" x="718.667" y="226" width="32" height="64">
+  <object id="233" name="Skeleton" x="712.167" y="227" width="32" height="64">
    <properties>
     <property name="edef" value="4"/>
     <property name="endPos" value="2340"/>
