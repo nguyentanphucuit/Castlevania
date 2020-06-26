@@ -7,6 +7,8 @@
 #include"Phantom.h"
 #include"Enemy.h"
 #include "Torch.h"
+#include"Hunchback.h"
+#include"Spawer.h"
 Grid::Grid(int mapWidth, int mapHeight) :
 	map_width(mapWidth * 32),
 	map_height(mapHeight * 32 + 80)
@@ -86,6 +88,13 @@ void Grid::Update(LPGAMEOBJECT object)
 	{
 		for (vector<LPGAMEOBJECT>::iterator it = grid[oldCell.y][oldCell.x].begin(); it != grid[oldCell.y][oldCell.x].end(); ) {
 			if ((*it) == object) {
+				if (dynamic_cast<Hunchback*>(*it))
+				{
+					auto hum = dynamic_cast<Hunchback*>(*it);
+
+					hum->spawnOwner->numHumback--;
+					
+				}
 				it = grid[oldCell.y][oldCell.x].erase(it);
 			}
 			else ++it;

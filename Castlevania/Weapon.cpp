@@ -21,6 +21,8 @@ void Weapon::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObject)
 		if (x < cam.x || x > cam.x + SCREENSIZE::WIDTH) {
 			this->isDestroy = true;
 		}
+		if (pScene->GetSimon()->GetEnergy() == 0)
+			this->isDestroy = true;
 	}
 
 	WFireBomb* firebomb = new WFireBomb();

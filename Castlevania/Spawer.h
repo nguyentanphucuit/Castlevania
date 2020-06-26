@@ -2,6 +2,7 @@
 #include"HiddenObject.h"
 #include"EnemyFactory.h"
 
+
 class Spawner:public HiddenObject
 {
 private:
@@ -13,8 +14,13 @@ private:
 	int startPos;
 	int endPos;
 	bool isSpawned = false;
+
+
+
+
 	DWORD counter_start = 0;
 public:
+	int numHumback=0;
 	Spawner(CEnemy enemyDef, DWORD respawnTime, int num,int startPos,int endPos) :HiddenObject()
 	{
 		this->enemyDef = enemyDef;

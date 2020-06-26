@@ -545,15 +545,16 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 		if (dynamic_cast<Dual*>(coObjects->at(i))) {
 			Dual* dual = dynamic_cast<Dual*> (coObjects->at(i));
 			if (this->isColliding(dual)) {
-				isStairDual = true;
+			/*	isStairDual = true;
 				if (this->onStairDirection == STAIRDIRECTION::UPLEFT) {
 					this->onStairDirection = STAIRDIRECTION::UPRIGHT;
 				}else if (this->onStairDirection == STAIRDIRECTION::DOWNLEFT) {
 					this->onStairDirection = STAIRDIRECTION::DOWNRIGHT;
-				}
+				}*/
+				auto pScene = dynamic_cast<PlayScene*>(scene);
+				pScene->PauseCam = true;
 			}
-			
-			
+	
 		}
 		if (this->fight_start != 0) // có đánh mới cần set
 		{
@@ -670,7 +671,7 @@ void CSIMON::Render()
 
 	animations[ani]->Render(nx, x, y, alpha);
 
-	//RenderBoundingBox();
+	RenderBoundingBox();
 }
 
 void CSIMON::SetState(SIMONSTATE state)

@@ -54,7 +54,7 @@
 #define	SIMON_LEVEL_SMALL	1
 #define	SIMON_LEVEL_BIG		2
 
-#define SIMON_BBOX_WIDTH  60
+#define SIMON_BBOX_WIDTH  32
 #define SIMON_BBOX_HEIGHT 64
 
 

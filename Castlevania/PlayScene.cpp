@@ -568,14 +568,15 @@ void PlayScene::Update(DWORD dt)
 
 	cx -= SCREEN_WIDTH / 1.5;
 	cy -= SCREEN_HEIGHT / 1.5;
-	if (cx > this->cameraBorder.left && cx < this->cameraBorder.right - SCREENSIZE::WIDTH)
-	{
-		CGame::GetInstance()->SetCamPos(cx, this->cameraBorder.top /*cy*/);
+	if (!PauseCam) {
+		if (cx > this->cameraBorder.left && cx < this->cameraBorder.right - SCREENSIZE::WIDTH)
+		{
+			CGame::GetInstance()->SetCamPos(cx, this->cameraBorder.top /*cy*/);
+		}
 	}
 
-
-
 	if (switchScene) {
+		PauseCam = false;
 		this->currentMap = this->Maps.at(this->currentPScene->mapID);
 		this->cameraBorder = this->pSceneBorders.at(this->currentPScene->border);
 
@@ -589,6 +590,13 @@ void PlayScene::Update(DWORD dt)
 			CGame::GetInstance()->SetCamPos(cameraBorder.right - SCREENSIZE::WIDTH, cameraBorder.top);
 		}
 		else	CGame::GetInstance()->SetCamPos(cameraBorder.left, cameraBorder.top);
+	}
+
+	for (vector<Enemy*>::iterator it = enemies.begin(); it != enemies.end(); ) {
+		if ((*it)->isDestroy) {
+			it = enemies.erase(it);
+		}
+		else ++it;
 	}
 
 	UpdateGrid();
@@ -628,11 +636,6 @@ void PlayScene::Render()
 
 void PlayScene::OnKeyDown(int KeyCode)
 {
-	CGame* game = CGame::GetInstance();
-	DebugOut(L"[INFO] PRESS KEY DOWN: %d\n", KeyCode);
-	if (SIMON->GetState() == SIMONSTATE::ENTERENTRANCE
-		|| SIMON->GetState() == SIMONSTATE::UPWHIP
-		) return;
 	switch (KeyCode)
 	{
 	case DIK_1:
@@ -661,6 +664,16 @@ void PlayScene::OnKeyDown(int KeyCode)
 		this->switchScene = true;
 		this->currentPScene = this->pScenes.at(5);
 		break;
+	}
+	CGame* game = CGame::GetInstance();
+	DebugOut(L"[INFO] PRESS KEY DOWN: %d\n", KeyCode);
+	if (SIMON->GetState() == SIMONSTATE::ENTERENTRANCE
+		|| SIMON->GetState() == SIMONSTATE::UPWHIP
+		|| SIMON->GetState() == SIMONSTATE::DIE
+		) return;
+	switch (KeyCode)
+	{
+
 	case DIK_SPACE:
 		if (SIMON->GetFightTime() == 0
 			&& SIMON->GetState() != SIMONSTATE::JUMP
@@ -735,7 +748,7 @@ void PlayScene::KeyState(BYTE* states)
 	CGame* game = CGame::GetInstance();
 
 	if (SIMON->GetState() == SIMONSTATE::ENTERENTRANCE) return;
-
+	if (SIMON->GetState() == SIMONSTATE::DIE) return;
 
 	if (SIMON->GetUpgradeTime() != 0 && GetTickCount() - SIMON->GetUpgradeTime() > SIMON_UPGRADE_WHIP_TIME) {
 		SIMON->ResetUpgradeTime();

@@ -228,7 +228,7 @@ void Whip::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT>* colliable_objects
 							float tx, ty;
 							enemy->GetPosition(tx, ty);
 							PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
-							effect->SetPosition(tx, ty);		
+							effect->SetPosition(tx + 10, ty);		
 							pScene->SpawnObject(effect);
 						}
 						enemy->SetDestroy();
@@ -239,7 +239,7 @@ void Whip::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT>* colliable_objects
 							float tx, ty;
 							enemy->GetPosition(tx, ty);
 							PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
-							effect->SetPosition(tx, ty);
+							effect->SetPosition(tx + 20, ty);
 							pScene->SpawnObject(effect);
 						}
 					}

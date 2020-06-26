@@ -3,12 +3,14 @@
 #define ENEMY_SPWAWN_TIME 2000
 #include "Game.h"
 #include "Debug.h"
+class Spawner;
 class Enemy :public CGameObject
 {
 protected:
 	int hp = 0;
 	bool isMotionless;
 public:
+	Spawner* spawnOwner=NULL;
 	bool IsDestroyed() { return isDestroy; }
 	void SetNx(DIRECTION nx) {
 		this->nx = nx;

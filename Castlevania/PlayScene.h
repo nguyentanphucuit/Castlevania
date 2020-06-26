@@ -8,8 +8,8 @@
 #include"rapidxml/rapidxml_print.hpp"
 #include"rapidxml/rapidxml.hpp"
 #include"rapidxml/rapidxml_utils.hpp"
-
 class Phantom;
+class Enemy;
 struct pScene {
     int id;
     int mapID;
@@ -51,6 +51,10 @@ class PlayScene:public Scene
     void GetListobjectFromGrid();
     void UpdateGrid();
 public:
+
+    bool PauseCam = false;
+    vector<Enemy*> enemies;
+
 
     void Motionless(bool flag);
     D3DXVECTOR2 GetCamera();
