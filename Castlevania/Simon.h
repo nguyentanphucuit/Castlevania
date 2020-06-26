@@ -10,7 +10,7 @@
 #define SIMON_DEFLECT_SPEED_X 0.2f
 #define SIMON_DEFLECT_SPEED_Y 0.35f
 
-#define SIMON_UPSTAIR_VELOCITY 0.04f  // stair
+#define SIMON_UPSTAIR_VELOCITY 0.1f  // stair
 #define SIMON_FALLDOWN_VY 0.8f
 
 #define SIMON_STATE_IDLE			0
@@ -128,6 +128,7 @@
 	 bool isOnStair = false;
 	 STAIRDIRECTION onStairDirection = STAIRDIRECTION::DEFAULT;
 	 D3DXVECTOR2 stairPos;
+	 bool isStairDual;
 
 	 void HandleFirstStepOnStair();
 	 void HandlePerStepOnStair();

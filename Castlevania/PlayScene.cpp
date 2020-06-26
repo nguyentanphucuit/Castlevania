@@ -483,12 +483,14 @@ void PlayScene::OnCreate()
 					AddToGrid(boss);
 				}
 				break;
-			case _Dual:
+			case _StairDual:
 				for (auto const& y : x.second->GetObjectGroup()) {
 					Dual* dual = new Dual();
-					dual->SetPosition(y.second->GetX(), y.second->GetY() - y.second->GetHeight());
+					dual->SetSize(y.second->GetWidth(), y.second->GetHeight());
+					dual->SetPosition(y.second->GetX(), y.second->GetY());
 					AddToGrid(dual);
 				}
+				break;
 			default:
 				break;
 			}
