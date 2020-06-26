@@ -25,6 +25,7 @@ private:
 	int _endPos;
 	int _startPos;
 	bool isSpawnWeapon = false;
+	bool isJumpRight = true;
 	int numWeapon = 0;
 	DWORD timeSpawn = 0;
 	DWORD loadTimeSpawn = 0;

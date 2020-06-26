@@ -79,9 +79,9 @@ void White::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 			}
 		}
 		
-		if (x > 120 && x < 200 ) {
-			if(x>123 && x < 125) this->SetState(WHITESTATE::JUPM);
-			if(x>193 && x < 200) this->SetState(WHITESTATE::JUPMBACK);
+		if (x > 120 && x < 200 || x > 630 && x < 710 || x > 1080 && x < 1220) {
+			if(isJumpRight)	this->SetState(WHITESTATE::JUPM);
+			else this->SetState(WHITESTATE::JUPMBACK);
 		}
 	}
 
@@ -104,6 +104,14 @@ void White::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 		{
 			LPCOLLISIONEVENT e = coEventsResult[i];
 			if (dynamic_cast<Ground*>(e->obj)) {
+				float gl, gt, gr, gb;
+				e->obj->GetBoundingBox(gl, gt, gr, gb);
+				if (x > gr) {
+					isJumpRight = true;
+				}else if(x < gr && x + WHITE_BBOX_WIDTH*2 < gr)
+					isJumpRight = false;
+				
+
 				if (nx != 0) vx = 0;
 				if (ny != 0) vy = 0;
 				this->isJump = false;
