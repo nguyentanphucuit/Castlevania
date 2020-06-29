@@ -32,7 +32,6 @@ public:
 	virtual void Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects);
 	virtual void Render();
 	void OnTouchingGround();
-	void Area(int startPos, int endPos);
 	void Num(int num);
 	void SetState(HUNCHBACK state);
 	Hunchback();

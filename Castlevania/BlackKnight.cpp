@@ -36,7 +36,14 @@ void BlackKnight::Update(DWORD dt, Scene* scene , vector<LPGAMEOBJECT>* coObject
 	vy += BLACKKNIGHT_GRAVITY * dt;
 	if (nx == DIRECTION::RIGHT) vx = BLACKKNIGHT_WALKING_SPEED;
 	else if (nx == DIRECTION::LEFT) vx = -BLACKKNIGHT_WALKING_SPEED;
+	if (x > _endPos) {
+		nx = DIRECTION::LEFT;
 
+	}
+	if (x < _startPos) {
+		nx = DIRECTION::RIGHT;
+
+	}
 	if (dynamic_cast<PlayScene*>(scene))
 	{
 		PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
@@ -48,29 +55,21 @@ void BlackKnight::Update(DWORD dt, Scene* scene , vector<LPGAMEOBJECT>* coObject
 				if (nx == DIRECTION::LEFT) {
 					nx = DIRECTION::RIGHT;
 				}
-
-				vx = BLACKKNIGHT_WALKING_SPEED * 1.5;
 			}
 			if ((pScene->GetSimon()->x + BLACKKNIGHT_BBOX_WIDTH * 4 > x) && x > _startPos + BLACKKNIGHT_BBOX_WIDTH && pScene->GetSimon()->x - x < 0) {
 				if (nx == DIRECTION::RIGHT) {
 					nx = DIRECTION::LEFT;
 				}
-
-				vx = -BLACKKNIGHT_WALKING_SPEED * 1.5;
 			}
+			isWalkingNearSimon = true;
 			/*DebugOut(L"xSimon %f\n", xSimon);
 			DebugOut(L"x %f\n", x);*/
 		}
+		else
+			isWalkingNearSimon = false;
 
 	}
-	if (x > _endPos) {
-		nx = DIRECTION::LEFT;
 
-	}
-	if (x < _startPos) {
-		nx = DIRECTION::RIGHT;
-
-	}
 	
 	if (coEvents.size() == 0)
 	{
@@ -92,7 +91,9 @@ void BlackKnight::Update(DWORD dt, Scene* scene , vector<LPGAMEOBJECT>* coObject
 			if (dynamic_cast<Ground*>(e->obj)) {
 				if (nx != 0) vx = 0;
 				if (ny != 0) vy = 0;
-
+				Ground* g = dynamic_cast<Ground*>(e->obj);
+				_endPos = g->x + g->GetWidth() - BLACKKNIGHT_BBOX_WIDTH*2;
+				_startPos = g->x;
 			}
 			else {
 				if (e->nx != 0)
@@ -117,8 +118,7 @@ void BlackKnight::Render()
 
 void BlackKnight::Area(int startPos, int endPos)
 {
-	this->_endPos = endPos;
-	this->_startPos = startPos;
+
 }
 
 BlackKnight::BlackKnight() :Enemy()

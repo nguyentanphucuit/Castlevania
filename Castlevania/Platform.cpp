@@ -48,17 +48,10 @@ void CPlatform::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 		{
 			LPCOLLISIONEVENT e = coEventsResult[i];
 			if (dynamic_cast<Ground*>(e->obj)) {
-				if(vx > 0) vx = -PLATFORM_SPEED;
-				else vx = PLATFORM_SPEED;	
-			}
-			else {
-				if (e->nx != 0)
-					x += dx;		
-					y += dy;				
-			}
+				if (e->nx != 0 || e->ny != 0)
+					vx = -vx;
+			}		
 		}
-
-
 	}
 	for (UINT i = 0; i < coEvents.size(); i++) delete coEvents[i];
 	DebugOut(L"vx = %f\n", vx);

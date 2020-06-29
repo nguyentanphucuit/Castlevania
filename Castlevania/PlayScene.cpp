@@ -23,6 +23,7 @@
 #include "BrickWallScene3.h"
 #include "Dual.h"
 
+
 void PlayScene::LoadSprite(const std::string& filePath, const int tex)
 {
 	CTextures* textures = CTextures::GetInstance();
@@ -336,6 +337,7 @@ void PlayScene::OnCreate()
 					torch->SetItem(static_cast<EItem>(std::atoi(y.second->GetProperty("item").c_str())));
 					AddToGrid(torch);
 
+					
 					int posX = y.second->GetX();
 					int posY = y.second->GetY() - y.second->GetHeight();
 					int width = y.second->GetWidth();
@@ -345,8 +347,14 @@ void PlayScene::OnCreate()
 
 					xml_node<>* entity = doc2.allocate_node(node_element, "torch");
 				
-					entity->append_attribute(doc2.allocate_attribute("x", std::to_string(posX).c_str()));
-					entity->append_attribute(doc2.allocate_attribute("y", std::to_string(posY).c_str()));
+					auto num = std::to_string(posX);
+				
+					std::wstring name(L"Steve Nash");
+					
+					
+
+					entity->append_attribute(doc2.allocate_attribute("x", "2"));
+					entity->append_attribute(doc2.allocate_attribute("y", "141"));
 					entity->append_attribute(doc2.allocate_attribute("width", std::to_string(width).c_str()));
 					entity->append_attribute(doc2.allocate_attribute("height", std::to_string(height).c_str()));
 					entity->append_attribute(doc2.allocate_attribute("cellx", std::to_string(cellX).c_str()));
@@ -576,10 +584,13 @@ void PlayScene::Update(DWORD dt)
 	}
 
 	if (switchScene) {
+		
 		PauseCam = false;
 		this->currentMap = this->Maps.at(this->currentPScene->mapID);
 		this->cameraBorder = this->pSceneBorders.at(this->currentPScene->border);
-
+		if (SIMON->GetState() == SIMONSTATE::ENTERENTRANCE) {
+			SIMON->SetState(SIMONSTATE::IDLE);
+		}
 		switchScene = false;
 
 		this->currentEntryPoints = this->entryPoints.at(this->currentPScene->entry);
@@ -621,7 +632,7 @@ void PlayScene::Render()
 	CGame* game = CGame::GetInstance();
 	D3DXVECTOR2 cam = game->GetCamera();
 
-	currentMap->Render(cam, cameraBorder);
+	currentMap->GetLayer("BackGround")->Render(cam, cameraBorder);
 
 	for (int i = 0; i < objects.size(); i++)
 		objects[i]->Render();

@@ -11,6 +11,9 @@
 #define NEARLY_WEAPON	10
 #define TIME_WAIT_BONE	  3000
 
+#define DISTANCE_FAR_SIMON			128
+#define DISTANCE_WALKING_FAR_SIMON	64
+
 
 enum class WHITESTATE {
 	WALKING,
@@ -38,7 +41,6 @@ public:
 
 	void SetState(WHITESTATE state);
 
-	void Area(int startPos, int endPos);
 	White();
 };
 

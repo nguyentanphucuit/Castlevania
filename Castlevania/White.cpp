@@ -59,21 +59,21 @@ void White::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 	if (dynamic_cast<PlayScene*>(scene) && !this->isJump) {
 		PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
 		if (x > pScene->GetSimon()->x) {
-			if (x > pScene->GetSimon()->x + 192) {
+			if (x > pScene->GetSimon()->x + DISTANCE_FAR_SIMON + DISTANCE_WALKING_FAR_SIMON) {
 				vx = -WHITE_WALKING_SPEED;
 				nx = DIRECTION::LEFT;
 			}
-			else if (x < pScene->GetSimon()->x + 128) {
+			else if (x < pScene->GetSimon()->x + DISTANCE_FAR_SIMON) {
 				vx = WHITE_WALKING_SPEED;
 				nx = DIRECTION::LEFT;
 			}
 		}
 		else {
-			if (x < pScene->GetSimon()->x - 176) {
+			if (x < pScene->GetSimon()->x - DISTANCE_FAR_SIMON + DISTANCE_WALKING_FAR_SIMON) {
 				vx = WHITE_WALKING_SPEED;
 				nx = DIRECTION::RIGHT;
 			}
-			else if (x > pScene->GetSimon()->x - 112) {
+			else if (x > pScene->GetSimon()->x - DISTANCE_FAR_SIMON) {
 				vx = -WHITE_WALKING_SPEED;
 				nx = DIRECTION::RIGHT;
 			}
@@ -155,12 +155,6 @@ void White::SetState(WHITESTATE state)
 	}
 	this->state = state;
 }
-void White::Area(int startPos, int endPos)
-{
-	this->_endPos = endPos;
-	this->_startPos = startPos;
-}
-
 White::White() :Enemy()
 {
 	AddAnimation("WHITE_ANI_JUMP");

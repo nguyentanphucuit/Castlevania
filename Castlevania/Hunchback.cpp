@@ -42,10 +42,10 @@ void Hunchback::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 			waitTimeActive = GetTickCount();
 			
 		}
-		if (x > pScene->GetSimon()->x + _endPos) {
+		if (x > pScene->GetSimon()->x + HUNCHBACK_BBOX_WIDTH*3) {
 			nx = DIRECTION::LEFT;
 		}
-		if (x < pScene->GetSimon()->x - _startPos) {
+		if (x < pScene->GetSimon()->x - HUNCHBACK_BBOX_WIDTH*3) {
 			nx = DIRECTION::RIGHT;
 		}
 		if (GetTickCount() - waitTimeActive > TIME_ACTIVE)
@@ -127,12 +127,6 @@ void Hunchback::Render()
 void Hunchback::OnTouchingGround()
 {
 	vy -= .4;
-}
-
-void Hunchback::Area(int startPos, int endPos)
-{
-	this->_endPos = endPos;
-	this->_startPos = startPos;
 }
 
 void Hunchback::Num(int num)
