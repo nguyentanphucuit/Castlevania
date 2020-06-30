@@ -805,11 +805,14 @@ void PlayScene::KeyState(BYTE* states)
 		else if (SIMON->CheckCanStepUp()) {
 			if (!SIMON->CheckIsOnStair() && SIMON->CheckCollideWithStair()) {
 				SIMON->SetStartStepOnStair();
+				SIMON->isUpStair = true;
 			}
 			else if (SIMON->GetState() == SIMONSTATE::UP_STAIR_IDLE) {
 
-				SIMON->SetStartStepOnStair();
+				SIMON->SetStartStepOnStair();	
+				SIMON->isUpStair = true;
 			}
+			
 			return;
 		}
 
@@ -824,15 +827,18 @@ void PlayScene::KeyState(BYTE* states)
 				SIMON->SetStepOnStairDirection(STAIRDIRECTION::DOWNRIGHT);
 			}
 			SIMON->SetStartStepOnStair();
+			SIMON->isUpStair = false;
 			DebugOut(L"Simon up to down \n");
 			return;
 		}
 		if (SIMON->CheckCanStepDown()) {
 			if (!SIMON->CheckIsOnStair() && SIMON->CheckCollideWithStair()) {
 				SIMON->SetStartStepOnStair();
+				SIMON->isUpStair = false;
 			}
 			else if (SIMON->GetState() == SIMONSTATE::DOWN_STAIR_IDLE) {
 				SIMON->SetStartStepOnStair();
+				SIMON->isUpStair = false;
 			}
 			return;
 		}

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.5" orientation="orthogonal" renderorder="right-down" width="96" height="42" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="108">
+<map version="1.2" tiledversion="1.3.5" orientation="orthogonal" renderorder="right-down" width="96" height="42" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="112">
  <tileset firstgid="1" name="Map_bank.png" tilewidth="32" tileheight="32" tilecount="882" columns="21">
   <image source="Map_bank.png" width="672" height="1344"/>
  </tileset>
@@ -8214,6 +8214,11 @@
     <property name="dir" type="int" value="3"/>
    </properties>
   </object>
+  <object id="110" x="110.333" y="278.333" width="32" height="11.0833">
+   <properties>
+    <property name="dir" type="int" value="4"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="6" name="StairDual">
   <object id="106" x="2728.83" y="399.333" width="26.3333" height="17.3333"/>
@@ -8226,9 +8231,9 @@
   <object id="81" name="M2_E21" gid="901" x="2308.53" y="859.015" width="60" height="64"/>
   <object id="82" name="M2_E3" gid="2147484551" x="2270.67" y="1017.33" width="60" height="64"/>
   <object id="83" name="M3_E3" gid="903" x="176.667" y="587" width="60" height="64"/>
-  <object id="85" name="M3_E22" gid="2147484549" x="108.417" y="304" width="60" height="64"/>
+  <object id="85" name="M3_E22" gid="2147484549" x="108.417" y="304" width="60" height="64" visible="0"/>
   <object id="97" name="M2_E2" gid="901" x="1777.33" y="631.667" width="60" height="64"/>
-  <object id="101" name="M3_E2" gid="894" x="249.333" y="143" width="60" height="64"/>
+  <object id="101" name="M3_E2" gid="894" x="265" y="151.667" width="60" height="64"/>
  </objectgroup>
  <objectgroup id="5" name="Boss">
   <object id="98" name="Phantom" x="2774" y="142" width="32" height="64"/>
@@ -8240,7 +8245,7 @@
   <object id="24" x="254" y="862.833" width="1091" height="26.5"/>
   <object id="32" x="2382" y="1179.67" width="144" height="27.3333"/>
   <object id="33" x="2109.33" y="1115" width="252" height="28.6667"/>
-  <object id="37" x="64.6667" y="290.667" width="79" height="21.8333"/>
+  <object id="37" x="63.4167" y="291.584" width="68.3333" height="22.1666"/>
   <object id="38" x="321.667" y="291" width="318" height="24"/>
   <object id="76" x="2528.66" y="1081.34" width="31" height="126"/>
   <object id="91" x="832" y="764" width="62.6667" height="30.6667"/>
@@ -8679,6 +8684,11 @@
    </properties>
   </object>
   <object id="74" gid="889" x="2864.67" y="313.333" width="16" height="32">
+   <properties>
+    <property name="item" value="1"/>
+   </properties>
+  </object>
+  <object id="111" gid="889" x="2196" y="1187" width="16" height="32">
    <properties>
     <property name="item" value="1"/>
    </properties>

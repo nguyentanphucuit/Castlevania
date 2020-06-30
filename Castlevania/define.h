@@ -34,6 +34,7 @@ enum class STAIRDIRECTION {
 	UPLEFT,
 	DOWNRIGHT,
 	DOWNLEFT,
+	DUAL
 };
 
 const enum SWEAPONDEF {

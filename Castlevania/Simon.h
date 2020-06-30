@@ -130,6 +130,8 @@
 	 D3DXVECTOR2 stairPos;
 	 bool isStairDual;
 
+	
+
 	 void HandleFirstStepOnStair();
 	 void HandlePerStepOnStair();
  public:
@@ -139,6 +141,7 @@
 	bool isOnGround = false;
 	bool isOnPlatform = false;
 	bool isTouchRetroGrade = true;
+	bool isUpStair = true;
 	bool ResetSpawnWeapon() { return this->isSpawnWeapon = false; };
 	bool IsSpawnWeapon() { return spawnWeapon; };
 	void SpawnWeapon(bool flag) { this->spawnWeapon = flag; };
@@ -171,12 +174,14 @@
 		return this->state;
 	}
 	bool CheckCanStepUp() {
-		if (this->onStairDirection == STAIRDIRECTION::UPLEFT || this->onStairDirection == STAIRDIRECTION::UPRIGHT)
+		if (this->onStairDirection == STAIRDIRECTION::UPLEFT || this->onStairDirection == STAIRDIRECTION::UPRIGHT 
+			|| this->onStairDirection == STAIRDIRECTION::DUAL)
 			return true;
 		return false;
 	}
 	bool CheckCanStepDown() {
-		if (this->onStairDirection == STAIRDIRECTION::DOWNLEFT || this->onStairDirection == STAIRDIRECTION::DOWNRIGHT)
+		if (this->onStairDirection == STAIRDIRECTION::DOWNLEFT || this->onStairDirection == STAIRDIRECTION::DOWNRIGHT
+			|| this->onStairDirection == STAIRDIRECTION::DUAL)
 			return true;
 		return false;
 	}

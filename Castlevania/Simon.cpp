@@ -59,104 +59,110 @@ void CSIMON::HandleFirstStepOnStair()
 	}
 	//DebugOut(L"HandleFirstStepOnStair \n");
 	//up right first step
+	if (isUpStair) {
+		if (onStairDirection == STAIRDIRECTION::UPRIGHT || onStairDirection == STAIRDIRECTION::DUAL) {
+			//DebugOut(L"Simon x=%f y=%f \n", this->x, this->y);
 
-	if (onStairDirection == STAIRDIRECTION::UPRIGHT) {
-		//DebugOut(L"Simon x=%f y=%f \n", this->x, this->y);
-
-		if (stairPos.x - this->x > SIMON_UPSTAIR_RIGHT_OFFSET) {
-			SetState(SIMONSTATE::WALKING_RIGHT);
-			return;
-		}
-		else if (stairPos.x - this->x < SIMON_UPSTAIR_RIGHT_OFFSET - STEP_STAIR) {
-
-			SetState(SIMONSTATE::WALKING_LEFT);
-			return;
-		}
-		else {
-			if (state == SIMONSTATE::WALKING_LEFT) {
-				if (nx == DIRECTION::LEFT) nx = DIRECTION::RIGHT;
-				else if (nx == DIRECTION::RIGHT) nx = DIRECTION::LEFT;
+			if (stairPos.x - this->x > SIMON_UPSTAIR_RIGHT_OFFSET) {
+				SetState(SIMONSTATE::WALKING_RIGHT);
+				return;
 			}
-			this->isOnStair = true;
-			this->isFirstStepOnStair = true;
-			this->LastStepOnStairPos = { floor(this->x),floor(this->y) };
-			//DebugOut(L"Step x=%f y=%f \n", this->LastStepOnStairPos.x, this->LastStepOnStairPos.y);
-			this->SetState(SIMONSTATE::UP_STAIR_RIGHT);
+			else if (stairPos.x - this->x < SIMON_UPSTAIR_RIGHT_OFFSET - STEP_STAIR) {
+
+				SetState(SIMONSTATE::WALKING_LEFT);
+				return;
+			}
+			else {
+				if (state == SIMONSTATE::WALKING_LEFT) {
+					if (nx == DIRECTION::LEFT) nx = DIRECTION::RIGHT;
+					else if (nx == DIRECTION::RIGHT) nx = DIRECTION::LEFT;
+				}
+				this->isOnStair = true;
+				this->isFirstStepOnStair = true;
+				this->LastStepOnStairPos = { floor(this->x),floor(this->y) };
+				//DebugOut(L"Step x=%f y=%f \n", this->LastStepOnStairPos.x, this->LastStepOnStairPos.y);
+				this->SetState(SIMONSTATE::UP_STAIR_RIGHT);
+			}
+		}
+		else if (onStairDirection == STAIRDIRECTION::UPLEFT) {
+			//DebugOut(L"Simon x=%f y=%f \n", this->x, this->y);
+
+			if (stairPos.x - this->x < SIMON_UPSTAIR_LEFT_OFFSET) {
+
+				SetState(SIMONSTATE::WALKING_LEFT);
+				return;
+			}
+			else if (stairPos.x - this->x > SIMON_UPSTAIR_LEFT_OFFSET + STEP_STAIR) {
+
+				SetState(SIMONSTATE::WALKING_RIGHT);
+				return;
+			}
+			else {
+				if (state == SIMONSTATE::WALKING_RIGHT) {
+					if (nx == DIRECTION::LEFT) nx = DIRECTION::RIGHT;
+					else if (nx == DIRECTION::RIGHT) nx = DIRECTION::LEFT;
+				}
+				this->isOnStair = true;
+				this->isFirstStepOnStair = true;
+				this->LastStepOnStairPos = { floor(this->x),floor(this->y) };
+				//DebugOut(L"Step x=%f y=%f \n", this->LastStepOnStairPos.x, this->LastStepOnStairPos.y);
+				this->SetState(SIMONSTATE::UP_STAIR_RIGHT);
+			}
 		}
 	}
-	else if (onStairDirection == STAIRDIRECTION::UPLEFT) {
-		//DebugOut(L"Simon x=%f y=%f \n", this->x, this->y);
+	else {
+		if (onStairDirection == STAIRDIRECTION::DOWNLEFT)
+		{
+			if (stairPos.x - this->x < SIMON_DOWNSTAIR_LEFT_OFFSET) {
 
-		if (stairPos.x - this->x < SIMON_UPSTAIR_LEFT_OFFSET) {
-
-			SetState(SIMONSTATE::WALKING_LEFT);
-			return;
-		}
-		else if (stairPos.x - this->x > SIMON_UPSTAIR_LEFT_OFFSET + STEP_STAIR) {
-
-			SetState(SIMONSTATE::WALKING_RIGHT);
-			return;
-		}
-		else {
-			if (state == SIMONSTATE::WALKING_RIGHT) {
-				if (nx == DIRECTION::LEFT) nx = DIRECTION::RIGHT;
-				else if (nx == DIRECTION::RIGHT) nx = DIRECTION::LEFT;
+				SetState(SIMONSTATE::WALKING_LEFT);
+				return;
 			}
-			this->isOnStair = true;
-			this->isFirstStepOnStair = true;
-			this->LastStepOnStairPos = { floor(this->x),floor(this->y) };
-			//DebugOut(L"Step x=%f y=%f \n", this->LastStepOnStairPos.x, this->LastStepOnStairPos.y);
-			this->SetState(SIMONSTATE::UP_STAIR_RIGHT);
+			else if (stairPos.x - this->x > SIMON_DOWNSTAIR_LEFT_OFFSET + STEP_STAIR) {
+
+				SetState(SIMONSTATE::WALKING_RIGHT);
+				return;
+			}
+			else {
+				if (state == SIMONSTATE::WALKING_RIGHT) {
+					if (nx == DIRECTION::LEFT) nx = DIRECTION::RIGHT;
+					else if (nx == DIRECTION::RIGHT) nx = DIRECTION::LEFT;
+				}
+				this->isOnStair = true;
+				this->isFirstStepOnStair = true;
+				this->LastStepOnStairPos = { floor(this->x),floor(this->y) };
+				//DebugOut(L"First Step x=%f y=%f \n", this->LastStepOnStairPos.x, this->LastStepOnStairPos.y);
+				this->SetState(SIMONSTATE::DOWN_STAIR_LEFT);
+			}
+		}
+		else if (onStairDirection == STAIRDIRECTION::DOWNRIGHT || onStairDirection == STAIRDIRECTION::DUAL)
+		{
+			if (stairPos.x - this->x > SIMON_DOWNSTAIR_RIGHT_OFFET) {
+
+				SetState(SIMONSTATE::WALKING_RIGHT);
+				return;
+			}
+			else if (stairPos.x - this->x < SIMON_DOWNSTAIR_RIGHT_OFFET - STEP_STAIR) {
+
+				SetState(SIMONSTATE::WALKING_LEFT);
+				return;
+			}
+			else {
+				if (state == SIMONSTATE::WALKING_LEFT) {
+					if (nx == DIRECTION::LEFT) nx = DIRECTION::RIGHT;
+					else if (nx == DIRECTION::RIGHT) nx = DIRECTION::LEFT;
+				}
+				this->isOnStair = true;
+				this->isFirstStepOnStair = true;
+				this->LastStepOnStairPos = { floor(this->x),floor(this->y) };
+				//DebugOut(L"First Step x=%f y=%f \n", this->LastStepOnStairPos.x, this->LastStepOnStairPos.y);
+				this->SetState(SIMONSTATE::DOWN_STAIR_RIGHT);
+			}
 		}
 	}
-	else if (onStairDirection == STAIRDIRECTION::DOWNLEFT)
-	{
-		if (stairPos.x - this->x < SIMON_DOWNSTAIR_LEFT_OFFSET) {
+	
+	
 
-			SetState(SIMONSTATE::WALKING_LEFT);
-			return;
-		}
-		else if (stairPos.x - this->x > SIMON_DOWNSTAIR_LEFT_OFFSET + STEP_STAIR) {
-
-			SetState(SIMONSTATE::WALKING_RIGHT);
-			return;
-		}
-		else {
-			if (state == SIMONSTATE::WALKING_RIGHT) {
-				if (nx == DIRECTION::LEFT) nx = DIRECTION::RIGHT;
-				else if (nx == DIRECTION::RIGHT) nx = DIRECTION::LEFT;
-			}
-			this->isOnStair = true;
-			this->isFirstStepOnStair = true;
-			this->LastStepOnStairPos = { floor(this->x),floor(this->y) };
-			//DebugOut(L"First Step x=%f y=%f \n", this->LastStepOnStairPos.x, this->LastStepOnStairPos.y);
-			this->SetState(SIMONSTATE::DOWN_STAIR_LEFT);
-		}
-	}
-	else if (onStairDirection == STAIRDIRECTION::DOWNRIGHT)
-	{
-		if (stairPos.x - this->x > SIMON_DOWNSTAIR_RIGHT_OFFET) {
-
-			SetState(SIMONSTATE::WALKING_RIGHT);
-			return;
-		}
-		else if (stairPos.x - this->x < SIMON_DOWNSTAIR_RIGHT_OFFET - STEP_STAIR) {
-
-			SetState(SIMONSTATE::WALKING_LEFT);
-			return;
-		}
-		else {
-			if (state == SIMONSTATE::WALKING_LEFT) {
-				if (nx == DIRECTION::LEFT) nx = DIRECTION::RIGHT;
-				else if (nx == DIRECTION::RIGHT) nx = DIRECTION::LEFT;
-			}
-			this->isOnStair = true;
-			this->isFirstStepOnStair = true;
-			this->LastStepOnStairPos = { floor(this->x),floor(this->y) };
-			//DebugOut(L"First Step x=%f y=%f \n", this->LastStepOnStairPos.x, this->LastStepOnStairPos.y);
-			this->SetState(SIMONSTATE::DOWN_STAIR_RIGHT);
-		}
-	}
 }
 
 void CSIMON::HandlePerStepOnStair()
@@ -473,8 +479,35 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 
 			if (this->isColliding(f))
 			{
+				if (state == SIMONSTATE::UP_STAIR_LEFT && f->GetDirection() == (int)STAIRDIRECTION::DUAL)
+				{
+					float sl, st, sr, sb;
+					f->GetBoundingBox(sl, st, sr, sb);
+					float l, t, r, b;
+					this->GetBoundingBox(l, t, r, b);
+
+					if (b < sb)
+					{
+						SetState(SIMONSTATE::IDLE);
+						this->isOnStair = false;
+						this->startOnStair = false;
+						this->isFirstStepOnStair = false;
+						this->onStairDirection = static_cast<STAIRDIRECTION>(f->GetDirection());
+						return;
+					}
+				}
+
+				if (state == SIMONSTATE::DOWN_STAIR_LEFT && f->GetDirection() == (int)STAIRDIRECTION::DUAL)
+				{
+					SetState(SIMONSTATE::IDLE);
+					this->isOnStair = false;
+					this->startOnStair = false;
+					this->isFirstStepOnStair = false;
+					return;
+				}
 				if (!this->isColliceWithStair) {
-					if (this->isOnStair) {
+					if (this->isOnStair && f->GetDirection() != (int)STAIRDIRECTION::DUAL)
+					{
 
 						SetState(SIMONSTATE::IDLE);
 						this->isOnStair = false;
@@ -575,12 +608,6 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 		if (dynamic_cast<Dual*>(coObjects->at(i))) {
 			Dual* dual = dynamic_cast<Dual*> (coObjects->at(i));
 			if (this->isColliding(dual)) {
-				/*	isStairDual = true;
-					if (this->onStairDirection == STAIRDIRECTION::UPLEFT) {
-						this->onStairDirection = STAIRDIRECTION::UPRIGHT;
-					}else if (this->onStairDirection == STAIRDIRECTION::DOWNLEFT) {
-						this->onStairDirection = STAIRDIRECTION::DOWNRIGHT;
-					}*/
 				auto pScene = dynamic_cast<PlayScene*>(scene);
 				pScene->PauseCam = true;
 			}
