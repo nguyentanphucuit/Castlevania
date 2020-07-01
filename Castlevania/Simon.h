@@ -106,6 +106,7 @@
 
 	 int hp;
 	 int energy;
+	 int score;
 
 	 int level;
 	 int untouchable;
@@ -135,8 +136,9 @@
 	 void HandleFirstStepOnStair();
 	 void HandlePerStepOnStair();
  public:
-	 CSIMON();
-
+	CSIMON();
+	void AddScore(int flag) { score += flag; }
+	int GetScore() { return score; }
 	D3DXVECTOR2 LastStepOnStairPos;
 	bool isOnGround = false;
 	bool isOnPlatform = false;
@@ -232,4 +234,5 @@
 		SetEnery(energy);
 	}
 	
+
 };

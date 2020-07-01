@@ -7,6 +7,7 @@
 #include "Candle.h"
 #include "Enemy.h"
 #include "WeaponFactory.h"
+#include "Simon.h"
 
 void Weapon::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObject)
 {
@@ -119,6 +120,7 @@ void Weapon::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObject)
 						effect->SetPosition(tx, ty);
 						pScene->SpawnObject(effect);
 						_eWeapon = pScene->GetSimon()->GetCurrentWeapon();
+						pScene->GetSimon()->AddScore(enemy->GetScore());
 					}
 					enemy->SetDestroy();
 				}

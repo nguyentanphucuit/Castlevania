@@ -7,6 +7,7 @@ class Spawner;
 class Enemy :public CGameObject
 {
 protected:
+	unsigned int score;
 	int hp = 0;
 	bool isMotionless;
 public:
@@ -33,5 +34,9 @@ public:
 		}
 
 	};
+	unsigned int GetScore()
+	{
+		return this->score;
+	}
 };
 

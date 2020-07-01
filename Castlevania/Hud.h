@@ -1,6 +1,9 @@
 #pragma once
 #include<string>
 #include<Windows.h>
+
+#define GAME_TIME 300
+
 class PlayScene;
 class CSprite;
 class Hud

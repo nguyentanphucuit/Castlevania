@@ -45,7 +45,7 @@ void Phantom::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 {
 
 	CGameObject::Update(dt, scene);
-
+	Hud::SetBossHp(this->hp);
 	if (dynamic_cast<PlayScene*>(scene))
 	{
 		PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
@@ -157,6 +157,7 @@ void Phantom::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 
 void Phantom::Render()
 {
+	RenderBoundingBox();
 	int ani = 0;
 	switch (this->state)
 	{

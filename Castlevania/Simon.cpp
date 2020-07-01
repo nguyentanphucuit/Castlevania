@@ -19,6 +19,7 @@
 CSIMON::CSIMON() : CGameObject() {
 	level = SIMON_LEVEL_BIG;
 	untouchable = 0;
+	score = 1000;
 	hp = 2;
 	this->energy = 5;
 	this->fight_start = 0;
@@ -228,7 +229,7 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 	CGameObject::Update(dt, scene);
 
 
-	DebugOut(L"This-> state=%d \n", this->state);
+	//DebugOut(L"This-> state=%d \n", this->state);
 	//DebugOut(L"This-> stair dir =%d \n", this->onStairDirection);
 	if (this->state == SIMONSTATE::DIE)
 	{

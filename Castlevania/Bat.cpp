@@ -1,4 +1,5 @@
 #include "Bat.h"
+#include "EffectFactory.h"
 
 
 
@@ -35,7 +36,18 @@ void Bat::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 			this->SetState(BATSTATE::FLY);
 			
 		}
-
+		float left, top, right, bottom;
+		pScene->GetSimon()->GetBoundingBox(left, top, right, bottom);
+		if (CGameObject::AABB(left, top, right, bottom, this->x, this->y, this->x + BAT_BBOX_WIDTH + DISTANCE_CO_SIMON, this->y + BAT_BBOX_HEIGHT))
+		{
+			auto effect = EffectFactory::SpawnEffect<Effect*>(CEffect::STAR);
+			if (dynamic_cast<PlayScene*>(scene)) {
+				PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
+				effect->SetPosition(x + DISTANCE_DIE, y);
+				pScene->SpawnObject(effect);
+			}		
+			this->isDestroy = true;
+		}
 	}	
 
 	if (coEvents.size() == 0)

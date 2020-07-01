@@ -54,8 +54,6 @@ void White::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 		numWeapon = 0;
 	}
 
-
-
 	if (dynamic_cast<PlayScene*>(scene) && !this->isJump) {
 		PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
 		if (x > pScene->GetSimon()->x) {
@@ -69,7 +67,7 @@ void White::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 			}
 		}
 		else {
-			if (x < pScene->GetSimon()->x - DISTANCE_FAR_SIMON + DISTANCE_WALKING_FAR_SIMON) {
+			if (x < pScene->GetSimon()->x - DISTANCE_FAR_SIMON - DISTANCE_WALKING_FAR_SIMON) {
 				vx = WHITE_WALKING_SPEED;
 				nx = DIRECTION::RIGHT;
 			}
@@ -124,6 +122,8 @@ void White::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 				}
 
 			}
+			DebugOut(L"e->nx %d\n", e->nx);
+			DebugOut(L"e->ny %d\n", e->ny);
 		}
 
 	}

@@ -9,7 +9,7 @@ void Hud::Update()
 	string energy = playerEnergy < 10 ? "0" + std::to_string(playerEnergy) : std::to_string(playerEnergy);
 	this->playerHP = scene->GetSimon()->GetHp();
 
-	unsigned int score_ =00000;
+	unsigned int score_ = scene->GetSimon()->GetScore();
 	string score;
 	if (score_ < 10)
 	{
@@ -35,7 +35,7 @@ void Hud::Update()
 	}
 
 
-	_UIinfor = "SCORE-" + score + " TIME 0" +  + " STAGE 0" + std::to_string(this->state) + "\n";
+	_UIinfor = "SCORE-" + score + " TIME " + std::to_string(scene->GetTime()) + " STAGE " + std::to_string(this->state) + "\n";
 	_UIinfor = _UIinfor + "PLAYER                  -" + energy + "\n";
 	_UIinfor += "ENEMY                   -02\n";
 }

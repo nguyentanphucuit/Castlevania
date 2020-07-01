@@ -92,7 +92,7 @@ void BlackKnight::Update(DWORD dt, Scene* scene , vector<LPGAMEOBJECT>* coObject
 				if (nx != 0) vx = 0;
 				if (ny != 0) vy = 0;
 				Ground* g = dynamic_cast<Ground*>(e->obj);
-				_endPos = g->x + g->GetWidth() - BLACKKNIGHT_BBOX_WIDTH*2;
+				_endPos = g->x + g->GetWidth() - BLACKKNIGHT_BBOX_WIDTH;
 				_startPos = g->x;
 			}
 			else {
@@ -126,6 +126,6 @@ BlackKnight::BlackKnight() :Enemy()
 	AddAnimation("BLACKKNIGHT_ANI_WALK");
 	this->hp = 2;
 	this->isMotionless = false;
-
+	this->score = 200;
 }
 

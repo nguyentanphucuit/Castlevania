@@ -8232,7 +8232,7 @@
   <object id="82" name="M2_E3" gid="2147484551" x="2270.67" y="1017.33" width="60" height="64"/>
   <object id="83" name="M3_E3" gid="903" x="176.667" y="587" width="60" height="64"/>
   <object id="85" name="M3_E22" gid="2147484549" x="108.417" y="304" width="60" height="64" visible="0"/>
-  <object id="97" name="M2_E2" gid="901" x="1777.33" y="631.667" width="60" height="64"/>
+  <object id="97" name="M2_E2" gid="901" x="2386.33" y="628.667" width="60" height="64"/>
   <object id="101" name="M3_E2" gid="894" x="265" y="151.667" width="60" height="64"/>
  </objectgroup>
  <objectgroup id="5" name="Boss">

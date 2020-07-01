@@ -16,6 +16,7 @@ struct pScene {
     std::string border;
     std::string entry;
     bool isRight = false;
+    int state;
 };
 class PlayScene:public Scene
 {
@@ -48,14 +49,21 @@ class PlayScene:public Scene
     bool isEntrance = false;
     bool switchScene = false;
     bool isAttack = false;
+    unsigned int time = 300;
+    DWORD timeCounter = 0;
+
+
     void GetListobjectFromGrid();
     void UpdateGrid();
+    void GameTimeCounter();
 public:
-
+    
     bool PauseCam = false;
     vector<Enemy*> enemies;
 
-
+    unsigned int GetTime() {
+        return this->time;
+    }
     void Motionless(bool flag);
     D3DXVECTOR2 GetCamera();
     bool IsAttack() { return isAttack; };

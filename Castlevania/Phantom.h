@@ -1,8 +1,8 @@
 ﻿#pragma once
 #include"Enemy.h"
 
-#define PHANTOM_BBOX_HEIGHT 32
-#define PHANTOM_BBOX_WIDTH 32
+#define PHANTOM_BBOX_HEIGHT 45
+#define PHANTOM_BBOX_WIDTH 97
 
 #define ACTIVE_PHANTOM_X 100
 #define ACTIVE_PHANTOM_Y 150

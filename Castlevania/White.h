@@ -34,6 +34,7 @@ private:
 	DWORD loadTimeSpawn = 0;
 	WHITESTATE state;
 	bool isJump = true;
+	bool isCoVertical = true;
 public:
 	virtual void GetBoundingBox(float& left, float& top, float& right, float& bottom);
 	virtual void Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects);

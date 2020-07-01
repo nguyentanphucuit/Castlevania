@@ -14,6 +14,9 @@
 
 #define BAT_ANI_IDLE 0
 #define BAT_ANI_FLY 1
+
+#define DISTANCE_CO_SIMON 2			// AABBEX-> AABB
+#define DISTANCE_DIE	  10
 enum class BATSTATE {
 	IDLE,
 	FLY

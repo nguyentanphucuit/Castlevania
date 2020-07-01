@@ -1,9 +1,6 @@
-﻿  Simon.cpp
-C:\Users\16520\Desktop\Castlevania\Castlevania\SIMON.h(211,14): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\16520\Desktop\Castlevania\Castlevania\SIMON.h(219,9): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+﻿  Weapon.cpp
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(213,14): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.h(221,9): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(36,24): warning C4018: '<': signed/unsigned mismatch
 C:\Users\16520\Desktop\Castlevania\Castlevania\Layer.h(38,25): warning C4018: '<': signed/unsigned mismatch
-C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.cpp(621,68): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.cpp(621,32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\16520\Desktop\Castlevania\Castlevania\Simon.cpp(625,32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   Castlevania.vcxproj -> C:\Users\16520\Desktop\Castlevania\Debug\Castlevania.exe

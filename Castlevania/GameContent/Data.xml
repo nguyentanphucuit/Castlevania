@@ -51,14 +51,14 @@
 	
 	<scenes>
 		<pscene activeID="0">
-			<pscenes id="0" mapID="0" entry="M1_E1" border="M1_C1" isRight="1" name="Courtyard"/>
-			<pscenes id="1" mapID="0" entry="M2_E1" border="M2_C1" isRight="1" name="MainHall"/>
-			<pscenes id="2" mapID="0" entry="M2_E2" border="M2_C2" isRight="0" name="MainHall"/>
-			<pscenes id="3" mapID="0" entry="M3_E1" border="M3_C1" isRight="0" name="MainHall"/>
-			<pscenes id="4" mapID="0" entry="M3_E2" border="M3_C2" isRight="1" name="MainHall"/>
-			<pscenes id="5" mapID="0" entry="M4_E1" border="M4_C1" isRight="1" name="MainHall"/>
-			<pscenes id="6" mapID="0" entry="M2_E3" border="M2_C1" isRight="1" name="MainHall"/>
-			<pscenes id="7" mapID="0" entry="M3_E3" border="M3_C1" isRight="1" name="MainHall"/>
+			<pscenes id="0" mapID="0" entry="M1_E1" border="M1_C1" isRight="1" state = "1" name="Courtyard"/>
+			<pscenes id="1" mapID="0" entry="M2_E1" border="M2_C1" isRight="1" state = "2" name="MainHall"/>
+			<pscenes id="2" mapID="0" entry="M2_E2" border="M2_C2" isRight="0" state = "3" name="MainHall"/>
+			<pscenes id="3" mapID="0" entry="M3_E1" border="M3_C1" isRight="0" state = "4" name="MainHall"/>
+			<pscenes id="4" mapID="0" entry="M3_E2" border="M3_C2" isRight="1" state = "5" name="MainHall"/>
+			<pscenes id="5" mapID="0" entry="M4_E1" border="M4_C1" isRight="1" state = "6" name="MainHall"/>
+			<pscenes id="6" mapID="0" entry="M2_E3" border="M2_C1" isRight="1" state = "2" name="MainHall"/>
+			<pscenes id="7" mapID="0" entry="M3_E3" border="M3_C1" isRight="1" state = "4" name="MainHall"/>
 		</pscene>
 	</scenes>
 	

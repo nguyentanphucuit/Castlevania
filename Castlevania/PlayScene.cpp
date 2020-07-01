@@ -119,12 +119,13 @@ void PlayScene::LoadSceneContent(xml_node<>* root)
 		const int _isRight = std::atoi(child->first_attribute("isRight")->value());
 		const std::string& _border = std::string(child->first_attribute("border")->value());
 		const std::string& _entry = std::string(child->first_attribute("entry")->value());
+		const int _state = std::atoi(child->first_attribute("state")->value());
 
 		_pScene->id = _id;
 		_pScene->mapID = _mapID;
 		_pScene->border = _border;
 		_pScene->isRight = !_isRight;
-
+		_pScene->state = _state;
 
 		_pScene->entry = _entry;
 		this->pScenes.insert(std::make_pair(_id, _pScene));
@@ -176,6 +177,23 @@ void PlayScene::UpdateGrid()
 		float x_, y_;
 		obj->GetPosition(x_, y_);
 		grid->Update(obj);
+	}
+}
+
+void PlayScene::GameTimeCounter()
+{
+	if (this->timeCounter == 0)
+	{
+		timeCounter = GetTickCount();
+	}
+	else if (GetTickCount() - this->timeCounter >= 1000)
+	{
+		if (this->time > 0)
+		{
+			this->time--;
+		}
+
+		this->timeCounter = 0;
 	}
 }
 
@@ -544,6 +562,9 @@ void PlayScene::MotionlessEnemy(bool flag)
 
 void PlayScene::Update(DWORD dt)
 {
+	GameTimeCounter();
+
+
 	objects.clear();
 	hud->Update();
 	// We know that SIMON is the first object in the list hence we won't add him into the colliable object list
@@ -585,6 +606,8 @@ void PlayScene::Update(DWORD dt)
 
 	if (switchScene) {
 		
+		hud->setState(currentPScene->state);
+
 		PauseCam = false;
 		this->currentMap = this->Maps.at(this->currentPScene->mapID);
 		this->cameraBorder = this->pSceneBorders.at(this->currentPScene->border);
