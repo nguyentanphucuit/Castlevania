@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.5" orientation="orthogonal" renderorder="right-down" width="96" height="42" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="112">
+<map version="1.2" tiledversion="1.3.5" orientation="orthogonal" renderorder="right-down" width="96" height="42" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="115">
  <tileset firstgid="1" name="Map_bank.png" tilewidth="32" tileheight="32" tilecount="882" columns="21">
   <image source="Map_bank.png" width="672" height="1344"/>
  </tileset>
@@ -4049,11 +4049,12 @@
  </layer>
  <objectgroup id="20" name="BrickWall">
   <object id="79" gid="963" x="2482.75" y="1177.25" width="42" height="96"/>
+  <object id="114" gid="963" x="1255" y="1309" width="42" height="96"/>
  </objectgroup>
  <objectgroup id="4" name="BrickWallScene3">
   <object id="92" gid="968" x="576.091" y="794.182" width="30" height="28"/>
  </objectgroup>
- <objectgroup id="2" name="Camera">
+ <objectgroup id="2" name="Camera" visible="0">
   <object id="1" name="M1_C1" x="503.833" y="1018.17" width="1540" height="318.667"/>
   <object id="2" name="M2_C1" x="2046.19" y="955.031" width="527.333" height="381.333"/>
   <object id="5" name="M3_C1" x="1.83333" y="533.333" width="1535" height="355.5"/>
