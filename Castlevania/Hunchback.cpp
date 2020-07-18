@@ -42,10 +42,10 @@ void Hunchback::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 			waitTimeActive = GetTickCount();
 			
 		}
-		if (x > pScene->GetSimon()->x + HUNCHBACK_BBOX_WIDTH*3) {
+		if (x > pScene->GetSimon()->x + HUNCHBACK_BBOX_WIDTH*3 &&!pScene->GetSimon()->Untouch()) {
 			nx = DIRECTION::LEFT;
 		}
-		if (x < pScene->GetSimon()->x - HUNCHBACK_BBOX_WIDTH*3) {
+		if (x < pScene->GetSimon()->x - HUNCHBACK_BBOX_WIDTH*3 && !pScene->GetSimon()->Untouch()) {
 			nx = DIRECTION::RIGHT;
 		}
 		if (GetTickCount() - waitTimeActive > TIME_ACTIVE)
@@ -82,11 +82,11 @@ void Hunchback::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 					else
 					{
 						float minvy = -0.20;
-						float maxvy = -0.60;
+						float maxvy = -0.40;
 						vy = minvy + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (maxvy - minvy)));
 					}
-					float minvx = -0.20;
-					float maxvx = 0.20;
+					float minvx = -0.30;
+					float maxvx = 0.30;
 					vx = minvx + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (maxvx - minvx)));
 				}
 				
@@ -160,5 +160,6 @@ Hunchback::Hunchback() :Enemy()
 	AddAnimation("HUNCHBACK_ANI_JUMP");
 	this->hp = 1;
 	this->isMotionless = false;
+	this->score = 500;
 }
 

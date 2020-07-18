@@ -16,4 +16,27 @@
 			<frame ID="STAR_03" />
 		</animation>
 		
+		<animation ID="100_ANI" timeLoop="100">
+			<frame ID="100" />
+		</animation>
+				
+		<animation ID="400_ANI" timeLoop="100">
+			<frame ID="400" />
+		</animation>
+		
+		<animation ID="700_ANI" timeLoop="100">
+			<frame ID="700" />
+		</animation>
+		
+		<animation ID="1000_ANI" timeLoop="100">
+			<frame ID="1000_1" />
+			<frame ID="1000_2" />
+			<frame ID="1000_3" />
+		</animation>
+		
+		<animation ID="2000_ANI" timeLoop="100">
+			<frame ID="2000_1" />
+			<frame ID="2000_2" />
+			<frame ID="2000_3" />
+		</animation>
 </gamedata>

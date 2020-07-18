@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <gamedata>
-	<sprite ID="BRICKWALL_SPRITE">
-			<frame l="0" t="0" r="42" b="96" />
+	<sprite ID="BRICKWALL2_SPRITE">
+			<frame l="0" t="0" r="32" b="32" />
+	</sprite>
+	<sprite ID="BRICKWALL3_SPRITE">
+			<frame l="32" t="0" r="63" b="28" />
+	</sprite>
+	<sprite ID="BRICKWALL4_SPRITE">
+			<frame l="63" t="0" r="96" b="28" />
 	</sprite>
 </gamedata>

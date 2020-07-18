@@ -47,6 +47,11 @@ class CGame
 	// font 
 	ID3DXFont* font;
 public:
+	SceneStateMachine* GetSceneMachine()
+	{
+		return &this->sceneStateMachine;
+	};
+	
 	void InitKeyboard(LPKEYEVENTHANDLER handler);
 	void Init(HWND hWnd);
 	void Draw(DIRECTION nx, float x, float y, LPDIRECT3DTEXTURE9 texture, int left, int top, int right, int bottom, int alpha = 255);

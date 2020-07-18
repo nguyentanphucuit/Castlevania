@@ -2,7 +2,7 @@
 #include"Enemy.h"
 
 #define AXE_GRAVITY 0.001f
-#define AXE_SPEED_VX 0.2f
+#define AXE_SPEED_VX 0.15f
 #define AXE_SPEED_VY 0.45f
 
 #define AXE_BBOX_WIDTH 30

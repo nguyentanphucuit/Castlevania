@@ -107,6 +107,17 @@
 			<frame l="232" t="32" r="263" b="64" />
 		</sprite>
 		
+		<sprite ID="ITEM_SPRITE_DOUBLESHOT">
+			<frame l="162" t="0" r="191" b="29" />
+		</sprite>
+		
+		<sprite ID="ITEM_SPRITE_TRIPLESHOT">
+			<frame l="192" t="0" r="221" b="29" />
+		</sprite>
+		
+		<sprite ID="ITEM_SPRITE_HOLYCROSS">
+			<frame l="130" t="30" r="163" b="64" />
+		</sprite>
 		
 
 </gamedata>

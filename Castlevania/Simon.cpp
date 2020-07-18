@@ -16,13 +16,17 @@
 #include "Enemy.h"
 #include "Dual.h"
 #include"Platform.h"
+#include "Abyss.h"
+#include "BrickWall.h"
 CSIMON::CSIMON() : CGameObject() {
 	level = SIMON_LEVEL_BIG;
 	untouchable = 0;
-	score = 1000;
-	hp = 2;
+	score = 0;
+	shotState = ShotState::NORMALSHOT;
+	hp = 16;
 	this->energy = 5;
 	this->fight_start = 0;
+	this->p = 2;
 	upgrade_start = 0;
 	state = SIMONSTATE::IDLE;
 	whip = new Whip();
@@ -224,17 +228,21 @@ void CSIMON::HandlePerStepOnStair()
 void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 {
 
-
+	//DebugOut(L"shotState %d\n", shotState);
 	// Calculate dx, dy 
 	CGameObject::Update(dt, scene);
-
-
-	//DebugOut(L"This-> state=%d \n", this->state);
+	DebugOut(L"This-> state=%d \n", this->state);
 	//DebugOut(L"This-> stair dir =%d \n", this->onStairDirection);
-	if (this->state == SIMONSTATE::DIE)
-	{
+	if (this->state == SIMONSTATE::DIE) {
 		return;
 	}
+	if (shotState != ShotState::NORMALSHOT && timeShot == 0)
+		timeShot = GetTickCount();
+	if (GetTickCount() - timeShot > 5000) {
+		timeShot = 0;
+		shotState = ShotState::NORMALSHOT;
+	}
+		
 	if (this->startOnStair) {
 		if (!this->isFirstStepOnStair)
 			HandleFirstStepOnStair();
@@ -256,16 +264,19 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 		}
 	}
 	this->HandlePerStepOnStair();
+	auto pScene = dynamic_cast<PlayScene*>(scene);
 	// Simple fall down
 	if (!this->startOnStair
 		&& !this->isOnStair
 		&& state != SIMONSTATE::UP_STAIR_IDLE
 		&& state != SIMONSTATE::DOWN_STAIR_IDLE
-
+		|| this->hp == 0
 		)
 	{
 		vy += SIMON_GRAVITY * dt;
 	}
+
+	checkAniSubWeapon = pScene->aniSubWeapon;
 
 	vector<LPCOLLISIONEVENT> coEvents;
 	vector<LPCOLLISIONEVENT> coEventsResult;
@@ -307,7 +318,7 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 		{
 			LPCOLLISIONEVENT e = coEventsResult[i];
 
-			if (dynamic_cast<Ground*>(e->obj)) {
+			if (dynamic_cast<Ground*>(e->obj) || dynamic_cast<CBrickWall*>(e->obj)) {
 
 
 				if (this->isOnStair) {
@@ -332,12 +343,11 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 					if (state != SIMONSTATE::ENTERENTRANCE) {
 						if (nx != 0) vx = 0;
 					}
-					/*if (this->hp == 0)
+					if (this->hp == 0)
 					{
 						this->SetState(SIMONSTATE::DIE);
-						this->isOnStair = false;
 						break;
-					}*/
+					}
 				}
 				else if (e->ny == 1)
 				{
@@ -382,7 +392,7 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 			else if (dynamic_cast<SwitchScene*>(e->obj)) {
 				auto switchScene = dynamic_cast<SwitchScene*>(e->obj);
 				if (dynamic_cast<PlayScene*> (scene)) {
-					auto pScene = dynamic_cast<PlayScene*>(scene);
+				
 					int id = switchScene->GetSceneID();
 					pScene->SwitchPScene(id);
 				}
@@ -407,11 +417,12 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 					if (!item->IsDestroy()) {
 						item->SetDestroy();
 						this->AddEnery(item->GetHeartPoint());
+						this->AddHP(item->GetHP());
+						this->AddScore(item->GetScore());
 					}
 
 					if (dynamic_cast<IWhip*>(item)) {
 						this->SetState(SIMONSTATE::UPWHIP);
-						this->currentWeapon = EWeapon::NONE;
 					}
 					if (dynamic_cast<IDagger*>(item)) {
 						this->currentWeapon = EWeapon::DAGGER;
@@ -432,11 +443,27 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 					if (dynamic_cast<IInvisible*>(item)) {
 						StartUntouchable();
 					}
+					if (dynamic_cast<DoubleShot*>(item)) {
+						shotState = ShotState::DOUBLESHOT;
+					}
+					if (dynamic_cast<TripleShot*>(item)) {
+						shotState = ShotState::TRIPBLESHOT;
+					}
+					if (dynamic_cast<IHolyCross*>(item)) {
+						getCross = true;
+						pScene->KillAllEnemies();
+					}
 				}
 				else if (dynamic_cast<Entrance*>(e->obj)) {
 					auto entrance = dynamic_cast<Entrance*> (e->obj);
 					entrance->SetDestroy();
 					this->SetState(SIMONSTATE::ENTERENTRANCE);
+					D3DXVECTOR2 cam;
+					cam = CGame::GetInstance()->GetCamera();
+					auto n = new SwitchScene(1);
+					n->SetSize(ENTRANCE_WIDTH, SCREENSIZE::HEIGHT);
+					n->SetPosition(cam.x + SCREENSIZE::WIDTH - ENTRANCE_WIDTH*2, cam.y);
+					pScene->SpawnObject(n);
 				}
 				else if (dynamic_cast<HMoney*>(e->obj)) {
 					auto hmoney = dynamic_cast<HMoney*>(e->obj);
@@ -453,6 +480,12 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 						auto pScene = dynamic_cast<PlayScene*>(scene);
 						pScene->SpawnObject(hcrown->GetItem());
 					}
+				}
+				else if (dynamic_cast<Abyss*>(e->obj)) {
+					auto abyss = dynamic_cast<Abyss*> (e->obj);
+					vy = 5.0;
+					y += vy * dt;
+					this->SetState(SIMONSTATE::DIE);
 				}
 
 
@@ -471,6 +504,7 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 		}
 	}
 
+	bool colGround = false;
 	// clean up collision events
 	for (UINT i = 0; i < coEvents.size(); i++) delete coEvents[i];
 	// xử lý va chạm simon và các items
@@ -532,6 +566,18 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 					this->onStairDirection = STAIRDIRECTION::DEFAULT; //reset
 			}
 		}
+		//else if (dynamic_cast<Abyss*>(coObjects->at(i))) {
+		//	Abyss* abyss = dynamic_cast<Abyss*> (coObjects->at(i));
+
+		//	if (this->isColliding(abyss))
+		//	{
+
+		//		vy = 5.0;
+		//		y += vy * dt;
+		//		this->SetState(SIMONSTATE::DIE);
+		//	}
+		//
+		//}
 		else if (dynamic_cast<CPlatform*>(coObjects->at(i)))
 		{
 			auto obj = dynamic_cast<CPlatform*>(coObjects->at(i));
@@ -548,12 +594,32 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 				vx = 0;
 
 			}
-
-
-
-
-
-
+		}
+		else if (dynamic_cast<Ground*>(coObjects->at(i)))
+		{
+			auto  g = dynamic_cast<Ground*>(coObjects->at(i));
+			float sl, st, sr, sb;
+			g->GetBoundingBox(sl, st, sr, sb);
+			st = st - 5;
+			float l, t, r, b;
+			this->GetBoundingBox(l, t, r, b);
+			if (AABB(l,t,r,b,sl,st,sr,sb))
+			{
+				colGround = true;
+			}
+		}
+		else if (dynamic_cast<CBrickWall*>(coObjects->at(i)))
+		{
+			auto  bw = dynamic_cast<CBrickWall*>(coObjects->at(i));
+			float sl, st, sr, sb;
+			bw->GetBoundingBox(sl, st, sr, sb);
+			st = st - 5;
+			float l, t, r, b;
+			this->GetBoundingBox(l, t, r, b);
+			if (AABB(l, t, r, b, sl, st, sr, sb))
+			{
+				colGround = true;
+			}
 		}
 		else if (this->isColliding(coObjects->at(i))) {
 			if (dynamic_cast<Item*>(coObjects->at(i))) {
@@ -561,7 +627,6 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 				if (!item->IsDestroy()) {
 					if (dynamic_cast<IWhip*>(item)) {
 						this->SetState(SIMONSTATE::UPWHIP);
-						this->currentWeapon = EWeapon::NONE;
 					}
 					if (dynamic_cast<IDagger*>(item)) {
 						this->currentWeapon = EWeapon::DAGGER;
@@ -581,6 +646,17 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 					if (dynamic_cast<IInvisible*>(item)) {
 						StartUntouchable();
 					}
+					if (dynamic_cast<DoubleShot*>(item)) {
+						shotState = ShotState::DOUBLESHOT;
+					}
+					if (dynamic_cast<TripleShot*>(item)) {
+						shotState = ShotState::TRIPBLESHOT;
+					}
+					
+					if (dynamic_cast<IHolyCross*>(item)) {
+						getCross = true;
+						pScene->KillAllEnemies();
+					}
 					this->AddEnery(item->GetHeartPoint());
 					item->SetDestroy();
 				}
@@ -591,6 +667,7 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 
 			if (this->isColliding(enemy))
 			{
+					
 				if (untouchable_start == 0) {
 
 					DebugOut(L"Collice with enemy \n", this->vy, this->vx);
@@ -606,11 +683,19 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 
 			}
 		}
+		
 		if (dynamic_cast<Dual*>(coObjects->at(i))) {
 			Dual* dual = dynamic_cast<Dual*> (coObjects->at(i));
 			if (this->isColliding(dual)) {
 				auto pScene = dynamic_cast<PlayScene*>(scene);
 				pScene->PauseCam = true;
+				dual->isDestroy = true;
+				D3DXVECTOR2 cam;
+				cam=CGame::GetInstance()->GetCamera();
+				auto g = new Ground();
+				g->SetSize(32, SCREENSIZE::HEIGHT);
+				g->SetPosition(cam.x-32,cam.y);
+				pScene->SpawnObject(g);
 			}
 
 		}
@@ -654,6 +739,20 @@ void CSIMON::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 
 		}
 
+
+
+	}
+	if (colGround)
+	{
+		this->isOnGround = true;
+	}
+	else
+	{
+		this->isOnGround = false;
+		/*if (state==SIMONSTATE::WALKING_RIGHT||state==SIMONSTATE::WALKING_LEFT)
+		{
+ 			SetState(SIMONSTATE::FALLING_DOWN);
+		}*/
 	}
 }
 
@@ -674,6 +773,7 @@ void CSIMON::Render()
 	case SIMONSTATE::WALKING_LEFT:
 		ani = SIMON_ANI_WALKING;
 		break;
+	case SIMONSTATE::FALLING_DOWN:
 	case SIMONSTATE::SIT:
 		ani = SIMON_ANI_SIT;
 		break;
@@ -684,9 +784,10 @@ void CSIMON::Render()
 		ani = SIMON_ANI_UP_WHIP;
 		break;
 	case SIMONSTATE::FIGHT_STAND:
-		ani = SIMON_ANI_STAND_ATTACK;
+		if(!checkAniSubWeapon)
+			ani = SIMON_ANI_STAND_ATTACK;
 		break;
-	case SIMONSTATE::FIGHT_SIT:
+	case SIMONSTATE::FIGHT_SIT:	
 		ani = SIMON_ANI_SIT_ATTACK;
 		break;
 	case SIMONSTATE::UP_STAIR_IDLE:
@@ -729,7 +830,7 @@ void CSIMON::Render()
 
 	animations[ani]->Render(nx, x, y, alpha);
 
-	RenderBoundingBox();
+	//RenderBoundingBox();
 }
 
 void CSIMON::SetState(SIMONSTATE state)
@@ -761,8 +862,7 @@ void CSIMON::SetState(SIMONSTATE state)
 		vx = 0;
 		break;
 	case SIMONSTATE::DIE:
-		this->vx = 0;
-		this->vy = 0;
+		isOnStair = false;
 		break;
 	case SIMONSTATE::UPWHIP:
 		whip->Upgrade();
@@ -845,8 +945,6 @@ void CSIMON::SetState(SIMONSTATE state)
 		this->isOnStair = true;
 		this->isFirstStepOnStair = true; // dung` khi set state mac dinh cua simon
 		this->startOnStair = false; // cho phép nhấn tiếp
-		//tránh trường hợp khi simon attack y thay đổi làm floor
-		// làm tròn xuống 1px
 		if (nx == DIRECTION::RIGHT)
 		{
 			this->onStairDirection = STAIRDIRECTION::UPRIGHT;
@@ -859,8 +957,6 @@ void CSIMON::SetState(SIMONSTATE state)
 		if (this->state != SIMONSTATE::DOWN_STAIR_FIGHT && this->state != SIMONSTATE::UP_STAIR_FIGHT) {
 			this->LastStepOnStairPos = { floor(this->x),floor(this->y) };
 		}
-
-
 		//DebugOut(L" LastStepOnStairPos x=%f y=%f", LastStepOnStairPos.x, LastStepOnStairPos.y);
 		vx = 0;
 		vy = 0;
@@ -868,13 +964,9 @@ void CSIMON::SetState(SIMONSTATE state)
 	case SIMONSTATE::DEFLECT:
 		vy = -SIMON_DEFLECT_SPEED_Y;
 		if (nx == DIRECTION::LEFT)
-		{
 			vx = SIMON_DEFLECT_SPEED_X;
-		}
 		else
-		{
 			vx = -SIMON_DEFLECT_SPEED_X;
-		}
 		DebugOut(L"State SIMONSTATE:DEFLECT \n");
 		this->ResetAttack();
 		this->upgrade_start = GetTickCount();
@@ -889,7 +981,7 @@ void CSIMON::SetState(SIMONSTATE state)
 
 void CSIMON::GetBoundingBox(float& left, float& top, float& right, float& bottom)
 {
-	left = x + 14;
+	left = x + BBOX_SIMON_BONUS;
 	top = y;
 
 	right = left + SIMON_BBOX_WIDTH;

@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <gamedata>
 
-	<animation ID="BRICKWALL_ANI" timeLoop= "100">
-		<sprite ID="BRICKWALL_SPRITE"/>
+	<animation ID="BRICKWALL2_ANI" timeLoop= "100">
+		<sprite ID="BRICKWALL2_SPRITE"/>
+	</animation>
+	
+	<animation ID="BRICKWALL3_ANI" timeLoop= "100">
+		<sprite ID="BRICKWALL3_SPRITE"/>
+	</animation>
+	
+	<animation ID="BRICKWALL4_ANI" timeLoop= "100">
+		<sprite ID="BRICKWALL4_SPRITE"/>
 	</animation>
 
 </gamedata>

@@ -11,6 +11,7 @@ class IChicken : public Item
 public:
 	IChicken() {
 		AddAnimation("ITEM_ANI_CHICKEN");
+		this->hp = 6;
 	}
 
 	virtual void Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObject = NULL);

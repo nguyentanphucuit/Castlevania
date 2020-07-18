@@ -65,8 +65,13 @@ class CAnimation
 	int currentFrame;
 	vector<LPANIMATION_FRAME> frames;
 	bool isLoop = true;
+	bool isBlocking = false;
 public:
 	void SetLoop(bool flag) { isLoop = flag; }
+
+	void LockAnimation(bool flag) {
+		isBlocking = flag;
+	}
 	CAnimation(int defaultTime) { this->defaultTime = defaultTime; lastFrameTime = -1; currentFrame = -1; }
 	void Add(string spriteId, DWORD time = 0);
 	void ResetFrame() { this->currentFrame = -1; }

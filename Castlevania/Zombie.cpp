@@ -1,7 +1,7 @@
 #include "Zombie.h"
 #include "Debug.h"
 #include "Ground.h"
-#include "Simon.h"
+#include "PlayScene.h"
 
 
 void Zombie::GetBoundingBox(float& left, float& top, float& right, float& bottom)
@@ -31,6 +31,11 @@ void Zombie::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 	// TO-DO: make sure Goomba can interact with the world and to each of them too!
 	// 
 		// Simple fall down
+
+	if (nxZ == -1)
+		nx = DIRECTION::LEFT;
+	else if (nxZ == 1)
+		nx = DIRECTION::RIGHT;
 
 	vy += ZOMBIE_GRAVITY * dt;
 	if (nx == DIRECTION::RIGHT) vx = ZOMBIE_WALKING_SPEED;
@@ -77,19 +82,20 @@ void Zombie::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 void Zombie::Render()
 {
 
-	animations[0]->Render(nx = DIRECTION::LEFT, x, y);
-	//RenderBoundingBox();
+	animations[0]->Render(nx, x, y);
+	////RenderBoundingBox();
 }
 
-void Zombie::Area(int startPos, int endPos)
+void Zombie::Nx(int nx)
 {
-	this->_endPos = endPos;
-	this->_startPos = startPos;
+	this->nxZ = nx;
 }
+
 
 Zombie::Zombie() :Enemy()
 {
 	AddAnimation("ZOMBIE_ANI_WALK");
 	this->isMotionless = false;
+	this->score = 100;
 }
 

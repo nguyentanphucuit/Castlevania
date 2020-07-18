@@ -58,7 +58,7 @@ void Ghost::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 				int min = t;
 				int max = t + GHOST_BBOX_HEIGHT * 2;
 				vy = -GHOST_VELOCITY;
-				targer.x = rand() % (max + 1 - min) + min;
+				targer.y = rand() % (max + 1 - min) + min;
 			}
 			else {
 				int min = b;
@@ -111,5 +111,7 @@ Ghost::Ghost() :Enemy()
 {
 	AddAnimation("GHOST_ANI_FLY");
 	this->isMotionless = false;
+	this->hp = 3;
+	this->score = 300;
 }
 

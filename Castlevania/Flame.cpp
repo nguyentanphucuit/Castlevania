@@ -7,6 +7,7 @@ void Flame::Render()
 		return;
 	}
 	animations[0]->Render(DIRECTION::DEFAULT, x, y);
+	
 }
 
 void Flame::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObject)

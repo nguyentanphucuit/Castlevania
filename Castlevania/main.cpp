@@ -34,6 +34,7 @@ using namespace rapidxml; // namespace để dùng các thành phần trong thư
 
 CGame *game;
 
+
 class CSampleKeyHander: public CKeyEventHandler
 {
 	virtual void KeyState(BYTE *states);
@@ -111,14 +112,36 @@ void Update(DWORD dt)
 
 void Render()
 {
+	
 	LPDIRECT3DDEVICE9 d3ddv = game->GetDirect3DDevice();
 	LPDIRECT3DSURFACE9 bb = game->GetBackBuffer();
 	LPD3DXSPRITE spriteHandler = game->GetSpriteHandler();
 	D3DXVECTOR2 cam = game->GetCamera();
 	if (d3ddv->BeginScene())
 	{
+		if (static_pointer_cast<PlayScene>(game->GetSceneMachine()->GetCurrentScene()))
+		{
+		
+			auto  pscene = static_pointer_cast<PlayScene>(game->GetSceneMachine()->GetCurrentScene());
+			if (pscene->CheckPlayCrossEffect())
+			{
+				int rank = rand() % 2;
+				if (rank == 1)
+					d3ddv->ColorFill(bb, NULL, CROSS_EFFECT_COLOR);
+				else
+					d3ddv->ColorFill(bb, NULL, BACKGROUND_COLOR);
+			}
+			else {
+				d3ddv->ColorFill(bb, NULL, BACKGROUND_COLOR);
+			}
+		}
+		else
+		{
+			d3ddv->ColorFill(bb, NULL, BACKGROUND_COLOR);
+
+		}
+
 		// Clear back buffer with a color
-		d3ddv->ColorFill(bb, NULL, BACKGROUND_COLOR);
 
 		spriteHandler->Begin(D3DXSPRITE_ALPHABLEND);
 		game->Render();

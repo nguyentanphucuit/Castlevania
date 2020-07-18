@@ -17,6 +17,7 @@ class Hud
 	int gameTime;
 	int currentWeapon;
 	int state;
+	int p;
 	RECT bound;
 	std::string  _UIinfor;
 public:

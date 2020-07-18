@@ -20,8 +20,9 @@
 #include "BrickWall.h"
 #include "StairDual.h"
 #include "HCrown.h"
-#include "BrickWallScene3.h"
 #include "Dual.h"
+#include "ItemFactory.h"
+#include "Abyss.h"
 
 
 void PlayScene::LoadSprite(const std::string& filePath, const int tex)
@@ -142,32 +143,9 @@ void PlayScene::LoadSceneContent(xml_node<>* root)
 
 void PlayScene::LoadGrid()
 {
-	rapidxml::xml_document<> doc;
 
-	xml_attribute<>* cellX = doc.allocate_attribute("cellcol", "256");
-	xml_node<>* decl = doc.allocate_node(node_declaration);
-	decl->append_attribute(doc.allocate_attribute("version", "1.0"));
-	decl->append_attribute(doc.allocate_attribute("encoding", "utf-8"));
-	doc.append_node(decl);
-
-
-	xml_node<>* root = doc.allocate_node(node_element, "rootnode");
-	root->append_attribute(doc.allocate_attribute("version", "1.0"));
-	root->append_attribute(doc.allocate_attribute("type", "example"));
-	doc.append_node(root);
-
-
-
-
-
-
-	std::ofstream theFile("abc.xml");
-	theFile << doc;
-	theFile.close();
 }
-void PlayScene::GetListobjectFromGrid()
-{
-}
+
 
 void PlayScene::UpdateGrid()
 {
@@ -195,16 +173,36 @@ void PlayScene::GameTimeCounter()
 
 		this->timeCounter = 0;
 	}
+	if (time == 0)
+		SIMON->SetState(SIMONSTATE::DIE);
+}
+
+void PlayScene::KillAllEnemies()
+{
+	for (size_t i = 0; i < enemies.size(); i++)
+	{
+		enemies.at(i)->isDestroy = true;
+	}
 }
 
 void PlayScene::Motionless(bool flag)
 {
 	for (size_t i = 0; i < objects.size(); i++)
 	{
-		if (dynamic_cast<Enemy*>(objects.at(i)))
+		if (dynamic_cast<Enemy*>(objects.at(i)) && !dynamic_cast<Phantom*>(objects.at(i)))
 		{
 			auto e = dynamic_cast<Enemy*>(objects.at(i));
 			e->SetMotionless(flag);
+
+			for (size_t i = 0; i < e->animations.size(); i++)
+			{
+				e->animations.at(i)->LockAnimation(flag);
+
+
+			}
+
+
+
 		}
 	}
 
@@ -216,13 +214,31 @@ D3DXVECTOR2 PlayScene::GetCamera()
 
 	return CGame::GetInstance()->GetCamera();
 }
-void PlayScene::AddToGrid(LPGAMEOBJECT object, bool isAlwayUpdate)
+void PlayScene::HandleCrossEffect()
 {
-	grid->Add(object, isAlwayUpdate);
+	if (SIMON->CheckIsGetCross())
+	{
+		if (this->cross_start == 0)
+		{
+			cross_start = GetTickCount64();
+		}
+		SIMON->ResetIsGetCross();
+		playCrossEffect = true;
+	}
+
+	if (this->cross_start != 0
+		&& GetTickCount64() - this->cross_start > CROSS_EFFECT_TIME)
+	{
+		playCrossEffect = false;
+
+		this->cross_start = 0;
+	}
 }
+
+
 void PlayScene::OnCreate()
 {
-	
+
 	hud = new Hud(this);
 	CTextures* textures = CTextures::GetInstance();
 
@@ -308,230 +324,23 @@ void PlayScene::OnCreate()
 	boss = new Phantom();
 
 
-
-	rapidxml::xml_document<> doc2;
-
-	xml_node<>* decl = doc2.allocate_node(node_declaration);
-	decl->append_attribute(doc2.allocate_attribute("version", "1.0"));
-	decl->append_attribute(doc2.allocate_attribute("encoding", "UTF-8"));
-	doc2.append_node(decl);
-
-
-	xml_node<>* root = doc2.allocate_node(node_element, "rootnode");
-	doc2.append_node(root);
-	
-	
-
-
-
-
-	
-	for (auto const& m : Maps) {
-		auto objectLayer = m.second->GetObjectLayer();
-		grid = new Grid(m.second->GetWidth(), m.second->GetHeight());
-
-		for (auto const& x : objectLayer)
-		{
-			ObjectID objID = string2EntityType.at(x.first);
-			/*DebugOut(L"ID= %d", static_cast<ObjLayer>(x.first));*/
-			switch (objID)
-			{
-
-			case _Player:
-				for (auto const& y : x.second->GetObjectGroup())
-				{
-					D3DXVECTOR2 entry;
-					entry.x = y.second->GetX();
-					entry.y = y.second->GetY() - y.second->GetHeight();
-					this->entryPoints.insert(std::make_pair(y.second->GetName(), entry));
-				}
-				break;
-
-			case _Torch:
-				for (auto const& y : x.second->GetObjectGroup())
-				{
-					CTorch* torch = new CTorch();
-					torch->SetPosition(y.second->GetX(), y.second->GetY() - y.second->GetHeight());
-					torch->SetItem(static_cast<EItem>(std::atoi(y.second->GetProperty("item").c_str())));
-					AddToGrid(torch);
-
-					
-					int posX = y.second->GetX();
-					int posY = y.second->GetY() - y.second->GetHeight();
-					int width = y.second->GetWidth();
-					int height = y.second->GetHeight();
-					int cellX = posX / 256;
-					int cellY = posY / 256;
-
-					xml_node<>* entity = doc2.allocate_node(node_element, "torch");
-				
-					auto num = std::to_string(posX);
-				
-					std::wstring name(L"Steve Nash");
-					
-					
-
-					entity->append_attribute(doc2.allocate_attribute("x", "2"));
-					entity->append_attribute(doc2.allocate_attribute("y", "141"));
-					entity->append_attribute(doc2.allocate_attribute("width", std::to_string(width).c_str()));
-					entity->append_attribute(doc2.allocate_attribute("height", std::to_string(height).c_str()));
-					entity->append_attribute(doc2.allocate_attribute("cellx", std::to_string(cellX).c_str()));
-					entity->append_attribute(doc2.allocate_attribute("celly", std::to_string(cellY).c_str()));
-
-					doc2.append_node(entity);
-				}
-				break;
-
-			case _Camera:
-				for (auto const& y : x.second->GetObjectGroup())
-				{
-					RECT border;
-					border.left = y.second->GetX();
-					border.top = y.second->GetY();
-					border.right = y.second->GetX() + y.second->GetWidth();
-					border.bottom = y.second->GetY() + y.second->GetHeight();
-
-					this->pSceneBorders.insert(std::make_pair(y.second->GetName(), border));
-
-				}
-				break;
-			case _Ground:
-				for (auto const& y : x.second->GetObjectGroup())
-				{
-					HiddenObject* ground = new Ground();
-					ground->SetPosition(y.second->GetX(), y.second->GetY());
-					ground->SetSize(y.second->GetWidth(), y.second->GetHeight());
-					AddToGrid(ground, true);
-				}
-				break;
-			case _HMoney:
-				for (auto const& y : x.second->GetObjectGroup()) {
-					HMoney* hMoney = new HMoney();
-					hMoney->SetPosition(y.second->GetX(), y.second->GetY());
-					hMoney->SetSize(y.second->GetWidth(), y.second->GetHeight());
-					auto moneyLayer = objectLayer.at("IMoney");
-					for (auto const& child : moneyLayer->GetObjectGroup()) {
-						auto moneyItem = ItemFactory::SpawnItem<Item*>(EItem::MONEY);
-						moneyItem->SetPosition(child.second->GetX(), child.second->GetY() - child.second->GetHeight());
-						hMoney->SetItem(moneyItem);
-					}
-					AddToGrid(hMoney);
-				}
-				break;
-			case _Entrance:
-				for (auto const& y : x.second->GetObjectGroup()) {
-					Entrance* entrance = new Entrance();
-					entrance->SetSize(y.second->GetWidth(), y.second->GetHeight());
-					entrance->SetPosition(y.second->GetX(), y.second->GetY());
-					AddToGrid(entrance);
-				}
-				break;
-			case _CheckRetrograde:
-				for (auto const& y : x.second->GetObjectGroup()) {
-					RetroGrade* retroGrade = new RetroGrade();
-					retroGrade->SetSize(y.second->GetWidth(), y.second->GetHeight());
-					retroGrade->SetPosition(y.second->GetX(), y.second->GetY());
-					AddToGrid(retroGrade);
-				}
-				break;
-			case _Enemy:
-				for (auto const& y : x.second->GetObjectGroup()) {
-					Spawner* spawner = new Spawner(static_cast<CEnemy>(std::atoi(y.second->GetProperty("edef").c_str())), std::atoi(y.second->GetProperty("time").c_str()), std::atoi(y.second->GetProperty("num").c_str()), std::atoi(y.second->GetProperty("startPos").c_str()), std::atoi(y.second->GetProperty("endPos").c_str()));
-					spawner->SetSize(y.second->GetWidth(), y.second->GetHeight());
-					spawner->SetPosition(y.second->GetX(), y.second->GetY());
-					AddToGrid(spawner, true);
-				}
-				break;
-			case _NextScene:
-				for (auto const& y : x.second->GetObjectGroup()) {
-					auto pSwitch = new SwitchScene(std::atoi(y.second->GetProperty("sceneID").c_str()));
-					pSwitch->SetSize(y.second->GetWidth(), y.second->GetHeight());
-					pSwitch->SetPosition(y.second->GetX(), y.second->GetY());
-					AddToGrid(pSwitch);
-				}
-				break;
-			case _Stair:
-				for (auto const& y : x.second->GetObjectGroup()) {
-					Stair* stair = new Stair();
-					stair->SetSize(y.second->GetWidth(), y.second->GetHeight());
-					stair->SetPosition(y.second->GetX(), y.second->GetY());
-					stair->SetDirection(std::atoi(y.second->GetProperty("dir").c_str()));
-					AddToGrid(stair);
-				}
-				break;
-			case _Candle:
-				for (auto const& y : x.second->GetObjectGroup())
-				{
-					CCandle* candle = new CCandle();
-					candle->SetPosition(y.second->GetX(), y.second->GetY() - y.second->GetHeight());
-					candle->SetItem(static_cast<EItem>(std::atoi(y.second->GetProperty("item").c_str())));
-					AddToGrid(candle);
-				}
-				break;
-			case _Platform:
-				for (auto const& y : x.second->GetObjectGroup()) {
-					CPlatform* platform = new CPlatform();
-					platform->SetPosition(y.second->GetX(), y.second->GetY() - y.second->GetHeight());
-					AddToGrid(platform);
-				}
-				break;
-			case _BrickWall:
-				for (auto const& y : x.second->GetObjectGroup()) {
-					CBrickWall* brickwall = new CBrickWall();
-					brickwall->SetPosition(y.second->GetX(), y.second->GetY() - y.second->GetHeight());
-					AddToGrid(brickwall);
-				}
-				break;
-			case _HCrown:
-				for (auto const& y : x.second->GetObjectGroup()) {
-					HCrown* hCrown = new HCrown();
-					hCrown->SetPosition(y.second->GetX(), y.second->GetY());
-					hCrown->SetSize(y.second->GetWidth(), y.second->GetHeight());
-					auto crownLayer = objectLayer.at("ICrown");
-					for (auto const& child : crownLayer->GetObjectGroup()) {
-						auto crownItem = ItemFactory::SpawnItem<Item*>(EItem::CROWN);
-						crownItem->SetPosition(child.second->GetX(), child.second->GetY() - child.second->GetHeight());
-						hCrown->SetItem(crownItem);
-					}
-					AddToGrid(hCrown);
-				}
-				break;
-			case _BrickWallS3:
-				for (auto const& y : x.second->GetObjectGroup()) {
-					CBrickWallS3* brickwallS3 = new CBrickWallS3();
-					brickwallS3->SetPosition(y.second->GetX(), y.second->GetY() - y.second->GetHeight());
-					AddToGrid(brickwallS3);
-				}
-				break;
-			case _Boss:
-				for (auto const& y : x.second->GetObjectGroup()) {
-					boss->SetPosition(y.second->GetX(), y.second->GetY() - y.second->GetHeight());
-					AddToGrid(boss);
-				}
-				break;
-			case _StairDual:
-				for (auto const& y : x.second->GetObjectGroup()) {
-					Dual* dual = new Dual();
-					dual->SetSize(y.second->GetWidth(), y.second->GetHeight());
-					dual->SetPosition(y.second->GetX(), y.second->GetY());
-					AddToGrid(dual);
-				}
-				break;
-			default:
-				break;
-			}
-		}
-
-
-	
-
+	//load grid
+	xml_node<>* gridsNode = rootNode->first_node("grids");
+	for (xml_node<>* child = gridsNode->first_node(); child; child = child->next_sibling()) {
+		grid = new Grid(this);
+		const std::string& path = std::string(child->first_attribute("path")->value());
+		grid->LoadGrid(path);
 
 	}
 
 
-	std::ofstream theFile("abc.xml");
-	theFile << doc2;
-	theFile.close();
+
+
+
+
+
+
+	
 
 	LoadSceneContent(rootNode);
 
@@ -562,17 +371,19 @@ void PlayScene::MotionlessEnemy(bool flag)
 
 void PlayScene::Update(DWORD dt)
 {
+	//DebugOut(L"subWeapon%d\n", subWeapon);
 	GameTimeCounter();
 
-
+	HandleCrossEffect();
 	objects.clear();
 	hud->Update();
 	// We know that SIMON is the first object in the list hence we won't add him into the colliable object list
 	// TO-DO: This is a "dirty" way, need a more organized way 
 	while (!qObjects.empty()) {
-		this->objects.push_back(qObjects.front());
+	//	this->objects.push_back(qObjects.front());
 
-		AddToGrid(qObjects.front());
+		//Add(qObjects.front());
+		grid->AddAfterUpdate(qObjects.front());
 		qObjects.pop();
 	}
 	grid->GetListobjectFromGrid(objects);
@@ -595,8 +406,8 @@ void PlayScene::Update(DWORD dt)
 	SIMON->GetPosition(cx, cy);
 
 
-	cx -= SCREEN_WIDTH / 1.5;
-	cy -= SCREEN_HEIGHT / 1.5;
+	cx -= SCREENSIZE::WIDTH / 2.5;
+	cy -= SCREENSIZE::HEIGHT / 2;
 	if (!PauseCam) {
 		if (cx > this->cameraBorder.left && cx < this->cameraBorder.right - SCREENSIZE::WIDTH)
 		{
@@ -605,7 +416,7 @@ void PlayScene::Update(DWORD dt)
 	}
 
 	if (switchScene) {
-		
+
 		hud->setState(currentPScene->state);
 
 		PauseCam = false;
@@ -620,10 +431,9 @@ void PlayScene::Update(DWORD dt)
 		this->SIMON->SetPosition(currentEntryPoints.x, currentEntryPoints.y);
 		this->SIMON->LastStepOnStairPos = { currentEntryPoints.x, currentEntryPoints.y };
 		if (this->currentPScene->isRight)
-		{
 			CGame::GetInstance()->SetCamPos(cameraBorder.right - SCREENSIZE::WIDTH, cameraBorder.top);
-		}
-		else	CGame::GetInstance()->SetCamPos(cameraBorder.left, cameraBorder.top);
+		else
+			CGame::GetInstance()->SetCamPos(cameraBorder.left, cameraBorder.top);
 	}
 
 	for (vector<Enemy*>::iterator it = enemies.begin(); it != enemies.end(); ) {
@@ -640,6 +450,8 @@ void PlayScene::Update(DWORD dt)
 			if (dynamic_cast<Weapon*>(*it))
 			{
 				subWeapon--;
+				if (subWeapon < 0)
+					subWeapon = 0;
 			}
 			it = objects.erase(it);
 			//delete* it;
@@ -647,6 +459,34 @@ void PlayScene::Update(DWORD dt)
 		else ++it;
 	}
 
+	if (SIMON->GetShotState() == ShotState::DOUBLESHOT) {
+		DoubleShot* doubleshot = new DoubleShot();
+		numShot = doubleshot->GetNumShot();
+	}
+	else if (SIMON->GetShotState() == ShotState::TRIPBLESHOT) {
+		TripleShot* tripleshot = new TripleShot();
+		numShot = tripleshot->GetNumShot();
+	}
+	else if (SIMON->GetShotState() == ShotState::NORMALSHOT)
+		numShot = 1;
+
+	if (SIMON->GetState() == SIMONSTATE::DIE) {
+		if (revival == 0)
+			revival = GetTickCount();
+	}
+	if (revival != 0 && GetTickCount() - revival > 3000) {
+		SIMON->SubP(1);
+		revival = 0;
+
+		if (SIMON->GetP() > 0) {
+			this->time = 300;
+			this->switchScene = true;
+			this->GetSimon()->SetHP(16);
+			SIMON->ResetWhip();
+			SIMON->SetState(SIMONSTATE::IDLE);
+		}
+
+	}
 
 }
 
@@ -670,33 +510,97 @@ void PlayScene::Render()
 
 void PlayScene::OnKeyDown(int KeyCode)
 {
+	Item* item;
 	switch (KeyCode)
 	{
 	case DIK_1:
 		this->switchScene = true;
 		this->currentPScene = this->pScenes.at(0);
+		SIMON->SetIsOnStair(false);
 		break;
 	case DIK_2:
 		this->switchScene = true;
 		this->currentPScene = this->pScenes.at(1);
+		SIMON->SetIsOnStair(false);
 		break;
 	case DIK_3:
 		this->switchScene = true;
 		this->currentPScene = this->pScenes.at(2);
+		SIMON->SetIsOnStair(true);
 		SIMON->SetState(SIMONSTATE::UP_STAIR_RIGHT);
-
 		break;
 	case DIK_4:
 		this->switchScene = true;
 		this->currentPScene = this->pScenes.at(3);
+		SIMON->SetIsOnStair(false);
 		break;
 	case DIK_5:
 		this->switchScene = true;
 		this->currentPScene = this->pScenes.at(4);
+		SIMON->SetIsOnStair(true);
+		SIMON->SetState(SIMONSTATE::UP_STAIR_LEFT);
 		break;
 	case DIK_6:
 		this->switchScene = true;
 		this->currentPScene = this->pScenes.at(5);
+		SIMON->SetIsOnStair(false);
+		break;
+	case DIK_Z:
+		if (SIMON->GetEnergy() == 99)
+			this->SIMON->SetEnery(0);
+		else
+			this->SIMON->SetEnery(99);
+		break;
+	case DIK_X:
+		if (SIMON->GetHp() == 16)
+			this->SIMON->SetHP(2);
+		else
+			this->SIMON->SetHP(16);
+		break;
+	case DIK_Q:
+		item = ItemFactory::SpawnItem<Item*>(EItem::WHIP);
+		item->SetPosition(SIMON->x + 20, SIMON->y - 80);
+		SpawnObject(item);
+		break;
+	case DIK_W:
+		item = ItemFactory::SpawnItem<Item*>(EItem::AXE);
+		item->SetPosition(SIMON->x + 20, SIMON->y - 80);
+		SpawnObject(item);
+		break;
+	case DIK_E:
+		item = ItemFactory::SpawnItem<Item*>(EItem::BOOMERANG);
+		item->SetPosition(SIMON->x + 20, SIMON->y - 80);
+		SpawnObject(item);
+		break;
+	case DIK_R:
+		item = ItemFactory::SpawnItem<Item*>(EItem::FIREBOMB);
+		item->SetPosition(SIMON->x + 20, SIMON->y - 80);
+		SpawnObject(item);
+		break;
+	case DIK_T:
+		item = ItemFactory::SpawnItem<Item*>(EItem::DAGGER);
+		item->SetPosition(SIMON->x + 20, SIMON->y - 80);
+		SpawnObject(item);
+		break;
+	case DIK_Y:
+		item = ItemFactory::SpawnItem<Item*>(EItem::STOPWATCH);
+		item->SetPosition(SIMON->x + 20, SIMON->y - 80);
+		SpawnObject(item);
+		break;
+	case DIK_U:
+		item = ItemFactory::SpawnItem<Item*>(EItem::DOUBLESHOT);
+		item->SetPosition(SIMON->x + 20, SIMON->y - 80);
+		SpawnObject(item);
+		break;
+	case DIK_I:
+		item = ItemFactory::SpawnItem<Item*>(EItem::HOLYCROSS);
+		item->SetPosition(SIMON->x + 20, SIMON->y - 80);
+		SpawnObject(item);
+		break;
+	case DIK_A:
+		this->switchScene = true;
+		this->GetSimon()->SetHP(16);
+		SIMON->SetState(SIMONSTATE::IDLE);
 		break;
 	}
 	CGame* game = CGame::GetInstance();
@@ -728,8 +632,13 @@ void PlayScene::OnKeyDown(int KeyCode)
 		if (SIMON->GetFightTime() == 0)
 		{
 			if (game->IsKeyDown(DIK_UP)) {
-				if (SIMON->GetCurrentWeapon() != EWeapon::NONE && subWeapon < 1) {
-
+				if (SIMON->GetCurrentWeapon() == EWeapon::STOPWATCH)
+					aniSubWeapon = true;
+				else
+					aniSubWeapon = false;
+				if (SIMON->GetCurrentWeapon() != EWeapon::NONE && subWeapon < numShot) {
+					if (SIMON->GetEnergy() == 0)
+						return;
 					subWeapon++;
 					SIMON->ResetSpawnWeapon();
 					SIMON->SpawnWeapon(true);
@@ -737,8 +646,12 @@ void PlayScene::OnKeyDown(int KeyCode)
 				else
 					SIMON->SpawnWeapon(false);
 			}
-			else
+			else {
 				SIMON->SpawnWeapon(false);
+				aniSubWeapon = false;
+			}
+
+
 			if (SIMON->CheckIsOnStair())
 			{
 				if (SIMON->CheckStepOnStairDirection() == STAIRDIRECTION::UPLEFT
@@ -762,11 +675,7 @@ void PlayScene::OnKeyDown(int KeyCode)
 			}
 		}
 		break;
-	case DIK_A:
-		SIMON->SetState(SIMONSTATE::IDLE);
-		SIMON->SetPosition(50.0f, 0.0f);
-		SIMON->SetSpeed(0, 0);
-		break;
+
 
 
 	}
@@ -832,10 +741,10 @@ void PlayScene::KeyState(BYTE* states)
 			}
 			else if (SIMON->GetState() == SIMONSTATE::UP_STAIR_IDLE) {
 
-				SIMON->SetStartStepOnStair();	
+				SIMON->SetStartStepOnStair();
 				SIMON->isUpStair = true;
 			}
-			
+
 			return;
 		}
 

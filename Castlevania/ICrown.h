@@ -12,6 +12,7 @@ class ICrown :public Item
 public:
 	ICrown() :Item() {
 		AddAnimation("ITEM_ANI_CROWN");
+		this->score = 2000;
 	}
 	virtual void Render();
 	virtual void Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObject = NULL);

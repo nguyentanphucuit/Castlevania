@@ -49,7 +49,7 @@ void Phantom::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 	if (dynamic_cast<PlayScene*>(scene))
 	{
 		PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
-		if (this->x - pScene->GetSimon()->x < ACTIVE_PHANTOM_Y) {
+		if (pScene->GetSimon()->x - this->x > 40) {
 			this->SetState(PHANTOMSTATE::FLY);
 		}
 		D3DXVECTOR2 cam = pScene->GetCamera();
@@ -157,7 +157,7 @@ void Phantom::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 
 void Phantom::Render()
 {
-	RenderBoundingBox();
+	//RenderBoundingBox();
 	int ani = 0;
 	switch (this->state)
 	{
@@ -194,6 +194,6 @@ Phantom::Phantom() :Enemy()
 {
 	AddAnimation("PHANTOM_ANI_IDLE");
 	AddAnimation("PHANTOM_ANI_FLY");
-	this->hp = 10;
+	this->hp = 16;
 	this->isMotionless = false;
 }

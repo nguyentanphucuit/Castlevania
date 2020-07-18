@@ -25,6 +25,9 @@ void WStopWatch::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 	
 		this->motionless = 0;
 		auto pScene = dynamic_cast<PlayScene*>(scene);
+		
+
+
 		pScene->Motionless(false);
 		isDestroy = true;
 	}

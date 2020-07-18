@@ -4,7 +4,7 @@
 void CPlatform::Render()
 {
 	animations[0]->Render(nx, x, y);
-	//RenderBoundingBox();
+	////RenderBoundingBox();
 }
 
 void CPlatform::GetBoundingBox(float& l, float& t, float& r, float& b)
@@ -54,6 +54,6 @@ void CPlatform::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 		}
 	}
 	for (UINT i = 0; i < coEvents.size(); i++) delete coEvents[i];
-	DebugOut(L"vx = %f\n", vx);
+	/*DebugOut(L"vx = %f\n", vx);*/
 
 }

@@ -12,8 +12,8 @@
 #define PHANTOM_ANI_IDLE 0
 #define PHANTOM_ANI_FLY 1
 
-#define FLY_FAST 0.2f
-#define FLY_SLOW 0.1f
+#define FLY_FAST 0.3f
+#define FLY_SLOW 0.15f
 
 #define WAIT_TIME 1500
 

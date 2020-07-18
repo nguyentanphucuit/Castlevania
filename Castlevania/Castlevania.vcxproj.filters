@@ -240,9 +240,6 @@
     <ClInclude Include="HCrown.h">
       <Filter>Source Files\Objects\Hide</Filter>
     </ClInclude>
-    <ClInclude Include="BrickWallScene3.h">
-      <Filter>Source Files\Objects</Filter>
-    </ClInclude>
     <ClInclude Include="IChicken.h">
       <Filter>Source Files\Item</Filter>
     </ClInclude>
@@ -263,6 +260,45 @@
     </ClInclude>
     <ClInclude Include="Dual.h">
       <Filter>Source Files\Objects\Hide</Filter>
+    </ClInclude>
+    <ClInclude Include="DoubleShot.h">
+      <Filter>Source Files\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="TripleShot.h">
+      <Filter>Source Files\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="HolyCross.h">
+      <Filter>Source Files\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="IMoneyRed.h">
+      <Filter>Source Files\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="IMoneyWhite.h">
+      <Filter>Source Files\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="IMoneyBlue.h">
+      <Filter>Source Files\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Abyss.h">
+      <Filter>Source Files\Objects\Hide</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MONEY100.h">
+      <Filter>Source Files\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="MONEY700.h">
+      <Filter>Source Files\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="MONEY400.h">
+      <Filter>Source Files\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="MONEY1000.h">
+      <Filter>Source Files\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="MONEY2000.h">
+      <Filter>Source Files\Effect</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -452,9 +488,6 @@
     <ClCompile Include="HCrown.cpp">
       <Filter>Source Files\Objects\Hide</Filter>
     </ClCompile>
-    <ClCompile Include="BrickWallScene3.cpp">
-      <Filter>Source Files\Objects</Filter>
-    </ClCompile>
     <ClCompile Include="IChicken.cpp">
       <Filter>Source Files\Item</Filter>
     </ClCompile>
@@ -475,6 +508,42 @@
     </ClCompile>
     <ClCompile Include="Dual.cpp">
       <Filter>Source Files\Objects\Hide</Filter>
+    </ClCompile>
+    <ClCompile Include="DoubleShot.cpp">
+      <Filter>Source Files\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="TripleShot.cpp">
+      <Filter>Source Files\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="HolyCross.cpp">
+      <Filter>Source Files\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="IMoneyWhite.cpp">
+      <Filter>Source Files\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="IMoneyRed.cpp">
+      <Filter>Source Files\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="IMoneyBlue.cpp">
+      <Filter>Source Files\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Abyss.cpp">
+      <Filter>Source Files\Objects\Hide</Filter>
+    </ClCompile>
+    <ClCompile Include="MONEY100.cpp">
+      <Filter>Source Files\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="MONEY700.cpp">
+      <Filter>Source Files\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="MONEY400.cpp">
+      <Filter>Source Files\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="MONEY1000.cpp">
+      <Filter>Source Files\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="MONEY2000.cpp">
+      <Filter>Source Files\Effect</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

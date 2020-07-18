@@ -23,6 +23,18 @@
 			<sprite ID="MONEYBAG_SPRITE_WHITE" />
 		</animation>
 		
+		<animation ID="MONEYBAG_ANI_RED" timeLoop="100">
+			<sprite ID="MONEYBAG_SPRITE_RED" />
+		</animation>
+		
+		<animation ID="MONEYBAG_ANI_WHITE" timeLoop="100">
+			<sprite ID="MONEYBAG_SPRITE_WHITE" />
+		</animation>
+		
+		<animation ID="MONEYBAG_ANI_BLUE" timeLoop="100">
+			<sprite ID="MONEYBAG_SPRITE_BLUE" />
+		</animation>
+		
 		<animation ID="BONE_ANI_WHITE" timeLoop="100">
 			<sprite ID="BONE_SPRITE_WHITE_01" />
 			<sprite ID="BONE_SPRITE_WHITE_02" />
@@ -79,6 +91,18 @@
 		
 		<animation ID="ITEM_ANI_STOPWATCH" timeLoop="100">
 			<sprite ID="ITEM_SPRITE_STOPWATCH" />
+		</animation>
+		
+		<animation ID="ITEM_ANI_DOUBLESHOT" timeLoop="100">
+			<sprite ID="ITEM_SPRITE_DOUBLESHOT" />
+		</animation>
+		
+		<animation ID="ITEM_ANI_TRIPLESHOT" timeLoop="100">
+			<sprite ID="ITEM_SPRITE_TRIPLESHOT" />
+		</animation>
+		
+		<animation ID="ITEM_ANI_HOLYCROSS" timeLoop="100">
+			<sprite ID="ITEM_SPRITE_HOLYCROSS" />
 		</animation>
 
 </gamedata>

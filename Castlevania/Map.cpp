@@ -2,6 +2,9 @@
 #include"debug.h"
 #include"Textures.h"
 #include"Sprites.h"
+#include"rapidxml/rapidxml_print.hpp"
+#include"rapidxml/rapidxml.hpp"
+#include"rapidxml/rapidxml_utils.hpp"
 void Map::BuildMap(const std::string path, int texID)
 {
 	char* fileLoc = new char[path.size() + 1]; // filepath lưu đường dẫn đến file XML đang đọc
@@ -27,7 +30,7 @@ void Map::BuildMap(const std::string path, int texID)
 
 	BuildTileSet(rootNode, texID);
 	BuildMapLayer(rootNode);
-	BuildObjectLayer(rootNode);
+	//BuildObjectLayer(rootNode);
 
 
 }
@@ -131,6 +134,34 @@ void Map::BuildTileSet(xml_node<>* node, int texID)
 
 void Map::BuildObjectLayer(xml_node<>* rootNode)
 {
+
+
+	rapidxml::xml_document<> doc;
+
+	xml_attribute<>* cellX = doc.allocate_attribute("cellcol", "256");
+	xml_node<>* decl = doc.allocate_node(node_declaration);
+	decl->append_attribute(doc.allocate_attribute("version", "1.0"));
+	decl->append_attribute(doc.allocate_attribute("encoding", "utf-8"));
+	doc.append_node(decl);
+
+	int numCol = (this->width*this->tileWidth) / 256;
+	int numRow = (this->height * this->tileHeight) / 256+1;
+
+	xml_node<>* root = doc.allocate_node(node_element, "grid");
+	root->append_attribute(doc.allocate_attribute("id", doc.allocate_string(std::to_string(this->mapID).c_str())));
+	root->append_attribute(doc.allocate_attribute("cellSize", "256"));
+
+	root->append_attribute(doc.allocate_attribute("numCol",doc.allocate_string(std::to_string(numCol).c_str())));
+	root->append_attribute(doc.allocate_attribute("numRow", doc.allocate_string(std::to_string(numRow).c_str())));
+	doc.append_node(root);
+
+
+
+
+
+
+	
+
 	// lập các node trong map lấy ra các node objectgroup
 	for (xml_node<>* child = rootNode->first_node("objectgroup"); child; child = child->next_sibling()) //cú pháp lập
 	{
@@ -140,41 +171,76 @@ void Map::BuildObjectLayer(xml_node<>* rootNode)
 			continue;// không phải tiếp tục vòng lặp
 		}
 
+		xml_node<>* objectGroupNode = doc.allocate_node(node_element, "objectgroup");
+		
+
+
+
+
 		ObjectLayer* objectlayer;// object layer tượng chưng cho 1 object group
 
 		const std::string name = std::string(child->first_attribute("name")->value());
 		const int id = std::atoi(child->first_attribute("id")->value());
+
+		objectGroupNode->append_attribute(doc.allocate_attribute("name", doc.allocate_string(name.c_str())));
+		objectGroupNode->append_attribute(doc.allocate_attribute("id", doc.allocate_string(std::to_string(id).c_str())));
+		root->append_node(objectGroupNode);
+
 		std::map<int, ObjectTile*> objectgroup;
 
 		// child  lúc này là 1 object group tại lần lập hiện tại
 			//lập toàn bộ objectgroup node lấy ra thông tin các object
 		for (xml_node<>* ggchild = child->first_node(); ggchild; ggchild = ggchild->next_sibling()) //cú pháp lập
 		{
+			xml_node<>* objectNode = doc.allocate_node(node_element, "object");
 			//	const std::string ggname = std::string(ggchild->first_attribute("name")->value());
 			const int ggid = std::atoi(ggchild->first_attribute("id")->value());
 			const float x = std::atof(ggchild->first_attribute("x")->value());
 			const float y = std::atof(ggchild->first_attribute("y")->value());
 			const float width = std::atof(ggchild->first_attribute("width")->value());
 			const float height = std::atof(ggchild->first_attribute("height")->value());
+
+			int cellX = x / 256;
+			int cellY = y / 256;
+
+
 			std::string lName = "NONAME";
 			xml_attribute<>* name = ggchild->first_attribute("name");
 			if (name != NULL)
 			{
 				lName = name->value();
 			}
+
+			objectNode->append_attribute(doc.allocate_attribute("id", doc.allocate_string(std::to_string(ggid).c_str())));
+			objectNode->append_attribute(doc.allocate_attribute("col", doc.allocate_string(std::to_string(cellX).c_str())));
+			objectNode->append_attribute(doc.allocate_attribute("row", doc.allocate_string(std::to_string(cellY).c_str())));
+			objectNode->append_attribute(doc.allocate_attribute("x", doc.allocate_string(std::to_string(x).c_str())));
+			objectNode->append_attribute(doc.allocate_attribute("y", doc.allocate_string(std::to_string(y).c_str())));
+			objectNode->append_attribute(doc.allocate_attribute("width", doc.allocate_string(std::to_string(width).c_str())));
+			objectNode->append_attribute(doc.allocate_attribute("height", doc.allocate_string(std::to_string(height).c_str())));
+			objectNode->append_attribute(doc.allocate_attribute("name", doc.allocate_string(lName.c_str())));
+			objectGroupNode->append_node(objectNode);
+
 			//ĐỌC PROPERTY CỦA OBJECT
 
 			xml_node<>* propNode = ggchild->first_node("properties");
 			ObjectTile* object = new ObjectTile(ggid, x, y, width, height, lName);
 			if (propNode != NULL)
 			{
+				xml_node<>* PropertiesNode = doc.allocate_node(node_element, "properties");
+				objectNode->append_node(PropertiesNode);
 				std::map<std::string, OProperty*> properties;
 				for (xml_node<>* pchild = propNode->first_node(); pchild; pchild = pchild->next_sibling()) //cú pháp lập
 				{
+					xml_node<>* propertyNode = doc.allocate_node(node_element, "property");
+					PropertiesNode->append_node(propertyNode);
 					OProperty* property = new OProperty();
 					property->name = std::string(pchild->first_attribute("name")->value());
 					property->value = std::string(pchild->first_attribute("value")->value());
 					properties.insert(std::make_pair(property->name, property));
+					propertyNode->append_attribute(doc.allocate_attribute("name", doc.allocate_string(property->name.c_str())));
+					propertyNode->append_attribute(doc.allocate_attribute("value", doc.allocate_string(property->value.c_str())));
+
 
 				}
 				object->SetProperties(properties);
@@ -196,6 +262,10 @@ void Map::BuildObjectLayer(xml_node<>* rootNode)
 
 
 	}
+
+	std::ofstream theFile("GameContent\\Grid\\grid.xml");
+	theFile << doc;
+	theFile.close();
 }
 
 void Map::Render(D3DXVECTOR2 cam,RECT rect)

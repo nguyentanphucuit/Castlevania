@@ -5,7 +5,6 @@
 #include "WeaponFactory.h"
 #include "EnemyFactory.h"
 
-
 void White::GetBoundingBox(float& left, float& top, float& right, float& bottom)
 {
 	left = x;
@@ -31,8 +30,10 @@ void White::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 	vy += WHITE_GRAVITY * dt;
 
 	auto enemy = EnemyFactory::SpawnEnemy<Enemy*>(CEnemy::BONE);
+	
 
-	if (numWeapon  < 3 && GetTickCount() - timeSpawn > TIME_WAIT) {
+
+	if (numWeapon  < this->randBone && GetTickCount() - timeSpawn > TIME_WAIT) {
 		timeSpawn = GetTickCount();
 		enemy->SetPosition(this->x, this->y + NEARLY_WEAPON);
 		enemy->SetNx(this->nx);
@@ -42,12 +43,13 @@ void White::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 		}
 		numWeapon++;
 	}
-	if (numWeapon == 3) {
+	if (numWeapon == this->randBone) {
 		if (loadTimeSpawn ==0)
 		{
 			loadTimeSpawn = GetTickCount();
 		}
-		
+		auto randBone = rand() % (3 - 0 + 1) + 0;
+		this->randBone = randBone;
 	}
 	if (loadTimeSpawn!=0 && GetTickCount()-loadTimeSpawn> TIME_WAIT_BONE){
 		loadTimeSpawn = 0;
@@ -77,9 +79,11 @@ void White::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 			}
 		}
 		
+
 		if (x > 120 && x < 200 || x > 630 && x < 710 || x > 1080 && x < 1220) {
 			if(isJumpRight)	this->SetState(WHITESTATE::JUPM);
 			else this->SetState(WHITESTATE::JUPMBACK);
+			isWalking = false;
 		}
 	}
 
@@ -108,15 +112,17 @@ void White::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 					isJumpRight = true;
 				}else if(x < gr && x + WHITE_BBOX_WIDTH*2 < gr)
 					isJumpRight = false;
-				
 
 				if (nx != 0) vx = 0;
 				if (ny != 0) vy = 0;
 				this->isJump = false;
 			}
 			else {
-				if (e->nx != 0)
+				if (e->nx != 0) {
+					DebugOut(L"xxxxx");
 					x += dx;
+				}
+					
 				else if (e->ny < 0) {
 					y += dy;
 				}
@@ -133,7 +139,7 @@ void White::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 void White::Render()
 {
 	animations[0]->Render(nx, x, y);
-	//RenderBoundingBox();
+	////RenderBoundingBox();
 }
 
 void White::SetState(WHITESTATE state)
@@ -159,5 +165,6 @@ White::White() :Enemy()
 {
 	AddAnimation("WHITE_ANI_JUMP");
 	this->isMotionless = false;
+	this->score = 300;
 }
 

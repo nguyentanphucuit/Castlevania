@@ -126,4 +126,5 @@ Bat::Bat() :Enemy()
 	AddAnimation("BAT_ANI_FLY");
 	this->hp = 1;
 	this->isMotionless = false;
+	this->score = 200;
 }

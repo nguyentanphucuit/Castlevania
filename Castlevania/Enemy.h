@@ -10,6 +10,7 @@ protected:
 	unsigned int score;
 	int hp = 0;
 	bool isMotionless;
+	bool isCross;
 public:
 	Spawner* spawnOwner=NULL;
 	bool IsDestroyed() { return isDestroy; }
@@ -23,7 +24,6 @@ public:
 	void SetMotionless(bool flag) {
 		this->isMotionless = flag;
 	}
-
 	void SubtractHP(unsigned int dame)
 	{
 

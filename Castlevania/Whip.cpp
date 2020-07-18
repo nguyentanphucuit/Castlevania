@@ -25,7 +25,7 @@ void Whip::Render()
 		break;
 	}
 	animations[ani]->Render(nx, x, y);
-	//RenderBoundingBox();// vẽ bbox
+	////RenderBoundingBox();// vẽ bbox
 }
 
 
@@ -88,21 +88,18 @@ void Whip::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT>* colliable_objects
 	case NORMAL:
 		if (animations[WHIP_ANI_NORMAL]->GetCurrentFrame() < 2)
 		{
-			this->damage = 1;
 			return;
 		}
 		break;
 	case CHAIN:
 		if (animations[WHIP_ANI_CHAIN]->GetCurrentFrame() < 2)
 		{
-			this-> damage = 2;
 			return;
 		}
 		break;
 	case MORINGSTAR:
 		if (animations[WHIP_ANI_MORNINGSTAR]->GetCurrentFrame() < 8)
 		{
-			this->damage = 2;
 			return;
 		}
 		break;
@@ -151,8 +148,11 @@ void Whip::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT>* colliable_objects
 					candle->GetPosition(tx, ty);
 					PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
 					item->SetPosition(tx, ty);
+					if (dynamic_cast<CHeart*>(item)) {
+						auto heart = dynamic_cast<CHeart*>(item);
+						heart->ox = tx;
+					}
 					effect->SetPosition(tx, ty);
-
 					pScene->SpawnObject(item);
 					pScene->SpawnObject(effect);
 				}
@@ -163,15 +163,12 @@ void Whip::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT>* colliable_objects
 			CBrickWall* brickWall = dynamic_cast<CBrickWall*>(colliable_objects->at(i));
 			if (this->isColliding(brickWall) && !brickWall->IsDestroyed()) // check CO
 			{
-
 				auto item = ItemFactory::SpawnItem<Item*>(brickWall->GetItem());
 				if (dynamic_cast<PlayScene*>(scene)) // check scene cur
 				{
 					float tx, ty;
 					brickWall->GetPosition(tx, ty);
-					PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
-					item->SetPosition(tx, ty);
-				
+					PlayScene* pScene = dynamic_cast<PlayScene*>(scene);								
 					for (size_t i = 0; i < 3; i++)
 					{
 						auto debris = EffectFactory::SpawnEffect<Effect*>(CEffect::DEBRIS);
@@ -182,41 +179,15 @@ void Whip::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT>* colliable_objects
 						debris->SetPosition(tx, ty);
 						pScene->SpawnObject(debris);
 					}
-					pScene->SpawnObject(item);
-				
+					if (item != ItemFactory::SpawnItem<Item*>(EItem::DEFAUT)) {
+						item->SetPosition(tx, ty);
+						pScene->SpawnObject(item);
+					}
+								
 				}
 				brickWall->SetDestroy();
 			}
-		}
-		else if (dynamic_cast<CBrickWallS3*>(colliable_objects->at(i))) {
-			CBrickWallS3* brickWallS3 = dynamic_cast<CBrickWallS3*>(colliable_objects->at(i));
-			if (this->isColliding(brickWallS3) && !brickWallS3->IsDestroyed()) // check CO
-			{
-
-				auto item = ItemFactory::SpawnItem<Item*>(brickWallS3->GetItem());
-				if (dynamic_cast<PlayScene*>(scene)) // check scene cur
-				{
-					float tx, ty;
-					brickWallS3->GetPosition(tx, ty);
-					PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
-					item->SetPosition(tx, ty);
-
-					for (size_t i = 0; i < 3; i++)
-					{
-						auto debris = EffectFactory::SpawnEffect<Effect*>(CEffect::DEBRIS);
-						float vx = (float)(-100 + rand() % 200) / 1000;
-						float vy = (float)(-100 + rand() % 200) / 1000;
-						debris->vx = vx;
-						debris->vy = vy;
-						debris->SetPosition(tx, ty);
-						pScene->SpawnObject(debris);
-					}
-					pScene->SpawnObject(item);
-
-				}
-				brickWallS3->SetDestroy();
-			}
-		}
+		}		
 		else if (dynamic_cast<Enemy*>(colliable_objects->at(i))) {
 			Enemy* enemy = dynamic_cast<Enemy*>(colliable_objects->at(i));
 			if (this->isColliding(enemy) && !enemy->IsDestroyed() ) {// check CO
@@ -226,10 +197,27 @@ void Whip::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT>* colliable_objects
 						auto effect = EffectFactory::SpawnEffect<Effect*>(CEffect::STAR);
 						if (dynamic_cast<PlayScene*>(scene)){
 							float tx, ty;
+							float l, t, r, b;
+							auto a = 0;
+							auto randAB = rand() % (3 - 0 + 1) + 0;
+							if(randAB == 1)
+								a = rand() % (15 - 0 + 1) + 0;
+							
+							DebugOut(L"a %d\n", a);
+							EItem randItem;
+							randItem = static_cast<EItem>(a);
+							auto item = ItemFactory::SpawnItem<Item*>(randItem);
+
+							enemy->GetBoundingBox(l, t, r, b);
 							enemy->GetPosition(tx, ty);
 							PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
-							effect->SetPosition(tx + 10, ty);		
-							pScene->SpawnObject(effect);
+							effect->SetPosition(tx + (r - l) / 2, ty);
+							pScene->SpawnObject(effect);							
+							pScene->GetSimon()->AddScore(enemy->GetScore());
+							if (item != ItemFactory::SpawnItem<Item*>(EItem::DEFAUT)) {
+								item->SetPosition(tx + (r - l) / 2, ty);
+								pScene->SpawnObject(item);
+							}
 						}
 						enemy->SetDestroy();
 					}
@@ -237,9 +225,11 @@ void Whip::Update(DWORD dt,Scene* scene, vector<LPGAMEOBJECT>* colliable_objects
 						auto effect = EffectFactory::SpawnEffect<Effect*>(CEffect::FLAME);
 						if (dynamic_cast<PlayScene*>(scene)) {
 							float tx, ty;
+							float l, t, r, b;
+							enemy->GetBoundingBox(l, t, r, b);
 							enemy->GetPosition(tx, ty);
 							PlayScene* pScene = dynamic_cast<PlayScene*>(scene);
-							effect->SetPosition(tx + 20, ty);
+							effect->SetPosition(tx + (r - l) / 2, ty);
 							pScene->SpawnObject(effect);
 						}
 					}

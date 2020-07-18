@@ -113,7 +113,7 @@ void BlackKnight::Render()
 {
 
 	animations[0]->Render(nx, x, y);
-	//RenderBoundingBox();
+	////RenderBoundingBox();
 }
 
 void BlackKnight::Area(int startPos, int endPos)
@@ -126,6 +126,6 @@ BlackKnight::BlackKnight() :Enemy()
 	AddAnimation("BLACKKNIGHT_ANI_WALK");
 	this->hp = 2;
 	this->isMotionless = false;
-	this->score = 200;
+	this->score = 400;
 }
 

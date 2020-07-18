@@ -11,7 +11,7 @@
 #define NEARLY_WEAPON	10
 #define TIME_WAIT_BONE	  3000
 
-#define DISTANCE_FAR_SIMON			128
+#define DISTANCE_FAR_SIMON			96
 #define DISTANCE_WALKING_FAR_SIMON	64
 
 
@@ -34,7 +34,8 @@ private:
 	DWORD loadTimeSpawn = 0;
 	WHITESTATE state;
 	bool isJump = true;
-	bool isCoVertical = true;
+	bool isWalking = true;
+	int randBone = 0;
 public:
 	virtual void GetBoundingBox(float& left, float& top, float& right, float& bottom);
 	virtual void Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects);

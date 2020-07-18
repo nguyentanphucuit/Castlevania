@@ -1,19 +1,18 @@
-#pragma once
+﻿#pragma once
 #include "GameObject.h"
 #include "ItemFactory.h"
 
-#define BRICKWALL_WIDTH  42
-#define BRICKWALL_HEIGHT 96
+#define BRICKWALL_WIDTH  33
+#define BRICKWALL_HEIGHT 28
 
-
+#define BRICKWALL2_ANI 0
 
 class CBrickWall : public CGameObject
 {
 	EItem item;
 public:
 	CBrickWall() {
-		AddAnimation("BRICKWALL_ANI");
-		this->item = EItem::HEART;
+		AddAnimation("BRICKWALL2_ANI");
 	}
 	void SetDestroy() { this->isDestroy = true; }
 

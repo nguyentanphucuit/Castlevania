@@ -1,0 +1,692 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grid id="0" cellSize="256" numCol="12" numRow="6">
+	<objectgroup name="Abyss" id="9">
+		<object id="122" col="0" row="1" x="0.000000" y="374.666992" width="1532.000000" height="1.333330" name="NONAME"/>
+		<object id="123" col="5" row="3" x="1534.670044" y="885.333008" width="388.000000" height="17.333300" name="NONAME"/>
+	</objectgroup>
+	<objectgroup name="BrickWall" id="20">
+		<object id="138" col="2" row="3" x="576.273010" y="794.000000" width="30.000000" height="28.000000" name="NONAME">
+			<properties>
+				<property name="item" value="11"/>
+			</properties>
+		</object>
+		<object id="141" col="9" row="4" x="2491.820068" y="1143.270020" width="33.000000" height="28.000000" name="NONAME">
+			<properties>
+				<property name="item" value="0"/>
+			</properties>
+		</object>
+		<object id="142" col="9" row="4" x="2492.000000" y="1175.089966" width="33.000000" height="28.000000" name="NONAME">
+			<properties>
+				<property name="item" value="0"/>
+			</properties>
+		</object>
+		<object id="144" col="11" row="1" x="2910.000000" y="381.750000" width="32.000000" height="28.000000" name="NONAME">
+			<properties>
+				<property name="item" value="13"/>
+			</properties>
+		</object>
+	</objectgroup>
+	<objectgroup name="Camera" id="2">
+		<object id="1" col="1" row="3" x="503.833008" y="1018.169983" width="1540.000000" height="318.666992" name="M1_C1"/>
+		<object id="2" col="7" row="3" x="2046.189941" y="955.031006" width="527.333008" height="381.333008" name="M2_C1"/>
+		<object id="5" col="0" row="2" x="1.833330" y="533.333008" width="1535.000000" height="355.500000" name="M3_C1"/>
+		<object id="6" col="0" row="0" x="0.666667" y="-17.333300" width="1533.500000" height="368.500000" name="M3_C2"/>
+		<object id="7" col="5" row="0" x="1533.959961" y="97.833298" width="1558.880005" height="344.666992" name="M4_C1"/>
+		<object id="18" col="6" row="1" x="1537.000000" y="507.500000" width="1039.329956" height="381.000000" name="M2_C2"/>
+	</objectgroup>
+	<objectgroup name="HMoney" id="11">
+		<object id="48" col="7" row="5" x="1925.329956" y="1293.670044" width="35.000000" height="14.000000" name="NONAME"/>
+	</objectgroup>
+	<objectgroup name="IMoney" id="12">
+		<object id="31" col="6" row="5" x="1751.000000" y="1338.329956" width="30.000000" height="30.000000" name="NONAME"/>
+	</objectgroup>
+	<objectgroup name="Entrance" id="13">
+		<object id="47" col="7" row="5" x="1887.500000" y="1295.670044" width="22.500000" height="12.500000" name="NONAME"/>
+	</objectgroup>
+	<objectgroup name="Torch" id="8">
+		<object id="24" col="2" row="5" x="686.666016" y="1309.329956" width="32.000000" height="64.000000" name="NONAME">
+			<properties>
+				<property name="item" value="1"/>
+			</properties>
+		</object>
+		<object id="25" col="6" row="5" x="1702.670044" y="1310.660034" width="32.000000" height="64.000000" name="NONAME">
+			<properties>
+				<property name="item" value="3"/>
+			</properties>
+		</object>
+		<object id="26" col="4" row="5" x="1206.000000" y="1308.670044" width="32.000000" height="64.000000" name="NONAME">
+			<properties>
+				<property name="item" value="2"/>
+			</properties>
+		</object>
+		<object id="27" col="3" row="5" x="952.333008" y="1308.660034" width="32.000000" height="64.000000" name="NONAME">
+			<properties>
+				<property name="item" value="2"/>
+			</properties>
+		</object>
+		<object id="28" col="5" row="5" x="1472.000000" y="1310.670044" width="32.000000" height="64.000000" name="NONAME">
+			<properties>
+				<property name="item" value="1"/>
+			</properties>
+		</object>
+	</objectgroup>
+	<objectgroup name="Stair" id="9">
+		<object id="27" col="9" row="4" x="2384.169922" y="1085.829956" width="32.000000" height="32.000000" name="StairTop">
+			<properties>
+				<property name="dir" value="3"/>
+			</properties>
+		</object>
+		<object id="28" col="8" row="5" x="2253.000000" y="1299.170044" width="31.121201" height="7.166700" name="StairBottom">
+			<properties>
+				<property name="dir" value="0"/>
+			</properties>
+		</object>
+		<object id="29" col="8" row="4" x="2188.669922" y="1097.670044" width="32.666698" height="18.000000" name="StairBottom">
+			<properties>
+				<property name="dir" value="0"/>
+			</properties>
+		</object>
+		<object id="153" col="0" row="0" x="244.335007" y="70.498001" width="32.000000" height="32.000000" name="StairTop">
+			<properties>
+				<property name="dir" value="3"/>
+			</properties>
+		</object>
+		<object id="154" col="1" row="2" x="305.997986" y="693.750977" width="31.121201" height="7.166700" name="StairBottom">
+			<properties>
+				<property name="dir" value="1"/>
+			</properties>
+		</object>
+		<object id="194" col="2" row="1" x="752.356018" y="283.916992" width="31.121201" height="7.166700" name="StairBottom">
+			<properties>
+				<property name="dir" value="0"/>
+			</properties>
+		</object>
+		<object id="195" col="4" row="1" x="1264.109985" y="271.083008" width="31.121201" height="19.166700" name="StairBottom">
+			<properties>
+				<property name="dir" value="1"/>
+			</properties>
+		</object>
+		<object id="196" col="4" row="0" x="1132.670044" y="71.333000" width="32.000000" height="32.000000" name="StairTop">
+			<properties>
+				<property name="dir" value="2"/>
+			</properties>
+		</object>
+		<object id="197" col="3" row="0" x="819.000000" y="150.667007" width="32.000000" height="12.000000" name="StairTop">
+			<properties>
+				<property name="dir" value="3"/>
+			</properties>
+		</object>
+		<object id="198" col="7" row="1" x="1804.660034" y="277.291992" width="31.121201" height="9.833370" name="StairBottom">
+			<properties>
+				<property name="dir" value="1"/>
+			</properties>
+		</object>
+		<object id="199" col="6" row="0" x="1735.719971" y="132.707993" width="32.000000" height="32.000000" name="StairTop">
+			<properties>
+				<property name="dir" value="2"/>
+			</properties>
+		</object>
+		<object id="200" col="8" row="1" x="2251.580078" y="403.708008" width="31.121201" height="9.833370" name="StairBottom">
+			<properties>
+				<property name="dir" value="1"/>
+			</properties>
+		</object>
+		<object id="201" col="8" row="0" x="2121.639893" y="196.457993" width="32.000000" height="32.000000" name="StairTop">
+			<properties>
+				<property name="dir" value="2"/>
+			</properties>
+		</object>
+		<object id="23" col="9" row="2" x="2451.000000" y="641.333008" width="32.000000" height="32.000000" name="StairTop">
+			<properties>
+				<property name="dir" value="3"/>
+			</properties>
+		</object>
+		<object id="94" col="11" row="1" x="2896.620117" y="339.992004" width="31.121201" height="9.833370" name="StairBottom">
+			<properties>
+				<property name="dir" value="0"/>
+			</properties>
+		</object>
+		<object id="95" col="11" row="0" x="2964.000000" y="199.000000" width="32.000000" height="32.000000" name="StairTop">
+			<properties>
+				<property name="dir" value="3"/>
+			</properties>
+		</object>
+		<object id="110" col="0" row="1" x="110.333000" y="278.333008" width="32.000000" height="11.083300" name="NONAME">
+			<properties>
+				<property name="dir" value="4"/>
+			</properties>
+		</object>
+	</objectgroup>
+	<objectgroup name="StairDual" id="6">
+		<object id="106" col="11" row="1" x="2851.500000" y="279.665985" width="26.333300" height="134.667007" name="NONAME"/>
+	</objectgroup>
+	<objectgroup name="Player" id="4">
+		<object id="75" col="2" row="4" x="558.663025" y="1237.670044" width="60.000000" height="64.000000" name="M1_E1"/>
+		<object id="76" col="8" row="4" x="2110.330078" y="1273.329956" width="60.000000" height="64.000000" name="M2_E1"/>
+		<object id="77" col="5" row="3" x="1394.329956" y="821.302979" width="60.000000" height="64.000000" name="M3_E1"/>
+		<object id="78" col="6" row="0" x="1568.670044" y="206.000000" width="60.000000" height="64.000000" name="M4_E1"/>
+		<object id="81" col="9" row="3" x="2308.530029" y="859.015015" width="60.000000" height="64.000000" name="M2_E2"/>
+		<object id="82" col="8" row="3" x="2270.669922" y="1017.330017" width="60.000000" height="64.000000" name="M2_E3"/>
+		<object id="83" col="0" row="2" x="176.667007" y="587.000000" width="60.000000" height="64.000000" name="M3_E3"/>
+		<object id="85" col="0" row="1" x="139.917007" y="336.000000" width="60.000000" height="64.000000" name="M3_E2"/>
+		<object id="97" col="9" row="2" x="2386.330078" y="628.666992" width="60.000000" height="64.000000" name="M2_E22"/>
+		<object id="101" col="1" row="0" x="265.000000" y="151.667007" width="60.000000" height="64.000000" name="M3_E22"/>
+	</objectgroup>
+	<objectgroup name="Boss" id="5">
+		<object id="98" col="10" row="0" x="2774.000000" y="142.000000" width="32.000000" height="64.000000" name="Phantom"/>
+	</objectgroup>
+	<objectgroup name="Ground" id="6">
+		<object id="17" col="1" row="5" x="505.833008" y="1310.420044" width="1535.000000" height="32.250000" name="NONAME"/>
+		<object id="18" col="7" row="5" x="2045.000000" y="1307.000000" width="512.000000" height="30.000000" name="NONAME"/>
+		<object id="23" col="5" row="3" x="1345.329956" y="830.666992" width="190.667007" height="54.000000" name="NONAME"/>
+		<object id="24" col="0" row="3" x="252.500000" y="863.750000" width="1091.000000" height="19.583300" name="NONAME"/>
+		<object id="32" col="9" row="4" x="2382.000000" y="1179.670044" width="144.000000" height="27.333300" name="NONAME"/>
+		<object id="33" col="8" row="4" x="2109.330078" y="1115.000000" width="252.000000" height="28.666700" name="NONAME"/>
+		<object id="37" col="0" row="1" x="63.416698" y="291.584015" width="68.333298" height="22.166599" name="NONAME"/>
+		<object id="38" col="1" row="1" x="321.666992" y="291.000000" width="318.000000" height="24.000000" name="NONAME"/>
+		<object id="76" col="9" row="4" x="2526.659912" y="1081.339966" width="31.000000" height="126.000000" name="NONAME"/>
+		<object id="91" col="3" row="2" x="832.000000" y="764.000000" width="62.666698" height="30.666700" name="NONAME"/>
+		<object id="92" col="2" row="2" x="608.666016" y="766.666016" width="28.666700" height="26.666700" name="NONAME"/>
+		<object id="119" col="0" row="2" x="63.878799" y="766.666016" width="64.666702" height="65.333298" name="NONAME"/>
+		<object id="120" col="0" row="3" x="129.000000" y="830.916016" width="125.167000" height="29.083300" name="NONAME"/>
+		<object id="132" col="0" row="2" x="193.332993" y="701.877991" width="190.667007" height="25.515100" name="NONAME"/>
+		<object id="133" col="0" row="1" x="162.000000" y="291.000000" width="28.666700" height="21.500000" name="NONAME"/>
+		<object id="134" col="0" row="0" x="255.334000" y="162.667007" width="64.000000" height="60.000000" name="NONAME"/>
+		<object id="135" col="1" row="0" x="450.000000" y="162.832993" width="60.666698" height="23.500000" name="NONAME"/>
+		<object id="136" col="2" row="1" x="705.697998" y="291.877991" width="62.181801" height="27.090900" name="NONAME"/>
+		<object id="137" col="3" row="0" x="832.666992" y="224.000000" width="64.000000" height="32.666698" name="NONAME"/>
+		<object id="138" col="3" row="1" x="898.000000" y="288.666992" width="61.333302" height="28.666700" name="NONAME"/>
+		<object id="139" col="3" row="0" x="960.666992" y="194.000000" width="62.666698" height="28.666700" name="NONAME"/>
+		<object id="140" col="4" row="0" x="1089.339966" y="163.000000" width="62.000000" height="29.666700" name="NONAME"/>
+		<object id="141" col="4" row="1" x="1217.050049" y="292.540985" width="124.667000" height="26.333401" name="NONAME"/>
+		<object id="142" col="3" row="1" x="962.000000" y="324.000000" width="124.667000" height="24.666700" name="NONAME"/>
+		<object id="143" col="5" row="1" x="1342.670044" y="258.000000" width="65.333298" height="28.666700" name="NONAME"/>
+		<object id="144" col="5" row="0" x="1408.670044" y="194.000000" width="62.666698" height="28.666700" name="NONAME"/>
+		<object id="145" col="8" row="4" x="2076.000000" y="1085.670044" width="29.333300" height="118.000000" name="NONAME"/>
+		<object id="146" col="7" row="3" x="2047.329956" y="959.000000" width="26.666700" height="248.000000" name="NONAME"/>
+		<object id="147" col="6" row="1" x="1790.000000" y="288.666992" width="349.333008" height="27.333300" name="NONAME"/>
+		<object id="148" col="6" row="0" x="1538.359985" y="224.423996" width="218.302994" height="28.242399" name="NONAME"/>
+		<object id="149" col="11" row="1" x="2879.340088" y="354.000000" width="31.818199" height="28.666700" name="NONAME"/>
+		<object id="150" col="11" row="1" x="2975.669922" y="292.515015" width="96.000000" height="16.734900" name="NONAME"/>
+		<object id="156" col="5" row="0" x="1474.670044" y="228.000000" width="57.333302" height="120.000000" name="NONAME"/>
+		<object id="179" col="0" row="2" x="1.333330" y="536.333008" width="61.000000" height="352.000000" name="NONAME"/>
+		<object id="181" col="8" row="4" x="2065.000000" y="1208.500000" width="5.500000" height="98.000000" name="NONAME"/>
+		<object id="182" col="9" row="4" x="2495.669922" y="1208.670044" width="65.500000" height="100.000000" name="NONAME"/>
+		<object id="183" col="9" row="3" x="2494.830078" y="959.833008" width="61.000000" height="120.500000" name="NONAME"/>
+		<object id="185" col="5" row="2" x="1501.329956" y="730.333008" width="15.500000" height="97.500000" name="NONAME"/>
+		<object id="187" col="0" row="0" x="2.166670" y="1.000000" width="60.500000" height="342.000000" name="NONAME"/>
+		<object id="188" col="5" row="0" x="1473.670044" y="2.000000" width="59.500000" height="122.500000" name="NONAME"/>
+		<object id="189" col="11" row="1" x="3053.000000" y="318.000000" width="16.000000" height="96.000000" name="NONAME"/>
+		<object id="190" col="5" row="0" x="1535.500000" y="67.000000" width="4.500000" height="159.544998" name="NONAME"/>
+		<object id="191" col="5" row="0" x="1533.500000" y="254.000000" width="5.000000" height="170.500000" name="NONAME"/>
+		<object id="192" col="5" row="1" x="1530.420044" y="416.875000" width="1541.709961" height="27.000000" name="NONAME"/>
+		<object id="193" col="1" row="4" x="492.833008" y="1182.670044" width="12.000000" height="154.500000" name="NONAME"/>
+		<object id="3" col="9" row="2" x="2446.760010" y="734.791992" width="47.916599" height="26.041599" name="NONAME"/>
+		<object id="4" col="8" row="2" x="2240.010010" y="668.833984" width="188.000000" height="28.000000" name="NONAME"/>
+		<object id="5" col="7" row="2" x="1920.510010" y="669.916992" width="188.000000" height="25.000000" name="NONAME"/>
+		<object id="6" col="8" row="2" x="2111.669922" y="734.833984" width="60.000000" height="22.666700" name="NONAME"/>
+		<object id="7" col="6" row="2" x="1726.839966" y="670.666992" width="124.500000" height="22.250000" name="NONAME"/>
+		<object id="8" col="6" row="2" x="1664.339966" y="734.416992" width="61.000000" height="23.750000" name="NONAME"/>
+		<object id="9" col="6" row="2" x="1539.339966" y="673.166992" width="56.000000" height="19.636400" name="NONAME"/>
+		<object id="10" col="9" row="1" x="2498.659912" y="511.501007" width="62.666698" height="377.333008" name="NONAME"/>
+		<object id="11" col="8" row="3" x="2176.010010" y="796.833984" width="62.000000" height="28.000000" name="NONAME"/>
+		<object id="12" col="8" row="2" x="2239.340088" y="700.166992" width="60.500000" height="124.500000" name="NONAME"/>
+		<object id="116" col="11" row="0" x="3053.000000" y="191.000000" width="16.000000" height="96.000000" name="NONAME"/>
+		<object id="124" col="7" row="4" x="2028.000000" y="1060.170044" width="15.666700" height="248.000000" name="NONAME"/>
+	</objectgroup>
+	<objectgroup name="HCrown" id="2">
+		<object id="88" col="9" row="4" x="2516.409912" y="1146.839966" width="4.750000" height="26.666700" name="NONAME"/>
+	</objectgroup>
+	<objectgroup name="ICrown" id="3">
+		<object id="89" col="9" row="5" x="2334.330078" y="1338.670044" width="30.000000" height="32.000000" name="NONAME"/>
+	</objectgroup>
+	<objectgroup name="Platform" id="18">
+		<object id="30" col="6" row="2" x="1596.670044" y="694.000000" width="64.000000" height="16.000000" name="NONAME"/>
+	</objectgroup>
+	<objectgroup name="Enemy" id="15">
+		<object id="59" col="8" row="4" x="2155.000000" y="1050.000000" width="32.000000" height="64.000000" name="BlackKnight">
+			<properties>
+				<property name="edef" value="1"/>
+				<property name="endPos" value="2300"/>
+				<property name="num" value="1"/>
+				<property name="startPos" value="2111"/>
+				<property name="time" value="1000"/>
+			</properties>
+		</object>
+		<object id="60" col="8" row="3" x="2117.330078" y="982.000000" width="32.000000" height="32.000000" name="Bat">
+			<properties>
+				<property name="edef" value="0"/>
+				<property name="endPos" value="150"/>
+				<property name="num" value="1"/>
+				<property name="startPos" value="100"/>
+				<property name="time" value="1000"/>
+			</properties>
+		</object>
+		<object id="93" col="4" row="2" x="1274.670044" y="754.333008" width="32.000000" height="32.000000" name="Ghost">
+			<properties>
+				<property name="edef" value="2"/>
+				<property name="endPos" value="1200"/>
+				<property name="num" value="1"/>
+				<property name="nx" value="-1"/>
+				<property name="startPos" value="840"/>
+				<property name="time" value="1000"/>
+			</properties>
+		</object>
+		<object id="96" col="3" row="2" x="850.833008" y="730.583008" width="32.000000" height="32.000000" name="Hunchback">
+			<properties>
+				<property name="edef" value="3"/>
+				<property name="endPos" value="100"/>
+				<property name="num" value="1"/>
+				<property name="startPos" value="100"/>
+				<property name="time" value="1000"/>
+			</properties>
+		</object>
+		<object id="97" col="2" row="2" x="605.000000" y="732.666016" width="32.000000" height="32.000000" name="Hunchback">
+			<properties>
+				<property name="edef" value="3"/>
+				<property name="endPos" value="100"/>
+				<property name="num" value="1"/>
+				<property name="startPos" value="100"/>
+				<property name="time" value="1000"/>
+			</properties>
+		</object>
+		<object id="98" col="0" row="2" x="68.000000" y="698.169983" width="32.000000" height="64.000000" name="Skeleton">
+			<properties>
+				<property name="edef" value="4"/>
+				<property name="endPos" value="374"/>
+				<property name="num" value="1"/>
+				<property name="startPos" value="85"/>
+				<property name="time" value="1000"/>
+			</properties>
+		</object>
+		<object id="101" col="1" row="2" x="351.333008" y="668.666016" width="32.000000" height="32.000000" name="Hunchback">
+			<properties>
+				<property name="edef" value="3"/>
+				<property name="endPos" value="100"/>
+				<property name="num" value="1"/>
+				<property name="startPos" value="100"/>
+				<property name="time" value="100"/>
+			</properties>
+		</object>
+		<object id="102" col="4" row="0" x="1231.670044" y="67.000000" width="32.000000" height="32.000000" name="Raven">
+			<properties>
+				<property name="edef" value="5"/>
+				<property name="endPos" value="1200"/>
+				<property name="num" value="1"/>
+				<property name="startPos" value="840"/>
+				<property name="time" value="1000"/>
+			</properties>
+		</object>
+		<object id="104" col="2" row="0" x="541.000000" y="33.333302" width="32.000000" height="32.000000" name="Raven">
+			<properties>
+				<property name="edef" value="5"/>
+				<property name="endPos" value="200"/>
+				<property name="num" value="1"/>
+				<property name="startPos" value="200"/>
+				<property name="time" value="1000"/>
+			</properties>
+		</object>
+		<object id="105" col="3" row="0" x="958.666992" y="62.000000" width="32.000000" height="32.000000" name="Raven">
+			<properties>
+				<property name="edef" value="5"/>
+				<property name="endPos" value="150"/>
+				<property name="num" value="1"/>
+				<property name="startPos" value="100"/>
+				<property name="time" value="1000"/>
+			</properties>
+		</object>
+		<object id="106" col="4" row="1" x="1028.670044" y="286.000000" width="32.000000" height="32.000000" name="Raven">
+			<properties>
+				<property name="edef" value="5"/>
+				<property name="endPos" value="150"/>
+				<property name="num" value="1"/>
+				<property name="startPos" value="100"/>
+				<property name="time" value="1000"/>
+			</properties>
+		</object>
+		<object id="107" col="4" row="0" x="1224.670044" y="227.500000" width="32.000000" height="64.000000" name="Skeleton">
+			<properties>
+				<property name="edef" value="4"/>
+				<property name="endPos" value="2340"/>
+				<property name="num" value="1"/>
+				<property name="startPos" value="2240"/>
+				<property name="time" value="1000"/>
+			</properties>
+		</object>
+		<object id="108" col="0" row="0" x="160.667007" y="54.000000" width="32.000000" height="32.000000" name="Ghost">
+			<properties>
+				<property name="edef" value="2"/>
+				<property name="endPos" value="1200"/>
+				<property name="num" value="1"/>
+				<property name="nx" value="1"/>
+				<property name="startPos" value="840"/>
+				<property name="time" value="1000"/>
+			</properties>
+		</object>
+		<object id="117" col="8" row="0" x="2107.330078" y="224.000000" width="32.000000" height="64.000000" name="Zombie">
+			<properties>
+				<property name="edef" value="6"/>
+				<property name="endPos" value="2340"/>
+				<property name="num" value="3"/>
+				<property name="nx" value="-1"/>
+				<property name="startPos" value="2240"/>
+				<property name="time" value="1000"/>
+			</properties>
+		</object>
+		<object id="118" col="7" row="1" x="1983.339966" y="350.333008" width="32.000000" height="64.000000" name="Zombie">
+			<properties>
+				<property name="edef" value="6"/>
+				<property name="endPos" value="2340"/>
+				<property name="num" value="3"/>
+				<property name="nx" value="-1"/>
+				<property name="startPos" value="2240"/>
+				<property name="time" value="1000"/>
+			</properties>
+		</object>
+		<object id="202" col="8" row="2" x="2124.000000" y="576.666992" width="32.000000" height="32.000000" name="Bat">
+			<properties>
+				<property name="edef" value="0"/>
+				<property name="endPos" value="150"/>
+				<property name="num" value="1"/>
+				<property name="startPos" value="100"/>
+				<property name="time" value="1000"/>
+			</properties>
+		</object>
+		<object id="232" col="3" row="0" x="830.666992" y="130.000000" width="32.000000" height="32.000000" name="Raven">
+			<properties>
+				<property name="edef" value="5"/>
+				<property name="endPos" value="150"/>
+				<property name="num" value="1"/>
+				<property name="startPos" value="100"/>
+				<property name="time" value="1000"/>
+			</properties>
+		</object>
+		<object id="233" col="2" row="0" x="712.166992" y="227.000000" width="32.000000" height="64.000000" name="Skeleton">
+			<properties>
+				<property name="edef" value="4"/>
+				<property name="endPos" value="2340"/>
+				<property name="num" value="1"/>
+				<property name="startPos" value="2240"/>
+				<property name="time" value="1000"/>
+			</properties>
+		</object>
+		<object id="21" col="8" row="2" x="2177.510010" y="699.666016" width="32.000000" height="25.333300" name="BlackKnight">
+			<properties>
+				<property name="edef" value="1"/>
+				<property name="endPos" value="2200"/>
+				<property name="num" value="1"/>
+				<property name="startPos" value="2174"/>
+				<property name="time" value="1000"/>
+			</properties>
+		</object>
+		<object id="22" col="7" row="2" x="1981.660034" y="595.833008" width="32.000000" height="34.666698" name="BlackKnight">
+			<properties>
+				<property name="edef" value="1"/>
+				<property name="endPos" value="2075"/>
+				<property name="num" value="1"/>
+				<property name="startPos" value="1920"/>
+				<property name="time" value="1000"/>
+			</properties>
+		</object>
+		<object id="146" col="9" row="1" x="2413.000000" y="345.000000" width="32.000000" height="64.000000" name="Zombie">
+			<properties>
+				<property name="edef" value="6"/>
+				<property name="endPos" value="2340"/>
+				<property name="num" value="3"/>
+				<property name="nx" value="1"/>
+				<property name="startPos" value="2240"/>
+				<property name="time" value="1000"/>
+			</properties>
+		</object>
+	</objectgroup>
+	<objectgroup name="Candle" id="16">
+		<object id="32" col="9" row="4" x="2450.669922" y="1218.000000" width="16.000000" height="32.000000" name="NONAME">
+			<properties>
+				<property name="item" value="1"/>
+			</properties>
+		</object>
+		<object id="33" col="9" row="4" x="2330.669922" y="1026.670044" width="16.000000" height="32.000000" name="NONAME">
+			<properties>
+				<property name="item" value="1"/>
+			</properties>
+		</object>
+		<object id="34" col="9" row="2" x="2454.000000" y="568.666992" width="16.000000" height="32.000000" name="NONAME">
+			<properties>
+				<property name="item" value="1"/>
+			</properties>
+		</object>
+		<object id="35" col="8" row="2" x="2198.669922" y="570.666992" width="16.000000" height="32.000000" name="NONAME">
+			<properties>
+				<property name="item" value="1"/>
+			</properties>
+		</object>
+		<object id="36" col="9" row="2" x="2326.000000" y="571.333008" width="16.000000" height="32.000000" name="NONAME">
+			<properties>
+				<property name="item" value="1"/>
+			</properties>
+		</object>
+		<object id="37" col="8" row="2" x="2062.669922" y="569.333008" width="16.000000" height="32.000000" name="NONAME">
+			<properties>
+				<property name="item" value="1"/>
+			</properties>
+		</object>
+		<object id="38" col="7" row="2" x="1940.670044" y="568.666992" width="16.000000" height="32.000000" name="NONAME">
+			<properties>
+				<property name="item" value="1"/>
+			</properties>
+		</object>
+		<object id="39" col="6" row="2" x="1778.000000" y="568.000000" width="16.000000" height="32.000000" name="NONAME">
+			<properties>
+				<property name="item" value="1"/>
+			</properties>
+		</object>
+		<object id="40" col="6" row="2" x="1622.000000" y="568.000000" width="16.000000" height="32.000000" name="NONAME">
+			<properties>
+				<property name="item" value="1"/>
+			</properties>
+		</object>
+		<object id="41" col="5" row="3" x="1335.329956" y="831.333008" width="16.000000" height="32.000000" name="NONAME">
+			<properties>
+				<property name="item" value="4"/>
+			</properties>
+		</object>
+		<object id="42" col="4" row="3" x="1206.000000" y="831.333008" width="16.000000" height="32.000000" name="NONAME">
+			<properties>
+				<property name="item" value="4"/>
+			</properties>
+		</object>
+		<object id="43" col="4" row="3" x="1077.329956" y="834.666992" width="16.000000" height="32.000000" name="NONAME">
+			<properties>
+				<property name="item" value="7"/>
+			</properties>
+		</object>
+		<object id="44" col="3" row="3" x="948.000000" y="832.666992" width="16.000000" height="32.000000" name="NONAME">
+			<properties>
+				<property name="item" value="4"/>
+			</properties>
+		</object>
+		<object id="45" col="3" row="3" x="819.333008" y="832.666992" width="16.000000" height="32.000000" name="NONAME">
+			<properties>
+				<property name="item" value="4"/>
+			</properties>
+		</object>
+		<object id="46" col="2" row="3" x="692.000000" y="832.666992" width="16.000000" height="32.000000" name="NONAME">
+			<properties>
+				<property name="item" value="4"/>
+			</properties>
+		</object>
+		<object id="47" col="2" row="3" x="565.333008" y="833.333008" width="16.000000" height="32.000000" name="NONAME">
+			<properties>
+				<property name="item" value="4"/>
+			</properties>
+		</object>
+		<object id="48" col="1" row="3" x="437.333008" y="830.000000" width="16.000000" height="32.000000" name="NONAME">
+			<properties>
+				<property name="item" value="4"/>
+			</properties>
+		</object>
+		<object id="49" col="1" row="2" x="312.000000" y="653.333008" width="16.000000" height="32.000000" name="NONAME">
+			<properties>
+				<property name="item" value="1"/>
+			</properties>
+		</object>
+		<object id="50" col="0" row="3" x="183.332993" y="794.666992" width="16.000000" height="32.000000" name="NONAME">
+			<properties>
+				<property name="item" value="4"/>
+			</properties>
+		</object>
+		<object id="51" col="1" row="0" x="312.666992" y="96.000000" width="16.000000" height="32.000000" name="NONAME">
+			<properties>
+				<property name="item" value="1"/>
+			</properties>
+		</object>
+		<object id="53" col="1" row="1" x="443.333008" y="266.666992" width="16.000000" height="32.000000" name="NONAME">
+			<properties>
+				<property name="item" value="4"/>
+			</properties>
+		</object>
+		<object id="54" col="2" row="1" x="572.000000" y="262.666992" width="16.000000" height="32.000000" name="NONAME">
+			<properties>
+				<property name="item" value="4"/>
+			</properties>
+		</object>
+		<object id="55" col="2" row="1" x="703.333008" y="260.666992" width="16.000000" height="32.000000" name="NONAME">
+			<properties>
+				<property name="item" value="4"/>
+			</properties>
+		</object>
+		<object id="56" col="3" row="0" x="836.666992" y="196.000000" width="16.000000" height="32.000000" name="NONAME">
+			<properties>
+				<property name="item" value="16"/>
+			</properties>
+		</object>
+		<object id="59" col="3" row="1" x="946.666992" y="286.666992" width="16.000000" height="32.000000" name="NONAME">
+			<properties>
+				<property name="item" value="4"/>
+			</properties>
+		</object>
+		<object id="60" col="4" row="1" x="1077.329956" y="284.000000" width="16.000000" height="32.000000" name="NONAME">
+			<properties>
+				<property name="item" value="4"/>
+			</properties>
+		</object>
+		<object id="61" col="4" row="1" x="1209.329956" y="270.000000" width="16.000000" height="32.000000" name="NONAME">
+			<properties>
+				<property name="item" value="6"/>
+			</properties>
+		</object>
+		<object id="62" col="5" row="1" x="1334.000000" y="258.000000" width="16.000000" height="32.000000" name="NONAME">
+			<properties>
+				<property name="item" value="4"/>
+			</properties>
+		</object>
+		<object id="63" col="5" row="0" x="1463.329956" y="157.332993" width="16.000000" height="32.000000" name="NONAME">
+			<properties>
+				<property name="item" value="17"/>
+			</properties>
+		</object>
+		<object id="64" col="6" row="0" x="1715.329956" y="184.000000" width="16.000000" height="32.000000" name="NONAME">
+			<properties>
+				<property name="item" value="4"/>
+			</properties>
+		</object>
+		<object id="65" col="7" row="1" x="1851.329956" y="271.333008" width="16.000000" height="32.000000" name="NONAME">
+			<properties>
+				<property name="item" value="4"/>
+			</properties>
+		</object>
+		<object id="66" col="7" row="0" x="1972.000000" y="194.000000" width="16.000000" height="32.000000" name="NONAME">
+			<properties>
+				<property name="item" value="9"/>
+			</properties>
+		</object>
+		<object id="67" col="8" row="1" x="2100.669922" y="379.333008" width="16.000000" height="32.000000" name="NONAME">
+			<properties>
+				<property name="item" value="4"/>
+			</properties>
+		</object>
+		<object id="68" col="8" row="1" x="2228.000000" y="320.666992" width="16.000000" height="32.000000" name="NONAME">
+			<properties>
+				<property name="item" value="6"/>
+			</properties>
+		</object>
+		<object id="69" col="9" row="1" x="2358.669922" y="397.333008" width="16.000000" height="32.000000" name="NONAME">
+			<properties>
+				<property name="item" value="4"/>
+			</properties>
+		</object>
+		<object id="70" col="9" row="1" x="2484.669922" y="397.333008" width="16.000000" height="32.000000" name="NONAME">
+			<properties>
+				<property name="item" value="4"/>
+			</properties>
+		</object>
+		<object id="71" col="10" row="1" x="2614.669922" y="322.666992" width="16.000000" height="32.000000" name="NONAME">
+			<properties>
+				<property name="item" value="1"/>
+			</properties>
+		</object>
+		<object id="72" col="10" row="1" x="2741.330078" y="361.333008" width="16.000000" height="32.000000" name="NONAME">
+			<properties>
+				<property name="item" value="4"/>
+			</properties>
+		</object>
+		<object id="73" col="11" row="1" x="3006.000000" y="330.000000" width="16.000000" height="32.000000" name="NONAME">
+			<properties>
+				<property name="item" value="1"/>
+			</properties>
+		</object>
+		<object id="74" col="11" row="1" x="2864.669922" y="313.333008" width="16.000000" height="32.000000" name="NONAME">
+			<properties>
+				<property name="item" value="4"/>
+			</properties>
+		</object>
+		<object id="111" col="8" row="4" x="2196.000000" y="1187.000000" width="16.000000" height="32.000000" name="NONAME">
+			<properties>
+				<property name="item" value="8"/>
+			</properties>
+		</object>
+		<object id="118" col="5" row="3" x="1462.000000" y="798.000000" width="16.000000" height="32.000000" name="NONAME">
+			<properties>
+				<property name="item" value="18"/>
+			</properties>
+		</object>
+		<object id="119" col="6" row="1" x="1611.000000" y="329.000000" width="16.000000" height="32.000000" name="NONAME">
+			<properties>
+				<property name="item" value="1"/>
+			</properties>
+		</object>
+	</objectgroup>
+	<objectgroup name="NextScene" id="7">
+		<object id="111" col="9" row="3" x="2363.250000" y="925.916992" width="5.666670" height="14.833300" name="S21_S22">
+			<properties>
+				<property name="sceneID" value="2"/>
+			</properties>
+		</object>
+		<object id="157" col="0" row="1" x="184.500000" y="339.916992" width="6.333340" height="6.166630" name="S32_S31">
+			<properties>
+				<property name="sceneID" value="7"/>
+			</properties>
+		</object>
+		<object id="158" col="0" row="2" x="163.834000" y="544.583984" width="8.333300" height="8.166600" name="S31_S32">
+			<properties>
+				<property name="sceneID" value="4"/>
+			</properties>
+		</object>
+		<object id="174" col="5" row="0" x="1505.579956" y="128.916000" width="13.333300" height="94.167000" name="S3_S4">
+			<properties>
+				<property name="sceneID" value="5"/>
+			</properties>
+		</object>
+		<object id="19" col="8" row="3" x="2301.879883" y="863.666016" width="9.000000" height="12.250000" name="S22_S21">
+			<properties>
+				<property name="sceneID" value="6"/>
+			</properties>
+		</object>
+		<object id="86" col="6" row="2" x="1554.170044" y="569.500000" width="9.000000" height="95.666702" name="S1_S2">
+			<properties>
+				<property name="sceneID" value="3"/>
+			</properties>
+		</object>
+	</objectgroup>
+</grid>
+

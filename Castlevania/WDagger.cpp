@@ -8,7 +8,7 @@ void WDagger::Render()
 		return;
 	}
 	animations[0]->Render(nx, x, y);
-	//RenderBoundingBox();
+	////RenderBoundingBox();
 }
 
 void WDagger::GetBoundingBox(float& l, float& t, float& r, float& b)

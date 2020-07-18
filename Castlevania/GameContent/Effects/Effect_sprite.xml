@@ -23,4 +23,36 @@
 		<sprite ID="STAR_03">
 			<frame l="454" t="93" r="477" b="124" />
 		</sprite>
+		
+		<sprite ID="100">
+			<frame l="386" t="74" r="412" b="89" />
+		</sprite>
+		
+		<sprite ID="400">
+			<frame l="386" t="91" r="412" b="106" />
+		</sprite>
+		
+		<sprite ID="700">
+			<frame l="386" t="108" r="412" b="123" />
+		</sprite>
+		
+		<sprite ID="1000_1">
+			<frame l="386" t="57" r="419" b="72" />
+		</sprite>
+		<sprite ID="1000_2">
+			<frame l="386" t="22" r="419" b="38" />
+		</sprite>
+		<sprite ID="1000_3">
+			<frame l="386" t="40" r="419" b="55" />
+		</sprite>
+		
+		<sprite ID="2000_1">
+			<frame l="20" t="0" r="53" b="16" />
+		</sprite>
+		<sprite ID="2000_2">
+			<frame l="53" t="0" r="86" b="16" />
+		</sprite>
+		<sprite ID="2000_3">
+			<frame l="86" t="0" r="119" b="16" />
+		</sprite>
 </gamedata>

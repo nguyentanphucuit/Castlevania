@@ -48,4 +48,5 @@ Bone::Bone() :Enemy()
 	AddAnimation("BONE_ANI_WHITE");
 	this->vx = AXE_SPEED_VX;
 	this->vy = -AXE_SPEED_VY;
+	this->score = 100;
 }

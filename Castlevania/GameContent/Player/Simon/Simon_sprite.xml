@@ -15,20 +15,20 @@
 			<frame l="120" t="0" r="180" b="66" />
 		</sprite>
 		<sprite ID="SIMON_SPRITE_SIT_01">
-			<frame l="240" t="-11" r="300" b="55" />
+			<frame l="240" t="-6" r="300" b="55" />
 		</sprite>
 	
 	
 		<sprite ID="SIMON_SITTING_ATTACK_01">
-			<frame l="300" t="-11" r="360" b="55" />
+			<frame l="300" t="-6" r="360" b="55" />
 
 		</sprite>
 		<sprite ID="SIMON_SITTING_ATTACK_02">
-			<frame l="360" t="-11" r="420" b="55" />
+			<frame l="360" t="-6" r="420" b="55" />
 
 		</sprite>
 		<sprite ID="SIMON_SITTING_ATTACK_03">
-			<frame l="420" t="-11" r="480" b="55" />
+			<frame l="420" t="-6" r="480" b="55" />
 		</sprite>
 		
 		

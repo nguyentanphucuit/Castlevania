@@ -2,14 +2,14 @@
 #include "GameObject.h"
 #define TIME_CO		200
 enum class EWeapon;
-
+class PlayScene;
 class Weapon:public CGameObject
 {
 private:
+	PlayScene* scene;
 	EWeapon _eWeapon;
 	DWORD timeCo;
 	bool isCoEnemy = false;
-
 protected:
 	int damage = 1;
 public:

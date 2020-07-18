@@ -11,6 +11,7 @@ class SceneStateMachine
 
 public:
 	SceneStateMachine() :scenes(0), curScene(0) { }
+
 	void Update(DWORD deltaTime);
 	void Render();
 

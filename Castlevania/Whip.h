@@ -12,6 +12,8 @@
 #define NEARLY_WIDTH_01		20
 #define NEARLY_WIDTH_02		30
 
+#define DISTANCE_EFFECT 10
+#define DISTANCE_EFFECT_Y 20
 
 
 enum WHIPSTATE
@@ -50,5 +52,6 @@ public:
 	virtual void Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* colliable_objects = NULL);
 	WHIPSTATE GetState() { return this->state; };
 	void SetState(WHIPSTATE state);
+	void ResetState() { this->state = WHIPSTATE::NORMAL; };
 };
 

@@ -8,11 +8,11 @@ void CHeart::Render()
 		return;
 	}
 	animations[0]->Render(DIRECTION::DEFAULT, x, y);
-	//RenderBoundingBox();
+	////RenderBoundingBox();
 }
 void CHeart::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObject)
 {
-	DebugOut(L"x=%f y=%f \n", x, y);
+	/*DebugOut(L"x=%f y=%f \n", x, y);*/
 	CGameObject::Update(dt, scene);
 	this->vy = HEART_MOVING_VY;
 	vector<LPCOLLISIONEVENT> coEvents;

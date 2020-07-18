@@ -27,7 +27,7 @@ void WFireBomb::Render()
 void WFireBomb::Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObjects)
 {
 
-
+	RenderBoundingBox();
 	if (this->isDestroy)
 	{
 		return;

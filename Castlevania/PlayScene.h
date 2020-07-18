@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "Scene.h"
 #include "Simon.h"
+#include "Whip.h"
 #include "Map.h"
 #include <queue>
 #include "Grid.h"
@@ -8,6 +9,9 @@
 #include"rapidxml/rapidxml_print.hpp"
 #include"rapidxml/rapidxml.hpp"
 #include"rapidxml/rapidxml_utils.hpp"
+
+#define CROSS_EFFECT_TIME 500
+
 class Phantom;
 class Enemy;
 struct pScene {
@@ -31,36 +35,42 @@ class PlayScene:public Scene
     void LoadSceneContent(xml_node<>* root);
     void LoadGrid();
 
-    Phantom* boss;
-
+  
     std::queue<LPGAMEOBJECT> qObjects;
 
     std::unordered_map<int, Map*> Maps;
-    std::unordered_map<std::string, RECT> pSceneBorders;
+  
     Map* currentMap;
 
     std::map<int, pScene*> pScenes;
     pScene* currentPScene;
 
-    std::unordered_map<std::string, D3DXVECTOR2> entryPoints;
-    D3DXVECTOR2 currentEntryPoints;
+    ShotState shotState;
+    int numShot;
+
    
+    D3DXVECTOR2 currentEntryPoints;
     int subWeapon = 0;
     bool isEntrance = false;
     bool switchScene = false;
     bool isAttack = false;
     unsigned int time = 300;
     DWORD timeCounter = 0;
-
-
+    DWORD revival = 0;
+    bool playCrossEffect = false;
+    DWORD cross_start = 0;
     void GetListobjectFromGrid();
     void UpdateGrid();
     void GameTimeCounter();
 public:
-    
+    Phantom* boss;
+    std::unordered_map<std::string, D3DXVECTOR2> entryPoints;
+    std::unordered_map<std::string, RECT> pSceneBorders;
     bool PauseCam = false;
+    bool aniSubWeapon = false;
     vector<Enemy*> enemies;
 
+    void KillAllEnemies();
     unsigned int GetTime() {
         return this->time;
     }
@@ -74,10 +84,14 @@ public:
         this->currentPScene = this->pScenes.at(sceneID);
         this->switchScene = true;
     }
-    void AddToGrid(LPGAMEOBJECT object,bool isAlwayUpdate=false);
+
+    void HandleCrossEffect();
+    bool CheckPlayCrossEffect() {
+        return this->playCrossEffect;
+    };
+   
 
     void SpawnObject(LPGAMEOBJECT obj) { this->qObjects.push(obj); }
-
 
     void OnCreate() override;
     void OnDestroy() override;

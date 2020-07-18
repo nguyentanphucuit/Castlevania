@@ -12,6 +12,7 @@ class IMoney :public Item
 public:
 	IMoney() :Item() {
 		AddAnimation("MONEYBAG_ANI_COLOR");
+		this->score = 1000;
 	}
 	virtual void Render();
 	virtual void Update(DWORD dt, Scene* scene, vector<LPGAMEOBJECT>* coObject = NULL);

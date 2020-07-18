@@ -8,6 +8,8 @@ void Hud::Update()
 	this->playerEnergy = scene->GetSimon()->GetEnergy();
 	string energy = playerEnergy < 10 ? "0" + std::to_string(playerEnergy) : std::to_string(playerEnergy);
 	this->playerHP = scene->GetSimon()->GetHp();
+	this->p = scene->GetSimon()->GetP();
+	string player = p < 10 ? "0" + std::to_string(p) : std::to_string(p);
 
 	unsigned int score_ = scene->GetSimon()->GetScore();
 	string score;
@@ -36,34 +38,34 @@ void Hud::Update()
 
 
 	_UIinfor = "SCORE-" + score + " TIME " + std::to_string(scene->GetTime()) + " STAGE " + std::to_string(this->state) + "\n";
-	_UIinfor = _UIinfor + "PLAYER                  -" + energy + "\n";
-	_UIinfor += "ENEMY                   -02\n";
+	_UIinfor = _UIinfor + "PLAYER                -" + energy + "\n";
+	_UIinfor += "ENEMY                 -"+ player + "\n";
 }
 
 void Hud::Render()
 {
-	CSprites::GetInstance()->Get("BLACKBOARD_UI_SPRITE")->DrawUI( 290, 32, 255);
+	CSprites::GetInstance()->Get("BLACKBOARD_UI_SPRITE")->DrawUI( 260, 32, 255);
 	switch (scene->GetSimon()->GetCurrentWeapon())
 	{
 	case EWeapon::AXE:{
 
-		CSprites::GetInstance()->Get("AXE_UI_SPRITE")->DrawUI(305, 39, 255);
+		CSprites::GetInstance()->Get("AXE_UI_SPRITE")->DrawUI(275, 39, 255);
 		break;
 	}
 	case  EWeapon::DAGGER: {
-		CSprites::GetInstance()->Get("KNIFE_UI_SPRITE")->DrawUI( 300, 40, 255);
+		CSprites::GetInstance()->Get("KNIFE_UI_SPRITE")->DrawUI( 270, 40, 255);
 		break;
 	}
 	case  EWeapon::FIREBOMB: {
-		CSprites::GetInstance()->Get("HOLY_WATER_UI_SPRITE")->DrawUI( 305, 35, 255);
+		CSprites::GetInstance()->Get("HOLY_WATER_UI_SPRITE")->DrawUI(275, 35, 255);
 		break;
 	}
 	case  EWeapon::STOPWATCH: {
-		CSprites::GetInstance()->Get("STOP_WATCH_UI_SPRITE")->DrawUI(305, 35, 255);
+		CSprites::GetInstance()->Get("STOP_WATCH_UI_SPRITE")->DrawUI(275, 35, 255);
 		break;
 	}
 	case  EWeapon::BOOMERANG: {
-		CSprites::GetInstance()->Get("BOOMERANG_UI_SPRITE")->DrawUI(305, 35, 255);
+		CSprites::GetInstance()->Get("BOOMERANG_UI_SPRITE")->DrawUI(275, 35, 255);
 		break;
 	}
 	}
@@ -88,9 +90,10 @@ void Hud::Render()
 		CSprites::GetInstance()->Get("NOHP_UI_SPRITE")->DrawUI( 105 + i * 9, 50, 255);
 	}
 
-
-
-
+	if (scene->GetSimon()->GetShotState() == ShotState::DOUBLESHOT)
+		CSprites::GetInstance()->Get("DOUBLE_SHOOT_UI_SPRITE")->DrawUI(410, 35, 255);
+	if (scene->GetSimon()->GetShotState() == ShotState::TRIPBLESHOT)
+		CSprites::GetInstance()->Get("TRIPLE_SHOOT_UI_SPRITE")->DrawUI(410, 35, 255);
 }
 
 Hud::Hud(PlayScene* scene)

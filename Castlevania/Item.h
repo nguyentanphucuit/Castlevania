@@ -16,6 +16,8 @@ enum class ITEMSTATE
 class Item :public CGameObject
 {
 protected:
+	unsigned int hp;
+	unsigned int score;
 	unsigned int heart;
 	DWORD time_wait;
 public:
@@ -32,5 +34,7 @@ public:
 	int GetHeartPoint() {
 		return this->heart;
 	}
+	int GetScore() { return this->score; }
+	int GetHP() { return this->hp; }
 };
 

@@ -144,12 +144,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Abyss.h" />
     <ClInclude Include="Bat.h" />
     <ClInclude Include="BHeart.h" />
     <ClInclude Include="BlackKnight.h" />
-    <ClInclude Include="BrickWallScene3.h" />
+    <ClInclude Include="DoubleShot.h" />
     <ClInclude Include="Dual.h" />
     <ClInclude Include="HCrown.h" />
+    <ClInclude Include="HolyCross.h" />
     <ClInclude Include="Hud.h" />
     <ClInclude Include="IChicken.h" />
     <ClInclude Include="ICrown.h" />
@@ -158,9 +160,19 @@
     <ClInclude Include="IBoomerang.h" />
     <ClInclude Include="IFireBomb.h" />
     <ClInclude Include="IInvisible.h" />
+    <ClInclude Include="IMoneyBlue.h" />
+    <ClInclude Include="IMoneyRed.h" />
+    <ClInclude Include="IMoneyWhite.h" />
     <ClInclude Include="IStopWatch.h" />
+    <ClInclude Include="MONEY100.h" />
+    <ClInclude Include="MONEY1000.h" />
+    <ClInclude Include="MONEY2000.h" />
+    <ClInclude Include="MONEY400.h" />
+    <ClInclude Include="MONEY700.h" />
     <ClInclude Include="Phantom.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Star.h" />
+    <ClInclude Include="TripleShot.h" />
     <ClInclude Include="WBoomerang.h" />
     <ClInclude Include="Brick.h" />
     <ClInclude Include="BrickWall.h" />
@@ -217,12 +229,14 @@
     <ClInclude Include="Zombie.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Abyss.cpp" />
     <ClCompile Include="Bat.cpp" />
     <ClCompile Include="BHeart.cpp" />
     <ClCompile Include="BlackKnight.cpp" />
-    <ClCompile Include="BrickWallScene3.cpp" />
+    <ClCompile Include="DoubleShot.cpp" />
     <ClCompile Include="Dual.cpp" />
     <ClCompile Include="HCrown.cpp" />
+    <ClCompile Include="HolyCross.cpp" />
     <ClCompile Include="Hud.cpp" />
     <ClCompile Include="IChicken.cpp" />
     <ClCompile Include="ICrown.cpp" />
@@ -231,9 +245,18 @@
     <ClCompile Include="IBoomerang.cpp" />
     <ClCompile Include="IFireBomb.cpp" />
     <ClCompile Include="IInvisible.cpp" />
+    <ClCompile Include="IMoneyBlue.cpp" />
+    <ClCompile Include="IMoneyRed.cpp" />
+    <ClCompile Include="IMoneyWhite.cpp" />
     <ClCompile Include="IStopWatch.cpp" />
+    <ClCompile Include="MONEY100.cpp" />
+    <ClCompile Include="MONEY1000.cpp" />
+    <ClCompile Include="MONEY2000.cpp" />
+    <ClCompile Include="MONEY400.cpp" />
+    <ClCompile Include="MONEY700.cpp" />
     <ClCompile Include="Phantom.cpp" />
     <ClCompile Include="Star.cpp" />
+    <ClCompile Include="TripleShot.cpp" />
     <ClCompile Include="WBoomerang.cpp" />
     <ClCompile Include="Brick.cpp" />
     <ClCompile Include="BrickWall.cpp" />

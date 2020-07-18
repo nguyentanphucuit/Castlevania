@@ -68,25 +68,26 @@ void CAnimation::Render(DIRECTION nx,float x, float y, int alpha)
 		DWORD t = frames[currentFrame]->GetTime();
 		if (now - lastFrameTime > t)
 		{
-			currentFrame++;
 			lastFrameTime = now;
-			if (currentFrame == frames.size())
+			if (!isBlocking)
 			{
-				if (isLoop)
+				currentFrame++;
+				if (currentFrame == frames.size())
 				{
-					currentFrame = 0;
+					if (isLoop)
+					{
+						currentFrame = 0;
+					}
+					else
+					{
+						currentFrame--;
+					}
 				}
-				else
-				{
-					currentFrame--;
-				}
-				
-			}
+			} 
+			
 			
 		}
-		
 	}
-
 	frames[currentFrame]->GetSprite()->Draw(nx,x, y, alpha);
 }
 

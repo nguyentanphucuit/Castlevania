@@ -19,6 +19,7 @@
 #define SIMON_STATE_JUMP			300
 #define SIMON_STATE_DIE				400
 
+
 //STAIR
 #define SIMON_ONSTAIR_DISTANCE_X 16
 #define SIMON_ONSTAIR_DISTANCE_Y 16
@@ -55,7 +56,7 @@
 #define	SIMON_LEVEL_BIG		2
 
 #define SIMON_BBOX_WIDTH  32
-#define SIMON_BBOX_HEIGHT 64
+#define SIMON_BBOX_HEIGHT 62
 
 
 #define SIMON_SPRITE_WIDTH  60
@@ -71,10 +72,13 @@
 #define SIMON_DOWNSTAIR_LEFT_OFFSET 12
 #define SIMON_DOWNSTAIR_RIGHT_OFFET 18
 
-#define STEP_STAIR		5
+#define ENTRANCE_WIDTH 16
 
-#define SIMON_HP	2
-#define SIMON_ENERY 1000
+#define STEP_STAIR		5
+#define BBOX_SIMON_BONUS		14
+
+#define SIMON_HP	16
+#define SIMON_ENERY 99
 
  enum class SIMONSTATE 
 {
@@ -97,16 +101,22 @@
 	UP_STAIR_FIGHT,
 	DOWN_STAIR_FIGHT,
 	DEFLECT,
+	FALLING_DOWN,
 };
 
  enum class EWeapon;
-
+ const enum ShotState {
+	 NORMALSHOT,
+	 DOUBLESHOT,
+	 TRIPBLESHOT,
+ };
  class CSIMON : public CGameObject
  {
 
 	 int hp;
 	 int energy;
 	 int score;
+	 int p;
 
 	 int level;
 	 int untouchable;
@@ -122,6 +132,7 @@
 	 //Stair
 	 bool isAutoWalk = false;
 
+	 ShotState shotState;
 
 	 bool startOnStair = false;
 	 bool isColliceWithStair = false;
@@ -130,9 +141,9 @@
 	 STAIRDIRECTION onStairDirection = STAIRDIRECTION::DEFAULT;
 	 D3DXVECTOR2 stairPos;
 	 bool isStairDual;
-
-	
-
+	 bool getCross = false;
+	 bool checkAniSubWeapon = true;
+	 DWORD timeShot = 0;
 	 void HandleFirstStepOnStair();
 	 void HandlePerStepOnStair();
  public:
@@ -172,6 +183,9 @@
 		animations[SIMON_ANI_DOWNSTAIR_ATTACK]->ResetFrame();
 		this->fight_start = 0;
 	}
+	void ResetWhip() {
+		whip->ResetState();
+	}
 	SIMONSTATE GetState() {
 		return this->state;
 	}
@@ -193,9 +207,14 @@
 	bool CheckIsOnStair() {
 		return this->isOnStair;
 	}
+	void SetIsOnStair(bool flag) {
+		this->isOnStair = flag;
+	}
 	bool CheckCollideWithStair() {
 		return this->isColliceWithStair;
 	}
+
+	
 	void SetStartStepOnStair() {
 		this->startOnStair = true;
 	}
@@ -234,5 +253,34 @@
 		SetEnery(energy);
 	}
 	
+	ShotState GetShotState() {
+		return this->shotState;
+	}
+
+	void ResetIsGetCross()
+	{
+		this->getCross = false;
+	}
+	bool CheckIsGetCross()
+	{
+		return this->getCross;
+	};
+
+	void SetP(int p){
+		this->p = p;
+		if (this->p > SIMON_HP)
+			this->p = SIMON_HP;
+		else if (this->p < 0)
+			this->p = 0;
+	}
+
+	int GetP() { 
+		SetP(this->p);
+		return this->p; 
+	};
+	void SubP(int flag) { 
+		SetP(this->p);
+		this->p -= flag; 
+	};
 
 };

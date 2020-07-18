@@ -10,10 +10,9 @@
 		<texture ID ="5" name = "EFFECT" path="GameContent\\Effects\\EFFECT.png" red="255" green="0" blue ="255"/>
 		<texture ID ="3" name = "CANDLE" path="GameContent\\Player\\Ground\\Candle.png" red="255" green="0" blue ="255"/>
 		<texture ID ="-100" name = "BBOX" path="textures\\bbox.png" red="255" green="255" blue ="255"/>
-		<texture ID ="-500" name = "Map" path="GameContent\\Map\\Map\\Map_bank.png" red="255" green="255" blue ="255"/>
+		<texture ID ="-500" name = "Map" path="GameContent\\Map\\Map\\Map_bank.png" red="0" green="0" blue ="0"/>
 		<texture ID ="6" name = "PLATFORM" path="GameContent\\Player\\Ground\\MovingPlatform.png" red="255" green="0" blue ="255"/>
 		<texture ID ="7" name = "BRICKWALL" path="GameContent\\Player\\Ground\\BrickWall.png" red="255" green="0" blue ="255"/>
-		<texture ID ="8" name = "BRICKWALLS3" path="GameContent\\Player\\Ground\\BrickWallS3.png" red="255" green="0" blue ="255"/>
 		<texture ID ="30" name="ENEMY" path="GameContent\\Enemy\\enemy_pack.png" red="255" green="255" blue="255"/>
 		<texture ID ="20" name="UI" path="GameContent\\UI\\UIpack.png" red="255" green="255" blue="255"/>
 	</textures>
@@ -28,7 +27,6 @@
 		<sprite ID="30" name="Enemy" path="GameContent\\Enemy\\Enemy_sprite.xml" />
 		<sprite ID="6" name="Platform" path="GameContent\\Player\\Ground\\Platform_sprite.xml"/>
 		<sprite ID="7" name="BrickWall" path="GameContent\\Player\\Ground\\BrickWall_sprite.xml"/>
-		<sprite ID="8" name="BrickWallS3" path="GameContent\\Player\\Ground\\BrickWallS3_sprite.xml"/>
 		<sprite ID="20" name="UI" path="GameContent\\UI\\UI_sprite.xml"/>
 	</sprites>
 	
@@ -42,12 +40,15 @@
 		<animation name="enemy" path="GameContent\\Enemy\\Enemy_animation.xml" />
 		<animation name="platform" path="GameContent\\Player\\Ground\\Platform_animation.xml"/>
 		<animation name="brickwall" path="GameContent\\Player\\Ground\\BrickWall_animation.xml"/>
-		<animation name="brickwallS3" path="GameContent\\Player\\Ground\\BrickWallS3_animation.xml"/>
 	</animations>
 	
 	<maps>
 		<map texID="-500" id ="0" name="Map" path="GameContent\\Map\\Map\\Map_map.tmx"/>
 	</maps>
+	
+	<grids>
+		<grid id="0" path="GameContent\\Grid\\grid.xml"/>
+	</grids>
 	
 	<scenes>
 		<pscene activeID="0">

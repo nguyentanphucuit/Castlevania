@@ -11,7 +11,7 @@
 			<frame ID="WHIP_CHAIN_02" />
 			<frame ID="WHIP_CHAIN_03" />
 		</animation>
-		<animation ID="WHIP_ANI_MORNINGSTAR" timeLoop="25">
+		<animation ID="WHIP_ANI_MORNINGSTAR" timeLoop="10">
 			<frame ID="WHIP_MORNINGSTAR_01" />
 			<frame ID="WHIP_MORNINGSTAR_02" />
 			<frame ID="WHIP_MORNINGSTAR_03" />
