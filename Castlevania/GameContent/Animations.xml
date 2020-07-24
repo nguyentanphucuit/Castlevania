@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<animations>
+		<animation name="simon" path="GameContent\\Player\\Simon\\Simon_animation.xml"/>
+		<animation name="whip" path="GameContent\\weapons\\Whip_animation.xml"/>
+		<animation name="torch" path="GameContent\\Player\\Ground\\Torch_animation.xml"/>
+		<animation name="item" path="GameContent\\Items\\Item_animation.xml"/>
+		<animation name="effect" path="GameContent\\Effects\\Effect_animation.xml"/>
+</animations>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!-- Lưu toàn bộ các thông tin game như sprite tex, map -->
+<textures>
+	<texture ID ="0" name = "SIMON" path="GameContent\\Player\\Simon\\SIMON.png" red="255" green="255" blue ="255"/>
+	<texture ID ="1" name = "WHIP" path="GameContent\\weapons\\WHIP.png" red="255" green="255" blue ="255"/>
+	<texture ID ="2" name = "TORCH" path="GameContent\\Player\\Ground\\Torch.png" red="255" green="0" blue ="255"/>
+	<texture ID ="4" name = "ITEM" path="GameContent\\Items\\ITEM.png" red="255" green="0" blue ="255"/>
+	<texture ID ="5" name = "EFFECT" path="GameContent\\Effects\\EFFECT.png" red="255" green="0" blue ="255"/>
+	<texture ID ="-100" name = "BBOX" path="textures\\bbox.png" red="255" green="255" blue ="255"/>
+	<texture ID ="-500" name = "Courtyard_bank" path="GameContent\\Map\\Courtyard_bank.png" red="255" green="255" blue ="255"/>
+</textures>
+

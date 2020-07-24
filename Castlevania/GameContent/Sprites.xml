@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<sprites>
+	<sprite ID="0" name="Simon" path="GameContent\\Player\\Simon\\Simon_sprite.xml"/>	
+	<sprite ID="1" name="Whip" path="GameContent\\weapons\\Whip_sprite.xml"/>
+	<sprite ID="2" name="Torch" path="GameContent\\Player\\Ground\\Torch_sprite.xml"/>
+	<sprite ID="4" name="Item" path="GameContent\\Items\\Item_sprite.xml"/>
+	<sprite ID="5" name="Effect" path="GameContent\\Effects\\Effect_sprite.xml"/>
+</sprites>
